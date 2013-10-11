@@ -1,0 +1,477 @@
+<?xml version="1.0"?>
+<!DOCTYPE rdf:RDF [
+  <!ENTITY odo "http://ocean-data.org/schema/">
+  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+  <!ENTITY foaf "http://xmlns.com/foaf/0.1/">
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+  <!ENTITY dc "http://purl.org/dc/elements/1.1/">
+  <!ENTITY dcterms "http://purl.org/dc/terms/">
+  <!ENTITY spacetime "http://escience.rpi.edu/ontology/sesf/spacetime/1/0/">
+]>
+<rdf:RDF
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:odo="&odo;"
+    xmlns:xsd="&xsd;"
+    xmlns:foaf="&foaf;"
+    xmlns:rdf="&rdf;"
+    xmlns:rdfs="&rdfs;"
+    xmlns:dc="&dc;"
+    xmlns:dcterms="&dcterms;"
+    xmlns:spacetime="&spacetime;"
+    xmlns="&odo;"
+    xml:base="&odo;">
+    
+  <owl:Ontology rdf:about="&odo;">
+    <rdfs:label rdf:datatype="&xsd;string">Ocean Data Ontology</rdfs:label>
+    <dc:description>An ontology for describing ocean data</dc:description>
+    <owl:imports rdf:resource="&spacetime;"/>
+    <owl:imports rdf:resource="&foaf;"/>
+  </owl:Ontology>
+  
+  <!-- AFFILIATION -->
+  <owl:Class rdf:about="&foaf;Organization">
+	  <rdfs:label rdf:datatype="&xsd;string">Organization</rdfs:label>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="&odo;hasOrganizationSubName">
+    <rdfs:range rdf:resource="&xsd;string"/>
+    <rdfs:domain rdf:resource="&foaf;Organization"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&odo;hasAcronym">
+    <rdfs:range rdf:resource="&xsd;string"/>
+    <rdfs:domain rdf:resource="&foaf;Organization"/>
+  </owl:DatatypeProperty>
+  
+  
+  <!-- AWARD -->
+  <owl:Class rdf:about="&odo;Award">
+  	<rdfs:label rdf:datatype="&xsd;string">Award</rdfs:label>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="&odo;hasAwardNumber">
+    <rdfs:range rdf:resource="&xsd;string"/>
+    <rdfs:domain rdf:resource="&odo;Award"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&odo;hasAwardURL">
+    <rdfs:subPropertyOf rdf:resource="&rdf;seeAlso"/>
+    <rdfs:domain rdf:resource="&odo;Award"/>
+  </owl:DatatypeProperty>
+  
+  <owl:Class rdf:about="&odo;GrantAward">
+	  <rdfs:label rdf:datatype="&xsd;string">Grant Award</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Award"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;ContractAward">
+	  <rdfs:label rdf:datatype="&xsd;string">Contract Award</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Award"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;SubContractAward">
+    <rdfs:label rdf:datatype="&xsd;string">Sub-Contract Award</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Award"/>
+  </owl:Class>
+
+
+  <!-- DATASETS -->
+  <owl:Class rdf:about="&odo;Dataset">
+    <rdfs:label rdf:datatype="&xsd;string">Dataset</rdfs:label>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="&odo;hasDatasetURL">
+    <rdfs:subPropertyOf rdf:resource="&rdf;seeAlso"/>
+    <rdfs:domain rdf:resource="&odo;Dataset"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&odo;hasProcessingDescription">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;description"/>
+    <rdfs:domain rdf:resource="&odo;Dataset"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&odo;hasAcquisitionDescription">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;description"/>
+    <rdfs:domain rdf:resource="&odo;Dataset"/>
+  </owl:DatatypeProperty>
+  
+  <owl:Class rdf:about="&odo;LaboratoryDataset">
+    <rdfs:label rdf:datatype="&xsd;string">Laboratory Dataset</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Dataset"/>
+  </owl:Class>
+  
+  <owl:Class rdf:about="&odo;DeploymentDataset">
+    <rdfs:label rdf:datatype="&xsd;string">Deployment Dataset</rdfs:label>
+    <rdfs:comment rdf:datatype="&xsd;string">A deployment dataset is a dataset that is collected on a specific deployment of a platform from a specific instrument on that platform.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="&odo;Dataset"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="&odo;fromDeployment">
+    <rdfs:range rdf:resource="&odo;Deployment"/>
+    <rdfs:domain rdf:resource="&odo;DeploymentDataset"/>
+  </owl:ObjectProperty>
+  
+  <owl:Class rdf:about="&odo;DatasetCollection">
+    <rdfs:label rdf:datatype="&xsd;string">Dataset Collection</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Dataset"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="&odo;hasInventory">
+    <rdfs:range rdf:resource="&odo;Dataset"/>
+    <rdfs:domain rdf:resource="&odo;DatasetCollection"/>
+    <owl:inverseOf rdf:resource="&odo;fromCollection"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="&odo;fromCollection">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="&odo;hasInventory"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  
+  <owl:Class rdf:about="&odo;DeploymentDatasetCollection">
+    <rdfs:subClassOf rdf:resource="&odo;DatasetCollection"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="&odo;hasInventory"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="&odo;DeploymentDataset"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="&odo;hasBriefDescription">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;description"/>
+    <rdfs:domain rdf:resource="&odo;DeploymentDatasetCollection"/>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="&odo;fromInstrument">
+    <rdfs:range rdf:resource="&odo;Instrument"/>
+    <rdfs:comment rdf:datatype="&xsd;string">This dataset was collected from an instrument that is located on the platform during this deployment.</rdfs:comment>
+    <rdfs:domain rdf:resource="&odo;DeploymentDatasetCollection"/>
+  </owl:ObjectProperty>
+  
+
+  <!-- DEPLOYMENT -->
+  <owl:Class rdf:about="&odo;Deployment">
+    <rdfs:label rdf:datatype="&xsd;string">Deployment</rdfs:label>
+    <rdfs:comment rdf:datatype="&xsd;string">A platform is deployed during a specific duration of time over a specific spacial coverage. For example, a boat is a platform. That boat is doployed (sent on a cruise) in order to collect data.</rdfs:comment>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="&odo;hasReportURL">
+    <rdfs:subPropertyOf rdf:resource="&rdf;seeAlso"/>
+    <rdfs:domain rdf:resource="&odo;Deployment"/>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="&odo;hasCoordinatedDeployment">
+    <rdfs:range rdf:resource="&odo;Deployment"/>
+    <rdfs:domain rdf:resource="&odo;Deployment"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="&odo;hasSynonym">
+    <rdfs:domain rdf:resource="&odo;Deployment"/>
+    <rdfs:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="&odo;ofPlatform">
+    <rdfs:range rdf:resource="&odo;Platform"/>
+    <rdfs:domain rdf:resource="&odo;Deployment"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="&odo;hasDeploymentDescription">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;description"/>
+    <rdfs:domain rdf:resource="&odo;Deployment"/>
+  </owl:DatatypeProperty>
+  <owl:Class rdf:about="&odo;Cruise">
+   <rdfs:subClassOf rdf:resource="&odo;Deployment"/> 
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty>
+         <owl:ObjectProperty rdf:about="&odo;ofPlatform"/>
+       </owl:onProperty>
+       <owl:hasValue>
+         <owl:Class rdf:about="&odo;Vessel"/>
+       </owl:hasValue>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+ </owl:Class>
+
+  
+  <!-- FUNDING SOURCE -->
+  <owl:Class rdf:about="&odo;FundingSource">
+    <rdfs:label rdf:datatype="&xsd;string">Funding Source</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&foaf;Organization"/>
+  </owl:Class>
+  
+    
+  <!-- INSTRUMENT -->
+  <owl:Class rdf:about="&odo;Instrument">
+    <rdfs:label rdf:datatype="&xsd;string">Instrument</rdfs:label>
+  </owl:Class>
+
+
+  <!-- PARAMETER -->
+  <owl:Class rdf:about="&odo;Parameter">
+	  <rdfs:label rdf:datatype="&xsd;string">Parameter</rdfs:label>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="&odo;hasMeasuredParameter">
+    <rdfs:domain rdf:resource="&odo;Instrument"/>
+    <rdfs:range rdf:resource="&odo;Parameter"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="&odo;hasParameterShortDescription">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;description"/>
+    <rdfs:domain rdf:resource="&odo;Parameter"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&odo;hasParameterShortName">
+    <rdfs:range rdf:resource="&xsd;string"/>
+    <rdfs:domain rdf:resource="&odo;Parameter"/>
+  </owl:DatatypeProperty>
+  
+  
+  <!-- PLATFORM -->
+  <owl:Class rdf:about="&odo;Platform">
+	  <rdfs:label rdf:datatype="&xsd;string">Platform</rdfs:label>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="&odo;hasPlatformTitle">
+    <rdfs:range rdf:resource="&xsd;string"/>
+    <rdfs:domain rdf:resource="&odo;Platform"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&odo;hasPlatformURL">
+    <rdfs:subPropertyOf rdf:resource="&rdf;seeAlso"/>
+    <rdfs:domain rdf:resource="&odo;Platform"/>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="&odo;isDeployed">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="&odo;ofPlatform"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="&odo;Deployment"/>
+    <rdfs:domain rdf:resource="&odo;Platform"/>
+  </owl:ObjectProperty>
+  
+  <owl:Class rdf:about="&odo;Float">
+    <rdfs:label rdf:datatype="&xsd;string">Float</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Platform"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;Glider">
+    <rdfs:label rdf:datatype="&xsd;string">Glider</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Platform"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;Drifter">
+    <rdfs:label rdf:datatype="&xsd;string">Drifter</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Platform"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;Satellite">
+  	<rdfs:label rdf:datatype="&xsd;string">Satellite</rdfs:label>
+  	<rdfs:subClassOf rdf:resource="&odo;Platform"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;Model">
+  	<rdfs:label rdf:datatype="&xsd;string">Model</rdfs:label>
+  	<rdfs:subClassOf rdf:resource="&odo;Platform"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;Synthesis">
+  	<rdfs:label rdf:datatype="&xsd;string">Synthesis</rdfs:label>
+  	<rdfs:subClassOf rdf:resource="&odo;Platform"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;StationaryPlatform">
+    <rdfs:label rdf:datatype="&xsd;string">Stationary Platform</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Platform"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;Dock">
+    <rdfs:label rdf:datatype="&xsd;string">Dock</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;StationaryPlatform"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;Laboratory">
+    <rdfs:label rdf:datatype="&xsd;string">Laboratory</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;StationaryPlatform"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;Island">
+  	<rdfs:label rdf:datatype="&xsd;string">Island</rdfs:label>
+  	<rdfs:subClassOf rdf:resource="&odo;StationaryPlatform"/>
+  </owl:Class>
+   <owl:Class rdf:about="&odo;Mooring">
+	  <rdfs:label rdf:datatype="&xsd;string">Mooring</rdfs:label>
+	  <rdfs:subClassOf rdf:resource="&odo;StationaryPlatform"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;Vehicle">
+    <rdfs:label rdf:datatype="&xsd;string">Vehicle</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Platform"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;Aircraft">
+    <rdfs:label rdf:datatype="&xsd;string">Aircraft</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Vehicle"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;TowedVehicle">
+  	<rdfs:label rdf:datatype="&xsd;string">Towed Vehicle</rdfs:label>
+  	<rdfs:subClassOf rdf:resource="&odo;Vehicle"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;Submarine">
+    <rdfs:label rdf:datatype="&xsd;string">Submarine</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Vehicle"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;MannedSubmarine">
+    <rdfs:label rdf:datatype="&xsd;string">Manned Submarine</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Submarine"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;UnmannedSubmarine">
+  	<rdfs:label rdf:datatype="&xsd;string">Unmanned Submarine</rdfs:label>
+  	<rdfs:subClassOf rdf:resource="&odo;Submarine"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;RemotelyOperatedVehicle">
+    <rdfs:label rdf:datatype="&xsd;string">ROV</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;UnmannedSubmarine"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;AutonomousUnderwaterVehicle">
+	  <rdfs:label rdf:datatype="&xsd;string">AUV</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;UnmannedSubmarine"/>
+  </owl:Class>  
+  <owl:Class rdf:about="&odo;Vessel">
+    <rdfs:label rdf:datatype="&xsd;string">Vessel</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Vehicle"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;StationaryVessel">
+    <rdfs:label rdf:datatype="&xsd;string">Stationary Vessel</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Vessel"/>
+    <rdfs:subClassOf rdf:resource="&odo;StationaryPlatform"/>
+  </owl:Class>
+  
+  
+  <!-- PROGRAM -->
+  <owl:Class rdf:about="&odo;Program">
+	  <rdfs:label rdf:datatype="&xsd;string">Program</rdfs:label>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="&odo;hasProject">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="&odo;hasParentProgram"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  
+  
+  <!-- PROJECT -->
+  <owl:Class rdf:about="&odo;Project">
+  	<rdfs:label rdf:datatype="&xsd;string">Project</rdfs:label>
+  	<rdfs:subClassOf rdf:resource="&foaf;Project"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="&odo;hasParentProgram">
+    <rdfs:range rdf:resource="&odo;Program"/>
+    <rdfs:domain rdf:resource="&odo;Project"/>
+  </owl:ObjectProperty>
+  
+  
+  <!-- PERSON -->
+  <owl:Class rdf:about="&foaf;Person">
+	  <rdfs:label rdf:datatype="&xsd;string">Person</rdfs:label>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="&odo;hasAffiliation">
+    <rdfs:range rdf:resource="&foaf;Organization"/>
+    <rdfs:domain rdf:resource="&foaf;Person"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="&odo;hasRole">
+    <rdfs:range rdf:resource="&odo;Role"/>
+    <rdfs:domain rdf:resource="&foaf;Person"/>
+  </owl:ObjectProperty>
+
+  
+  <!-- ROLES -->
+  <owl:Class rdf:about="&odo;Role">
+    <rdfs:label rdf:datatype="&xsd;string">Role</rdfs:label>
+    <rdfs:comment rdf:datatype="&xsd;string">A person can play many roles, such as principle investigator or captain or lead scientists. This role is played over a specific period of time</rdfs:comment>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="&odo;forOrganization">
+    <rdfs:range rdf:resource="&foaf;Organization"/>
+    <rdfs:domain rdf:resource="&odo;Role"/>
+  </owl:ObjectProperty>
+  
+  <owl:Class rdf:about="&odo;CaptainRole">
+    <rdfs:label rdf:datatype="&xsd;string">Captain</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;ChiefScientistRole">
+    <rdfs:label rdf:datatype="&xsd;string">Chief Scientist</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;Co-ChiefScientistRole">
+    <rdfs:label rdf:datatype="&xsd;string">Co-Chief Scientist</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;LeadPrincipalInvestigatorRole">
+  	<rdfs:label rdf:datatype="&xsd;string">Lead Principle Investigator</rdfs:label>
+  	<rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;PrincipalInvestigatorRole">
+    <rdfs:label rdf:datatype="&xsd;string">Principal Investigator</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;Co-PrincipalInvestigatorRole">
+    <rdfs:label rdf:datatype="&xsd;string">Co-Principal Investigator</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;ScientistRole">
+    <rdfs:label rdf:datatype="&xsd;string">Scientist</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;GuestRole">
+    <rdfs:label rdf:datatype="&xsd;string">Guest</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;StudentRole">
+    <rdfs:label rdf:datatype="&xsd;string">Student</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;TechnicianRole">
+    <rdfs:label rdf:datatype="&xsd;string">Technician</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;OriginatorRole">
+    <rdfs:label rdf:datatype="&xsd;string">Originator</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;DataPublisherRole">
+    <rdfs:label rdf:datatype="&xsd;string">Data Publisher</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;DataManagerRole">
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+    <rdfs:label rdf:datatype="&xsd;string">Data Manager</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;CuratorRole">
+    <rdfs:label rdf:datatype="&xsd;string">Curator</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;AnalystRole">
+    <rdfs:label rdf:datatype="&xsd;string">Analyst</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;ContactRole">
+    <rdfs:label rdf:datatype="&xsd;string">Contact</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;UnknownRole">
+    <rdfs:label rdf:datatype="&xsd;string">Unknown</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  
+      
+  <!-- PROPERTIES -->
+    
+  <owl:ObjectProperty rdf:about="&odo;hasDataset">
+    <rdfs:range rdf:resource="&odo;Dataset"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="&odo;hasAward">
+    <rdfs:range rdf:resource="&odo;Award"/>
+  </owl:ObjectProperty>
+
+  <owl:DatatypeProperty rdf:about="&odo;hasSmallLogoURL">
+    <rdfs:subPropertyOf rdf:resource="&foaf;logo"/>
+  </owl:DatatypeProperty>
+  
+  <owl:DatatypeProperty rdf:about="&odo;osprey_page">
+    <rdfs:subPropertyOf rdf:resource="&rdf;seeAlso"/>
+  </owl:DatatypeProperty>
+  
+  <owl:DatatypeProperty rdf:about="&odo;r2r_page">
+    <rdfs:subPropertyOf rdf:resource="&rdf;seeAlso"/>
+  </owl:DatatypeProperty>
+  
+  <owl:ObjectProperty rdf:about="&odo;hasAgentWithRole">
+    <rdfs:range rdf:resource="&odo;Role"/>
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:about="&odo;hasDateTimeCoverage">
+    <rdfs:range rdf:resource="&spacetime;ContinuousTimeInterval"/>
+  </owl:ObjectProperty>  
+  
+  <owl:ObjectProperty rdf:about="&odo;hasFundingSource">
+    <rdfs:range rdf:resource="&foaf;Organization"/>
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:about="&odo;hasParameter">
+    <rdfs:range rdf:resource="&odo;Parameter"/>
+  </owl:ObjectProperty>
+  
+</rdf:RDF>
+
