@@ -8,6 +8,7 @@
   <!ENTITY dc "http://purl.org/dc/elements/1.1/">
   <!ENTITY dcterms "http://purl.org/dc/terms/">
   <!ENTITY spacetime "http://escience.rpi.edu/ontology/sesf/spacetime/1/0/">
+  <!ENTITY geos "http://www.opengis.net/def/geosparql/">
 ]>
 <rdf:RDF
     xmlns:owl="http://www.w3.org/2002/07/owl#"
@@ -19,7 +20,7 @@
     xmlns:dc="&dc;"
     xmlns:dcterms="&dcterms;"
     xmlns:spacetime="&spacetime;"
-    xmlns="&odo;"
+    xmlns:geos="&geos;" 
     xml:base="&odo;">
     
   <owl:Ontology rdf:about="&odo;">
@@ -52,7 +53,7 @@
     <rdfs:domain rdf:resource="&odo;Award"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="&odo;hasAwardURL">
-    <rdfs:subPropertyOf rdf:resource="&rdf;seeAlso"/>
+    <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
     <rdfs:domain rdf:resource="&odo;Award"/>
   </owl:DatatypeProperty>
   
@@ -75,7 +76,7 @@
     <rdfs:label rdf:datatype="&xsd;string">Dataset</rdfs:label>
   </owl:Class>
   <owl:DatatypeProperty rdf:about="&odo;hasDatasetURL">
-    <rdfs:subPropertyOf rdf:resource="&rdf;seeAlso"/>
+    <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
     <rdfs:domain rdf:resource="&odo;Dataset"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="&odo;hasProcessingDescription">
@@ -147,7 +148,7 @@
     <rdfs:comment rdf:datatype="&xsd;string">A platform is deployed during a specific duration of time over a specific spacial coverage. For example, a boat is a platform. That boat is doployed (sent on a cruise) in order to collect data.</rdfs:comment>
   </owl:Class>
   <owl:DatatypeProperty rdf:about="&odo;hasReportURL">
-    <rdfs:subPropertyOf rdf:resource="&rdf;seeAlso"/>
+    <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
     <rdfs:domain rdf:resource="&odo;Deployment"/>
   </owl:DatatypeProperty>
   <owl:ObjectProperty rdf:about="&odo;hasCoordinatedDeployment">
@@ -164,6 +165,10 @@
   </owl:ObjectProperty>
   <owl:DatatypeProperty rdf:about="&odo;hasDeploymentDescription">
     <rdfs:subPropertyOf rdf:resource="&dcterms;description"/>
+    <rdfs:domain rdf:resource="&odo;Deployment"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&odo;hasGeometryFeature">
+    <rdfs:range rdf:resource="&geos;Feature"/>
     <rdfs:domain rdf:resource="&odo;Deployment"/>
   </owl:DatatypeProperty>
   <owl:Class rdf:about="&odo;Cruise">
@@ -221,7 +226,7 @@
     <rdfs:domain rdf:resource="&odo;Platform"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="&odo;hasPlatformURL">
-    <rdfs:subPropertyOf rdf:resource="&rdf;seeAlso"/>
+    <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
     <rdfs:domain rdf:resource="&odo;Platform"/>
   </owl:DatatypeProperty>
   <owl:ObjectProperty rdf:about="&odo;isDeployed">
@@ -450,11 +455,11 @@
   </owl:DatatypeProperty>
   
   <owl:DatatypeProperty rdf:about="&odo;osprey_page">
-    <rdfs:subPropertyOf rdf:resource="&rdf;seeAlso"/>
+    <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
   </owl:DatatypeProperty>
   
   <owl:DatatypeProperty rdf:about="&odo;r2r_page">
-    <rdfs:subPropertyOf rdf:resource="&rdf;seeAlso"/>
+    <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
   </owl:DatatypeProperty>
   
   <owl:ObjectProperty rdf:about="&odo;hasAgentWithRole">
@@ -473,8 +478,11 @@
     <rdfs:range rdf:resource="&odo;Parameter"/>
   </owl:ObjectProperty>
   
-  <owl:DatatypeProperty rdf:about="&odo;matches">
+  <owl:SymmetricProperty rdf:about="&odo;matches">
     <rdfs:subPropertyOf rdf:resource="&rdf;seeAlso"/>
+    <rdfs:domain rdf:resource="&owl;Thing"/>
+    <rdfs:range  rdf:resource="&owl;Thing"/>
+    <rdfs:comment rdf:datatype="&xsd;string">A symmetric match for linking between instance data of ODO and coreferences in external Linked Data sets</rdfs:comment>
   </owl:DatatypeProperty>
   
 </rdf:RDF>
