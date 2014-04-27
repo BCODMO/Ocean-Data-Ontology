@@ -484,7 +484,7 @@
     <rdfs:domain rdf:resource="&owl;Thing"/>
     <rdfs:range  rdf:resource="&owl;Thing"/>
     <rdfs:comment rdf:datatype="&xsd;string">A symmetric match for linking between instance data of ODO and coreferences in external Linked Data sets</rdfs:comment>
-  </owl:DatatypeProperty>
+  </owl:SymmetricProperty>
   
 </rdf:RDF>
 
