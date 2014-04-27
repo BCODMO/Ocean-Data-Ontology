@@ -473,5 +473,9 @@
     <rdfs:range rdf:resource="&odo;Parameter"/>
   </owl:ObjectProperty>
   
+  <owl:DatatypeProperty rdf:about="&odo;matches">
+    <rdfs:subPropertyOf rdf:resource="&rdf;seeAlso"/>
+  </owl:DatatypeProperty>
+  
 </rdf:RDF>
 
