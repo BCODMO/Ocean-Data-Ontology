@@ -10,6 +10,7 @@
   <!ENTITY dcterms "http://purl.org/dc/terms/">
   <!ENTITY spacetime "http://escience.rpi.edu/ontology/sesf/spacetime/1/0/">
   <!ENTITY geos "http://www.opengis.net/def/geosparql/">
+  <!ENTITY skos "http://www.w3.org/2004/02/skos/core#">
 ]>
 <rdf:RDF
     xmlns:owl="&owl;"
@@ -22,6 +23,7 @@
     xmlns:dcterms="&dcterms;"
     xmlns:spacetime="&spacetime;"
     xmlns:geos="&geos;" 
+    xmlns:skos="&skos;"
     xml:base="&odo;">
     
   <owl:Ontology rdf:about="&odo;">
@@ -197,12 +199,14 @@
   <!-- INSTRUMENT -->
   <owl:Class rdf:about="&odo;Instrument">
     <rdfs:label rdf:datatype="&xsd;string">Instrument</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&skos;Concept"/>
   </owl:Class>
 
 
   <!-- PARAMETER -->
   <owl:Class rdf:about="&odo;Parameter">
 	  <rdfs:label rdf:datatype="&xsd;string">Parameter</rdfs:label>
+	  <rdfs:subClassOf rdf:resource="&skos;Concept"/>
   </owl:Class>
   <owl:ObjectProperty rdf:about="&odo;hasMeasuredParameter">
     <rdfs:domain rdf:resource="&odo;Instrument"/>
