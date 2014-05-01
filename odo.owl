@@ -374,6 +374,10 @@
     <rdfs:range rdf:resource="&foaf;Organization"/>
     <rdfs:domain rdf:resource="&odo;Role"/>
   </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="&odo;performedBy">
+    <rdfs:range rdf:resource="&foaf;Person"/>
+    <rdfs:domain rdf:resource="&odo;Role"/>
+  </owl:ObjectProperty>
   
   <owl:Class rdf:about="&odo;CaptainRole">
     <rdfs:label rdf:datatype="&xsd;string">Captain</rdfs:label>
