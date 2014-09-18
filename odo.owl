@@ -11,6 +11,7 @@
   <!ENTITY spacetime "http://escience.rpi.edu/ontology/sesf/spacetime/1/0/">
   <!ENTITY geos "http://www.opengis.net/def/geosparql/">
   <!ENTITY skos "http://www.w3.org/2004/02/skos/core#">
+  <!ENTITY time "http://www.w3.org/2006/time#">
 ]>
 <rdf:RDF
     xmlns:owl="&owl;"
@@ -24,6 +25,7 @@
     xmlns:spacetime="&spacetime;"
     xmlns:geos="&geos;" 
     xmlns:skos="&skos;"
+    xmlns:time="&time;"
     xml:base="&odo;">
     
   <owl:Ontology rdf:about="&odo;">
@@ -144,6 +146,7 @@
     <rdfs:domain rdf:resource="&odo;DeploymentDatasetCollection"/>
   </owl:ObjectProperty>
   
+  
 
   <!-- DEPLOYMENT -->
   <owl:Class rdf:about="&odo;Deployment">
@@ -170,7 +173,7 @@
     <rdfs:subPropertyOf rdf:resource="&dcterms;description"/>
     <rdfs:domain rdf:resource="&odo;Deployment"/>
   </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="&odo;hasGeometryFeature">
+  <owl:DatatypeProperty rdf:about="&odo;hasCruiseTrajectory">
     <rdfs:range rdf:resource="&geos;Feature"/>
     <rdfs:domain rdf:resource="&odo;Deployment"/>
   </owl:DatatypeProperty>
@@ -485,6 +488,24 @@
   
   <owl:ObjectProperty rdf:about="&odo;hasParameter">
     <rdfs:range rdf:resource="&odo;Parameter"/>
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:about="&odo;hasDeploymentDates">
+    <rdfs:range rdf:resource="&time;TemporalEntity"/>
+    <rdfs:domain rdf:resource="&odo;Deployment"/>
+    <rdfs:comment rdf:datatype="&xsd;string">A date range for the start and end of a deployment</rdfs:comment>
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:about="&odo;hasProjectDates">
+    <rdfs:range rdf:resource="&time;TemporalEntity"/>
+    <rdfs:domain rdf:resource="&odo;Project"/>
+    <rdfs:comment rdf:datatype="&xsd;string">A date range for the start and end of a project</rdfs:comment>
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:about="&odo;hasProgramDates">
+    <rdfs:range rdf:resource="&time;TemporalEntity"/>
+    <rdfs:domain rdf:resource="&odo;Program"/>
+    <rdfs:comment rdf:datatype="&xsd;string">A date range for the start and end of a program</rdfs:comment>
   </owl:ObjectProperty>
   
   <owl:SymmetricProperty rdf:about="&odo;matches">
