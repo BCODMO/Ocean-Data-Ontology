@@ -94,11 +94,11 @@
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="&odo;dataFile">
     <rdfs:domain rdf:resource="&odo;Dataset" />
-    <rdfs:range rdf:resource="&xsd;anyURI" />
+    <rdfs:range rdf:resource="&owl;Thing" />
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="&odo;dataFileLandingPage">
     <rdfs:domain rdf:resource="&odo;Dataset" />
-    <rdfs:range rdf:resource="&xsd;anyURI" />
+    <rdfs:range rdf:resource="&owl;Thing" />
   </owl:DatatypeProperty>
   
   <owl:Class rdf:about="&odo;LaboratoryDataset">
