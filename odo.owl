@@ -518,7 +518,7 @@
   </owl:ObjectProperty>
   
   <owl:ObjectProperty rdf:about="&odo;storesValuesFor">
-    <rdfs:domain rdf:resource="&odo;DeploymentDataset" />
+    <rdfs:domain rdf:resource="&odo;Dataset" />
     <rdfs:range rdf:resource="&odo;MonitoredProperty" />
   </owl:ObjectProperty>
   
