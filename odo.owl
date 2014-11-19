@@ -218,11 +218,10 @@
     <rdfs:domain rdf:resource="&odo;Instrument" />
     <rdfs:range rdf:resource="&skos;Concept" />
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:About="odo;hasSerialNumber">
-    <rdfs:label rdf:datatype="&xsd;string">A literla serial number for this instrument instance</rdfs:label>
-    <rdfs:subPropertyOf rdf:resource="&dcterms;identifier"/>
-    <rdfs:domain rdf:resource="&odo;Instrument" />
-  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="&odo;hasSerialNumber">
+    <rdfs:range rdf:resource="&xsd;string"/>
+    <rdfs:domain rdf:resource="&odo;Instrument"/>
+  </owl:DatatypeProperty>
   
   <!-- MONITORED PROPERTY -->
   <owl:Class rdf:about="&odo;MonitoredProperty">
@@ -251,15 +250,8 @@
     <rdfs:range rdf:resource="&amp;geos;Feature"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="&odo;hasMonitoredProperty">
-    <rdfs:range>
-        <owl:Class>
-            <owl:unionOf rdf:parseType="Collection">
-                <owl:Class rdf:about="&odo;Dataset"/>
-                <owl:Class rdf:about="&odo;Instrument"/>
-            </owl:unionOf>
-        </owl:Class>
-    </rdfs:range>
-    <rdfs:range rdf:resource="&odo;MonitoredProperty"/>
+    <rdfs:range rdf:resource="&odo;Instrument"/>
+    <rdfs:domain rdf:resource="&odo;MonitoredProperty"/>
   </owl:ObjectProperty>
   <owl:DatatypeProperty rdf:about="&odo;hasParameterShortDescription">
     <rdfs:subPropertyOf rdf:resource="&dcterms;description"/>
