@@ -6,7 +6,7 @@ Application-level ontology for describing oceanographic datasets
 PREFIX
 ------
 
-PREFIX odo: <http://ocean-data.org/schema>
+<code>PREFIX odo: <http://ocean-data.org/schema></code>
 
 http://prefix.cc/odo
 
