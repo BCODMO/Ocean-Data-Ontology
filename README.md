@@ -3,6 +3,13 @@ Ocean-Data-Ontology
 
 Application-level ontology for describing oceanographic datasets
 
+PREFIX
+------
+
+PREFIX odo: <http://ocean-data.org/schema>
+
+http://prefix.cc/odo
+
 FUNDING  
 -------  
 This work is funded by the National Science Foundation under the following awards:
