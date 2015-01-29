@@ -38,7 +38,7 @@
   <!-- AFFILIATION -->
   <owl:Class rdf:about="&foaf;Organization">
     <rdfs:label rdf:datatype="&xsd;string">Organization</rdfs:label>
-    <rdfs:comment rdf:datatype="&xsd;string">Organizations are used to keep track of Funding Sources and also a Person's affiliation 
+    <rdfs:comment rdf:datatype="&xsd;string">Organizations are used to keep track of Funding Sources and also a Person's affiliation.</rdfs:comment>
   </owl:Class>
   <owl:DatatypeProperty rdf:about="&odo;hasOrganizationSubName">
     <rdfs:range rdf:resource="&xsd;string"/>
@@ -198,7 +198,7 @@
   <!-- FUNDING SOURCE -->
   <owl:Class rdf:about="&odo;FundingSource">
     <rdfs:label rdf:datatype="&xsd;string">Funding Source</rdfs:label>
-    <rdfs:comment>An Organization that provides funding Awards to a Project.</rdfs:comment>
+    <rdfs:comment rdf:datatype="&xsd;string">An Organization that provides funding Awards to a Project.</rdfs:comment>
     <rdfs:subClassOf rdf:resource="&foaf;Organization"/>
   </owl:Class>
   
@@ -206,7 +206,7 @@
   <!-- INSTRUMENT -->
   <owl:Class rdf:about="&odo;Instrument">
     <rdfs:label rdf:datatype="&xsd;string">Instrument</rdfs:label>
-    <rdfs:comment>A device used in data collection. These instances are more conceptual in nature as opposed to being very specific. The intent is to create a controlled vocabulary of instances of which more specific, colloquial dataset instruments can be mapped to. This dataset instument class doesn't exist yet.</rdfs:comment>
+    <rdfs:comment rdf:datatype="&xsd;string">A device used in data collection. These instances are more conceptual in nature as opposed to being very specific. The intent is to create a controlled vocabulary of instances of which more specific, colloquial dataset instruments can be mapped to. This dataset instument class doesn't exist yet.</rdfs:comment>
     <rdfs:subClassOf rdf:resource="&skos;Concept"/>
   </owl:Class>
 
@@ -214,7 +214,7 @@
   <!-- PARAMETER -->
   <owl:Class rdf:about="&odo;Parameter">
     <rdfs:label rdf:datatype="&xsd;string">Parameter</rdfs:label>
-    <rdfs:comment>A property that is measured/monitored by an Instrument. These instances are more conceptual in nature as opposed to being very specific. The intent is to create a controlled vocabulary of instances of which more specific, colloquial dataset parameters can be mapped to. This dataset parameter class doesn't exist yet.</rdfs:comment>
+    <rdfs:comment rdf:datatype="&xsd;string">A property that is measured/monitored by an Instrument. These instances are more conceptual in nature as opposed to being very specific. The intent is to create a controlled vocabulary of instances of which more specific, colloquial dataset parameters can be mapped to. This dataset parameter class doesn't exist yet.</rdfs:comment>
     <rdfs:subClassOf rdf:resource="&skos;Concept"/>
   </owl:Class>
   <owl:ObjectProperty rdf:about="&odo;hasMeasuredParameter">
@@ -234,7 +234,7 @@
   <!-- PLATFORM -->
   <owl:Class rdf:about="&odo;Platform">
     <rdfs:label rdf:datatype="&xsd;string">Platform</rdfs:label>
-    <rdfs:comment>A thing from which a Deployment occurs.</rdfs:comment>
+    <rdfs:comment rdf:datatype="&xsd;string">A thing from which a Deployment occurs.</rdfs:comment>
   </owl:Class>
   <owl:DatatypeProperty rdf:about="&odo;hasPlatformTitle">
     <rdfs:range rdf:resource="&xsd;string"/>
@@ -342,7 +342,7 @@
   <!-- PROGRAM -->
   <owl:Class rdf:about="&odo;Program">
     <rdfs:label rdf:datatype="&xsd;string">Program</rdfs:label>
-    <rdfs:comment>A large-scale project that encompasses smaller Projects.</rdfs:comment>
+    <rdfs:comment rdf:datatype="&xsd;string">A large-scale project that encompasses smaller Projects.</rdfs:comment>
   </owl:Class>
   <owl:ObjectProperty rdf:about="&odo;hasProject">
     <owl:inverseOf>
@@ -354,7 +354,7 @@
   <!-- PROJECT -->
   <owl:Class rdf:about="&odo;Project">
     <rdfs:label rdf:datatype="&xsd;string">Project</rdfs:label>
-    <rdfs:comment>A funded, scientific objective that may produce Datasets.</rdfs:comment>
+    <rdfs:comment rdf:datatype="&xsd;string">A funded, scientific objective that may produce Datasets.</rdfs:comment>
     <rdfs:subClassOf rdf:resource="&foaf;Project"/>
   </owl:Class>
   <owl:ObjectProperty rdf:about="&odo;hasParentProgram">
@@ -465,47 +465,47 @@
     
   <owl:ObjectProperty rdf:about="&odo;hasDataset">
     <rdfs:range rdf:resource="&odo;Dataset"/>
-    <rdfs:comment>Used by odo:DeploymentDataset, odo:Award, odo:Project classes</rdfs:comment>
+    <rdfs:comment rdf:datatype="&xsd;string">Used by odo:DeploymentDataset, odo:Award, odo:Project classes</rdfs:comment>
   </owl:ObjectProperty>
 
   <owl:ObjectProperty rdf:about="&odo;hasAward">
     <rdfs:range rdf:resource="&odo;Award"/>
-    <rdfs:comment>Used by odo:Dataset, odo:FundingSource classes</rdfs:comment>
+    <rdfs:comment rdf:datatype="&xsd;string">Used by odo:Dataset, odo:FundingSource classes</rdfs:comment>
   </owl:ObjectProperty>
 
   <owl:DatatypeProperty rdf:about="&odo;hasSmallLogoURL">
     <rdfs:subPropertyOf rdf:resource="&foaf;logo"/>
-    <rdfs:comment>Used by odo:Project, odo:Program classes</rdfs:comment>
+    <rdfs:comment rdf:datatype="&xsd;string">Used by odo:Project, odo:Program classes</rdfs:comment>
   </owl:DatatypeProperty>
   
   <owl:DatatypeProperty rdf:about="&odo;osprey_page">
     <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
-    <rdfs:comment>Used by odo:Project, odo:Program, odo:Dataset, Person, Organization, odo:FundingSource, odo:Role, odo:Award, odo:Deployment, odo:Platform, odo:Instrument, odo:Parameter to specify the URL to the HTML metadata page at www.bco-dmo.org</rdfs:comment>
+    <rdfs:comment rdf:datatype="&xsd;string">Used by odo:Project, odo:Program, odo:Dataset, Person, Organization, odo:FundingSource, odo:Role, odo:Award, odo:Deployment, odo:Platform, odo:Instrument, odo:Parameter to specify the URL to the HTML metadata page at www.bco-dmo.org</rdfs:comment>
   </owl:DatatypeProperty>
   
   <owl:DatatypeProperty rdf:about="&odo;r2r_page">
     <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
-    <rdfs:comment>Used by odo:Cruise, but I don't thnk we use this anymore. Instead, we link to R2R cruises with owl:sameAs or odo:matches</rdfs:comment>
+    <rdfs:comment rdf:datatype="&xsd;string">Used by odo:Cruise, but I don't thnk we use this anymore. Instead, we link to R2R cruises with owl:sameAs or odo:matches</rdfs:comment>
   </owl:DatatypeProperty>
   
   <owl:ObjectProperty rdf:about="&odo;hasAgentWithRole">
     <rdfs:range rdf:resource="&odo;Role"/>
-    <rdfs:comment>Used by odo:Project, odo:Program, odo:Dataset, odo:Deployment classes</rdfs:comment>
+    <rdfs:comment rdf:datatype="&xsd;string">Used by odo:Project, odo:Program, odo:Dataset, odo:Deployment classes</rdfs:comment>
   </owl:ObjectProperty>
   
   <owl:ObjectProperty rdf:about="&odo;hasDateTimeCoverage">
     <rdfs:range rdf:resource="&spacetime;ContinuousTimeInterval"/>
-    <rdfs:comment>NOT IN USE and we should remove spacetime ontology and use owl Time</rdfs:comment>
+    <rdfs:comment rdf:datatype="&xsd;string">NOT IN USE and we should remove spacetime ontology and use owl Time</rdfs:comment>
   </owl:ObjectProperty>  
   
   <owl:ObjectProperty rdf:about="&odo;hasFundingSource">
     <rdfs:range rdf:resource="&foaf;Organization"/>
-    <rdfs:comment>Used by odo:Award class, so not sure why the range hasn't been set on this property</rdfs:comment>
+    <rdfs:comment rdf:datatype="&xsd;string">Used by odo:Award class, so not sure why the range hasn't been set on this property</rdfs:comment>
   </owl:ObjectProperty>
   
   <owl:ObjectProperty rdf:about="&odo;hasParameter">
     <rdfs:range rdf:resource="&odo;Parameter"/>
-    <rdfs:comment>Used by odo:Dataset class, so not sure why the range hasn't been set on this property</rdfs:comment>
+    <rdfs:comment rdf:datatype="&xsd;string">Used by odo:Dataset class, so not sure why the range hasn't been set on this property</rdfs:comment>
   </owl:ObjectProperty>
   
   <owl:ObjectProperty rdf:about="&odo;hasDeploymentDates">
