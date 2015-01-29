@@ -37,7 +37,8 @@
   
   <!-- AFFILIATION -->
   <owl:Class rdf:about="&foaf;Organization">
-	  <rdfs:label rdf:datatype="&xsd;string">Organization</rdfs:label>
+    <rdfs:label rdf:datatype="&xsd;string">Organization</rdfs:label>
+    <rdfs:comment rdf:datatype="&xsd;string">Organizations are used to keep track of Funding Sources and also a Person's affiliation 
   </owl:Class>
   <owl:DatatypeProperty rdf:about="&odo;hasOrganizationSubName">
     <rdfs:range rdf:resource="&xsd;string"/>
@@ -51,7 +52,8 @@
   
   <!-- AWARD -->
   <owl:Class rdf:about="&odo;Award">
-  	<rdfs:label rdf:datatype="&xsd;string">Award</rdfs:label>
+    <rdfs:label rdf:datatype="&xsd;string">Award</rdfs:label>
+    <rdfs:comment rdf:datatype="&xsd;string">A funding award provided by an Funding Source (Organization) to a Project. This Award may fund Datasets.</rdfs:comment>
   </owl:Class>
   <owl:DatatypeProperty rdf:about="&odo;hasAwardNumber">
     <rdfs:range rdf:resource="&xsd;string"/>
@@ -63,7 +65,7 @@
   </owl:DatatypeProperty>
   
   <owl:Class rdf:about="&odo;GrantAward">
-	  <rdfs:label rdf:datatype="&xsd;string">Grant Award</rdfs:label>
+	<rdfs:label rdf:datatype="&xsd;string">Grant Award</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Award"/>
   </owl:Class>
   <owl:Class rdf:about="&odo;ContractAward">
@@ -79,6 +81,7 @@
   <!-- DATASETS -->
   <owl:Class rdf:about="&odo;Dataset">
     <rdfs:label rdf:datatype="&xsd;string">Dataset</rdfs:label>
+    <rdfs:comment rdf:datatype="&xsd;string">A super class for discovering any type of oceanographic dataset.</rdfs:comment>
   </owl:Class>
   <owl:DatatypeProperty rdf:about="&odo;hasDatasetURL">
     <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
@@ -195,6 +198,7 @@
   <!-- FUNDING SOURCE -->
   <owl:Class rdf:about="&odo;FundingSource">
     <rdfs:label rdf:datatype="&xsd;string">Funding Source</rdfs:label>
+    <rdfs:comment>An Organization that provides funding Awards to a Project.</rdfs:comment>
     <rdfs:subClassOf rdf:resource="&foaf;Organization"/>
   </owl:Class>
   
@@ -202,14 +206,16 @@
   <!-- INSTRUMENT -->
   <owl:Class rdf:about="&odo;Instrument">
     <rdfs:label rdf:datatype="&xsd;string">Instrument</rdfs:label>
+    <rdfs:comment>A device used in data collection. These instances are more conceptual in nature as opposed to being very specific. The intent is to create a controlled vocabulary of instances of which more specific, colloquial dataset instruments can be mapped to. This dataset instument class doesn't exist yet.</rdfs:comment>
     <rdfs:subClassOf rdf:resource="&skos;Concept"/>
   </owl:Class>
 
 
   <!-- PARAMETER -->
   <owl:Class rdf:about="&odo;Parameter">
-	  <rdfs:label rdf:datatype="&xsd;string">Parameter</rdfs:label>
-	  <rdfs:subClassOf rdf:resource="&skos;Concept"/>
+    <rdfs:label rdf:datatype="&xsd;string">Parameter</rdfs:label>
+    <rdfs:comment>A property that is measured/monitored by an Instrument. These instances are more conceptual in nature as opposed to being very specific. The intent is to create a controlled vocabulary of instances of which more specific, colloquial dataset parameters can be mapped to. This dataset parameter class doesn't exist yet.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="&skos;Concept"/>
   </owl:Class>
   <owl:ObjectProperty rdf:about="&odo;hasMeasuredParameter">
     <rdfs:domain rdf:resource="&odo;Instrument"/>
@@ -227,7 +233,8 @@
   
   <!-- PLATFORM -->
   <owl:Class rdf:about="&odo;Platform">
-	  <rdfs:label rdf:datatype="&xsd;string">Platform</rdfs:label>
+    <rdfs:label rdf:datatype="&xsd;string">Platform</rdfs:label>
+    <rdfs:comment>A thing from which a Deployment occurs.</rdfs:comment>
   </owl:Class>
   <owl:DatatypeProperty rdf:about="&odo;hasPlatformTitle">
     <rdfs:range rdf:resource="&xsd;string"/>
@@ -334,7 +341,8 @@
   
   <!-- PROGRAM -->
   <owl:Class rdf:about="&odo;Program">
-	  <rdfs:label rdf:datatype="&xsd;string">Program</rdfs:label>
+    <rdfs:label rdf:datatype="&xsd;string">Program</rdfs:label>
+    <rdfs:comment>A large-scale project that encompasses smaller Projects.</rdfs:comment>
   </owl:Class>
   <owl:ObjectProperty rdf:about="&odo;hasProject">
     <owl:inverseOf>
@@ -345,8 +353,9 @@
   
   <!-- PROJECT -->
   <owl:Class rdf:about="&odo;Project">
-  	<rdfs:label rdf:datatype="&xsd;string">Project</rdfs:label>
-  	<rdfs:subClassOf rdf:resource="&foaf;Project"/>
+    <rdfs:label rdf:datatype="&xsd;string">Project</rdfs:label>
+    <rdfs:comment>A funded, scientific objective that may produce Datasets.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="&foaf;Project"/>
   </owl:Class>
   <owl:ObjectProperty rdf:about="&odo;hasParentProgram">
     <rdfs:range rdf:resource="&odo;Program"/>
@@ -356,7 +365,7 @@
   
   <!-- PERSON -->
   <owl:Class rdf:about="&foaf;Person">
-	  <rdfs:label rdf:datatype="&xsd;string">Person</rdfs:label>
+    <rdfs:label rdf:datatype="&xsd;string">Person</rdfs:label>
   </owl:Class>
   <owl:ObjectProperty rdf:about="&odo;hasAffiliation">
     <rdfs:range rdf:resource="&foaf;Organization"/>
