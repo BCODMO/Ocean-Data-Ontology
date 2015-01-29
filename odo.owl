@@ -465,38 +465,47 @@
     
   <owl:ObjectProperty rdf:about="&odo;hasDataset">
     <rdfs:range rdf:resource="&odo;Dataset"/>
+    <rdfs:comment>Used by odo:DeploymentDataset, odo:Award, odo:Project classes</rdfs:comment>
   </owl:ObjectProperty>
 
   <owl:ObjectProperty rdf:about="&odo;hasAward">
     <rdfs:range rdf:resource="&odo;Award"/>
+    <rdfs:comment>Used by odo:Dataset, odo:FundingSource classes</rdfs:comment>
   </owl:ObjectProperty>
 
   <owl:DatatypeProperty rdf:about="&odo;hasSmallLogoURL">
     <rdfs:subPropertyOf rdf:resource="&foaf;logo"/>
+    <rdfs:comment>Used by odo:Project, odo:Program classes</rdfs:comment>
   </owl:DatatypeProperty>
   
   <owl:DatatypeProperty rdf:about="&odo;osprey_page">
     <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
+    <rdfs:comment>Used by odo:Project, odo:Program, odo:Dataset, Person, Organization, odo:FundingSource, odo:Role, odo:Award, odo:Deployment, odo:Platform, odo:Instrument, odo:Parameter to specify the URL to the HTML metadata page at www.bco-dmo.org</rdfs:comment>
   </owl:DatatypeProperty>
   
   <owl:DatatypeProperty rdf:about="&odo;r2r_page">
     <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
+    <rdfs:comment>Used by odo:Cruise, but I don't thnk we use this anymore. Instead, we link to R2R cruises with owl:sameAs or odo:matches</rdfs:comment>
   </owl:DatatypeProperty>
   
   <owl:ObjectProperty rdf:about="&odo;hasAgentWithRole">
     <rdfs:range rdf:resource="&odo;Role"/>
+    <rdfs:comment>Used by odo:Project, odo:Program, odo:Dataset, odo:Deployment classes</rdfs:comment>
   </owl:ObjectProperty>
   
   <owl:ObjectProperty rdf:about="&odo;hasDateTimeCoverage">
     <rdfs:range rdf:resource="&spacetime;ContinuousTimeInterval"/>
+    <rdfs:comment>NOT IN USE and we should remove spacetime ontology and use owl Time</rdfs:comment>
   </owl:ObjectProperty>  
   
   <owl:ObjectProperty rdf:about="&odo;hasFundingSource">
     <rdfs:range rdf:resource="&foaf;Organization"/>
+    <rdfs:comment>Used by odo:Award class, so not sure why the range hasn't been set on this property</rdfs:comment>
   </owl:ObjectProperty>
   
   <owl:ObjectProperty rdf:about="&odo;hasParameter">
     <rdfs:range rdf:resource="&odo;Parameter"/>
+    <rdfs:comment>Used by odo:Dataset class, so not sure why the range hasn't been set on this property</rdfs:comment>
   </owl:ObjectProperty>
   
   <owl:ObjectProperty rdf:about="&odo;hasDeploymentDates">
