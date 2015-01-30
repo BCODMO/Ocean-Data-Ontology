@@ -505,7 +505,7 @@
   
   <owl:ObjectProperty rdf:about="&odo;hasParameter">
     <rdfs:range rdf:resource="&odo;Parameter"/>
-    <rdfs:comment rdf:datatype="&xsd;string">Used by odo:Dataset class, so not sure why the range hasn't been set on this property</rdfs:comment>
+    <rdfs:comment rdf:datatype="&xsd;string">Used by odo:Dataset class, so not sure why the range hasn't been set on this property. This property may have duplicate resources for now and these represent that there were 'n' number of parameters that measured the same conceptual property. This is the issue we are seeking to fix by modeling the local, colloquial term the PI used for this parameter, and then mapping it to this more conceptual understanding of that measured parameter.</rdfs:comment>
   </owl:ObjectProperty>
   
   <owl:ObjectProperty rdf:about="&odo;hasDeploymentDates">
