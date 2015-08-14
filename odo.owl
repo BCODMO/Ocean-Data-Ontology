@@ -455,6 +455,10 @@
     <rdfs:label rdf:datatype="&xsd;string">Contact</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Role"/>
   </owl:Class>
+  <owl:Class rdf:about="&odo;ProgramManagerRole">
+    <rdfs:label rdf:datatype="&xsd;string">Program Manager</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
   <owl:Class rdf:about="&odo;UnknownRole">
     <rdfs:label rdf:datatype="&xsd;string">Unknown</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Role"/>
