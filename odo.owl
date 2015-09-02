@@ -220,7 +220,7 @@
   <owl:Class rdf:about="&odo;UnitOfMeasure">
   	<rdfs:label rdf:datatype="&xsd;string">Unit of Measure</rdfs:label>
   	<rdfs:comment rdf:datatype="&xsd;string">A unit of measure</rdfs:comment>
-  </owl:Class>"
+  </owl:Class>
   <owl:ObjectProperty rdf:about="&odo;hasMeasuredParameter">
     <rdfs:domain rdf:resource="&odo;Instrument"/>
     <rdfs:range rdf:resource="&odo;Parameter"/>
