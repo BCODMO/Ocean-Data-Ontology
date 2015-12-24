@@ -220,7 +220,7 @@
     <rdfs:range rdf:resource="&xsd;string"/>
      <rdfs:domain rdf:resource="&odo;Instrument"/>
   </owl:DatatypeProperty>
-  <owl:ObjectProperty rdf:about="odo;hasMakeAndModel">
+  <owl:ObjectProperty rdf:about="&odo;hasMakeAndModel">
     <rdfs:subPropertyOf rdf:resource="&skos;related" />
     <rdfs:subPropertyOf rdf:resource="&rdfs;isDefinedBy" />
     <rdfs:label rdf:datatype="&xsd;string">Links odo:Instrument to a skos:Concept of which the odo:Instrument is an instance</rdfs:label>
@@ -261,7 +261,7 @@
     <rdfs:domain rdf:resource="&odo;MonitoredProperty" />
     <rdfs:range rdf:resource="&odo;UnitOfMeasure"/>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="odo;featureOfInterest">
+  <owl:ObjectProperty rdf:about="&odo;featureOfInterest">
     <rdfs:label rdf:datatype="&xsd;string">Links an odo:MonitoredProperty to the feature, and from there the geometry, of interest</rdfs:label>
     <rdfs:subPropertyOf rdf:about="&skos;related" />
     <rdfs:domain rdf:resource="&odo;MonitoredProperty" />
@@ -277,7 +277,7 @@
    </owl:ObjectProperty>
    
    <!-- DATASET PARAMETER -->
-   <owl:Class rdf:about="odo;DatasetMonitoredProperty">
+   <owl:Class rdf:about="&odo;DatasetMonitoredProperty">
    	<rdfs:subClassOf rdf:resource="&odo;MonitoredProperty"/>
    	<rdfs:label rdf:datatype="&xsd;string">Dataset Property</rdfs:label>
     	<skos:defintion>odo:DatasetMonitoredProperty is an instance of a odo:MonitoredProperty but with project-specific label and definition known by the researcher.</skos:defintion>
@@ -602,7 +602,7 @@
     <rdfs:comment rdf:datatype="&xsd;string">A date range for the start and end of a program</rdfs:comment>
   </owl:ObjectProperty>
 
-  <owl:ObjectProperty rdf:about="odo;isInstanceOf">
+  <owl:ObjectProperty rdf:about="&odo;isInstanceOf">
     <rdfs:subPropertyOf rdf:resource="&skos;related" />
     <rdfs:subPropertyOf rdf:resource="&rdfs;isDefinedBy" />
     <rdfs:label rdf:datatype="&xsd;string">Links odo instances (odo:Instrument and odo:MonitoredProperty) to skos:Concept</rdfs:label>
