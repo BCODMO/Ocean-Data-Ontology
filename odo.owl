@@ -12,6 +12,7 @@
   <!ENTITY geos "http://www.opengis.net/def/geosparql/">
   <!ENTITY skos "http://www.w3.org/2004/02/skos/core#">
   <!ENTITY time "http://www.w3.org/2006/time#">
+  <!ENTITY cpm "http://purl.org/voc/cpm#">
 ]>
 <rdf:RDF
     xmlns:owl="&owl;"
@@ -26,6 +27,7 @@
     xmlns:geos="&geos;" 
     xmlns:skos="&skos;"
     xmlns:time="&time;"
+    xmlns:cpm="&cpm;"
     xml:base="&odo;">
     
   <owl:Ontology rdf:about="&odo;">
@@ -94,6 +96,14 @@
   <owl:DatatypeProperty rdf:about="&odo;hasAcquisitionDescription">
     <rdfs:subPropertyOf rdf:resource="&dcterms;description"/>
     <rdfs:domain rdf:resource="&odo;Dataset"/>
+  </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="&odo;dataFile">
+    <rdfs:domain rdf:resource="&odo;Dataset" />
+    <rdfs:range rdf:resource="&owl;Thing" />
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&odo;dataFileLandingPage">
+    <rdfs:domain rdf:resource="&odo;Dataset" />
+    <rdfs:range rdf:resource="&owl;Thing" />
   </owl:DatatypeProperty>
   
   <owl:Class rdf:about="&odo;LaboratoryDataset">
@@ -209,40 +219,104 @@
     <rdfs:comment rdf:datatype="&xsd;string">A device used in data collection. These instances are more conceptual in nature as opposed to being very specific. The intent is to create a controlled vocabulary of instances of which more specific, colloquial dataset instruments can be mapped to. This dataset instument class doesn't exist yet.</rdfs:comment>
     <rdfs:subClassOf rdf:resource="&skos;Concept"/>
   </owl:Class>
+  <owl:DatatypeProperty rdf:about="&odo;hasSerialNumber">
+    <rdfs:range rdf:resource="&xsd;string"/>
+     <rdfs:domain rdf:resource="&odo;Instrument"/>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="odo;hasMakeAndModel">
+    <rdfs:subPropertyOf rdf:resource="&skos;related" />
+    <rdfs:subPropertyOf rdf:resource="&rdfs;isDefinedBy" />
+    <rdfs:label rdf:datatype="&xsd;string">Links odo:Instrument to a skos:Concept of which the odo:Instrument is an instance</rdfs:label>
+    <rdfs:domain rdf:resource="&odo;Instrument" />
+    <rdfs:range rdf:resource="&skos;Concept" />
+  </owl:ObjectProperty>
 
 
-  <!-- PARAMETER -->
-  <owl:Class rdf:about="&odo;Parameter">
-    <rdfs:label rdf:datatype="&xsd;string">Parameter</rdfs:label>
-    <rdfs:comment rdf:datatype="&xsd;string">A property that is measured/monitored by an Instrument. These instances are more conceptual in nature as opposed to being very specific. The intent is to create a controlled vocabulary of instances of which more specific, colloquial dataset parameters can be mapped to. This dataset parameter class doesn't exist yet.</rdfs:comment>
+  <!-- MONITORED PROPERTY -->
+  <owl:Class rdf:about="&odo;MonitoredProperty">
+    <rdfs:label rdf:datatype="&xsd;string">Monitored Property</rdfs:label>
+    <skos:defintion>odo:MonitoredProperty is an instance of an NVS P01 Concept. Use odo:isInstanceOf to link the odo:MonitoredProperty to the P01 Concept's URI.</skos:defintion>
     <rdfs:subClassOf rdf:resource="&skos;Concept"/>
   </owl:Class>
   <owl:Class rdf:about="&odo;UnitOfMeasure">
   	<rdfs:label rdf:datatype="&xsd;string">Unit of Measure</rdfs:label>
   	<rdfs:comment rdf:datatype="&xsd;string">A unit of measure</rdfs:comment>
+  	<rdfs:subClassOf rdf:resource="&skos;Concept"/>
   </owl:Class>
-  <owl:ObjectProperty rdf:about="&odo;hasMeasuredParameter">
-    <rdfs:domain rdf:resource="&odo;Instrument"/>
-    <rdfs:range rdf:resource="&odo;Parameter"/>
-  </owl:ObjectProperty>
+  
   <owl:DatatypeProperty rdf:about="&odo;hasParameterShortDescription">
     <rdfs:subPropertyOf rdf:resource="&dcterms;description"/>
-    <rdfs:domain rdf:resource="&odo;Parameter"/>
+    <rdfs:domain rdf:resource="&odo;MonitoredProperty"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="&odo;hasParameterShortName">
     <rdfs:range rdf:resource="&xsd;string"/>
-    <rdfs:domain rdf:resource="&odo;Parameter"/>
+    <rdfs:domain rdf:resource="&odo;MonitoredProperty"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="&odo;hasNoDataValue">
     <rdfs:comment>The value to expect in a Dataset when there was no data for the given record.</rdfs:comment>
     <rdfs:range rdf:resource="&xsd;string"/>
-    <rdfs:domain rdf:resource="&odo;Parameter"/>
+    <rdfs:domain rdf:resource="&odo;MonitoredProperty"/>
   </owl:DatatypeProperty>
   <owl:ObjectProperty rdf:about="&odo;hasUnitOfMeasure">
-    <rdfs:domain rdf:resource="&odo;Parameter"/>
+    <rdfs:subPropertyOf rdf:resource="&skos;related" />
+    <owl:equivalentProperty rdf:resource="&cpm;opUnitOfMeasure" />
+    <rdfs:label rdf:datatype="&xsd;string">hasUnitOfMeasure - Links odo:MonitoredProperty to a SKOS Concept defining the unit of measure</rdfs:label>
+    <rdfs:domain rdf:resource="&odo;MonitoredProperty" />
     <rdfs:range rdf:resource="&odo;UnitOfMeasure"/>
   </owl:ObjectProperty>
-  
+  <owl:ObjectProperty rdf:about="odo;isInstanceOf">
+    <rdfs:subPropertyOf rdf:resource="&skos;related" />
+    <rdfs:subPropertyOf rdf:resource="&rdfs;isDefinedBy" />
+    <rdfs:label rdf:datatype="&xsd;string">Links odo:MonitoredProperty to the P01 URI of which the odo:MonitoredProperty is an instance</rdfs:label>
+    <rdfs:domain rdf:resource="&odo;MonitoredProperty" />
+    <rdfs:range rdf:resource="&skos;Concept" />
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="odo;featureOfInterest">
+    <rdfs:label rdf:datatype="&xsd;string">Links an odo:MonitoredProperty to the feature, and from there the geometry, of interest</rdfs:label>
+    <rdfs:subPropertyOf rdf:about="&skos;related" />
+    <rdfs:domain rdf:resource="&odo;MonitoredProperty" />
+    <rdfs:range rdf:resource="&amp;geos;Feature"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="&odo;hasMonitoredProperty">
+    <rdfs:range rdf:resource="&odo;Instrument"/>
+    <rdfs:domain rdf:resource="&odo;MonitoredProperty"/>
+   </owl:ObjectProperty>
+   <owl:ObjectProperty rdf:about="&odo;storesValuesFor">
+    <rdfs:domain rdf:resource="&odo;Dataset" />
+    <rdfs:range rdf:resource="&odo;MonitoredProperty" />
+   </owl:ObjectProperty>
+   
+   <!-- DATASET PARAMETER -->
+   <owl:Class rdf:about="odo;DatasetMonitoredProperty">
+   	<rdfs:subClassOf rdf:resource="&odo;MonitoredProperty"/>
+   	<rdfs:label rdf:datatype="&xsd;string">Dataset Property</rdfs:label>
+    	<skos:defintion>odo:DatasetMonitoredProperty is an instance of a odo:MonitoredProperty but with project-specific label and definition known by the researcher.</skos:defintion>
+   </owl:Class>
+   <owl:DatatypeProperty rdf:about="&odo;suppliedLabel">
+    <rdfs:comment>The label of the property as supplied by the researcher.</rdfs:comment>
+    <rdfs:range rdf:resource="&xsd;string"/>
+    <rdfs:domain rdf:resource="&odo;DatasetMonitoredProperty"/>
+   </owl:DatatypeProperty>
+   <owl:ObjectProperty rdf:about="&odo;suppliedUnits">
+    <rdfs:comment>The units of the property as supplied by the researcher.</rdfs:comment>
+    <rdfs:range rdf:resource="&odo;UnitOfMeasure"/>
+    <rdfs:domain rdf:resource="&odo;DatasetMonitoredProperty"/>
+   </owl:ObjectProperty>
+   <owl:DatatypeProperty rdf:about="&odo;suppliedDescription">
+    <rdfs:comment>The description of the property as supplied by the researcher.</rdfs:comment>
+    <rdfs:range rdf:resource="&xsd;string"/>
+    <rdfs:domain rdf:resource="&odo;DatasetMonitoredProperty"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:about="&odo;requiresConversion">
+    <rdfs:comment>The values in the dataset for this property need to be converted.</rdfs:comment>
+    <rdfs:range rdf:resource="&xsd;boolean"/>
+    <rdfs:domain rdf:resource="&odo;DatasetMonitoredProperty"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:about="&odo;conversionDescription">
+    <rdfs:comment>Describes how the values can be converted.</rdfs:comment>
+    <rdfs:range rdf:resource="&xsd;string"/>
+    <rdfs:domain rdf:resource="&odo;DatasetMonitoredProperty"/>
+   </owl:DatatypeProperty>
   
   <!-- PLATFORM -->
   <owl:Class rdf:about="&odo;Platform">
@@ -542,7 +616,7 @@
     <rdfs:domain rdf:resource="&odo;Program"/>
     <rdfs:comment rdf:datatype="&xsd;string">A date range for the start and end of a program</rdfs:comment>
   </owl:ObjectProperty>
-  
+
   <owl:SymmetricProperty rdf:about="&odo;matches">
     <rdfs:subPropertyOf rdf:resource="&rdf;seeAlso"/>
     <rdfs:domain rdf:resource="&owl;Thing"/>
