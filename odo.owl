@@ -282,21 +282,6 @@
    	<rdfs:label rdf:datatype="&xsd;string">Dataset Property</rdfs:label>
     	<skos:defintion>odo:DatasetMonitoredProperty is an instance of a odo:MonitoredProperty but with project-specific label and definition known by the researcher.</skos:defintion>
    </owl:Class>
-   <owl:DatatypeProperty rdf:about="&odo;suppliedLabel">
-    <rdfs:comment>The label of the property as supplied by the researcher.</rdfs:comment>
-    <rdfs:range rdf:resource="&xsd;string"/>
-    <rdfs:domain rdf:resource="&odo;DatasetMonitoredProperty"/>
-   </owl:DatatypeProperty>
-   <owl:ObjectProperty rdf:about="&odo;suppliedUnits">
-    <rdfs:comment>The units of the property as supplied by the researcher.</rdfs:comment>
-    <rdfs:range rdf:resource="&odo;UnitOfMeasure"/>
-    <rdfs:domain rdf:resource="&odo;DatasetMonitoredProperty"/>
-   </owl:ObjectProperty>
-   <owl:DatatypeProperty rdf:about="&odo;suppliedDescription">
-    <rdfs:comment>The description of the property as supplied by the researcher.</rdfs:comment>
-    <rdfs:range rdf:resource="&xsd;string"/>
-    <rdfs:domain rdf:resource="&odo;DatasetMonitoredProperty"/>
-   </owl:DatatypeProperty>
    <owl:DatatypeProperty rdf:about="&odo;requiresConversion">
     <rdfs:comment>The values in the dataset for this property need to be converted.</rdfs:comment>
     <rdfs:range rdf:resource="&xsd;boolean"/>
