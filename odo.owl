@@ -213,7 +213,7 @@
   <!-- INSTRUMENT -->
   <owl:Class rdf:about="&odo;Instrument">
     <rdfs:label rdf:datatype="&xsd;string">Instrument</rdfs:label>
-    <rdfs:comment rdf:datatype="&xsd;string">A device used in data collection. These instances are more conceptual in nature as opposed to being very specific. The intent is to create a controlled vocabulary of instances of which more specific, colloquial dataset instruments can be mapped to. This dataset instument class doesn't exist yet.</rdfs:comment>
+    <skos:defintion>odo:Instrument is an instance of an NVS L22 Concept. Use odo:isInstanceOf to link the odo:Instrument to the L22 Concept's URI.</skos:defintion>
     <rdfs:subClassOf rdf:resource="&skos;Concept"/>
   </owl:Class>
   <owl:DatatypeProperty rdf:about="&odo;hasSerialNumber">
@@ -264,8 +264,8 @@
   <owl:ObjectProperty rdf:about="odo;isInstanceOf">
     <rdfs:subPropertyOf rdf:resource="&skos;related" />
     <rdfs:subPropertyOf rdf:resource="&rdfs;isDefinedBy" />
-    <rdfs:label rdf:datatype="&xsd;string">Links odo:MonitoredProperty to the P01 URI of which the odo:MonitoredProperty is an instance</rdfs:label>
-    <rdfs:domain rdf:resource="&odo;MonitoredProperty" />
+    <rdfs:label rdf:datatype="&xsd;string">Links odo instances (Instrument & MonitoredProperty) to skos:Concept</rdfs:label>
+    <rdfs:domain rdf:resource="&owl;Thing" />
     <rdfs:range rdf:resource="&skos;Concept" />
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="odo;featureOfInterest">
