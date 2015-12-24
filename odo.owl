@@ -8,7 +8,6 @@
   <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
   <!ENTITY dc "http://purl.org/dc/elements/1.1/">
   <!ENTITY dcterms "http://purl.org/dc/terms/">
-  <!ENTITY spacetime "http://escience.rpi.edu/ontology/sesf/spacetime/1/0/">
   <!ENTITY geos "http://www.opengis.net/def/geosparql/">
   <!ENTITY skos "http://www.w3.org/2004/02/skos/core#">
   <!ENTITY time "http://www.w3.org/2006/time#">
@@ -23,7 +22,6 @@
     xmlns:rdfs="&rdfs;"
     xmlns:dc="&dc;"
     xmlns:dcterms="&dcterms;"
-    xmlns:spacetime="&spacetime;"
     xmlns:geos="&geos;" 
     xmlns:skos="&skos;"
     xmlns:time="&time;"
@@ -33,7 +31,6 @@
   <owl:Ontology rdf:about="&odo;">
     <rdfs:label rdf:datatype="&xsd;string">Ocean Data Ontology</rdfs:label>
     <dc:description>An ontology for describing ocean data</dc:description>
-    <owl:imports rdf:resource="&spacetime;"/>
     <owl:imports rdf:resource="&foaf;"/>
   </owl:Ontology>
   
@@ -583,11 +580,6 @@
     <rdfs:range rdf:resource="&odo;Role"/>
     <rdfs:comment rdf:datatype="&xsd;string">Used by odo:Project, odo:Program, odo:Dataset, odo:Deployment classes</rdfs:comment>
   </owl:ObjectProperty>
-  
-  <owl:ObjectProperty rdf:about="&odo;hasDateTimeCoverage">
-    <rdfs:range rdf:resource="&spacetime;ContinuousTimeInterval"/>
-    <rdfs:comment rdf:datatype="&xsd;string">NOT IN USE and we should remove spacetime ontology and use owl Time</rdfs:comment>
-  </owl:ObjectProperty>  
   
   <owl:ObjectProperty rdf:about="&odo;hasFundingSource">
     <rdfs:range rdf:resource="&foaf;Organization"/>
