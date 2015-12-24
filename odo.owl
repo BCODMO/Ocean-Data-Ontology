@@ -265,7 +265,6 @@
     <rdfs:subPropertyOf rdf:resource="&skos;related" />
     <rdfs:subPropertyOf rdf:resource="&rdfs;isDefinedBy" />
     <rdfs:label rdf:datatype="&xsd;string">Links odo instances (Instrument & MonitoredProperty) to skos:Concept</rdfs:label>
-    <rdfs:domain rdf:resource="&owl;Thing" />
     <rdfs:range rdf:resource="&skos;Concept" />
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="odo;featureOfInterest">
