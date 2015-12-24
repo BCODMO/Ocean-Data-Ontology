@@ -261,12 +261,6 @@
     <rdfs:domain rdf:resource="&odo;MonitoredProperty" />
     <rdfs:range rdf:resource="&odo;UnitOfMeasure"/>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="odo;isInstanceOf">
-    <rdfs:subPropertyOf rdf:resource="&skos;related" />
-    <rdfs:subPropertyOf rdf:resource="&rdfs;isDefinedBy" />
-    <rdfs:label rdf:datatype="&xsd;string">Links odo instances (Instrument & MonitoredProperty) to skos:Concept</rdfs:label>
-    <rdfs:range rdf:resource="&skos;Concept" />
-  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="odo;featureOfInterest">
     <rdfs:label rdf:datatype="&xsd;string">Links an odo:MonitoredProperty to the feature, and from there the geometry, of interest</rdfs:label>
     <rdfs:subPropertyOf rdf:about="&skos;related" />
@@ -608,6 +602,14 @@
     <rdfs:comment rdf:datatype="&xsd;string">A date range for the start and end of a program</rdfs:comment>
   </owl:ObjectProperty>
 
+  <owl:ObjectProperty rdf:about="odo;isInstanceOf">
+    <rdfs:subPropertyOf rdf:resource="&skos;related" />
+    <rdfs:subPropertyOf rdf:resource="&rdfs;isDefinedBy" />
+    <rdfs:label rdf:datatype="&xsd;string">Links odo instances (odo:Instrument and odo:MonitoredProperty) to skos:Concept</rdfs:label>
+    <rdfs:domain rdf:resource="&owl;Thing" />
+    <rdfs:range rdf:resource="&skos;Concept" />
+  </owl:ObjectProperty>
+  
   <owl:SymmetricProperty rdf:about="&odo;matches">
     <rdfs:subPropertyOf rdf:resource="&rdf;seeAlso"/>
     <rdfs:domain rdf:resource="&owl;Thing"/>
