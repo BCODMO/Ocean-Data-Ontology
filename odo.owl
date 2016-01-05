@@ -263,7 +263,7 @@
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="&odo;featureOfInterest">
     <rdfs:label rdf:datatype="&xsd;string">Links an odo:MonitoredProperty to the feature, and from there the geometry, of interest</rdfs:label>
-    <rdfs:subPropertyOf rdf:about="&skos;related" />
+    <rdfs:subPropertyOf rdf:resource="&skos;related" />
     <rdfs:domain rdf:resource="&odo;MonitoredProperty" />
     <rdfs:range rdf:resource="&geos;Feature"/>
   </owl:ObjectProperty>
