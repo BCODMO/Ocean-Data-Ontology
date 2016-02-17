@@ -94,13 +94,22 @@
     <rdfs:subPropertyOf rdf:resource="&dcterms;description"/>
     <rdfs:domain rdf:resource="&odo;Dataset"/>
   </owl:DatatypeProperty>
-    <owl:DatatypeProperty rdf:about="&odo;dataFile">
+  <owl:DatatypeProperty rdf:about="&odo;dataFile">
     <rdfs:domain rdf:resource="&odo;Dataset" />
     <rdfs:range rdf:resource="&owl;Thing" />
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="&odo;dataFileLandingPage">
     <rdfs:domain rdf:resource="&odo;Dataset" />
     <rdfs:range rdf:resource="&owl;Thing" />
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&odo;restricted">
+    <rdfs:domain rdf:resource="&odo;Dataset" />
+    <rdfs:comment rdf:datatype="&xsd;string">Is the dataset restricted for access by the public.</rdfs:comment>
+    <rdfs:range rdf:resource="&xsd;boolean"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&odo;releaseDate">
+    <rdfs:comment rdf:datatype="&xsd;string">The date the dataset will be available. Useful for reporting when a restricted dataset will become available.</rdfs:comment>
+    <rdfs:domain rdf:resource="&odo;Dataset" />
   </owl:DatatypeProperty>
   
   <owl:Class rdf:about="&odo;LaboratoryDataset">
