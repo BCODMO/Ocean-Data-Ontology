@@ -103,11 +103,13 @@
     <rdfs:range rdf:resource="&owl;Thing" />
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="&odo;restricted">
+    <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
     <rdfs:domain rdf:resource="&odo;Dataset" />
     <rdfs:comment rdf:datatype="&xsd;string">Is the dataset restricted for access by the public.</rdfs:comment>
     <rdfs:range rdf:resource="&xsd;boolean"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="&odo;releaseDate">
+    <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
     <rdfs:comment rdf:datatype="&xsd;string">The date the dataset will be available. Useful for reporting when a restricted dataset will become available.</rdfs:comment>
     <rdfs:domain rdf:resource="&odo;Dataset" />
   </owl:DatatypeProperty>
@@ -117,6 +119,7 @@
     <rdfs:range rdf:resource="&xsd;string"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="&odo;validated">
+    <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
     <rdfs:domain rdf:resource="&odo;Dataset" />
     <rdfs:comment rdf:datatype="&xsd;string">Has the dataset been validated by the PI.</rdfs:comment>
     <rdfs:range rdf:resource="&xsd;boolean"/>
