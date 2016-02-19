@@ -111,6 +111,21 @@
     <rdfs:comment rdf:datatype="&xsd;string">The date the dataset will be available. Useful for reporting when a restricted dataset will become available.</rdfs:comment>
     <rdfs:domain rdf:resource="&odo;Dataset" />
   </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&odo;versionLabel">
+    <rdfs:domain rdf:resource="&odo;Dataset" />
+    <rdfs:comment rdf:datatype="&xsd;string">An string signifying the version of the dataset.</rdfs:comment>
+    <rdfs:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&odo;validated">
+    <rdfs:domain rdf:resource="&odo;Dataset" />
+    <rdfs:comment rdf:datatype="&xsd;string">Has the dataset been validated by the PI.</rdfs:comment>
+    <rdfs:range rdf:resource="&xsd;boolean"/>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="&odo;currentState">
+    <rdfs:domain rdf:resource="&odo;Dataset" />
+    <rdfs:comment rdf:datatype="&xsd;string">A term describing the current state of the dataset.</rdfs:comment>
+    <rdfs:range rdf:resource="&skos;Concept" />
+  </owl:DatatypeProperty>
   
   <owl:Class rdf:about="&odo;LaboratoryDataset">
     <rdfs:label rdf:datatype="&xsd;string">Laboratory Dataset</rdfs:label>
