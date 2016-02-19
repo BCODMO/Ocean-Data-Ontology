@@ -125,7 +125,7 @@
     <rdfs:domain rdf:resource="&odo;Dataset" />
     <rdfs:comment rdf:datatype="&xsd;string">A term describing the current state of the dataset.</rdfs:comment>
     <rdfs:range rdf:resource="&skos;Concept" />
-  </owl:DatatypeProperty>
+  </owl:ObjectProperty>
   
   <owl:Class rdf:about="&odo;LaboratoryDataset">
     <rdfs:label rdf:datatype="&xsd;string">Laboratory Dataset</rdfs:label>
