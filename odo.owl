@@ -81,6 +81,24 @@
   <owl:Class rdf:about="&odo;Dataset">
     <rdfs:label rdf:datatype="&xsd;string">Dataset</rdfs:label>
     <rdfs:comment rdf:datatype="&xsd;string">A super class for discovering any type of oceanographic dataset.</rdfs:comment>
+    <rdfs:subClassOf>
+    	<owl:Restriction>
+          <owl:onProperty rdf:resource="&odo;restricted" />
+          <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+    	<owl:Restriction>
+          <owl:onProperty rdf:resource="&odo;releaseDate" />
+          <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+    	<owl:Restriction>
+          <owl:onProperty rdf:resource="&odo;validated" />
+          <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+        </owl:Restriction>
+    </rdfs:subClassOf>
   </owl:Class>
   <owl:DatatypeProperty rdf:about="&odo;hasDatasetURL">
     <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
@@ -107,20 +125,10 @@
     <rdfs:comment rdf:datatype="&xsd;string">Is the dataset restricted for access by the public.</rdfs:comment>
     <rdfs:range rdf:resource="&xsd;boolean"/>
   </owl:DatatypeProperty>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="&odo;restricted" />
-      <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-    </owl:Restriction>
- 
   <owl:DatatypeProperty rdf:about="&odo;releaseDate">
     <rdfs:comment rdf:datatype="&xsd;string">The date the dataset will be available. Useful for reporting when a restricted dataset will become available.</rdfs:comment>
     <rdfs:domain rdf:resource="&odo;Dataset" />
   </owl:DatatypeProperty>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="&odo;releaseDate" />
-      <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-    </owl:Restriction>
-
   <owl:DatatypeProperty rdf:about="&odo;versionLabel">
     <rdfs:domain rdf:resource="&odo;Dataset" />
     <rdfs:comment rdf:datatype="&xsd;string">An string signifying the version of the dataset.</rdfs:comment>
@@ -131,10 +139,6 @@
     <rdfs:comment rdf:datatype="&xsd;string">Has the dataset been validated by the PI.</rdfs:comment>
     <rdfs:range rdf:resource="&xsd;boolean"/>
   </owl:DatatypeProperty>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="&odo;validated" />
-      <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-    </owl:Restriction>
   <owl:ObjectProperty rdf:about="&odo;currentState">
     <rdfs:domain rdf:resource="&odo;Dataset" />
     <rdfs:comment rdf:datatype="&xsd;string">A term describing the current state of the dataset.</rdfs:comment>
