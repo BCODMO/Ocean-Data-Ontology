@@ -602,6 +602,12 @@
     <rdfs:comment rdf:datatype="&xsd;string">Used by odo:Project, odo:Program classes</rdfs:comment>
   </owl:DatatypeProperty>
   
+  <owl:DatatypeProperty rdf:about="&odo;hasDataManagementPlan">
+    <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
+    <rdfs:comment rdf:datatype="&xsd;string">Used by odo:Projectto specify the URL to the Project's Data Management Plan.</rdfs:comment>
+    <rdfs:domain rdf:resource="&odo;Project"/>
+  </owl:DatatypeProperty>
+  
   <owl:DatatypeProperty rdf:about="&odo;osprey_page">
     <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
     <rdfs:comment rdf:datatype="&xsd;string">Used by odo:Project, odo:Program, odo:Dataset, Person, Organization, odo:FundingSource, odo:Role, odo:Award, odo:Deployment, odo:Platform, odo:Instrument, odo:Parameter to specify the URL to the HTML metadata page at www.bco-dmo.org</rdfs:comment>
