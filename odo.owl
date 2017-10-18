@@ -22,18 +22,18 @@
     xmlns:rdfs="&rdfs;"
     xmlns:dc="&dc;"
     xmlns:dcterms="&dcterms;"
-    xmlns:geos="&geos;" 
+    xmlns:geos="&geos;"
     xmlns:skos="&skos;"
     xmlns:time="&time;"
     xmlns:cpm="&cpm;"
     xml:base="&odo;">
-    
+
   <owl:Ontology rdf:about="&odo;">
     <rdfs:label rdf:datatype="&xsd;string">Ocean Data Ontology</rdfs:label>
     <dc:description>An ontology for describing ocean data</dc:description>
     <owl:imports rdf:resource="&foaf;"/>
   </owl:Ontology>
-  
+
   <!-- AFFILIATION -->
   <owl:Class rdf:about="&foaf;Organization">
     <rdfs:label rdf:datatype="&xsd;string">Organization</rdfs:label>
@@ -47,8 +47,8 @@
     <rdfs:range rdf:resource="&xsd;string"/>
     <rdfs:domain rdf:resource="&foaf;Organization"/>
   </owl:DatatypeProperty>
-  
-  
+
+
   <!-- AWARD -->
   <owl:Class rdf:about="&odo;Award">
     <rdfs:label rdf:datatype="&xsd;string">Award</rdfs:label>
@@ -62,7 +62,7 @@
     <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
     <rdfs:domain rdf:resource="&odo;Award"/>
   </owl:DatatypeProperty>
-  
+
   <owl:Class rdf:about="&odo;GrantAward">
 	<rdfs:label rdf:datatype="&xsd;string">Grant Award</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Award"/>
@@ -149,12 +149,12 @@
     <rdfs:comment rdf:datatype="&xsd;string">The type of dataset.</rdfs:comment>
     <rdfs:range rdf:resource="&skos;Concept" />
   </owl:ObjectProperty>
-  
+
   <owl:Class rdf:about="&odo;LaboratoryDataset">
     <rdfs:label rdf:datatype="&xsd;string">Laboratory Dataset</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Dataset"/>
   </owl:Class>
-  
+
   <owl:Class rdf:about="&odo;DeploymentDataset">
     <rdfs:label rdf:datatype="&xsd;string">Deployment Dataset</rdfs:label>
     <rdfs:comment rdf:datatype="&xsd;string">A deployment dataset is a dataset that is collected on a specific deployment of a platform from a specific instrument on that platform.</rdfs:comment>
@@ -164,7 +164,7 @@
     <rdfs:range rdf:resource="&odo;Deployment"/>
     <rdfs:domain rdf:resource="&odo;DeploymentDataset"/>
   </owl:ObjectProperty>
-  
+
   <owl:Class rdf:about="&odo;DatasetCollection">
     <rdfs:label rdf:datatype="&xsd;string">Dataset Collection</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Dataset"/>
@@ -179,7 +179,7 @@
       <owl:ObjectProperty rdf:about="&odo;hasInventory"/>
     </owl:inverseOf>
   </owl:ObjectProperty>
-  
+
   <owl:Class rdf:about="&odo;DeploymentDatasetCollection">
     <rdfs:subClassOf rdf:resource="&odo;DatasetCollection"/>
     <rdfs:subClassOf>
@@ -202,8 +202,8 @@
     <rdfs:comment rdf:datatype="&xsd;string">This dataset was collected from an instrument that is located on the platform during this deployment.</rdfs:comment>
     <rdfs:domain rdf:resource="&odo;DeploymentDatasetCollection"/>
   </owl:ObjectProperty>
-  
-  
+
+
 
   <!-- DEPLOYMENT -->
   <owl:Class rdf:about="&odo;Deployment">
@@ -235,7 +235,7 @@
     <rdfs:domain rdf:resource="&odo;Deployment"/>
   </owl:DatatypeProperty>
   <owl:Class rdf:about="&odo;Cruise">
-   <rdfs:subClassOf rdf:resource="&odo;Deployment"/> 
+   <rdfs:subClassOf rdf:resource="&odo;Deployment"/>
    <rdfs:subClassOf>
      <owl:Restriction>
        <owl:onProperty>
@@ -248,15 +248,15 @@
    </rdfs:subClassOf>
  </owl:Class>
 
-  
+
   <!-- FUNDING SOURCE -->
   <owl:Class rdf:about="&odo;FundingSource">
     <rdfs:label rdf:datatype="&xsd;string">Funding Source</rdfs:label>
     <rdfs:comment rdf:datatype="&xsd;string">An Organization that provides funding Awards to a Project.</rdfs:comment>
     <rdfs:subClassOf rdf:resource="&foaf;Organization"/>
   </owl:Class>
-  
-    
+
+
   <!-- INSTRUMENT -->
   <owl:Class rdf:about="&odo;Instrument">
     <rdfs:label rdf:datatype="&xsd;string">Instrument</rdfs:label>
@@ -275,6 +275,12 @@
     <rdfs:range rdf:resource="&skos;Concept" />
   </owl:ObjectProperty>
 
+  <owl:ObjectProperty rdf:about="&odo;obsoletedBy">
+    <rdfs:label rdf:datatype="&xsd;string">Defines the resource that has replaced this resource.</rdfs:label>
+    <rdfs:domain rdf:resource="&skos;Concept" />
+    <rdfs:range rdf:resource="&skos;Concept" />
+  </owl:ObjectProperty>
+
 
   <!-- MONITORED PROPERTY -->
   <owl:Class rdf:about="&odo;MonitoredProperty">
@@ -287,7 +293,7 @@
   	<rdfs:comment rdf:datatype="&xsd;string">A unit of measure</rdfs:comment>
   	<rdfs:subClassOf rdf:resource="&skos;Concept"/>
   </owl:Class>
-  
+
   <owl:DatatypeProperty rdf:about="&odo;hasParameterShortDescription">
     <rdfs:subPropertyOf rdf:resource="&dcterms;description"/>
     <rdfs:domain rdf:resource="&odo;MonitoredProperty"/>
@@ -322,7 +328,7 @@
     <rdfs:domain rdf:resource="&odo;Dataset" />
     <rdfs:range rdf:resource="&odo;MonitoredProperty" />
    </owl:ObjectProperty>
-   
+
    <!-- DATASET PARAMETER -->
    <owl:Class rdf:about="&odo;DatasetMonitoredProperty">
    	<rdfs:subClassOf rdf:resource="&odo;MonitoredProperty"/>
@@ -339,7 +345,7 @@
     <rdfs:range rdf:resource="&xsd;string"/>
     <rdfs:domain rdf:resource="&odo;DatasetMonitoredProperty"/>
    </owl:DatatypeProperty>
-  
+
   <!-- PLATFORM -->
   <owl:Class rdf:about="&odo;Platform">
     <rdfs:label rdf:datatype="&xsd;string">Platform</rdfs:label>
@@ -360,7 +366,7 @@
     <rdfs:range rdf:resource="&odo;Deployment"/>
     <rdfs:domain rdf:resource="&odo;Platform"/>
   </owl:ObjectProperty>
-  
+
   <owl:Class rdf:about="&odo;Float">
     <rdfs:label rdf:datatype="&xsd;string">Float</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Platform"/>
@@ -436,7 +442,7 @@
   <owl:Class rdf:about="&odo;AutonomousUnderwaterVehicle">
 	  <rdfs:label rdf:datatype="&xsd;string">AUV</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;UnmannedSubmarine"/>
-  </owl:Class>  
+  </owl:Class>
   <owl:Class rdf:about="&odo;Vessel">
     <rdfs:label rdf:datatype="&xsd;string">Vessel</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Vehicle"/>
@@ -446,8 +452,8 @@
     <rdfs:subClassOf rdf:resource="&odo;Vessel"/>
     <rdfs:subClassOf rdf:resource="&odo;StationaryPlatform"/>
   </owl:Class>
-  
-  
+
+
   <!-- PROGRAM -->
   <owl:Class rdf:about="&odo;Program">
     <rdfs:label rdf:datatype="&xsd;string">Program</rdfs:label>
@@ -458,8 +464,8 @@
       <owl:ObjectProperty rdf:about="&odo;hasParentProgram"/>
     </owl:inverseOf>
   </owl:ObjectProperty>
-  
-  
+
+
   <!-- PROJECT -->
   <owl:Class rdf:about="&odo;Project">
     <rdfs:label rdf:datatype="&xsd;string">Project</rdfs:label>
@@ -470,8 +476,8 @@
     <rdfs:range rdf:resource="&odo;Program"/>
     <rdfs:domain rdf:resource="&odo;Project"/>
   </owl:ObjectProperty>
-  
-  
+
+
   <!-- PERSON -->
   <owl:Class rdf:about="&foaf;Person">
     <rdfs:label rdf:datatype="&xsd;string">Person</rdfs:label>
@@ -485,7 +491,7 @@
     <rdfs:domain rdf:resource="&foaf;Person"/>
   </owl:ObjectProperty>
 
-  
+
   <!-- ROLES -->
   <owl:Class rdf:about="&odo;Role">
     <rdfs:label rdf:datatype="&xsd;string">Role</rdfs:label>
@@ -499,7 +505,7 @@
     <rdfs:range rdf:resource="&foaf;Person"/>
     <rdfs:domain rdf:resource="&odo;Role"/>
   </owl:ObjectProperty>
-  
+
   <owl:Class rdf:about="&odo;CaptainRole">
     <rdfs:label rdf:datatype="&xsd;string">Captain</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Role"/>
@@ -584,9 +590,9 @@
     <rdfs:subClassOf rdf:resource="&odo;Role"/>
     <rdfs:label rdf:datatype="&xsd;string">BCO-DMO Data Manager</rdfs:label>
   </owl:Class>
-      
+
   <!-- PROPERTIES -->
-    
+
   <owl:ObjectProperty rdf:about="&odo;hasDataset">
     <rdfs:range rdf:resource="&odo;Dataset"/>
     <rdfs:comment rdf:datatype="&xsd;string">Used by odo:DeploymentDataset, odo:Award, odo:Project classes</rdfs:comment>
@@ -601,50 +607,50 @@
     <rdfs:subPropertyOf rdf:resource="&foaf;logo"/>
     <rdfs:comment rdf:datatype="&xsd;string">Used by odo:Project, odo:Program classes</rdfs:comment>
   </owl:DatatypeProperty>
-  
+
   <owl:DatatypeProperty rdf:about="&odo;hasDataManagementPlan">
     <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
     <rdfs:comment rdf:datatype="&xsd;string">Used by odo:Projectto specify the URL to the Project's Data Management Plan.</rdfs:comment>
     <rdfs:domain rdf:resource="&odo;Project"/>
   </owl:DatatypeProperty>
-  
+
   <owl:DatatypeProperty rdf:about="&odo;osprey_page">
     <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
     <rdfs:comment rdf:datatype="&xsd;string">Used by odo:Project, odo:Program, odo:Dataset, Person, Organization, odo:FundingSource, odo:Role, odo:Award, odo:Deployment, odo:Platform, odo:Instrument, odo:Parameter to specify the URL to the HTML metadata page at www.bco-dmo.org</rdfs:comment>
   </owl:DatatypeProperty>
-  
+
   <owl:DatatypeProperty rdf:about="&odo;r2r_page">
     <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
     <rdfs:comment rdf:datatype="&xsd;string">Used by odo:Cruise, but I don't thnk we use this anymore. Instead, we link to R2R cruises with owl:sameAs or odo:matches</rdfs:comment>
   </owl:DatatypeProperty>
-  
+
   <owl:ObjectProperty rdf:about="&odo;hasAgentWithRole">
     <rdfs:range rdf:resource="&odo;Role"/>
     <rdfs:comment rdf:datatype="&xsd;string">Used by odo:Project, odo:Program, odo:Dataset, odo:Deployment classes</rdfs:comment>
   </owl:ObjectProperty>
-  
+
   <owl:ObjectProperty rdf:about="&odo;hasFundingSource">
     <rdfs:range rdf:resource="&foaf;Organization"/>
     <rdfs:comment rdf:datatype="&xsd;string">Used by odo:Award class, so not sure why the range hasn't been set on this property</rdfs:comment>
   </owl:ObjectProperty>
-  
+
   <owl:ObjectProperty rdf:about="&odo;hasParameter">
     <rdfs:range rdf:resource="&odo;Parameter"/>
     <rdfs:comment rdf:datatype="&xsd;string">Used by odo:Dataset class, so not sure why the range hasn't been set on this property. This property may have duplicate resources for now and these represent that there were 'n' number of parameters that measured the same conceptual property. This is the issue we are seeking to fix by modeling the local, colloquial term the PI used for this parameter, and then mapping it to this more conceptual understanding of that measured parameter.</rdfs:comment>
   </owl:ObjectProperty>
-  
+
   <owl:ObjectProperty rdf:about="&odo;hasDeploymentDates">
     <rdfs:range rdf:resource="&time;TemporalEntity"/>
     <rdfs:domain rdf:resource="&odo;Deployment"/>
     <rdfs:comment rdf:datatype="&xsd;string">A date range for the start and end of a deployment</rdfs:comment>
   </owl:ObjectProperty>
-  
+
   <owl:ObjectProperty rdf:about="&odo;hasProjectDates">
     <rdfs:range rdf:resource="&time;TemporalEntity"/>
     <rdfs:domain rdf:resource="&odo;Project"/>
     <rdfs:comment rdf:datatype="&xsd;string">A date range for the start and end of a project</rdfs:comment>
   </owl:ObjectProperty>
-  
+
   <owl:ObjectProperty rdf:about="&odo;hasProgramDates">
     <rdfs:range rdf:resource="&time;TemporalEntity"/>
     <rdfs:domain rdf:resource="&odo;Program"/>
@@ -658,13 +664,13 @@
     <rdfs:domain rdf:resource="&owl;Thing" />
     <rdfs:range rdf:resource="&skos;Concept" />
   </owl:ObjectProperty>
-  
+
   <owl:SymmetricProperty rdf:about="&odo;matches">
     <rdfs:subPropertyOf rdf:resource="&rdf;seeAlso"/>
     <rdfs:domain rdf:resource="&owl;Thing"/>
     <rdfs:range  rdf:resource="&owl;Thing"/>
     <rdfs:comment rdf:datatype="&xsd;string">A symmetric match for linking between instance data of ODO and coreferences in external Linked Data sets</rdfs:comment>
   </owl:SymmetricProperty>
-  
+
 </rdf:RDF>
 
