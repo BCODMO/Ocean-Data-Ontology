@@ -6,9 +6,11 @@
   <!ENTITY foaf "http://xmlns.com/foaf/0.1/">
   <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
   <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+  <!ENTITY datacite "http://purl.org/spar/datacite/">
   <!ENTITY dc "http://purl.org/dc/elements/1.1/">
   <!ENTITY dcterms "http://purl.org/dc/terms/">
   <!ENTITY geos "http://www.opengis.net/def/geosparql/">
+  <!ENTITY schema "http://schema.org/">
   <!ENTITY skos "http://www.w3.org/2004/02/skos/core#">
   <!ENTITY time "http://www.w3.org/2006/time#">
   <!ENTITY cpm "http://purl.org/voc/cpm#">
@@ -20,9 +22,11 @@
     xmlns:foaf="&foaf;"
     xmlns:rdf="&rdf;"
     xmlns:rdfs="&rdfs;"
+    xmlns:datacite="&datacite;"
     xmlns:dc="&dc;"
     xmlns:dcterms="&dcterms;"
     xmlns:geos="&geos;"
+    xmlns:schema="&schema;"
     xmlns:skos="&skos;"
     xmlns:time="&time;"
     xmlns:cpm="&cpm;"
@@ -88,7 +92,70 @@
     <owl:disjointWith rdf:resource="&odo;GrantAward"/>
     <owl:disjointWith rdf:resource="&odo;ContractAward"/>
   </owl:Class>
+  
+  <!-- CREATIVE WORK -->
+  <owl:Class rdf:about="&odo;CreativeWork">
+    <rdfs:label rdf:datatype="&xsd;string">Creative Work</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&schema;CreativeWork"/>
+  </owl:Class>
+  
+  <owl:ObjectProperty rdf:about="&odo;relatedWork">
+    <rdfs:domain rdf:resource="&odo;CreativeWork" />
+    <rdfs:comment rdf:datatype="&xsd;string">A related work.</rdfs:comment>
+    <rdfs:range rdf:resource="&skos;CreativeWork" />
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="&odo;relationshipType">
+    <rdfs:domain rdf:resource="&odo;CreativeWork" />
+    <rdfs:comment rdf:datatype="&xsd;string">The type of relation between two Creative Works.</rdfs:comment>
+    <rdfs:range rdf:resource="&odo;CreativeWorkRelation" />
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="&odo;hasIdentifier">
+    <rdfs:subPropertyOf rdf:resource="&datacite;hasIdentifier" />
+    <rdfs:domain rdf:resource="&odo;CreativeWork" />
+    <rdfs:comment rdf:datatype="&xsd;string">An identifier for a Creative Work.</rdfs:comment>
+    <rdfs:range rdf:resource="&datacite;Identifier" />
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="&odo;citationText">
+    <rdfs:comment rdf:datatype="&xsd;string">The citation text for a Creative Work.</rdfs:comment>
+    <rdfs:domain rdf:resource="&odo;CreativeWork" />
+    <rdfs:range rdf:resource="&xsd;string" />
+  </owl:DatatypeProperty>
 
+  <owl:Class rdf:About="&odo;CreativeWorkRelation">
+    <rdfs:label rdf:datatype="&xsd;string">Creative Work Relationship</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&skos;Concept"/>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="&odo;crossrefRelation">
+    <rdfs:comment rdf:datatype="&xsd;string">The type of relationship defined by Crossref.</rdfs:comment>
+    <rdfs:domain rdf:resource="&odo;CreativeWorkRelation" />
+    <rdfs:range rdf:resource="&xsd;string" />
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="&odo;crossrefRelationType">
+    <rdfs:comment rdf:datatype="&xsd;string">Either it's an inter-relation or an intra-relation depending on if its the same work or not.</rdfs:comment>
+    <rdfs:domain rdf:resource="&odo;CreativeWorkRelation" />
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf>
+          <rdf:List>
+            <rdf:first rdf:datatype="&odo;CrossrefInterRelation" />
+            <rdf:rest>
+              <rdf:List>
+                <rdf:first rdf:datatype="&odo;CrossrefIntraRelation" />
+              </rdf:List>
+            </rdf:rest>
+          </rdf:List>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:NamedIndividual rdf:about="odo:CrossrefInterRelation">
+    <rdfs:label xml:lang="en-US">Crossref Inter-relation</rdfs:label>
+    <rdfs:comment xml:lang="en-US">A relationship between two different creative works.</rdfs:comment>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="odo:CrossrefIntraRelation">
+    <rdfs:label xml:lang="en-US">Crossref Intra-relation</rdfs:label>
+    <rdfs:comment xml:lang="en-US">A relationship between two variations of the same creative work.</rdfs:comment>
+  </owl:NamedIndividual>
 
   <!-- DATASETS -->
   <owl:Class rdf:about="&odo;Dataset">
@@ -96,6 +163,7 @@
     <rdfs:comment rdf:datatype="&xsd;string">A super class for discovering any type of oceanographic dataset.</rdfs:comment>
     <owl:disjointWith rdf:resource="&odo;Award"/>
     <owl:disjointWith rdf:resource="&foaf;Organization"/>
+    <rdfs:subClassOf rdf:resource="&odo;CreativeWork"/>
     <rdfs:subClassOf>
     	<owl:Restriction>
           <owl:onProperty rdf:resource="&odo;restricted" />
