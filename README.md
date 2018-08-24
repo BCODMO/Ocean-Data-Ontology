@@ -1,6 +1,8 @@
 Ocean-Data-Ontology
 ===================
 
+![documentation v0.9.0](https://img.shields.io/badge/documentation-v0.9.0-blue.svg)
+
 Application-level ontology for describing oceanographic datasets
 
 Uses https://rdf-translator.appspot.com/ to convert to JSON-LD and N-Triples from RDF/XML.
