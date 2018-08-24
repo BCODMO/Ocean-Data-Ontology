@@ -1120,5 +1120,10 @@
     <rdfs:comment rdf:datatype="&xsd;string">A symmetric match for linking between instance data of ODO and coreferences in external Linked Data sets</rdfs:comment>
   </owl:SymmetricProperty>
 
+  <owl:DatatypeProperty rdf:about="&odo;wktLiteral">
+    <rdfs:subPropertyOf rdf:resource="&geos;wktLiteral"/>
+    <rdfs:domain rdf:resource="&owl;Thing"/>
+    <rdfs:comment rdf:datatype="&xsd;string">A WKT representation of a geometry to use when avoiding Virtuoso's geometry validation.</rdfs:comment>
+  </owl:DatatypeProperty>
 </rdf:RDF>
 
