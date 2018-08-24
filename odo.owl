@@ -36,6 +36,9 @@
     <rdfs:label rdf:datatype="&xsd;string">Ocean Data Ontology</rdfs:label>
     <dc:description>An ontology for describing ocean data</dc:description>
     <owl:imports rdf:resource="&foaf;"/>
+    <dcterms:source rdf:datatype="xsd:anyURI">https://github.com/BCODMO/Ocean-Data-Ontology</dcterms:source>
+    <dcterms:issued rdf:datatype="xsd:date">2017-03-01</dcterms:issued>
+    <owl:versionInfo>0.9.0</owl:versionInfo>
   </owl:Ontology>
 
   <!-- AFFILIATION -->
@@ -265,11 +268,13 @@
     <owl:disjointWith rdf:resource="&odo;DeploymentDataset"/>
   </owl:Class>
   <owl:ObjectProperty rdf:about="&odo;hasInventory">
+    <rdfs:label rdf:datatype="&xsd;string">hasInventory</rdfs:label>
     <rdfs:range rdf:resource="&odo;Dataset"/>
     <rdfs:domain rdf:resource="&odo;DatasetCollection"/>
     <owl:inverseOf rdf:resource="&odo;fromCollection"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="&odo;fromCollection">
+    <rdfs:label rdf:datatype="&xsd;string">fromCollection</rdfs:label>
     <owl:inverseOf>
       <owl:ObjectProperty rdf:about="&odo;hasInventory"/>
     </owl:inverseOf>
