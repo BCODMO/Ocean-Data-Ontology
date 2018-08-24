@@ -3,12 +3,16 @@ Ocean-Data-Ontology
 
 Application-level ontology for describing oceanographic datasets
 
+Uses https://rdf-translator.appspot.com/ to convert to JSON-LD and N-Triples from RDF/XML.
+Uses https://www/easyrdf/org/converter to convert to Turtle from RDF/XML.
+
 PREFIX
 ------
 
 <code>PREFIX odo: <http://ocean-data.org/schema></code>
 
 http://prefix.cc/odo
+
 
 FUNDING  
 -------  
