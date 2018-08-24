@@ -1,0 +1,863 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc11: <http://purl.org/dc/elements/1.1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix schema: <http://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns0: <http://ocean-data.org/schema/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://ocean-data.org/schema/>
+  a owl:Ontology ;
+  rdfs:label "Ocean Data Ontology"^^xsd:string ;
+  dc11:description "An ontology for describing ocean data" ;
+  owl:imports foaf: ;
+  dc:source "https://github.com/BCODMO/Ocean-Data-Ontology"^^xsd:anyURI ;
+  dc:issued "2017-03-01"^^xsd:date ;
+  owl:versionInfo "0.9.0" .
+
+foaf:Organization
+  a owl:Class ;
+  rdfs:label "Organization"^^xsd:string ;
+  rdfs:comment "Organizations are used to keep track of Funding Sources and also a Person's affiliation."^^xsd:string .
+
+<http://ocean-data.org/schema/hasOrganizationSubName>
+  a owl:DatatypeProperty ;
+  rdfs:range xsd:string ;
+  rdfs:domain foaf:Organization .
+
+<http://ocean-data.org/schema/hasAcronym>
+  a owl:DatatypeProperty ;
+  rdfs:range xsd:string ;
+  rdfs:domain foaf:Organization .
+
+<http://ocean-data.org/schema/Award>
+  a owl:Class ;
+  rdfs:label "Award"^^xsd:string ;
+  rdfs:comment "A funding award provided by an Funding Source (Organization) to a Project. This Award may fund Datasets."^^xsd:string ;
+  owl:disjointWith foaf:Organization ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:unionOf (
+     <http://ocean-data.org/schema/GrantAward>
+     <http://ocean-data.org/schema/ContractAward>
+     <http://ocean-data.org/schema/SubContractAward>
+   )
+  ] .
+
+<http://ocean-data.org/schema/GrantAward>
+  a owl:Class ;
+  rdfs:label "Grant Award"^^xsd:string ;
+  rdfs:subClassOf <http://ocean-data.org/schema/Award> .
+
+<http://ocean-data.org/schema/ContractAward>
+  a owl:Class ;
+  rdfs:label "Contract Award"^^xsd:string ;
+  rdfs:subClassOf <http://ocean-data.org/schema/Award> ;
+  owl:disjointWith <http://ocean-data.org/schema/GrantAward> .
+
+<http://ocean-data.org/schema/SubContractAward>
+  a owl:Class ;
+  rdfs:label "Sub-Contract Award"^^xsd:string ;
+  rdfs:subClassOf <http://ocean-data.org/schema/Award> ;
+  owl:disjointWith <http://ocean-data.org/schema/GrantAward>, <http://ocean-data.org/schema/ContractAward> .
+
+<http://ocean-data.org/schema/hasAwardNumber>
+  a owl:DatatypeProperty ;
+  rdfs:range xsd:string ;
+  rdfs:domain <http://ocean-data.org/schema/Award> .
+
+<http://ocean-data.org/schema/hasAwardURL>
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf rdfs:seeAlso ;
+  rdfs:domain <http://ocean-data.org/schema/Award> .
+
+<http://ocean-data.org/schema/CreativeWork>
+  a owl:Class ;
+  rdfs:label "Creative Work"^^xsd:string ;
+  rdfs:subClassOf schema:CreativeWork .
+
+<http://ocean-data.org/schema/relatedWork>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://ocean-data.org/schema/CreativeWork> ;
+  rdfs:comment "A related work."^^xsd:string ;
+  rdfs:range skos:CreativeWork .
+
+<http://ocean-data.org/schema/relationshipType>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://ocean-data.org/schema/CreativeWork> ;
+  rdfs:comment "The type of relation between two Creative Works."^^xsd:string ;
+  rdfs:range <http://ocean-data.org/schema/CreativeWorkRelation> .
+
+<http://ocean-data.org/schema/hasIdentifier>
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf <http://purl.org/spar/datacite/hasIdentifier> ;
+  rdfs:domain <http://ocean-data.org/schema/CreativeWork> ;
+  rdfs:comment "An identifier for a Creative Work."^^xsd:string ;
+  rdfs:range <http://purl.org/spar/datacite/Identifier> .
+
+<http://ocean-data.org/schema/citationText>
+  a owl:DatatypeProperty ;
+  rdfs:comment "The citation text for a Creative Work."^^xsd:string ;
+  rdfs:domain <http://ocean-data.org/schema/CreativeWork> ;
+  rdfs:range xsd:string .
+
+<http://ocean-data.org/schema/crossrefRelation>
+  a owl:DatatypeProperty ;
+  rdfs:comment "The type of relationship defined by Crossref."^^xsd:string ;
+  rdfs:domain <http://ocean-data.org/schema/CreativeWorkRelation> ;
+  rdfs:range xsd:string .
+
+<http://ocean-data.org/schema/crossrefRelationType>
+  a owl:ObjectProperty ;
+  rdfs:comment "Either it's an inter-relation or an intra-relation depending on if its the same work or not."^^xsd:string ;
+  rdfs:domain <http://ocean-data.org/schema/CreativeWorkRelation> ;
+  rdfs:range [
+    a owl:DataRange ;
+    owl:oneOf (
+     ""^^ns0:CrossrefInterRelation
+     ""^^ns0:CrossrefIntraRelation
+   )
+  ] .
+
+<odo:CrossrefInterRelation>
+  a owl:NamedIndividual ;
+  rdfs:label "Crossref Inter-relation"@en-US ;
+  rdfs:comment "A relationship between two different creative works."@en-US .
+
+<odo:CrossrefIntraRelation>
+  a owl:NamedIndividual ;
+  rdfs:label "Crossref Intra-relation"@en-US ;
+  rdfs:comment "A relationship between two variations of the same creative work."@en-US .
+
+ns0:Dataset
+  a owl:Class ;
+  rdfs:label "Dataset"^^xsd:string ;
+  rdfs:comment "A super class for discovering any type of oceanographic dataset."^^xsd:string ;
+  owl:disjointWith ns0:Award, foaf:Organization ;
+  rdfs:subClassOf ns0:CreativeWork, [
+    a owl:Restriction ;
+    owl:onProperty ns0:restricted ;
+    owl:maxCardinality "1"^^xsd:nonNegativeInteger
+  ], [
+    a owl:Restriction ;
+    owl:onProperty ns0:releaseDate ;
+    owl:maxCardinality "1"^^xsd:nonNegativeInteger
+  ], [
+    a owl:Restriction ;
+    owl:onProperty ns0:validated ;
+    owl:maxCardinality "1"^^xsd:nonNegativeInteger
+  ] ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:unionOf (
+     ns0:LaboratoryDataset
+     ns0:DeploymentDataset
+     ns0:DatasetCollection
+   )
+  ] .
+
+ns0:LaboratoryDataset
+  a owl:Class ;
+  rdfs:label "Laboratory Dataset"^^xsd:string ;
+  rdfs:subClassOf ns0:Dataset .
+
+ns0:DeploymentDataset
+  a owl:Class ;
+  rdfs:label "Deployment Dataset"^^xsd:string ;
+  rdfs:comment "A deployment dataset is a dataset that is collected on a specific deployment of a platform from a specific instrument on that platform."^^xsd:string ;
+  rdfs:subClassOf ns0:Dataset ;
+  owl:disjointWith ns0:LaboratoryDataset .
+
+ns0:DatasetCollection
+  a owl:Class ;
+  rdfs:label "Dataset Collection"^^xsd:string ;
+  rdfs:subClassOf ns0:Dataset ;
+  owl:disjointWith ns0:LaboratoryDataset, ns0:DeploymentDataset .
+
+ns0:hasDatasetURL
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf rdfs:seeAlso ;
+  rdfs:domain ns0:Dataset .
+
+ns0:hasProcessingDescription
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf dc:description ;
+  rdfs:domain ns0:Dataset .
+
+ns0:hasAcquisitionDescription
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf dc:description ;
+  rdfs:domain ns0:Dataset .
+
+ns0:dataFile
+  a owl:DatatypeProperty ;
+  rdfs:domain ns0:Dataset ;
+  rdfs:range owl:Thing .
+
+ns0:dataFileLandingPage
+  a owl:DatatypeProperty ;
+  rdfs:domain ns0:Dataset ;
+  rdfs:range owl:Thing .
+
+ns0:restricted
+  a owl:DatatypeProperty ;
+  rdfs:domain ns0:Dataset ;
+  rdfs:comment "Is the dataset restricted for access by the public."^^xsd:string ;
+  rdfs:range xsd:boolean .
+
+ns0:releaseDate
+  a owl:DatatypeProperty ;
+  rdfs:comment "The date the dataset will be available. Useful for reporting when a restricted dataset will become available."^^xsd:string ;
+  rdfs:domain ns0:Dataset .
+
+ns0:versionLabel
+  a owl:DatatypeProperty ;
+  rdfs:domain ns0:Dataset ;
+  rdfs:comment "An string signifying the version of the dataset."^^xsd:string ;
+  rdfs:range xsd:string .
+
+ns0:validated
+  a owl:DatatypeProperty ;
+  rdfs:domain ns0:Dataset ;
+  rdfs:comment "Has the dataset been validated by the PI."^^xsd:string ;
+  rdfs:range xsd:boolean .
+
+ns0:currentState
+  a owl:ObjectProperty ;
+  rdfs:domain ns0:Dataset ;
+  rdfs:comment "A term describing the current state of the dataset."^^xsd:string ;
+  rdfs:range skos:Concept .
+
+ns0:datasetType
+  a owl:ObjectProperty ;
+  rdfs:domain ns0:Dataset ;
+  rdfs:comment "The type of dataset."^^xsd:string ;
+  rdfs:range skos:Concept .
+
+ns0:fromDeployment
+  a owl:ObjectProperty ;
+  rdfs:range ns0:Deployment ;
+  rdfs:domain ns0:DeploymentDataset .
+
+ns0:hasInventory
+  a owl:ObjectProperty ;
+  rdfs:label "hasInventory"^^xsd:string ;
+  rdfs:range ns0:Dataset ;
+  rdfs:domain ns0:DatasetCollection ;
+  owl:inverseOf ns0:fromCollection .
+
+ns0:fromCollection
+  a owl:ObjectProperty ;
+  rdfs:label "fromCollection"^^xsd:string ;
+  owl:inverseOf ns0:hasInventory .
+
+ns0:DeploymentDatasetCollection
+  a owl:Class ;
+  rdfs:subClassOf ns0:DatasetCollection, [
+    a owl:Restriction ;
+    owl:onProperty ns0:hasInventory ;
+    owl:allValuesFrom ns0:DeploymentDataset
+  ] .
+
+ns0:hasBriefDescription
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf dc:description ;
+  rdfs:domain ns0:DeploymentDatasetCollection .
+
+ns0:fromInstrument
+  a owl:ObjectProperty ;
+  rdfs:range ns0:Instrument ;
+  rdfs:comment "This dataset was collected from an instrument that is located on the platform during this deployment."^^xsd:string ;
+  rdfs:domain ns0:DeploymentDatasetCollection .
+
+ns0:Deployment
+  a owl:Class ;
+  rdfs:label "Deployment"^^xsd:string ;
+  rdfs:comment "A platform is deployed during a specific duration of time over a specific spacial coverage. For example, a boat is a platform. That boat is doployed (sent on a cruise) in order to collect data."^^xsd:string ;
+  owl:disjointWith ns0:Award, ns0:Dataset, foaf:Organization .
+
+ns0:hasReportURL
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf rdfs:seeAlso ;
+  rdfs:domain ns0:Deployment .
+
+ns0:hasCoordinatedDeployment
+  a owl:ObjectProperty ;
+  rdfs:range ns0:Deployment ;
+  rdfs:domain ns0:Deployment .
+
+ns0:hasSynonym
+  a owl:DatatypeProperty ;
+  rdfs:domain ns0:Deployment ;
+  rdfs:range xsd:string .
+
+ns0:ofPlatform
+  a owl:ObjectProperty ;
+  rdfs:range ns0:Platform ;
+  rdfs:domain ns0:Deployment .
+
+ns0:hasDeploymentDescription
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf dc:description ;
+  rdfs:domain ns0:Deployment .
+
+ns0:hasCruiseTrajectory
+  a owl:DatatypeProperty ;
+  rdfs:range <http://www.opengis.net/def/geosparql/Feature> ;
+  rdfs:domain ns0:Deployment .
+
+ns0:Cruise
+  a owl:Class ;
+  rdfs:subClassOf ns0:Deployment, [
+    a owl:Restriction ;
+    owl:onProperty ns0:ofPlatform ;
+    owl:hasValue ns0:Vessel
+  ] .
+
+ns0:Vessel
+  a owl:Class ;
+  rdfs:label "Vessel"^^xsd:string ;
+  rdfs:subClassOf ns0:Vehicle .
+
+ns0:FundingSource
+  a owl:Class ;
+  rdfs:label "Funding Source"^^xsd:string ;
+  rdfs:comment "An Organization that provides funding Awards to a Project."^^xsd:string ;
+  rdfs:subClassOf foaf:Organization ;
+  owl:disjointWith ns0:Award, ns0:Dataset, ns0:Deployment .
+
+ns0:Instrument
+  a owl:Class ;
+  rdfs:label "Instrument"^^xsd:string ;
+  skos:defintion "odo:Instrument is an instance of an NVS L22 Concept. Use odo:isInstanceOf to link the odo:Instrument to the L22 Concept's URI." ;
+  rdfs:subClassOf skos:Concept ;
+  owl:disjointWith ns0:Award, ns0:Dataset, ns0:Deployment, ns0:FundingSource, foaf:Organization .
+
+ns0:hasSerialNumber
+  a owl:DatatypeProperty ;
+  rdfs:range xsd:string ;
+  rdfs:domain ns0:Instrument .
+
+ns0:hasMakeAndModel
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf skos:related, rdfs:isDefinedBy ;
+  rdfs:label "Links odo:Instrument to a skos:Concept of which the odo:Instrument is an instance"^^xsd:string ;
+  rdfs:domain ns0:Instrument ;
+  rdfs:range skos:Concept .
+
+ns0:obsoletedBy
+  a owl:ObjectProperty ;
+  rdfs:label "Defines the resource that has replaced this resource."^^xsd:string ;
+  rdfs:domain skos:Concept ;
+  rdfs:range skos:Concept .
+
+ns0:MonitoredProperty
+  a owl:Class ;
+  rdfs:label "Monitored Property"^^xsd:string ;
+  skos:defintion "odo:MonitoredProperty is an instance of an NVS P01 Concept. Use odo:isInstanceOf to link the odo:MonitoredProperty to the P01 Concept's URI." ;
+  rdfs:subClassOf skos:Concept ;
+  owl:disjointWith ns0:Award, ns0:Dataset, ns0:Deployment, ns0:FundingSource, ns0:Instrument, foaf:Organization .
+
+ns0:UnitOfMeasure
+  a owl:Class ;
+  rdfs:label "Unit of Measure"^^xsd:string ;
+  rdfs:comment "A unit of measure"^^xsd:string ;
+  rdfs:subClassOf skos:Concept ;
+  owl:disjointWith ns0:Award, ns0:Dataset, ns0:Deployment, ns0:FundingSource, ns0:Instrument, ns0:MonitoredProperty, foaf:Organization .
+
+ns0:hasParameterShortDescription
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf dc:description ;
+  rdfs:domain ns0:MonitoredProperty .
+
+ns0:hasParameterShortName
+  a owl:DatatypeProperty ;
+  rdfs:range xsd:string ;
+  rdfs:domain ns0:MonitoredProperty .
+
+ns0:hasNoDataValue
+  a owl:DatatypeProperty ;
+  rdfs:comment "The value to expect in a Dataset when there was no data for the given record." ;
+  rdfs:range xsd:string ;
+  rdfs:domain ns0:MonitoredProperty .
+
+ns0:hasUnitOfMeasure
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf skos:related ;
+  owl:equivalentProperty <http://purl.org/voc/cpm#opUnitOfMeasure> ;
+  rdfs:label "hasUnitOfMeasure - Links odo:MonitoredProperty to a SKOS Concept defining the unit of measure"^^xsd:string ;
+  rdfs:domain ns0:MonitoredProperty ;
+  rdfs:range ns0:UnitOfMeasure .
+
+ns0:featureOfInterest
+  a owl:ObjectProperty ;
+  rdfs:label "Links an odo:MonitoredProperty to the feature, and from there the geometry, of interest"^^xsd:string ;
+  rdfs:subPropertyOf skos:related ;
+  rdfs:domain ns0:MonitoredProperty ;
+  rdfs:range <http://www.opengis.net/def/geosparql/Feature> .
+
+ns0:hasMonitoredProperty
+  a owl:ObjectProperty ;
+  rdfs:range ns0:Instrument ;
+  rdfs:domain ns0:MonitoredProperty .
+
+ns0:storesValuesFor
+  a owl:ObjectProperty ;
+  rdfs:domain ns0:Dataset ;
+  rdfs:range ns0:MonitoredProperty .
+
+ns0:DatasetMonitoredProperty
+  a owl:Class ;
+  rdfs:subClassOf ns0:MonitoredProperty ;
+  rdfs:label "Dataset Property"^^xsd:string ;
+  skos:defintion "odo:DatasetMonitoredProperty is an instance of a odo:MonitoredProperty but with project-specific label and definition known by the researcher." .
+
+ns0:requiresConversion
+  a owl:DatatypeProperty ;
+  rdfs:comment "The values in the dataset for this property need to be converted." ;
+  rdfs:range xsd:boolean ;
+  rdfs:domain ns0:DatasetMonitoredProperty .
+
+ns0:conversionDescription
+  a owl:DatatypeProperty ;
+  rdfs:comment "Describes how the values can be converted." ;
+  rdfs:range xsd:string ;
+  rdfs:domain ns0:DatasetMonitoredProperty .
+
+ns0:Platform
+  a owl:Class ;
+  rdfs:label "Platform"^^xsd:string ;
+  rdfs:comment "A thing from which a Deployment occurs."^^xsd:string ;
+  owl:disjointWith ns0:Award, ns0:Dataset, ns0:Deployment, ns0:FundingSource, ns0:Instrument, ns0:MonitoredProperty, ns0:UnitOfMeasure, foaf:Organization ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:unionOf (
+     ns0:Float
+     ns0:Glider
+     ns0:Drifter
+     ns0:Satellite
+     ns0:Model
+     ns0:Synthesis
+     ns0:StationaryPlatform
+     ns0:Vehicle
+   )
+  ] .
+
+ns0:Float
+  a owl:Class ;
+  rdfs:label "Float"^^xsd:string ;
+  rdfs:subClassOf ns0:Platform .
+
+ns0:Glider
+  a owl:Class ;
+  rdfs:label "Glider"^^xsd:string ;
+  rdfs:subClassOf ns0:Platform ;
+  owl:disjointWith ns0:Float .
+
+ns0:Drifter
+  a owl:Class ;
+  rdfs:label "Drifter"^^xsd:string ;
+  rdfs:subClassOf ns0:Platform ;
+  owl:disjointWith ns0:Float, ns0:Glider .
+
+ns0:Satellite
+  a owl:Class ;
+  rdfs:label "Satellite"^^xsd:string ;
+  rdfs:subClassOf ns0:Platform ;
+  owl:disjointWith ns0:Float, ns0:Glider, ns0:Drifter .
+
+ns0:Model
+  a owl:Class ;
+  rdfs:label "Model"^^xsd:string ;
+  rdfs:subClassOf ns0:Platform ;
+  owl:disjointWith ns0:Float, ns0:Glider, ns0:Drifter, ns0:Satellite .
+
+ns0:Synthesis
+  a owl:Class ;
+  rdfs:label "Synthesis"^^xsd:string ;
+  rdfs:subClassOf ns0:Platform ;
+  owl:disjointWith ns0:Float, ns0:Glider, ns0:Drifter, ns0:Satellite, ns0:Model .
+
+ns0:StationaryPlatform
+  a owl:Class ;
+  rdfs:label "Stationary Platform"^^xsd:string ;
+  rdfs:subClassOf ns0:Platform ;
+  owl:disjointWith ns0:Float, ns0:Glider, ns0:Drifter, ns0:Satellite, ns0:Model, ns0:Synthesis .
+
+ns0:Vehicle
+  a owl:Class ;
+  rdfs:label "Vehicle"^^xsd:string ;
+  rdfs:subClassOf ns0:Platform ;
+  owl:disjointWith ns0:Float, ns0:Glider, ns0:Drifter, ns0:Satellite, ns0:Model, ns0:Synthesis, ns0:StationaryPlatform .
+
+ns0:hasPlatformTitle
+  a owl:DatatypeProperty ;
+  rdfs:range xsd:string ;
+  rdfs:domain ns0:Platform .
+
+ns0:hasPlatformURL
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf rdfs:seeAlso ;
+  rdfs:domain ns0:Platform .
+
+ns0:isDeployed
+  a owl:ObjectProperty ;
+  owl:inverseOf ns0:ofPlatform ;
+  rdfs:range ns0:Deployment ;
+  rdfs:domain ns0:Platform .
+
+ns0:Dock
+  a owl:Class ;
+  rdfs:label "Dock"^^xsd:string ;
+  rdfs:subClassOf ns0:StationaryPlatform .
+
+ns0:Laboratory
+  a owl:Class ;
+  rdfs:label "Laboratory"^^xsd:string ;
+  rdfs:subClassOf ns0:StationaryPlatform .
+
+ns0:Island
+  a owl:Class ;
+  rdfs:label "Island"^^xsd:string ;
+  rdfs:subClassOf ns0:StationaryPlatform .
+
+ns0:Mooring
+  a owl:Class ;
+  rdfs:label "Mooring"^^xsd:string ;
+  rdfs:subClassOf ns0:StationaryPlatform .
+
+ns0:Aircraft
+  a owl:Class ;
+  rdfs:label "Aircraft"^^xsd:string ;
+  rdfs:subClassOf ns0:Vehicle .
+
+ns0:TowedVehicle
+  a owl:Class ;
+  rdfs:label "Towed Vehicle"^^xsd:string ;
+  rdfs:subClassOf ns0:Vehicle .
+
+ns0:Submarine
+  a owl:Class ;
+  rdfs:label "Submarine"^^xsd:string ;
+  rdfs:subClassOf ns0:Vehicle .
+
+ns0:MannedSubmarine
+  a owl:Class ;
+  rdfs:label "Manned Submarine"^^xsd:string ;
+  rdfs:subClassOf ns0:Submarine .
+
+ns0:UnmannedSubmarine
+  a owl:Class ;
+  rdfs:label "Unmanned Submarine"^^xsd:string ;
+  rdfs:subClassOf ns0:Submarine .
+
+ns0:RemotelyOperatedVehicle
+  a owl:Class ;
+  rdfs:label "ROV"^^xsd:string ;
+  rdfs:subClassOf ns0:UnmannedSubmarine .
+
+ns0:AutonomousUnderwaterVehicle
+  a owl:Class ;
+  rdfs:label "AUV"^^xsd:string ;
+  rdfs:subClassOf ns0:UnmannedSubmarine .
+
+ns0:StationaryVessel
+  a owl:Class ;
+  rdfs:label "Stationary Vessel"^^xsd:string ;
+  rdfs:subClassOf ns0:Vessel, ns0:StationaryPlatform .
+
+ns0:Program
+  a owl:Class ;
+  rdfs:label "Program"^^xsd:string ;
+  rdfs:comment "A large-scale project that encompasses smaller Projects."^^xsd:string ;
+  owl:disjointWith ns0:Award, ns0:Dataset, ns0:Deployment, ns0:FundingSource, ns0:Instrument, ns0:MonitoredProperty, ns0:UnitOfMeasure, ns0:Platform, foaf:Organization .
+
+ns0:hasProject
+  a owl:ObjectProperty ;
+  owl:inverseOf ns0:hasParentProgram .
+
+ns0:hasParentProgram
+  a owl:ObjectProperty ;
+  rdfs:range ns0:Program ;
+  rdfs:domain ns0:Project .
+
+ns0:Project
+  a owl:Class ;
+  rdfs:label "Project"^^xsd:string ;
+  rdfs:comment "A funded, scientific objective that may produce Datasets."^^xsd:string ;
+  rdfs:subClassOf foaf:Project ;
+  owl:disjointWith ns0:Award, ns0:Dataset, ns0:Deployment, ns0:FundingSource, ns0:Instrument, ns0:MonitoredProperty, ns0:UnitOfMeasure, ns0:Platform, ns0:Program, foaf:Organization .
+
+foaf:Person
+  a owl:Class ;
+  rdfs:label "Person"^^xsd:string ;
+  owl:disjointWith ns0:Award, ns0:Dataset, ns0:Deployment, ns0:FundingSource, ns0:Instrument, ns0:MonitoredProperty, ns0:UnitOfMeasure, ns0:Platform, ns0:Program, ns0:Project, foaf:Organization .
+
+ns0:hasAffiliation
+  a owl:ObjectProperty ;
+  rdfs:range foaf:Organization ;
+  rdfs:domain foaf:Person .
+
+ns0:hasRole
+  a owl:ObjectProperty ;
+  rdfs:range ns0:Role ;
+  rdfs:domain foaf:Person .
+
+ns0:Role
+  a owl:Class ;
+  rdfs:label "Role"^^xsd:string ;
+  rdfs:comment "A person can play many roles, such as principle investigator or captain or lead scientists. This role is played over a specific period of time"^^xsd:string ;
+  owl:disjointWith ns0:Award, ns0:Dataset, ns0:Deployment, ns0:FundingSource, ns0:Instrument, ns0:MonitoredProperty, ns0:UnitOfMeasure, ns0:Platform, ns0:Program, ns0:Project, foaf:Person, foaf:Organization ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:unionOf (
+     ns0:CaptainRole
+     ns0:ChiefScientistRole
+     ns0:Co-ChiefScientistRole
+     ns0:LeadPrincipalInvestigatorRole
+     ns0:PrincipalInvestigatorRole
+     ns0:Co-PrincipalInvestigatorRole
+     ns0:ScientistRole
+     ns0:GuestRole
+     ns0:StudentRole
+     ns0:TechnicianRole
+     ns0:OriginatorRole
+     ns0:DataPublisherRole
+     ns0:DataManagerRole
+     ns0:CuratorRole
+     ns0:AnalystRole
+     ns0:ContactRole
+     ns0:ProgramManagerRole
+     ns0:UnknownRole
+     ns0:InternationalCollaboratorRole
+     ns0:ProjectCoordinatorRole
+     ns0:BcoDmoDataManagerRole
+   )
+  ] .
+
+ns0:CaptainRole
+  a owl:Class ;
+  rdfs:label "Captain"^^xsd:string ;
+  rdfs:subClassOf ns0:Role .
+
+ns0:ChiefScientistRole
+  a owl:Class ;
+  rdfs:label "Chief Scientist"^^xsd:string ;
+  rdfs:subClassOf ns0:Role ;
+  owl:disjointWith ns0:CaptainRole .
+
+ns0:Co-ChiefScientistRole
+  a owl:Class ;
+  rdfs:label "Co-Chief Scientist"^^xsd:string ;
+  rdfs:subClassOf ns0:Role ;
+  owl:disjointWith ns0:CaptainRole, ns0:ChiefScientistRole .
+
+ns0:LeadPrincipalInvestigatorRole
+  a owl:Class ;
+  rdfs:label "Lead Principle Investigator"^^xsd:string ;
+  rdfs:subClassOf ns0:Role ;
+  owl:disjointWith ns0:CaptainRole, ns0:ChiefScientistRole, ns0:Co-ChiefScientistRole .
+
+ns0:PrincipalInvestigatorRole
+  a owl:Class ;
+  rdfs:label "Principal Investigator"^^xsd:string ;
+  rdfs:subClassOf ns0:Role ;
+  owl:disjointWith ns0:CaptainRole, ns0:ChiefScientistRole, ns0:Co-ChiefScientistRole, ns0:LeadPrincipalInvestigatorRole .
+
+ns0:Co-PrincipalInvestigatorRole
+  a owl:Class ;
+  rdfs:label "Co-Principal Investigator"^^xsd:string ;
+  rdfs:subClassOf ns0:Role ;
+  owl:disjointWith ns0:CaptainRole, ns0:ChiefScientistRole, ns0:Co-ChiefScientistRole, ns0:LeadPrincipalInvestigatorRole, ns0:PrincipalInvestigatorRole .
+
+ns0:ScientistRole
+  a owl:Class ;
+  rdfs:label "Scientist"^^xsd:string ;
+  rdfs:subClassOf ns0:Role ;
+  owl:disjointWith ns0:CaptainRole, ns0:ChiefScientistRole, ns0:Co-ChiefScientistRole, ns0:LeadPrincipalInvestigatorRole, ns0:PrincipalInvestigatorRole, ns0:Co-PrincipalInvestigatorRole .
+
+ns0:GuestRole
+  a owl:Class ;
+  rdfs:label "Guest"^^xsd:string ;
+  rdfs:subClassOf ns0:Role ;
+  owl:disjointWith ns0:CaptainRole, ns0:ChiefScientistRole, ns0:Co-ChiefScientistRole, ns0:LeadPrincipalInvestigatorRole, ns0:PrincipalInvestigatorRole, ns0:Co-PrincipalInvestigatorRole, ns0:ScientistRole .
+
+ns0:StudentRole
+  a owl:Class ;
+  rdfs:label "Student"^^xsd:string ;
+  rdfs:subClassOf ns0:Role ;
+  owl:disjointWith ns0:CaptainRole, ns0:ChiefScientistRole, ns0:Co-ChiefScientistRole, ns0:LeadPrincipalInvestigatorRole, ns0:PrincipalInvestigatorRole, ns0:Co-PrincipalInvestigatorRole, ns0:ScientistRole, ns0:GuestRole .
+
+ns0:TechnicianRole
+  a owl:Class ;
+  rdfs:label "Technician"^^xsd:string ;
+  rdfs:subClassOf ns0:Role ;
+  owl:disjointWith ns0:CaptainRole, ns0:ChiefScientistRole, ns0:Co-ChiefScientistRole, ns0:LeadPrincipalInvestigatorRole, ns0:PrincipalInvestigatorRole, ns0:Co-PrincipalInvestigatorRole, ns0:ScientistRole, ns0:GuestRole, ns0:StudentRole .
+
+ns0:OriginatorRole
+  a owl:Class ;
+  rdfs:label "Originator"^^xsd:string ;
+  rdfs:subClassOf ns0:Role ;
+  owl:disjointWith ns0:CaptainRole, ns0:ChiefScientistRole, ns0:Co-ChiefScientistRole, ns0:LeadPrincipalInvestigatorRole, ns0:PrincipalInvestigatorRole, ns0:Co-PrincipalInvestigatorRole, ns0:ScientistRole, ns0:GuestRole, ns0:StudentRole, ns0:TechnicianRole .
+
+ns0:DataPublisherRole
+  a owl:Class ;
+  rdfs:label "Data Publisher"^^xsd:string ;
+  rdfs:subClassOf ns0:Role ;
+  owl:disjointWith ns0:CaptainRole, ns0:ChiefScientistRole, ns0:Co-ChiefScientistRole, ns0:LeadPrincipalInvestigatorRole, ns0:PrincipalInvestigatorRole, ns0:Co-PrincipalInvestigatorRole, ns0:ScientistRole, ns0:GuestRole, ns0:StudentRole, ns0:TechnicianRole, ns0:OriginatorRole .
+
+ns0:DataManagerRole
+  a owl:Class ;
+  rdfs:subClassOf ns0:Role ;
+  rdfs:label "Data Manager"^^xsd:string ;
+  owl:disjointWith ns0:CaptainRole, ns0:ChiefScientistRole, ns0:Co-ChiefScientistRole, ns0:LeadPrincipalInvestigatorRole, ns0:PrincipalInvestigatorRole, ns0:Co-PrincipalInvestigatorRole, ns0:ScientistRole, ns0:GuestRole, ns0:StudentRole, ns0:TechnicianRole, ns0:OriginatorRole, ns0:DataPublisherRole .
+
+ns0:CuratorRole
+  a owl:Class ;
+  rdfs:label "Curator"^^xsd:string ;
+  rdfs:subClassOf ns0:Role ;
+  owl:disjointWith ns0:CaptainRole, ns0:ChiefScientistRole, ns0:Co-ChiefScientistRole, ns0:LeadPrincipalInvestigatorRole, ns0:PrincipalInvestigatorRole, ns0:Co-PrincipalInvestigatorRole, ns0:ScientistRole, ns0:GuestRole, ns0:StudentRole, ns0:TechnicianRole, ns0:OriginatorRole, ns0:DataPublisherRole, ns0:DataManagerRole .
+
+ns0:AnalystRole
+  a owl:Class ;
+  rdfs:label "Analyst"^^xsd:string ;
+  rdfs:subClassOf ns0:Role ;
+  owl:disjointWith ns0:CaptainRole, ns0:ChiefScientistRole, ns0:Co-ChiefScientistRole, ns0:LeadPrincipalInvestigatorRole, ns0:PrincipalInvestigatorRole, ns0:Co-PrincipalInvestigatorRole, ns0:ScientistRole, ns0:GuestRole, ns0:StudentRole, ns0:TechnicianRole, ns0:OriginatorRole, ns0:DataPublisherRole, ns0:DataManagerRole, ns0:CuratorRole .
+
+ns0:ContactRole
+  a owl:Class ;
+  rdfs:label "Contact"^^xsd:string ;
+  rdfs:subClassOf ns0:Role ;
+  owl:disjointWith ns0:CaptainRole, ns0:ChiefScientistRole, ns0:Co-ChiefScientistRole, ns0:LeadPrincipalInvestigatorRole, ns0:PrincipalInvestigatorRole, ns0:Co-PrincipalInvestigatorRole, ns0:ScientistRole, ns0:GuestRole, ns0:StudentRole, ns0:TechnicianRole, ns0:OriginatorRole, ns0:DataPublisherRole, ns0:DataManagerRole, ns0:CuratorRole, ns0:AnalystRole .
+
+ns0:ProgramManagerRole
+  a owl:Class ;
+  rdfs:label "Program Manager"^^xsd:string ;
+  rdfs:subClassOf ns0:Role ;
+  owl:disjointWith ns0:CaptainRole, ns0:ChiefScientistRole, ns0:Co-ChiefScientistRole, ns0:LeadPrincipalInvestigatorRole, ns0:PrincipalInvestigatorRole, ns0:Co-PrincipalInvestigatorRole, ns0:ScientistRole, ns0:GuestRole, ns0:StudentRole, ns0:TechnicianRole, ns0:OriginatorRole, ns0:DataPublisherRole, ns0:DataManagerRole, ns0:CuratorRole, ns0:AnalystRole, ns0:ContactRole .
+
+ns0:UnknownRole
+  a owl:Class ;
+  rdfs:label "Unknown"^^xsd:string ;
+  rdfs:subClassOf ns0:Role ;
+  owl:disjointWith ns0:CaptainRole, ns0:ChiefScientistRole, ns0:Co-ChiefScientistRole, ns0:LeadPrincipalInvestigatorRole, ns0:PrincipalInvestigatorRole, ns0:Co-PrincipalInvestigatorRole, ns0:ScientistRole, ns0:GuestRole, ns0:StudentRole, ns0:TechnicianRole, ns0:OriginatorRole, ns0:DataPublisherRole, ns0:DataManagerRole, ns0:CuratorRole, ns0:AnalystRole, ns0:ContactRole, ns0:ProgramManagerRole .
+
+ns0:InternationalCollaboratorRole
+  a owl:Class ;
+  rdfs:label "International Collaborator"^^xsd:string ;
+  rdfs:subClassOf ns0:Role ;
+  owl:disjointWith ns0:CaptainRole, ns0:ChiefScientistRole, ns0:Co-ChiefScientistRole, ns0:LeadPrincipalInvestigatorRole, ns0:PrincipalInvestigatorRole, ns0:Co-PrincipalInvestigatorRole, ns0:ScientistRole, ns0:GuestRole, ns0:StudentRole, ns0:TechnicianRole, ns0:OriginatorRole, ns0:DataPublisherRole, ns0:DataManagerRole, ns0:CuratorRole, ns0:AnalystRole, ns0:ContactRole, ns0:ProgramManagerRole, ns0:UnknownRole .
+
+ns0:ProjectCoordinatorRole
+  a owl:Class ;
+  rdfs:label "Project Coordinator"^^xsd:string ;
+  rdfs:subClassOf "" ;
+  owl:disjointWith ns0:CaptainRole, ns0:ChiefScientistRole, ns0:Co-ChiefScientistRole, ns0:LeadPrincipalInvestigatorRole, ns0:PrincipalInvestigatorRole, ns0:Co-PrincipalInvestigatorRole, ns0:ScientistRole, ns0:GuestRole, ns0:StudentRole, ns0:TechnicianRole, ns0:OriginatorRole, ns0:DataPublisherRole, ns0:DataManagerRole, ns0:CuratorRole, ns0:AnalystRole, ns0:ContactRole, ns0:ProgramManagerRole, ns0:UnknownRole, ns0:InternationalCollaboratorRole .
+
+ns0:BcoDmoDataManagerRole
+  a owl:Class ;
+  rdfs:subClassOf ns0:Role ;
+  rdfs:label "BCO-DMO Data Manager"^^xsd:string ;
+  owl:disjointWith ns0:CaptainRole, ns0:ChiefScientistRole, ns0:Co-ChiefScientistRole, ns0:LeadPrincipalInvestigatorRole, ns0:PrincipalInvestigatorRole, ns0:Co-PrincipalInvestigatorRole, ns0:ScientistRole, ns0:GuestRole, ns0:StudentRole, ns0:TechnicianRole, ns0:OriginatorRole, ns0:DataPublisherRole, ns0:DataManagerRole, ns0:CuratorRole, ns0:AnalystRole, ns0:ContactRole, ns0:ProgramManagerRole, ns0:UnknownRole, ns0:InternationalCollaboratorRole, ns0:ProjectCoordinatorRole .
+
+ns0:forOrganization
+  a owl:ObjectProperty ;
+  rdfs:range foaf:Organization ;
+  rdfs:domain ns0:Role .
+
+ns0:performedBy
+  a owl:ObjectProperty ;
+  rdfs:range foaf:Person ;
+  rdfs:domain ns0:Role .
+
+ns0:hasDataset
+  a owl:ObjectProperty ;
+  rdfs:range ns0:Dataset ;
+  rdfs:comment "Used by odo:DeploymentDataset, odo:Award, odo:Project classes"^^xsd:string .
+
+ns0:hasAward
+  a owl:ObjectProperty ;
+  rdfs:range ns0:Award ;
+  rdfs:comment "Used by odo:Dataset, odo:FundingSource classes"^^xsd:string .
+
+ns0:hasSmallLogoURL
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf foaf:logo ;
+  rdfs:comment "Used by odo:Project, odo:Program classes"^^xsd:string .
+
+ns0:hasDataManagementPlan
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf rdfs:seeAlso ;
+  rdfs:comment "Used by odo:Projectto specify the URL to the Project's Data Management Plan."^^xsd:string ;
+  rdfs:domain ns0:Project .
+
+ns0:osprey_page
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf rdfs:seeAlso ;
+  rdfs:comment "Used by odo:Project, odo:Program, odo:Dataset, Person, Organization, odo:FundingSource, odo:Role, odo:Award, odo:Deployment, odo:Platform, odo:Instrument, odo:Parameter to specify the URL to the HTML metadata page at www.bco-dmo.org"^^xsd:string .
+
+ns0:r2r_page
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf rdfs:seeAlso ;
+  rdfs:comment "Used by odo:Cruise, but I don't thnk we use this anymore. Instead, we link to R2R cruises with owl:sameAs or odo:matches"^^xsd:string .
+
+ns0:hasAgentWithRole
+  a owl:ObjectProperty ;
+  rdfs:range ns0:Role ;
+  rdfs:comment "Used by odo:Project, odo:Program, odo:Dataset, odo:Deployment classes"^^xsd:string .
+
+ns0:hasFundingSource
+  a owl:ObjectProperty ;
+  rdfs:range foaf:Organization ;
+  rdfs:comment "Used by odo:Award class, so not sure why the range hasn't been set on this property"^^xsd:string .
+
+ns0:hasParameter
+  a owl:ObjectProperty ;
+  rdfs:range ns0:Parameter ;
+  rdfs:comment "Used by odo:Dataset class, so not sure why the range hasn't been set on this property. This property may have duplicate resources for now and these represent that there were 'n' number of parameters that measured the same conceptual property. This is the issue we are seeking to fix by modeling the local, colloquial term the PI used for this parameter, and then mapping it to this more conceptual understanding of that measured parameter."^^xsd:string .
+
+ns0:hasDeploymentDates
+  a owl:ObjectProperty ;
+  rdfs:range <http://www.w3.org/2006/time#TemporalEntity> ;
+  rdfs:domain ns0:Deployment ;
+  rdfs:comment "A date range for the start and end of a deployment"^^xsd:string .
+
+ns0:hasProjectDates
+  a owl:ObjectProperty ;
+  rdfs:range <http://www.w3.org/2006/time#TemporalEntity> ;
+  rdfs:domain ns0:Project ;
+  rdfs:comment "A date range for the start and end of a project"^^xsd:string .
+
+ns0:hasProgramDates
+  a owl:ObjectProperty ;
+  rdfs:range <http://www.w3.org/2006/time#TemporalEntity> ;
+  rdfs:domain ns0:Program ;
+  rdfs:comment "A date range for the start and end of a program"^^xsd:string .
+
+ns0:isInstanceOf
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf skos:related, rdfs:isDefinedBy ;
+  rdfs:label "Links odo instances (odo:Instrument and odo:MonitoredProperty) to skos:Concept"^^xsd:string ;
+  rdfs:domain owl:Thing ;
+  rdfs:range skos:Concept .
+
+ns0:matches
+  a owl:SymmetricProperty ;
+  rdfs:subPropertyOf rdf:seeAlso ;
+  rdfs:domain owl:Thing ;
+  rdfs:range owl:Thing ;
+  rdfs:comment "A symmetric match for linking between instance data of ODO and coreferences in external Linked Data sets"^^xsd:string .
+
+ns0:wktLiteral
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf <http://www.opengis.net/def/geosparql/wktLiteral> ;
+  rdfs:domain owl:Thing ;
+  rdfs:comment "A WKT representation of a geometry to use when avoiding Virtuoso's geometry validation."^^xsd:string .
+
+[]
+  a owl:Class ;
+  rdfs:label "Creative Work Relationship"^^xsd:string ;
+  rdfs:subClassOf skos:Concept .
