@@ -1128,6 +1128,7 @@
   <owl:DatatypeProperty rdf:about="&odo;wktLiteral">
     <rdfs:subPropertyOf rdf:resource="&geos;wktLiteral"/>
     <rdfs:domain rdf:resource="&owl;Thing"/>
+    <rdfs:range rdf:resource="&geos;wktLiteral"/>
     <rdfs:comment rdf:datatype="&xsd;string">A WKT representation of a geometry to use when avoiding Virtuoso's geometry validation.</rdfs:comment>
   </owl:DatatypeProperty>
 </rdf:RDF>

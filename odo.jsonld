@@ -17,1923 +17,7 @@
   },
   "@graph": [
     {
-      "@id": "odo:hasAcronym",
-      "@type": "owl:DatatypeProperty",
-      "rdfs:domain": {
-        "@id": "foaf:Organization"
-      },
-      "rdfs:range": {
-        "@id": "xsd:string"
-      }
-    },
-    {
-      "@id": "_:N18ec7e97dacd46a991dae6c20312a79d",
-      "@type": "rdf:List",
-      "rdf:first": {
-        "@type": "odo:CrossrefInterRelation",
-        "@value": ""
-      },
-      "rdf:rest": {
-        "@id": "_:N15c80b7b23954ea785474e3561d81a62"
-      }
-    },
-    {
-      "@id": "odo:FundingSource",
-      "@type": "owl:Class",
-      "owl:disjointWith": [
-        {
-          "@id": "odo:Dataset"
-        },
-        {
-          "@id": "odo:Deployment"
-        },
-        {
-          "@id": "odo:Award"
-        }
-      ],
-      "rdfs:comment": "An Organization that provides funding Awards to a Project.",
-      "rdfs:label": "Funding Source",
-      "rdfs:subClassOf": {
-        "@id": "foaf:Organization"
-      }
-    },
-    {
-      "@id": "odo:hasPlatformURL",
-      "@type": "owl:DatatypeProperty",
-      "rdfs:domain": {
-        "@id": "odo:Platform"
-      },
-      "rdfs:subPropertyOf": {
-        "@id": "rdfs:seeAlso"
-      }
-    },
-    {
-      "@id": "_:N43d3d90e93f74e1c90990044c374008f",
-      "@type": "owl:Class",
-      "owl:unionOf": {
-        "@list": [
-          {
-            "@id": "odo:LaboratoryDataset"
-          },
-          {
-            "@id": "odo:DeploymentDataset"
-          },
-          {
-            "@id": "odo:DatasetCollection"
-          }
-        ]
-      }
-    },
-    {
-      "@id": "odo:Platform",
-      "@type": "owl:Class",
-      "owl:disjointWith": [
-        {
-          "@id": "odo:MonitoredProperty"
-        },
-        {
-          "@id": "odo:UnitOfMeasure"
-        },
-        {
-          "@id": "odo:FundingSource"
-        },
-        {
-          "@id": "odo:Instrument"
-        },
-        {
-          "@id": "odo:Dataset"
-        },
-        {
-          "@id": "odo:Deployment"
-        },
-        {
-          "@id": "odo:Award"
-        },
-        {
-          "@id": "foaf:Organization"
-        }
-      ],
-      "owl:equivalentClass": {
-        "@id": "_:Nc40cce4ce9aa491cbfc62d48d37e4939"
-      },
-      "rdfs:comment": "A thing from which a Deployment occurs.",
-      "rdfs:label": "Platform"
-    },
-    {
-      "@id": "odo:currentState",
-      "@type": "owl:ObjectProperty",
-      "rdfs:comment": "A term describing the current state of the dataset.",
-      "rdfs:domain": {
-        "@id": "odo:Dataset"
-      },
-      "rdfs:range": {
-        "@id": "skos:Concept"
-      }
-    },
-    {
-      "@id": "odo:forOrganization",
-      "@type": "owl:ObjectProperty",
-      "rdfs:domain": {
-        "@id": "odo:Role"
-      },
-      "rdfs:range": {
-        "@id": "foaf:Organization"
-      }
-    },
-    {
-      "@id": "odo:Satellite",
-      "@type": "owl:Class",
-      "owl:disjointWith": [
-        {
-          "@id": "odo:Glider"
-        },
-        {
-          "@id": "odo:Drifter"
-        },
-        {
-          "@id": "odo:Float"
-        }
-      ],
-      "rdfs:label": "Satellite",
-      "rdfs:subClassOf": {
-        "@id": "odo:Platform"
-      }
-    },
-    {
-      "@id": "odo:versionLabel",
-      "@type": "owl:DatatypeProperty",
-      "rdfs:comment": "An string signifying the version of the dataset.",
-      "rdfs:domain": {
-        "@id": "odo:Dataset"
-      },
-      "rdfs:range": {
-        "@id": "xsd:string"
-      }
-    },
-    {
-      "@id": "_:Na326543f6583415bb9b358fecf4539ad",
-      "@type": "owl:Restriction",
-      "owl:maxCardinality": {
-        "@type": "xsd:nonNegativeInteger",
-        "@value": "1"
-      },
-      "owl:onProperty": {
-        "@id": "odo:validated"
-      }
-    },
-    {
-      "@id": "odo:Glider",
-      "@type": "owl:Class",
-      "owl:disjointWith": {
-        "@id": "odo:Float"
-      },
-      "rdfs:label": "Glider",
-      "rdfs:subClassOf": {
-        "@id": "odo:Platform"
-      }
-    },
-    {
-      "@id": "odo:ChiefScientistRole",
-      "@type": "owl:Class",
-      "owl:disjointWith": {
-        "@id": "odo:CaptainRole"
-      },
-      "rdfs:label": "Chief Scientist",
-      "rdfs:subClassOf": {
-        "@id": "odo:Role"
-      }
-    },
-    {
-      "@id": "odo:performedBy",
-      "@type": "owl:ObjectProperty",
-      "rdfs:domain": {
-        "@id": "odo:Role"
-      },
-      "rdfs:range": {
-        "@id": "foaf:Person"
-      }
-    },
-    {
-      "@id": "_:N5aaa5c46847441398b440ad1450bd25a",
-      "@type": "owl:Restriction",
-      "owl:hasValue": {
-        "@id": "odo:Vessel"
-      },
-      "owl:onProperty": {
-        "@id": "odo:ofPlatform"
-      }
-    },
-    {
-      "@id": "odo:StationaryPlatform",
-      "@type": "owl:Class",
-      "owl:disjointWith": [
-        {
-          "@id": "odo:Glider"
-        },
-        {
-          "@id": "odo:Drifter"
-        },
-        {
-          "@id": "odo:Float"
-        },
-        {
-          "@id": "odo:Synthesis"
-        },
-        {
-          "@id": "odo:Satellite"
-        },
-        {
-          "@id": "odo:Model"
-        }
-      ],
-      "rdfs:label": "Stationary Platform",
-      "rdfs:subClassOf": {
-        "@id": "odo:Platform"
-      }
-    },
-    {
-      "@id": "odo:featureOfInterest",
-      "@type": "owl:ObjectProperty",
-      "rdfs:domain": {
-        "@id": "odo:MonitoredProperty"
-      },
-      "rdfs:label": "Links an odo:MonitoredProperty to the feature, and from there the geometry, of interest",
-      "rdfs:range": {
-        "@id": "geos:Feature"
-      },
-      "rdfs:subPropertyOf": {
-        "@id": "skos:related"
-      }
-    },
-    {
-      "@id": "odo:hasSmallLogoURL",
-      "@type": "owl:DatatypeProperty",
-      "rdfs:comment": "Used by odo:Project, odo:Program classes",
-      "rdfs:subPropertyOf": {
-        "@id": "foaf:logo"
-      }
-    },
-    {
-      "@id": "odo:hasAward",
-      "@type": "owl:ObjectProperty",
-      "rdfs:comment": "Used by odo:Dataset, odo:FundingSource classes",
-      "rdfs:range": {
-        "@id": "odo:Award"
-      }
-    },
-    {
-      "@id": "odo:Role",
-      "@type": "owl:Class",
-      "owl:disjointWith": [
-        {
-          "@id": "foaf:Person"
-        },
-        {
-          "@id": "odo:Award"
-        },
-        {
-          "@id": "foaf:Organization"
-        },
-        {
-          "@id": "odo:Instrument"
-        },
-        {
-          "@id": "odo:Dataset"
-        },
-        {
-          "@id": "odo:Deployment"
-        },
-        {
-          "@id": "odo:Program"
-        },
-        {
-          "@id": "odo:Project"
-        },
-        {
-          "@id": "odo:FundingSource"
-        },
-        {
-          "@id": "odo:Platform"
-        },
-        {
-          "@id": "odo:MonitoredProperty"
-        },
-        {
-          "@id": "odo:UnitOfMeasure"
-        }
-      ],
-      "owl:equivalentClass": {
-        "@id": "_:Nab78b621c31d4ab2a4bb60cb9ce25a83"
-      },
-      "rdfs:comment": "A person can play many roles, such as principle investigator or captain or lead scientists. This role is played over a specific period of time",
-      "rdfs:label": "Role"
-    },
-    {
-      "@id": "_:Nc40cce4ce9aa491cbfc62d48d37e4939",
-      "@type": "owl:Class",
-      "owl:unionOf": {
-        "@list": [
-          {
-            "@id": "odo:Float"
-          },
-          {
-            "@id": "odo:Glider"
-          },
-          {
-            "@id": "odo:Drifter"
-          },
-          {
-            "@id": "odo:Satellite"
-          },
-          {
-            "@id": "odo:Model"
-          },
-          {
-            "@id": "odo:Synthesis"
-          },
-          {
-            "@id": "odo:StationaryPlatform"
-          },
-          {
-            "@id": "odo:Vehicle"
-          }
-        ]
-      }
-    },
-    {
-      "@id": "odo:ContractAward",
-      "@type": "owl:Class",
-      "owl:disjointWith": {
-        "@id": "odo:GrantAward"
-      },
-      "rdfs:label": "Contract Award",
-      "rdfs:subClassOf": {
-        "@id": "odo:Award"
-      }
-    },
-    {
-      "@id": "odo:hasParameterShortName",
-      "@type": "owl:DatatypeProperty",
-      "rdfs:domain": {
-        "@id": "odo:MonitoredProperty"
-      },
-      "rdfs:range": {
-        "@id": "xsd:string"
-      }
-    },
-    {
-      "@id": "odo:hasAgentWithRole",
-      "@type": "owl:ObjectProperty",
-      "rdfs:comment": "Used by odo:Project, odo:Program, odo:Dataset, odo:Deployment classes",
-      "rdfs:range": {
-        "@id": "odo:Role"
-      }
-    },
-    {
-      "@id": "odo:restricted",
-      "@type": "owl:DatatypeProperty",
-      "rdfs:comment": "Is the dataset restricted for access by the public.",
-      "rdfs:domain": {
-        "@id": "odo:Dataset"
-      },
-      "rdfs:range": {
-        "@id": "xsd:boolean"
-      }
-    },
-    {
-      "@id": "odo:dataFileLandingPage",
-      "@type": "owl:DatatypeProperty",
-      "rdfs:domain": {
-        "@id": "odo:Dataset"
-      },
-      "rdfs:range": {
-        "@id": "owl:Thing"
-      }
-    },
-    {
-      "@id": "odo:RemotelyOperatedVehicle",
-      "@type": "owl:Class",
-      "rdfs:label": "ROV",
-      "rdfs:subClassOf": {
-        "@id": "odo:UnmannedSubmarine"
-      }
-    },
-    {
-      "@id": "odo:hasFundingSource",
-      "@type": "owl:ObjectProperty",
-      "rdfs:comment": "Used by odo:Award class, so not sure why the range hasn't been set on this property",
-      "rdfs:range": {
-        "@id": "foaf:Organization"
-      }
-    },
-    {
-      "@id": "odo:CrossrefInterRelation",
-      "@type": "owl:NamedIndividual",
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "A relationship between two different creative works."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Crossref Inter-relation"
-      }
-    },
-    {
-      "@id": "odo:matches",
-      "@type": "owl:SymmetricProperty",
-      "rdfs:comment": "A symmetric match for linking between instance data of ODO and coreferences in external Linked Data sets",
-      "rdfs:domain": {
-        "@id": "owl:Thing"
-      },
-      "rdfs:range": {
-        "@id": "owl:Thing"
-      },
-      "rdfs:subPropertyOf": {
-        "@id": "rdf:seeAlso"
-      }
-    },
-    {
-      "@id": "odo:relatedWork",
-      "@type": "owl:ObjectProperty",
-      "rdfs:comment": "A related work.",
-      "rdfs:domain": {
-        "@id": "odo:CreativeWork"
-      },
-      "rdfs:range": {
-        "@id": "skos:CreativeWork"
-      }
-    },
-    {
-      "@id": "odo:hasNoDataValue",
-      "@type": "owl:DatatypeProperty",
-      "rdfs:comment": "The value to expect in a Dataset when there was no data for the given record.",
-      "rdfs:domain": {
-        "@id": "odo:MonitoredProperty"
-      },
-      "rdfs:range": {
-        "@id": "xsd:string"
-      }
-    },
-    {
-      "@id": "_:N8a86cb559bae4660ae2fbf5bfb747992",
-      "rdf:Resource": "http://ocean-data.org/schema/Role"
-    },
-    {
-      "@id": "odo:hasMonitoredProperty",
-      "@type": "owl:ObjectProperty",
-      "rdfs:domain": {
-        "@id": "odo:MonitoredProperty"
-      },
-      "rdfs:range": {
-        "@id": "odo:Instrument"
-      }
-    },
-    {
-      "@id": "odo:Vessel",
-      "@type": "owl:Class",
-      "rdfs:label": "Vessel",
-      "rdfs:subClassOf": {
-        "@id": "odo:Vehicle"
-      }
-    },
-    {
-      "@id": "odo:TechnicianRole",
-      "@type": "owl:Class",
-      "owl:disjointWith": [
-        {
-          "@id": "odo:CaptainRole"
-        },
-        {
-          "@id": "odo:LeadPrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:GuestRole"
-        },
-        {
-          "@id": "odo:Co-PrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:ChiefScientistRole"
-        },
-        {
-          "@id": "odo:ScientistRole"
-        },
-        {
-          "@id": "odo:Co-ChiefScientistRole"
-        },
-        {
-          "@id": "odo:StudentRole"
-        },
-        {
-          "@id": "odo:PrincipalInvestigatorRole"
-        }
-      ],
-      "rdfs:label": "Technician",
-      "rdfs:subClassOf": {
-        "@id": "odo:Role"
-      }
-    },
-    {
-      "@id": "odo:ProjectCoordinatorRole",
-      "@type": "owl:Class",
-      "owl:disjointWith": [
-        {
-          "@id": "odo:OriginatorRole"
-        },
-        {
-          "@id": "odo:PrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:InternationalCollaboratorRole"
-        },
-        {
-          "@id": "odo:Co-ChiefScientistRole"
-        },
-        {
-          "@id": "odo:AnalystRole"
-        },
-        {
-          "@id": "odo:UnknownRole"
-        },
-        {
-          "@id": "odo:ScientistRole"
-        },
-        {
-          "@id": "odo:TechnicianRole"
-        },
-        {
-          "@id": "odo:StudentRole"
-        },
-        {
-          "@id": "odo:DataPublisherRole"
-        },
-        {
-          "@id": "odo:ContactRole"
-        },
-        {
-          "@id": "odo:GuestRole"
-        },
-        {
-          "@id": "odo:DataManagerRole"
-        },
-        {
-          "@id": "odo:LeadPrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:Co-PrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:ChiefScientistRole"
-        },
-        {
-          "@id": "odo:CaptainRole"
-        },
-        {
-          "@id": "odo:CuratorRole"
-        },
-        {
-          "@id": "odo:ProgramManagerRole"
-        }
-      ],
-      "rdfs:label": "Project Coordinator",
-      "rdfs:subClassOf": {
-        "@id": "_:N8a86cb559bae4660ae2fbf5bfb747992"
-      }
-    },
-    {
-      "@id": "odo:hasProject",
-      "@type": "owl:ObjectProperty",
-      "owl:inverseOf": {
-        "@id": "odo:hasParentProgram"
-      }
-    },
-    {
-      "@id": "odo:hasCoordinatedDeployment",
-      "@type": "owl:ObjectProperty",
-      "rdfs:domain": {
-        "@id": "odo:Deployment"
-      },
-      "rdfs:range": {
-        "@id": "odo:Deployment"
-      }
-    },
-    {
-      "@id": "_:Nada1656bc4cc4d40a2d8e0df6e67ecb9",
-      "@type": "owl:Class",
-      "owl:unionOf": {
-        "@list": [
-          {
-            "@id": "odo:GrantAward"
-          },
-          {
-            "@id": "odo:ContractAward"
-          },
-          {
-            "@id": "odo:SubContractAward"
-          }
-        ]
-      }
-    },
-    {
-      "@id": "odo:hasDatasetURL",
-      "@type": "owl:DatatypeProperty",
-      "rdfs:domain": {
-        "@id": "odo:Dataset"
-      },
-      "rdfs:subPropertyOf": {
-        "@id": "rdfs:seeAlso"
-      }
-    },
-    {
-      "@id": "odo:TowedVehicle",
-      "@type": "owl:Class",
-      "rdfs:label": "Towed Vehicle",
-      "rdfs:subClassOf": {
-        "@id": "odo:Vehicle"
-      }
-    },
-    {
-      "@id": "odo:DataPublisherRole",
-      "@type": "owl:Class",
-      "owl:disjointWith": [
-        {
-          "@id": "odo:TechnicianRole"
-        },
-        {
-          "@id": "odo:LeadPrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:PrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:Co-PrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:StudentRole"
-        },
-        {
-          "@id": "odo:Co-ChiefScientistRole"
-        },
-        {
-          "@id": "odo:ScientistRole"
-        },
-        {
-          "@id": "odo:ChiefScientistRole"
-        },
-        {
-          "@id": "odo:CaptainRole"
-        },
-        {
-          "@id": "odo:GuestRole"
-        },
-        {
-          "@id": "odo:OriginatorRole"
-        }
-      ],
-      "rdfs:label": "Data Publisher",
-      "rdfs:subClassOf": {
-        "@id": "odo:Role"
-      }
-    },
-    {
-      "@id": "odo:validated",
-      "@type": "owl:DatatypeProperty",
-      "rdfs:comment": "Has the dataset been validated by the PI.",
-      "rdfs:domain": {
-        "@id": "odo:Dataset"
-      },
-      "rdfs:range": {
-        "@id": "xsd:boolean"
-      }
-    },
-    {
-      "@id": "odo:GuestRole",
-      "@type": "owl:Class",
-      "owl:disjointWith": [
-        {
-          "@id": "odo:ChiefScientistRole"
-        },
-        {
-          "@id": "odo:PrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:CaptainRole"
-        },
-        {
-          "@id": "odo:Co-ChiefScientistRole"
-        },
-        {
-          "@id": "odo:ScientistRole"
-        },
-        {
-          "@id": "odo:LeadPrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:Co-PrincipalInvestigatorRole"
-        }
-      ],
-      "rdfs:label": "Guest",
-      "rdfs:subClassOf": {
-        "@id": "odo:Role"
-      }
-    },
-    {
-      "@id": "odo:hasDeploymentDates",
-      "@type": "owl:ObjectProperty",
-      "rdfs:comment": "A date range for the start and end of a deployment",
-      "rdfs:domain": {
-        "@id": "odo:Deployment"
-      },
-      "rdfs:range": {
-        "@id": "time:TemporalEntity"
-      }
-    },
-    {
-      "@id": "odo:obsoletedBy",
-      "@type": "owl:ObjectProperty",
-      "rdfs:domain": {
-        "@id": "skos:Concept"
-      },
-      "rdfs:label": "Defines the resource that has replaced this resource.",
-      "rdfs:range": {
-        "@id": "skos:Concept"
-      }
-    },
-    {
-      "@id": "_:N856cef8d63c44f4e97fdbede0798b233",
-      "@type": "owl:Restriction",
-      "owl:maxCardinality": {
-        "@type": "xsd:nonNegativeInteger",
-        "@value": "1"
-      },
-      "owl:onProperty": {
-        "@id": "odo:restricted"
-      }
-    },
-    {
-      "@id": "odo:Drifter",
-      "@type": "owl:Class",
-      "owl:disjointWith": [
-        {
-          "@id": "odo:Float"
-        },
-        {
-          "@id": "odo:Glider"
-        }
-      ],
-      "rdfs:label": "Drifter",
-      "rdfs:subClassOf": {
-        "@id": "odo:Platform"
-      }
-    },
-    {
-      "@id": "odo:hasReportURL",
-      "@type": "owl:DatatypeProperty",
-      "rdfs:domain": {
-        "@id": "odo:Deployment"
-      },
-      "rdfs:subPropertyOf": {
-        "@id": "rdfs:seeAlso"
-      }
-    },
-    {
-      "@id": "odo:Dataset",
-      "@type": "owl:Class",
-      "owl:disjointWith": [
-        {
-          "@id": "odo:Award"
-        },
-        {
-          "@id": "foaf:Organization"
-        }
-      ],
-      "owl:equivalentClass": {
-        "@id": "_:N43d3d90e93f74e1c90990044c374008f"
-      },
-      "rdfs:comment": "A super class for discovering any type of oceanographic dataset.",
-      "rdfs:label": "Dataset",
-      "rdfs:subClassOf": [
-        {
-          "@id": "_:N856cef8d63c44f4e97fdbede0798b233"
-        },
-        {
-          "@id": "_:N8b6c194f154a4b8aac64a4b0bdd6b234"
-        },
-        {
-          "@id": "odo:CreativeWork"
-        },
-        {
-          "@id": "_:Na326543f6583415bb9b358fecf4539ad"
-        }
-      ]
-    },
-    {
-      "@id": "odo:UnknownRole",
-      "@type": "owl:Class",
-      "owl:disjointWith": [
-        {
-          "@id": "odo:OriginatorRole"
-        },
-        {
-          "@id": "odo:ChiefScientistRole"
-        },
-        {
-          "@id": "odo:Co-ChiefScientistRole"
-        },
-        {
-          "@id": "odo:CaptainRole"
-        },
-        {
-          "@id": "odo:ProgramManagerRole"
-        },
-        {
-          "@id": "odo:TechnicianRole"
-        },
-        {
-          "@id": "odo:PrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:AnalystRole"
-        },
-        {
-          "@id": "odo:ContactRole"
-        },
-        {
-          "@id": "odo:DataPublisherRole"
-        },
-        {
-          "@id": "odo:Co-PrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:GuestRole"
-        },
-        {
-          "@id": "odo:DataManagerRole"
-        },
-        {
-          "@id": "odo:ScientistRole"
-        },
-        {
-          "@id": "odo:CuratorRole"
-        },
-        {
-          "@id": "odo:LeadPrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:StudentRole"
-        }
-      ],
-      "rdfs:label": "Unknown",
-      "rdfs:subClassOf": {
-        "@id": "odo:Role"
-      }
-    },
-    {
-      "@id": "odo:DatasetCollection",
-      "@type": "owl:Class",
-      "owl:disjointWith": [
-        {
-          "@id": "odo:LaboratoryDataset"
-        },
-        {
-          "@id": "odo:DeploymentDataset"
-        }
-      ],
-      "rdfs:label": "Dataset Collection",
-      "rdfs:subClassOf": {
-        "@id": "odo:Dataset"
-      }
-    },
-    {
-      "@id": "odo:Float",
-      "@type": "owl:Class",
-      "rdfs:label": "Float",
-      "rdfs:subClassOf": {
-        "@id": "odo:Platform"
-      }
-    },
-    {
-      "@id": "odo:hasCruiseTrajectory",
-      "@type": "owl:DatatypeProperty",
-      "rdfs:domain": {
-        "@id": "odo:Deployment"
-      },
-      "rdfs:range": {
-        "@id": "geos:Feature"
-      }
-    },
-    {
-      "@id": "odo:storesValuesFor",
-      "@type": "owl:ObjectProperty",
-      "rdfs:domain": {
-        "@id": "odo:Dataset"
-      },
-      "rdfs:range": {
-        "@id": "odo:MonitoredProperty"
-      }
-    },
-    {
-      "@id": "odo:releaseDate",
-      "@type": "owl:DatatypeProperty",
-      "rdfs:comment": "The date the dataset will be available. Useful for reporting when a restricted dataset will become available.",
-      "rdfs:domain": {
-        "@id": "odo:Dataset"
-      }
-    },
-    {
-      "@id": "odo:fromInstrument",
-      "@type": "owl:ObjectProperty",
-      "rdfs:comment": "This dataset was collected from an instrument that is located on the platform during this deployment.",
-      "rdfs:domain": {
-        "@id": "odo:DeploymentDatasetCollection"
-      },
-      "rdfs:range": {
-        "@id": "odo:Instrument"
-      }
-    },
-    {
-      "@id": "odo:hasOrganizationSubName",
-      "@type": "owl:DatatypeProperty",
-      "rdfs:domain": {
-        "@id": "foaf:Organization"
-      },
-      "rdfs:range": {
-        "@id": "xsd:string"
-      }
-    },
-    {
-      "@id": "odo:ProgramManagerRole",
-      "@type": "owl:Class",
-      "owl:disjointWith": [
-        {
-          "@id": "odo:PrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:CaptainRole"
-        },
-        {
-          "@id": "odo:ScientistRole"
-        },
-        {
-          "@id": "odo:Co-ChiefScientistRole"
-        },
-        {
-          "@id": "odo:AnalystRole"
-        },
-        {
-          "@id": "odo:CuratorRole"
-        },
-        {
-          "@id": "odo:ChiefScientistRole"
-        },
-        {
-          "@id": "odo:OriginatorRole"
-        },
-        {
-          "@id": "odo:Co-PrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:GuestRole"
-        },
-        {
-          "@id": "odo:DataManagerRole"
-        },
-        {
-          "@id": "odo:StudentRole"
-        },
-        {
-          "@id": "odo:ContactRole"
-        },
-        {
-          "@id": "odo:DataPublisherRole"
-        },
-        {
-          "@id": "odo:LeadPrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:TechnicianRole"
-        }
-      ],
-      "rdfs:label": "Program Manager",
-      "rdfs:subClassOf": {
-        "@id": "odo:Role"
-      }
-    },
-    {
-      "@id": "odo:Co-PrincipalInvestigatorRole",
-      "@type": "owl:Class",
-      "owl:disjointWith": [
-        {
-          "@id": "odo:LeadPrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:ChiefScientistRole"
-        },
-        {
-          "@id": "odo:CaptainRole"
-        },
-        {
-          "@id": "odo:Co-ChiefScientistRole"
-        },
-        {
-          "@id": "odo:PrincipalInvestigatorRole"
-        }
-      ],
-      "rdfs:label": "Co-Principal Investigator",
-      "rdfs:subClassOf": {
-        "@id": "odo:Role"
-      }
-    },
-    {
-      "@id": "odo:hasAwardURL",
-      "@type": "owl:DatatypeProperty",
-      "rdfs:domain": {
-        "@id": "odo:Award"
-      },
-      "rdfs:subPropertyOf": {
-        "@id": "rdfs:seeAlso"
-      }
-    },
-    {
-      "@id": "odo:citationText",
-      "@type": "owl:DatatypeProperty",
-      "rdfs:comment": "The citation text for a Creative Work.",
-      "rdfs:domain": {
-        "@id": "odo:CreativeWork"
-      },
-      "rdfs:range": {
-        "@id": "xsd:string"
-      }
-    },
-    {
-      "@id": "odo:AnalystRole",
-      "@type": "owl:Class",
-      "owl:disjointWith": [
-        {
-          "@id": "odo:StudentRole"
-        },
-        {
-          "@id": "odo:Co-ChiefScientistRole"
-        },
-        {
-          "@id": "odo:OriginatorRole"
-        },
-        {
-          "@id": "odo:ScientistRole"
-        },
-        {
-          "@id": "odo:TechnicianRole"
-        },
-        {
-          "@id": "odo:CaptainRole"
-        },
-        {
-          "@id": "odo:DataPublisherRole"
-        },
-        {
-          "@id": "odo:PrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:Co-PrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:ChiefScientistRole"
-        },
-        {
-          "@id": "odo:DataManagerRole"
-        },
-        {
-          "@id": "odo:LeadPrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:CuratorRole"
-        },
-        {
-          "@id": "odo:GuestRole"
-        }
-      ],
-      "rdfs:label": "Analyst",
-      "rdfs:subClassOf": {
-        "@id": "odo:Role"
-      }
-    },
-    {
-      "@id": "odo:hasIdentifier",
-      "@type": "owl:ObjectProperty",
-      "rdfs:comment": "An identifier for a Creative Work.",
-      "rdfs:domain": {
-        "@id": "odo:CreativeWork"
-      },
-      "rdfs:range": {
-        "@id": "datacite:Identifier"
-      },
-      "rdfs:subPropertyOf": {
-        "@id": "datacite:hasIdentifier"
-      }
-    },
-    {
-      "@id": "odo:Instrument",
-      "@type": "owl:Class",
-      "owl:disjointWith": [
-        {
-          "@id": "foaf:Organization"
-        },
-        {
-          "@id": "odo:Award"
-        },
-        {
-          "@id": "odo:FundingSource"
-        },
-        {
-          "@id": "odo:Dataset"
-        },
-        {
-          "@id": "odo:Deployment"
-        }
-      ],
-      "rdfs:label": "Instrument",
-      "rdfs:subClassOf": {
-        "@id": "skos:Concept"
-      },
-      "skos:defintion": "odo:Instrument is an instance of an NVS L22 Concept. Use odo:isInstanceOf to link the odo:Instrument to the L22 Concept's URI."
-    },
-    {
-      "@id": "_:N8b6c194f154a4b8aac64a4b0bdd6b234",
-      "@type": "owl:Restriction",
-      "owl:maxCardinality": {
-        "@type": "xsd:nonNegativeInteger",
-        "@value": "1"
-      },
-      "owl:onProperty": {
-        "@id": "odo:releaseDate"
-      }
-    },
-    {
-      "@id": "odo:OriginatorRole",
-      "@type": "owl:Class",
-      "owl:disjointWith": [
-        {
-          "@id": "odo:ChiefScientistRole"
-        },
-        {
-          "@id": "odo:PrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:CaptainRole"
-        },
-        {
-          "@id": "odo:Co-ChiefScientistRole"
-        },
-        {
-          "@id": "odo:ScientistRole"
-        },
-        {
-          "@id": "odo:StudentRole"
-        },
-        {
-          "@id": "odo:GuestRole"
-        },
-        {
-          "@id": "odo:TechnicianRole"
-        },
-        {
-          "@id": "odo:LeadPrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:Co-PrincipalInvestigatorRole"
-        }
-      ],
-      "rdfs:label": "Originator",
-      "rdfs:subClassOf": {
-        "@id": "odo:Role"
-      }
-    },
-    {
-      "@id": "odo:hasDeploymentDescription",
-      "@type": "owl:DatatypeProperty",
-      "rdfs:domain": {
-        "@id": "odo:Deployment"
-      },
-      "rdfs:subPropertyOf": {
-        "@id": "dcterms:description"
-      }
-    },
-    {
-      "@id": "_:N325d8f66278d4660b9da0479ef1e6dc6",
-      "@type": "owl:Restriction",
-      "owl:allValuesFrom": {
-        "@id": "odo:DeploymentDataset"
-      },
-      "owl:onProperty": {
-        "@id": "odo:hasInventory"
-      }
-    },
-    {
-      "@id": "odo:CrossrefIntraRelation",
-      "@type": "owl:NamedIndividual",
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "A relationship between two variations of the same creative work."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Crossref Intra-relation"
-      }
-    },
-    {
-      "@id": "odo:Mooring",
-      "@type": "owl:Class",
-      "rdfs:label": "Mooring",
-      "rdfs:subClassOf": {
-        "@id": "odo:StationaryPlatform"
-      }
-    },
-    {
-      "@id": "odo:hasAwardNumber",
-      "@type": "owl:DatatypeProperty",
-      "rdfs:domain": {
-        "@id": "odo:Award"
-      },
-      "rdfs:range": {
-        "@id": "xsd:string"
-      }
-    },
-    {
-      "@id": "_:Ne33ad267627a4d3097224efac074fd09",
-      "@type": "owl:Class",
-      "rdf:About": "http://ocean-data.org/schema/CreativeWorkRelation",
-      "rdfs:label": "Creative Work Relationship",
-      "rdfs:subClassOf": {
-        "@id": "skos:Concept"
-      }
-    },
-    {
-      "@id": "odo:hasSynonym",
-      "@type": "owl:DatatypeProperty",
-      "rdfs:domain": {
-        "@id": "odo:Deployment"
-      },
-      "rdfs:range": {
-        "@id": "xsd:string"
-      }
-    },
-    {
-      "@id": "foaf:Organization",
-      "@type": "owl:Class",
-      "rdfs:comment": "Organizations are used to keep track of Funding Sources and also a Person's affiliation.",
-      "rdfs:label": "Organization"
-    },
-    {
-      "@id": "odo:isDeployed",
-      "@type": "owl:ObjectProperty",
-      "owl:inverseOf": {
-        "@id": "odo:ofPlatform"
-      },
-      "rdfs:domain": {
-        "@id": "odo:Platform"
-      },
-      "rdfs:range": {
-        "@id": "odo:Deployment"
-      }
-    },
-    {
-      "@id": "odo:Submarine",
-      "@type": "owl:Class",
-      "rdfs:label": "Submarine",
-      "rdfs:subClassOf": {
-        "@id": "odo:Vehicle"
-      }
-    },
-    {
-      "@id": "odo:isInstanceOf",
-      "@type": "owl:ObjectProperty",
-      "rdfs:domain": {
-        "@id": "owl:Thing"
-      },
-      "rdfs:label": "Links odo instances (odo:Instrument and odo:MonitoredProperty) to skos:Concept",
-      "rdfs:range": {
-        "@id": "skos:Concept"
-      },
-      "rdfs:subPropertyOf": [
-        {
-          "@id": "rdfs:isDefinedBy"
-        },
-        {
-          "@id": "skos:related"
-        }
-      ]
-    },
-    {
-      "@id": "odo:MonitoredProperty",
-      "@type": "owl:Class",
-      "owl:disjointWith": [
-        {
-          "@id": "odo:FundingSource"
-        },
-        {
-          "@id": "odo:Award"
-        },
-        {
-          "@id": "odo:Dataset"
-        },
-        {
-          "@id": "foaf:Organization"
-        },
-        {
-          "@id": "odo:Instrument"
-        },
-        {
-          "@id": "odo:Deployment"
-        }
-      ],
-      "rdfs:label": "Monitored Property",
-      "rdfs:subClassOf": {
-        "@id": "skos:Concept"
-      },
-      "skos:defintion": "odo:MonitoredProperty is an instance of an NVS P01 Concept. Use odo:isInstanceOf to link the odo:MonitoredProperty to the P01 Concept's URI."
-    },
-    {
-      "@id": "odo:Laboratory",
-      "@type": "owl:Class",
-      "rdfs:label": "Laboratory",
-      "rdfs:subClassOf": {
-        "@id": "odo:StationaryPlatform"
-      }
-    },
-    {
-      "@id": "odo:",
-      "@type": "owl:Ontology",
-      "dc:description": "An ontology for describing ocean data",
-      "dcterms:issued": {
-        "@type": "xsd:date",
-        "@value": "2017-03-01"
-      },
-      "dcterms:source": {
-        "@type": "xsd:anyURI",
-        "@value": "https://github.com/BCODMO/Ocean-Data-Ontology"
-      },
-      "owl:imports": {
-        "@id": "foaf:"
-      },
-      "owl:versionInfo": "0.9.0",
-      "rdfs:label": "Ocean Data Ontology"
-    },
-    {
-      "@id": "odo:Aircraft",
-      "@type": "owl:Class",
-      "rdfs:label": "Aircraft",
-      "rdfs:subClassOf": {
-        "@id": "odo:Vehicle"
-      }
-    },
-    {
-      "@id": "odo:Cruise",
-      "@type": "owl:Class",
-      "rdfs:subClassOf": [
-        {
-          "@id": "odo:Deployment"
-        },
-        {
-          "@id": "_:N5aaa5c46847441398b440ad1450bd25a"
-        }
-      ]
-    },
-    {
-      "@id": "odo:hasPlatformTitle",
-      "@type": "owl:DatatypeProperty",
-      "rdfs:domain": {
-        "@id": "odo:Platform"
-      },
-      "rdfs:range": {
-        "@id": "xsd:string"
-      }
-    },
-    {
-      "@id": "odo:hasBriefDescription",
-      "@type": "owl:DatatypeProperty",
-      "rdfs:domain": {
-        "@id": "odo:DeploymentDatasetCollection"
-      },
-      "rdfs:subPropertyOf": {
-        "@id": "dcterms:description"
-      }
-    },
-    {
-      "@id": "odo:conversionDescription",
-      "@type": "owl:DatatypeProperty",
-      "rdfs:comment": "Describes how the values can be converted.",
-      "rdfs:domain": {
-        "@id": "odo:DatasetMonitoredProperty"
-      },
-      "rdfs:range": {
-        "@id": "xsd:string"
-      }
-    },
-    {
-      "@id": "odo:ofPlatform",
-      "@type": "owl:ObjectProperty",
-      "rdfs:domain": {
-        "@id": "odo:Deployment"
-      },
-      "rdfs:range": {
-        "@id": "odo:Platform"
-      }
-    },
-    {
-      "@id": "odo:StudentRole",
-      "@type": "owl:Class",
-      "owl:disjointWith": [
-        {
-          "@id": "odo:LeadPrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:PrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:GuestRole"
-        },
-        {
-          "@id": "odo:ScientistRole"
-        },
-        {
-          "@id": "odo:CaptainRole"
-        },
-        {
-          "@id": "odo:Co-PrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:ChiefScientistRole"
-        },
-        {
-          "@id": "odo:Co-ChiefScientistRole"
-        }
-      ],
-      "rdfs:label": "Student",
-      "rdfs:subClassOf": {
-        "@id": "odo:Role"
-      }
-    },
-    {
-      "@id": "odo:fromCollection",
-      "@type": "owl:ObjectProperty",
-      "owl:inverseOf": {
-        "@id": "odo:hasInventory"
-      },
-      "rdfs:label": "fromCollection"
-    },
-    {
-      "@id": "odo:LaboratoryDataset",
-      "@type": "owl:Class",
-      "rdfs:label": "Laboratory Dataset",
-      "rdfs:subClassOf": {
-        "@id": "odo:Dataset"
-      }
-    },
-    {
-      "@id": "odo:crossrefRelation",
-      "@type": "owl:DatatypeProperty",
-      "rdfs:comment": "The type of relationship defined by Crossref.",
-      "rdfs:domain": {
-        "@id": "odo:CreativeWorkRelation"
-      },
-      "rdfs:range": {
-        "@id": "xsd:string"
-      }
-    },
-    {
-      "@id": "odo:hasParameterShortDescription",
-      "@type": "owl:DatatypeProperty",
-      "rdfs:domain": {
-        "@id": "odo:MonitoredProperty"
-      },
-      "rdfs:subPropertyOf": {
-        "@id": "dcterms:description"
-      }
-    },
-    {
-      "@id": "odo:Model",
-      "@type": "owl:Class",
-      "owl:disjointWith": [
-        {
-          "@id": "odo:Drifter"
-        },
-        {
-          "@id": "odo:Glider"
-        },
-        {
-          "@id": "odo:Satellite"
-        },
-        {
-          "@id": "odo:Float"
-        }
-      ],
-      "rdfs:label": "Model",
-      "rdfs:subClassOf": {
-        "@id": "odo:Platform"
-      }
-    },
-    {
-      "@id": "_:N8c50349665ee41e1afd320892c22604d",
-      "@type": "owl:DataRange",
-      "owl:oneOf": {
-        "@id": "_:N18ec7e97dacd46a991dae6c20312a79d"
-      }
-    },
-    {
-      "@id": "odo:InternationalCollaboratorRole",
-      "@type": "owl:Class",
-      "owl:disjointWith": [
-        {
-          "@id": "odo:Co-PrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:DataPublisherRole"
-        },
-        {
-          "@id": "odo:ContactRole"
-        },
-        {
-          "@id": "odo:ScientistRole"
-        },
-        {
-          "@id": "odo:StudentRole"
-        },
-        {
-          "@id": "odo:CuratorRole"
-        },
-        {
-          "@id": "odo:Co-ChiefScientistRole"
-        },
-        {
-          "@id": "odo:LeadPrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:PrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:ChiefScientistRole"
-        },
-        {
-          "@id": "odo:CaptainRole"
-        },
-        {
-          "@id": "odo:TechnicianRole"
-        },
-        {
-          "@id": "odo:OriginatorRole"
-        },
-        {
-          "@id": "odo:ProgramManagerRole"
-        },
-        {
-          "@id": "odo:UnknownRole"
-        },
-        {
-          "@id": "odo:GuestRole"
-        },
-        {
-          "@id": "odo:DataManagerRole"
-        },
-        {
-          "@id": "odo:AnalystRole"
-        }
-      ],
-      "rdfs:label": "International Collaborator",
-      "rdfs:subClassOf": {
-        "@id": "odo:Role"
-      }
-    },
-    {
-      "@id": "odo:hasAffiliation",
-      "@type": "owl:ObjectProperty",
-      "rdfs:domain": {
-        "@id": "foaf:Person"
-      },
-      "rdfs:range": {
-        "@id": "foaf:Organization"
-      }
-    },
-    {
-      "@id": "odo:SubContractAward",
-      "@type": "owl:Class",
-      "owl:disjointWith": [
-        {
-          "@id": "odo:GrantAward"
-        },
-        {
-          "@id": "odo:ContractAward"
-        }
-      ],
-      "rdfs:label": "Sub-Contract Award",
-      "rdfs:subClassOf": {
-        "@id": "odo:Award"
-      }
-    },
-    {
-      "@id": "odo:Dock",
-      "@type": "owl:Class",
-      "rdfs:label": "Dock",
-      "rdfs:subClassOf": {
-        "@id": "odo:StationaryPlatform"
-      }
-    },
-    {
-      "@id": "odo:relationshipType",
-      "@type": "owl:ObjectProperty",
-      "rdfs:comment": "The type of relation between two Creative Works.",
-      "rdfs:domain": {
-        "@id": "odo:CreativeWork"
-      },
-      "rdfs:range": {
-        "@id": "odo:CreativeWorkRelation"
-      }
-    },
-    {
-      "@id": "odo:Island",
-      "@type": "owl:Class",
-      "rdfs:label": "Island",
-      "rdfs:subClassOf": {
-        "@id": "odo:StationaryPlatform"
-      }
-    },
-    {
-      "@id": "odo:hasUnitOfMeasure",
-      "@type": "owl:ObjectProperty",
-      "owl:equivalentProperty": {
-        "@id": "cpm:opUnitOfMeasure"
-      },
-      "rdfs:domain": {
-        "@id": "odo:MonitoredProperty"
-      },
-      "rdfs:label": "hasUnitOfMeasure - Links odo:MonitoredProperty to a SKOS Concept defining the unit of measure",
-      "rdfs:range": {
-        "@id": "odo:UnitOfMeasure"
-      },
-      "rdfs:subPropertyOf": {
-        "@id": "skos:related"
-      }
-    },
-    {
-      "@id": "odo:hasProjectDates",
-      "@type": "owl:ObjectProperty",
-      "rdfs:comment": "A date range for the start and end of a project",
-      "rdfs:domain": {
-        "@id": "odo:Project"
-      },
-      "rdfs:range": {
-        "@id": "time:TemporalEntity"
-      }
-    },
-    {
-      "@id": "odo:GrantAward",
-      "@type": "owl:Class",
-      "rdfs:label": "Grant Award",
-      "rdfs:subClassOf": {
-        "@id": "odo:Award"
-      }
-    },
-    {
-      "@id": "odo:ContactRole",
-      "@type": "owl:Class",
-      "owl:disjointWith": [
-        {
-          "@id": "odo:AnalystRole"
-        },
-        {
-          "@id": "odo:DataManagerRole"
-        },
-        {
-          "@id": "odo:OriginatorRole"
-        },
-        {
-          "@id": "odo:TechnicianRole"
-        },
-        {
-          "@id": "odo:StudentRole"
-        },
-        {
-          "@id": "odo:GuestRole"
-        },
-        {
-          "@id": "odo:ChiefScientistRole"
-        },
-        {
-          "@id": "odo:DataPublisherRole"
-        },
-        {
-          "@id": "odo:LeadPrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:Co-ChiefScientistRole"
-        },
-        {
-          "@id": "odo:CuratorRole"
-        },
-        {
-          "@id": "odo:PrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:ScientistRole"
-        },
-        {
-          "@id": "odo:CaptainRole"
-        },
-        {
-          "@id": "odo:Co-PrincipalInvestigatorRole"
-        }
-      ],
-      "rdfs:label": "Contact",
-      "rdfs:subClassOf": {
-        "@id": "odo:Role"
-      }
-    },
-    {
-      "@id": "odo:CreativeWork",
-      "@type": "owl:Class",
-      "rdfs:label": "Creative Work",
-      "rdfs:subClassOf": {
-        "@id": "schema:CreativeWork"
-      }
-    },
-    {
-      "@id": "odo:UnitOfMeasure",
-      "@type": "owl:Class",
-      "owl:disjointWith": [
-        {
-          "@id": "odo:FundingSource"
-        },
-        {
-          "@id": "foaf:Organization"
-        },
-        {
-          "@id": "odo:Instrument"
-        },
-        {
-          "@id": "odo:Dataset"
-        },
-        {
-          "@id": "odo:MonitoredProperty"
-        },
-        {
-          "@id": "odo:Award"
-        },
-        {
-          "@id": "odo:Deployment"
-        }
-      ],
-      "rdfs:comment": "A unit of measure",
-      "rdfs:label": "Unit of Measure",
-      "rdfs:subClassOf": {
-        "@id": "skos:Concept"
-      }
-    },
-    {
-      "@id": "odo:Co-ChiefScientistRole",
-      "@type": "owl:Class",
-      "owl:disjointWith": [
-        {
-          "@id": "odo:ChiefScientistRole"
-        },
-        {
-          "@id": "odo:CaptainRole"
-        }
-      ],
-      "rdfs:label": "Co-Chief Scientist",
-      "rdfs:subClassOf": {
-        "@id": "odo:Role"
-      }
-    },
-    {
-      "@id": "odo:hasInventory",
-      "@type": "owl:ObjectProperty",
-      "owl:inverseOf": {
-        "@id": "odo:fromCollection"
-      },
-      "rdfs:domain": {
-        "@id": "odo:DatasetCollection"
-      },
-      "rdfs:label": "hasInventory",
-      "rdfs:range": {
-        "@id": "odo:Dataset"
-      }
-    },
-    {
-      "@id": "odo:ScientistRole",
-      "@type": "owl:Class",
-      "owl:disjointWith": [
-        {
-          "@id": "odo:Co-PrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:CaptainRole"
-        },
-        {
-          "@id": "odo:PrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:LeadPrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:Co-ChiefScientistRole"
-        },
-        {
-          "@id": "odo:ChiefScientistRole"
-        }
-      ],
-      "rdfs:label": "Scientist",
-      "rdfs:subClassOf": {
-        "@id": "odo:Role"
-      }
-    },
-    {
-      "@id": "odo:DeploymentDataset",
-      "@type": "owl:Class",
-      "owl:disjointWith": {
-        "@id": "odo:LaboratoryDataset"
-      },
-      "rdfs:comment": "A deployment dataset is a dataset that is collected on a specific deployment of a platform from a specific instrument on that platform.",
-      "rdfs:label": "Deployment Dataset",
-      "rdfs:subClassOf": {
-        "@id": "odo:Dataset"
-      }
-    },
-    {
-      "@id": "odo:AutonomousUnderwaterVehicle",
-      "@type": "owl:Class",
-      "rdfs:label": "AUV",
-      "rdfs:subClassOf": {
-        "@id": "odo:UnmannedSubmarine"
-      }
-    },
-    {
-      "@id": "odo:hasParentProgram",
-      "@type": "owl:ObjectProperty",
-      "rdfs:domain": {
-        "@id": "odo:Project"
-      },
-      "rdfs:range": {
-        "@id": "odo:Program"
-      }
-    },
-    {
-      "@id": "odo:wktLiteral",
-      "@type": "owl:DatatypeProperty",
-      "rdfs:comment": "A WKT representation of a geometry to use when avoiding Virtuoso's geometry validation.",
-      "rdfs:domain": {
-        "@id": "owl:Thing"
-      },
-      "rdfs:subPropertyOf": {
-        "@id": "geos:wktLiteral"
-      }
-    },
-    {
-      "@id": "odo:DataManagerRole",
-      "@type": "owl:Class",
-      "owl:disjointWith": [
-        {
-          "@id": "odo:CaptainRole"
-        },
-        {
-          "@id": "odo:PrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:LeadPrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:Co-ChiefScientistRole"
-        },
-        {
-          "@id": "odo:ChiefScientistRole"
-        },
-        {
-          "@id": "odo:Co-PrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:GuestRole"
-        },
-        {
-          "@id": "odo:OriginatorRole"
-        },
-        {
-          "@id": "odo:StudentRole"
-        },
-        {
-          "@id": "odo:TechnicianRole"
-        },
-        {
-          "@id": "odo:ScientistRole"
-        },
-        {
-          "@id": "odo:DataPublisherRole"
-        }
-      ],
-      "rdfs:label": "Data Manager",
-      "rdfs:subClassOf": {
-        "@id": "odo:Role"
-      }
-    },
-    {
-      "@id": "_:Nab78b621c31d4ab2a4bb60cb9ce25a83",
+      "@id": "_:N83058fc9efc24272a5e0e7a029a711cd",
       "@type": "owl:Class",
       "owl:unionOf": {
         "@list": [
@@ -2004,15 +88,51 @@
       }
     },
     {
-      "@id": "foaf:Person",
+      "@id": "odo:hasAcronym",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "foaf:Organization"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "_:Na2e48ff0192b487bacc6267348bd2c33",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "odo:Float"
+          },
+          {
+            "@id": "odo:Glider"
+          },
+          {
+            "@id": "odo:Drifter"
+          },
+          {
+            "@id": "odo:Satellite"
+          },
+          {
+            "@id": "odo:Model"
+          },
+          {
+            "@id": "odo:Synthesis"
+          },
+          {
+            "@id": "odo:StationaryPlatform"
+          },
+          {
+            "@id": "odo:Vehicle"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "odo:FundingSource",
       "@type": "owl:Class",
       "owl:disjointWith": [
-        {
-          "@id": "foaf:Organization"
-        },
-        {
-          "@id": "odo:Program"
-        },
         {
           "@id": "odo:Award"
         },
@@ -2020,7 +140,239 @@
           "@id": "odo:Deployment"
         },
         {
+          "@id": "odo:Dataset"
+        }
+      ],
+      "rdfs:comment": "An Organization that provides funding Awards to a Project.",
+      "rdfs:label": "Funding Source",
+      "rdfs:subClassOf": {
+        "@id": "foaf:Organization"
+      }
+    },
+    {
+      "@id": "odo:hasPlatformURL",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odo:Platform"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "rdfs:seeAlso"
+      }
+    },
+    {
+      "@id": "_:Ne1e8c5a9b168462bb9e9cd5558df8e6a",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "odo:GrantAward"
+          },
+          {
+            "@id": "odo:ContractAward"
+          },
+          {
+            "@id": "odo:SubContractAward"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "odo:Platform",
+      "@type": "owl:Class",
+      "owl:disjointWith": [
+        {
+          "@id": "odo:UnitOfMeasure"
+        },
+        {
+          "@id": "odo:Award"
+        },
+        {
+          "@id": "odo:Dataset"
+        },
+        {
+          "@id": "odo:Deployment"
+        },
+        {
+          "@id": "odo:FundingSource"
+        },
+        {
+          "@id": "odo:Instrument"
+        },
+        {
+          "@id": "odo:MonitoredProperty"
+        },
+        {
+          "@id": "foaf:Organization"
+        }
+      ],
+      "owl:equivalentClass": {
+        "@id": "_:Na2e48ff0192b487bacc6267348bd2c33"
+      },
+      "rdfs:comment": "A thing from which a Deployment occurs.",
+      "rdfs:label": "Platform"
+    },
+    {
+      "@id": "odo:currentState",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "A term describing the current state of the dataset.",
+      "rdfs:domain": {
+        "@id": "odo:Dataset"
+      },
+      "rdfs:range": {
+        "@id": "skos:Concept"
+      }
+    },
+    {
+      "@id": "odo:forOrganization",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odo:Role"
+      },
+      "rdfs:range": {
+        "@id": "foaf:Organization"
+      }
+    },
+    {
+      "@id": "odo:Satellite",
+      "@type": "owl:Class",
+      "owl:disjointWith": [
+        {
+          "@id": "odo:Float"
+        },
+        {
+          "@id": "odo:Drifter"
+        },
+        {
+          "@id": "odo:Glider"
+        }
+      ],
+      "rdfs:label": "Satellite",
+      "rdfs:subClassOf": {
+        "@id": "odo:Platform"
+      }
+    },
+    {
+      "@id": "odo:Glider",
+      "@type": "owl:Class",
+      "owl:disjointWith": {
+        "@id": "odo:Float"
+      },
+      "rdfs:label": "Glider",
+      "rdfs:subClassOf": {
+        "@id": "odo:Platform"
+      }
+    },
+    {
+      "@id": "_:N99917f762b684793bb92d66f387a7ed3",
+      "@type": "rdf:List",
+      "rdf:first": {
+        "@type": "odo:CrossrefInterRelation",
+        "@value": ""
+      },
+      "rdf:rest": {
+        "@id": "_:Nde2a674803ae4cec80613b59782e101b"
+      }
+    },
+    {
+      "@id": "odo:ChiefScientistRole",
+      "@type": "owl:Class",
+      "owl:disjointWith": {
+        "@id": "odo:CaptainRole"
+      },
+      "rdfs:label": "Chief Scientist",
+      "rdfs:subClassOf": {
+        "@id": "odo:Role"
+      }
+    },
+    {
+      "@id": "odo:performedBy",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odo:Role"
+      },
+      "rdfs:range": {
+        "@id": "foaf:Person"
+      }
+    },
+    {
+      "@id": "odo:CrossrefInterRelation",
+      "@type": "owl:NamedIndividual",
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "A relationship between two different creative works."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Crossref Inter-relation"
+      }
+    },
+    {
+      "@id": "odo:StationaryPlatform",
+      "@type": "owl:Class",
+      "owl:disjointWith": [
+        {
+          "@id": "odo:Glider"
+        },
+        {
+          "@id": "odo:Drifter"
+        },
+        {
+          "@id": "odo:Model"
+        },
+        {
+          "@id": "odo:Synthesis"
+        },
+        {
+          "@id": "odo:Satellite"
+        },
+        {
+          "@id": "odo:Float"
+        }
+      ],
+      "rdfs:label": "Stationary Platform",
+      "rdfs:subClassOf": {
+        "@id": "odo:Platform"
+      }
+    },
+    {
+      "@id": "odo:featureOfInterest",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odo:MonitoredProperty"
+      },
+      "rdfs:label": "Links an odo:MonitoredProperty to the feature, and from there the geometry, of interest",
+      "rdfs:range": {
+        "@id": "geos:Feature"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "skos:related"
+      }
+    },
+    {
+      "@id": "odo:hasSmallLogoURL",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": "Used by odo:Project, odo:Program classes",
+      "rdfs:subPropertyOf": {
+        "@id": "foaf:logo"
+      }
+    },
+    {
+      "@id": "odo:hasAward",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Used by odo:Dataset, odo:FundingSource classes",
+      "rdfs:range": {
+        "@id": "odo:Award"
+      }
+    },
+    {
+      "@id": "odo:Role",
+      "@type": "owl:Class",
+      "owl:disjointWith": [
+        {
           "@id": "odo:Platform"
+        },
+        {
+          "@id": "odo:Program"
         },
         {
           "@id": "odo:Instrument"
@@ -2032,6 +384,18 @@
           "@id": "odo:MonitoredProperty"
         },
         {
+          "@id": "foaf:Organization"
+        },
+        {
+          "@id": "odo:Deployment"
+        },
+        {
+          "@id": "foaf:Person"
+        },
+        {
+          "@id": "odo:Award"
+        },
+        {
           "@id": "odo:UnitOfMeasure"
         },
         {
@@ -2039,6 +403,1634 @@
         },
         {
           "@id": "odo:FundingSource"
+        }
+      ],
+      "owl:equivalentClass": {
+        "@id": "_:N83058fc9efc24272a5e0e7a029a711cd"
+      },
+      "rdfs:comment": "A person can play many roles, such as principle investigator or captain or lead scientists. This role is played over a specific period of time",
+      "rdfs:label": "Role"
+    },
+    {
+      "@id": "odo:ContractAward",
+      "@type": "owl:Class",
+      "owl:disjointWith": {
+        "@id": "odo:GrantAward"
+      },
+      "rdfs:label": "Contract Award",
+      "rdfs:subClassOf": {
+        "@id": "odo:Award"
+      }
+    },
+    {
+      "@id": "odo:versionLabel",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": "An string signifying the version of the dataset.",
+      "rdfs:domain": {
+        "@id": "odo:Dataset"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odo:hasAgentWithRole",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Used by odo:Project, odo:Program, odo:Dataset, odo:Deployment classes",
+      "rdfs:range": {
+        "@id": "odo:Role"
+      }
+    },
+    {
+      "@id": "odo:restricted",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": "Is the dataset restricted for access by the public.",
+      "rdfs:domain": {
+        "@id": "odo:Dataset"
+      },
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odo:dataFileLandingPage",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odo:Dataset"
+      },
+      "rdfs:range": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "odo:RemotelyOperatedVehicle",
+      "@type": "owl:Class",
+      "rdfs:label": "ROV",
+      "rdfs:subClassOf": {
+        "@id": "odo:UnmannedSubmarine"
+      }
+    },
+    {
+      "@id": "odo:hasFundingSource",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Used by odo:Award class, so not sure why the range hasn't been set on this property",
+      "rdfs:range": {
+        "@id": "foaf:Organization"
+      }
+    },
+    {
+      "@id": "odo:CreativeWork",
+      "@type": "owl:Class",
+      "rdfs:label": "Creative Work",
+      "rdfs:subClassOf": {
+        "@id": "schema:CreativeWork"
+      }
+    },
+    {
+      "@id": "odo:relatedWork",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "A related work.",
+      "rdfs:domain": {
+        "@id": "odo:CreativeWork"
+      },
+      "rdfs:range": {
+        "@id": "skos:CreativeWork"
+      }
+    },
+    {
+      "@id": "odo:hasNoDataValue",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": "The value to expect in a Dataset when there was no data for the given record.",
+      "rdfs:domain": {
+        "@id": "odo:MonitoredProperty"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odo:",
+      "@type": "owl:Ontology",
+      "dc:description": "An ontology for describing ocean data",
+      "dcterms:issued": {
+        "@type": "xsd:date",
+        "@value": "2017-03-01"
+      },
+      "dcterms:source": {
+        "@type": "xsd:anyURI",
+        "@value": "https://github.com/BCODMO/Ocean-Data-Ontology"
+      },
+      "owl:imports": {
+        "@id": "foaf:"
+      },
+      "owl:versionInfo": "0.9.0",
+      "rdfs:label": "Ocean Data Ontology"
+    },
+    {
+      "@id": "odo:fromCollection",
+      "@type": "owl:ObjectProperty",
+      "owl:inverseOf": {
+        "@id": "odo:hasInventory"
+      },
+      "rdfs:label": "fromCollection"
+    },
+    {
+      "@id": "odo:Vessel",
+      "@type": "owl:Class",
+      "rdfs:label": "Vessel",
+      "rdfs:subClassOf": {
+        "@id": "odo:Vehicle"
+      }
+    },
+    {
+      "@id": "odo:DatasetCollection",
+      "@type": "owl:Class",
+      "owl:disjointWith": [
+        {
+          "@id": "odo:LaboratoryDataset"
+        },
+        {
+          "@id": "odo:DeploymentDataset"
+        }
+      ],
+      "rdfs:label": "Dataset Collection",
+      "rdfs:subClassOf": {
+        "@id": "odo:Dataset"
+      }
+    },
+    {
+      "@id": "odo:hasProject",
+      "@type": "owl:ObjectProperty",
+      "owl:inverseOf": {
+        "@id": "odo:hasParentProgram"
+      }
+    },
+    {
+      "@id": "odo:hasCoordinatedDeployment",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odo:Deployment"
+      },
+      "rdfs:range": {
+        "@id": "odo:Deployment"
+      }
+    },
+    {
+      "@id": "_:Nf10a617e6ab54459bac1f2f670b30697",
+      "rdf:Resource": "http://ocean-data.org/schema/Role"
+    },
+    {
+      "@id": "odo:hasDatasetURL",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odo:Dataset"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "rdfs:seeAlso"
+      }
+    },
+    {
+      "@id": "odo:TowedVehicle",
+      "@type": "owl:Class",
+      "rdfs:label": "Towed Vehicle",
+      "rdfs:subClassOf": {
+        "@id": "odo:Vehicle"
+      }
+    },
+    {
+      "@id": "odo:DataPublisherRole",
+      "@type": "owl:Class",
+      "owl:disjointWith": [
+        {
+          "@id": "odo:PrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:ScientistRole"
+        },
+        {
+          "@id": "odo:GuestRole"
+        },
+        {
+          "@id": "odo:Co-ChiefScientistRole"
+        },
+        {
+          "@id": "odo:Co-PrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:OriginatorRole"
+        },
+        {
+          "@id": "odo:CaptainRole"
+        },
+        {
+          "@id": "odo:TechnicianRole"
+        },
+        {
+          "@id": "odo:ChiefScientistRole"
+        },
+        {
+          "@id": "odo:LeadPrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:StudentRole"
+        }
+      ],
+      "rdfs:label": "Data Publisher",
+      "rdfs:subClassOf": {
+        "@id": "odo:Role"
+      }
+    },
+    {
+      "@id": "odo:validated",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": "Has the dataset been validated by the PI.",
+      "rdfs:domain": {
+        "@id": "odo:Dataset"
+      },
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odo:GuestRole",
+      "@type": "owl:Class",
+      "owl:disjointWith": [
+        {
+          "@id": "odo:Co-ChiefScientistRole"
+        },
+        {
+          "@id": "odo:ScientistRole"
+        },
+        {
+          "@id": "odo:LeadPrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:CaptainRole"
+        },
+        {
+          "@id": "odo:ChiefScientistRole"
+        },
+        {
+          "@id": "odo:PrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:Co-PrincipalInvestigatorRole"
+        }
+      ],
+      "rdfs:label": "Guest",
+      "rdfs:subClassOf": {
+        "@id": "odo:Role"
+      }
+    },
+    {
+      "@id": "odo:hasDeploymentDates",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "A date range for the start and end of a deployment",
+      "rdfs:domain": {
+        "@id": "odo:Deployment"
+      },
+      "rdfs:range": {
+        "@id": "time:TemporalEntity"
+      }
+    },
+    {
+      "@id": "odo:obsoletedBy",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "skos:Concept"
+      },
+      "rdfs:label": "Defines the resource that has replaced this resource.",
+      "rdfs:range": {
+        "@id": "skos:Concept"
+      }
+    },
+    {
+      "@id": "odo:Drifter",
+      "@type": "owl:Class",
+      "owl:disjointWith": [
+        {
+          "@id": "odo:Float"
+        },
+        {
+          "@id": "odo:Glider"
+        }
+      ],
+      "rdfs:label": "Drifter",
+      "rdfs:subClassOf": {
+        "@id": "odo:Platform"
+      }
+    },
+    {
+      "@id": "odo:hasReportURL",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odo:Deployment"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "rdfs:seeAlso"
+      }
+    },
+    {
+      "@id": "odo:Dataset",
+      "@type": "owl:Class",
+      "owl:disjointWith": [
+        {
+          "@id": "odo:Award"
+        },
+        {
+          "@id": "foaf:Organization"
+        }
+      ],
+      "owl:equivalentClass": {
+        "@id": "_:N1dd23ad53bf844ee8e2d1d9db7611415"
+      },
+      "rdfs:comment": "A super class for discovering any type of oceanographic dataset.",
+      "rdfs:label": "Dataset",
+      "rdfs:subClassOf": [
+        {
+          "@id": "odo:CreativeWork"
+        },
+        {
+          "@id": "_:N45b20ec43f124f7292b9af10fcb79bb1"
+        },
+        {
+          "@id": "_:N05c881ca445544dd9d1e3c0fbdabb945"
+        },
+        {
+          "@id": "_:N78ab9d8aa3114f2db1300540644c9361"
+        }
+      ]
+    },
+    {
+      "@id": "odo:UnknownRole",
+      "@type": "owl:Class",
+      "owl:disjointWith": [
+        {
+          "@id": "odo:ScientistRole"
+        },
+        {
+          "@id": "odo:LeadPrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:Co-PrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:Co-ChiefScientistRole"
+        },
+        {
+          "@id": "odo:AnalystRole"
+        },
+        {
+          "@id": "odo:ContactRole"
+        },
+        {
+          "@id": "odo:ChiefScientistRole"
+        },
+        {
+          "@id": "odo:DataManagerRole"
+        },
+        {
+          "@id": "odo:CaptainRole"
+        },
+        {
+          "@id": "odo:ProgramManagerRole"
+        },
+        {
+          "@id": "odo:TechnicianRole"
+        },
+        {
+          "@id": "odo:DataPublisherRole"
+        },
+        {
+          "@id": "odo:StudentRole"
+        },
+        {
+          "@id": "odo:GuestRole"
+        },
+        {
+          "@id": "odo:PrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:CuratorRole"
+        },
+        {
+          "@id": "odo:OriginatorRole"
+        }
+      ],
+      "rdfs:label": "Unknown",
+      "rdfs:subClassOf": {
+        "@id": "odo:Role"
+      }
+    },
+    {
+      "@id": "odo:ProjectCoordinatorRole",
+      "@type": "owl:Class",
+      "owl:disjointWith": [
+        {
+          "@id": "odo:Co-PrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:ContactRole"
+        },
+        {
+          "@id": "odo:GuestRole"
+        },
+        {
+          "@id": "odo:ChiefScientistRole"
+        },
+        {
+          "@id": "odo:OriginatorRole"
+        },
+        {
+          "@id": "odo:CuratorRole"
+        },
+        {
+          "@id": "odo:AnalystRole"
+        },
+        {
+          "@id": "odo:ScientistRole"
+        },
+        {
+          "@id": "odo:DataManagerRole"
+        },
+        {
+          "@id": "odo:TechnicianRole"
+        },
+        {
+          "@id": "odo:Co-ChiefScientistRole"
+        },
+        {
+          "@id": "odo:PrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:InternationalCollaboratorRole"
+        },
+        {
+          "@id": "odo:UnknownRole"
+        },
+        {
+          "@id": "odo:LeadPrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:ProgramManagerRole"
+        },
+        {
+          "@id": "odo:CaptainRole"
+        },
+        {
+          "@id": "odo:DataPublisherRole"
+        },
+        {
+          "@id": "odo:StudentRole"
+        }
+      ],
+      "rdfs:label": "Project Coordinator",
+      "rdfs:subClassOf": {
+        "@id": "_:Nf10a617e6ab54459bac1f2f670b30697"
+      }
+    },
+    {
+      "@id": "odo:CrossrefIntraRelation",
+      "@type": "owl:NamedIndividual",
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "A relationship between two variations of the same creative work."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Crossref Intra-relation"
+      }
+    },
+    {
+      "@id": "odo:Float",
+      "@type": "owl:Class",
+      "rdfs:label": "Float",
+      "rdfs:subClassOf": {
+        "@id": "odo:Platform"
+      }
+    },
+    {
+      "@id": "odo:hasCruiseTrajectory",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odo:Deployment"
+      },
+      "rdfs:range": {
+        "@id": "geos:Feature"
+      }
+    },
+    {
+      "@id": "odo:storesValuesFor",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odo:Dataset"
+      },
+      "rdfs:range": {
+        "@id": "odo:MonitoredProperty"
+      }
+    },
+    {
+      "@id": "odo:releaseDate",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": "The date the dataset will be available. Useful for reporting when a restricted dataset will become available.",
+      "rdfs:domain": {
+        "@id": "odo:Dataset"
+      }
+    },
+    {
+      "@id": "odo:fromInstrument",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "This dataset was collected from an instrument that is located on the platform during this deployment.",
+      "rdfs:domain": {
+        "@id": "odo:DeploymentDatasetCollection"
+      },
+      "rdfs:range": {
+        "@id": "odo:Instrument"
+      }
+    },
+    {
+      "@id": "odo:hasOrganizationSubName",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "foaf:Organization"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odo:ProgramManagerRole",
+      "@type": "owl:Class",
+      "owl:disjointWith": [
+        {
+          "@id": "odo:ContactRole"
+        },
+        {
+          "@id": "odo:Co-PrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:PrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:LeadPrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:ChiefScientistRole"
+        },
+        {
+          "@id": "odo:TechnicianRole"
+        },
+        {
+          "@id": "odo:OriginatorRole"
+        },
+        {
+          "@id": "odo:Co-ChiefScientistRole"
+        },
+        {
+          "@id": "odo:GuestRole"
+        },
+        {
+          "@id": "odo:ScientistRole"
+        },
+        {
+          "@id": "odo:DataManagerRole"
+        },
+        {
+          "@id": "odo:DataPublisherRole"
+        },
+        {
+          "@id": "odo:AnalystRole"
+        },
+        {
+          "@id": "odo:CuratorRole"
+        },
+        {
+          "@id": "odo:StudentRole"
+        },
+        {
+          "@id": "odo:CaptainRole"
+        }
+      ],
+      "rdfs:label": "Program Manager",
+      "rdfs:subClassOf": {
+        "@id": "odo:Role"
+      }
+    },
+    {
+      "@id": "foaf:Organization",
+      "@type": "owl:Class",
+      "rdfs:comment": "Organizations are used to keep track of Funding Sources and also a Person's affiliation.",
+      "rdfs:label": "Organization"
+    },
+    {
+      "@id": "_:N05c881ca445544dd9d1e3c0fbdabb945",
+      "@type": "owl:Restriction",
+      "owl:maxCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "odo:releaseDate"
+      }
+    },
+    {
+      "@id": "odo:citationText",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": "The citation text for a Creative Work.",
+      "rdfs:domain": {
+        "@id": "odo:CreativeWork"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odo:AnalystRole",
+      "@type": "owl:Class",
+      "owl:disjointWith": [
+        {
+          "@id": "odo:Co-ChiefScientistRole"
+        },
+        {
+          "@id": "odo:OriginatorRole"
+        },
+        {
+          "@id": "odo:DataManagerRole"
+        },
+        {
+          "@id": "odo:GuestRole"
+        },
+        {
+          "@id": "odo:ScientistRole"
+        },
+        {
+          "@id": "odo:CuratorRole"
+        },
+        {
+          "@id": "odo:DataPublisherRole"
+        },
+        {
+          "@id": "odo:CaptainRole"
+        },
+        {
+          "@id": "odo:LeadPrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:Co-PrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:PrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:StudentRole"
+        },
+        {
+          "@id": "odo:TechnicianRole"
+        },
+        {
+          "@id": "odo:ChiefScientistRole"
+        }
+      ],
+      "rdfs:label": "Analyst",
+      "rdfs:subClassOf": {
+        "@id": "odo:Role"
+      }
+    },
+    {
+      "@id": "odo:hasIdentifier",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "An identifier for a Creative Work.",
+      "rdfs:domain": {
+        "@id": "odo:CreativeWork"
+      },
+      "rdfs:range": {
+        "@id": "datacite:Identifier"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "datacite:hasIdentifier"
+      }
+    },
+    {
+      "@id": "odo:Instrument",
+      "@type": "owl:Class",
+      "owl:disjointWith": [
+        {
+          "@id": "odo:Award"
+        },
+        {
+          "@id": "odo:Dataset"
+        },
+        {
+          "@id": "odo:Deployment"
+        },
+        {
+          "@id": "odo:FundingSource"
+        },
+        {
+          "@id": "foaf:Organization"
+        }
+      ],
+      "rdfs:label": "Instrument",
+      "rdfs:subClassOf": {
+        "@id": "skos:Concept"
+      },
+      "skos:defintion": "odo:Instrument is an instance of an NVS L22 Concept. Use odo:isInstanceOf to link the odo:Instrument to the L22 Concept's URI."
+    },
+    {
+      "@id": "odo:OriginatorRole",
+      "@type": "owl:Class",
+      "owl:disjointWith": [
+        {
+          "@id": "odo:TechnicianRole"
+        },
+        {
+          "@id": "odo:LeadPrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:ChiefScientistRole"
+        },
+        {
+          "@id": "odo:ScientistRole"
+        },
+        {
+          "@id": "odo:GuestRole"
+        },
+        {
+          "@id": "odo:StudentRole"
+        },
+        {
+          "@id": "odo:PrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:Co-PrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:Co-ChiefScientistRole"
+        },
+        {
+          "@id": "odo:CaptainRole"
+        }
+      ],
+      "rdfs:label": "Originator",
+      "rdfs:subClassOf": {
+        "@id": "odo:Role"
+      }
+    },
+    {
+      "@id": "odo:hasDeploymentDescription",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odo:Deployment"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "dcterms:description"
+      }
+    },
+    {
+      "@id": "odo:r2r_page",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": "Used by odo:Cruise, but I don't thnk we use this anymore. Instead, we link to R2R cruises with owl:sameAs or odo:matches",
+      "rdfs:subPropertyOf": {
+        "@id": "rdfs:seeAlso"
+      }
+    },
+    {
+      "@id": "odo:Mooring",
+      "@type": "owl:Class",
+      "rdfs:label": "Mooring",
+      "rdfs:subClassOf": {
+        "@id": "odo:StationaryPlatform"
+      }
+    },
+    {
+      "@id": "odo:hasAwardNumber",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odo:Award"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odo:hasSynonym",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odo:Deployment"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "_:N6654a5e20d074c27b81a84b12d5ebaab",
+      "@type": "owl:Restriction",
+      "owl:allValuesFrom": {
+        "@id": "odo:DeploymentDataset"
+      },
+      "owl:onProperty": {
+        "@id": "odo:hasInventory"
+      }
+    },
+    {
+      "@id": "odo:Co-PrincipalInvestigatorRole",
+      "@type": "owl:Class",
+      "owl:disjointWith": [
+        {
+          "@id": "odo:CaptainRole"
+        },
+        {
+          "@id": "odo:LeadPrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:ChiefScientistRole"
+        },
+        {
+          "@id": "odo:PrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:Co-ChiefScientistRole"
+        }
+      ],
+      "rdfs:label": "Co-Principal Investigator",
+      "rdfs:subClassOf": {
+        "@id": "odo:Role"
+      }
+    },
+    {
+      "@id": "odo:isDeployed",
+      "@type": "owl:ObjectProperty",
+      "owl:inverseOf": {
+        "@id": "odo:ofPlatform"
+      },
+      "rdfs:domain": {
+        "@id": "odo:Platform"
+      },
+      "rdfs:range": {
+        "@id": "odo:Deployment"
+      }
+    },
+    {
+      "@id": "odo:hasAwardURL",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odo:Award"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "rdfs:seeAlso"
+      }
+    },
+    {
+      "@id": "odo:isInstanceOf",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "owl:Thing"
+      },
+      "rdfs:label": "Links odo instances (odo:Instrument and odo:MonitoredProperty) to skos:Concept",
+      "rdfs:range": {
+        "@id": "skos:Concept"
+      },
+      "rdfs:subPropertyOf": [
+        {
+          "@id": "skos:related"
+        },
+        {
+          "@id": "rdfs:isDefinedBy"
+        }
+      ]
+    },
+    {
+      "@id": "odo:MonitoredProperty",
+      "@type": "owl:Class",
+      "owl:disjointWith": [
+        {
+          "@id": "odo:Award"
+        },
+        {
+          "@id": "odo:FundingSource"
+        },
+        {
+          "@id": "odo:Deployment"
+        },
+        {
+          "@id": "foaf:Organization"
+        },
+        {
+          "@id": "odo:Instrument"
+        },
+        {
+          "@id": "odo:Dataset"
+        }
+      ],
+      "rdfs:label": "Monitored Property",
+      "rdfs:subClassOf": {
+        "@id": "skos:Concept"
+      },
+      "skos:defintion": "odo:MonitoredProperty is an instance of an NVS P01 Concept. Use odo:isInstanceOf to link the odo:MonitoredProperty to the P01 Concept's URI."
+    },
+    {
+      "@id": "odo:wktLiteral",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": "A WKT representation of a geometry to use when avoiding Virtuoso's geometry validation.",
+      "rdfs:domain": {
+        "@id": "owl:Thing"
+      },
+      "rdfs:range": {
+        "@id": "geos:wktLiteral"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "geos:wktLiteral"
+      }
+    },
+    {
+      "@id": "odo:Cruise",
+      "@type": "owl:Class",
+      "rdfs:subClassOf": [
+        {
+          "@id": "_:N6cff4d28b0c4482299470da6c5ee35e1"
+        },
+        {
+          "@id": "odo:Deployment"
+        }
+      ]
+    },
+    {
+      "@id": "odo:hasPlatformTitle",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odo:Platform"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odo:hasBriefDescription",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odo:DeploymentDatasetCollection"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "dcterms:description"
+      }
+    },
+    {
+      "@id": "odo:conversionDescription",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": "Describes how the values can be converted.",
+      "rdfs:domain": {
+        "@id": "odo:DatasetMonitoredProperty"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odo:ofPlatform",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odo:Deployment"
+      },
+      "rdfs:range": {
+        "@id": "odo:Platform"
+      }
+    },
+    {
+      "@id": "_:N1dd23ad53bf844ee8e2d1d9db7611415",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "odo:LaboratoryDataset"
+          },
+          {
+            "@id": "odo:DeploymentDataset"
+          },
+          {
+            "@id": "odo:DatasetCollection"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "odo:StudentRole",
+      "@type": "owl:Class",
+      "owl:disjointWith": [
+        {
+          "@id": "odo:ChiefScientistRole"
+        },
+        {
+          "@id": "odo:CaptainRole"
+        },
+        {
+          "@id": "odo:LeadPrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:ScientistRole"
+        },
+        {
+          "@id": "odo:Co-ChiefScientistRole"
+        },
+        {
+          "@id": "odo:Co-PrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:PrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:GuestRole"
+        }
+      ],
+      "rdfs:label": "Student",
+      "rdfs:subClassOf": {
+        "@id": "odo:Role"
+      }
+    },
+    {
+      "@id": "odo:hasMonitoredProperty",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odo:MonitoredProperty"
+      },
+      "rdfs:range": {
+        "@id": "odo:Instrument"
+      }
+    },
+    {
+      "@id": "odo:LaboratoryDataset",
+      "@type": "owl:Class",
+      "rdfs:label": "Laboratory Dataset",
+      "rdfs:subClassOf": {
+        "@id": "odo:Dataset"
+      }
+    },
+    {
+      "@id": "_:Nde2a674803ae4cec80613b59782e101b",
+      "@type": "rdf:List",
+      "rdf:first": {
+        "@type": "odo:CrossrefIntraRelation",
+        "@value": ""
+      }
+    },
+    {
+      "@id": "odo:crossrefRelation",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": "The type of relationship defined by Crossref.",
+      "rdfs:domain": {
+        "@id": "odo:CreativeWorkRelation"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odo:hasParameterShortDescription",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odo:MonitoredProperty"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "dcterms:description"
+      }
+    },
+    {
+      "@id": "odo:Model",
+      "@type": "owl:Class",
+      "owl:disjointWith": [
+        {
+          "@id": "odo:Float"
+        },
+        {
+          "@id": "odo:Glider"
+        },
+        {
+          "@id": "odo:Satellite"
+        },
+        {
+          "@id": "odo:Drifter"
+        }
+      ],
+      "rdfs:label": "Model",
+      "rdfs:subClassOf": {
+        "@id": "odo:Platform"
+      }
+    },
+    {
+      "@id": "odo:Submarine",
+      "@type": "owl:Class",
+      "rdfs:label": "Submarine",
+      "rdfs:subClassOf": {
+        "@id": "odo:Vehicle"
+      }
+    },
+    {
+      "@id": "_:N27ed9e9138834b9a8d8f0a9d25f3411a",
+      "@type": "owl:Class",
+      "rdf:About": "http://ocean-data.org/schema/CreativeWorkRelation",
+      "rdfs:label": "Creative Work Relationship",
+      "rdfs:subClassOf": {
+        "@id": "skos:Concept"
+      }
+    },
+    {
+      "@id": "odo:AutonomousUnderwaterVehicle",
+      "@type": "owl:Class",
+      "rdfs:label": "AUV",
+      "rdfs:subClassOf": {
+        "@id": "odo:UnmannedSubmarine"
+      }
+    },
+    {
+      "@id": "odo:InternationalCollaboratorRole",
+      "@type": "owl:Class",
+      "owl:disjointWith": [
+        {
+          "@id": "odo:AnalystRole"
+        },
+        {
+          "@id": "odo:UnknownRole"
+        },
+        {
+          "@id": "odo:ProgramManagerRole"
+        },
+        {
+          "@id": "odo:DataManagerRole"
+        },
+        {
+          "@id": "odo:CaptainRole"
+        },
+        {
+          "@id": "odo:TechnicianRole"
+        },
+        {
+          "@id": "odo:GuestRole"
+        },
+        {
+          "@id": "odo:PrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:OriginatorRole"
+        },
+        {
+          "@id": "odo:StudentRole"
+        },
+        {
+          "@id": "odo:CuratorRole"
+        },
+        {
+          "@id": "odo:ScientistRole"
+        },
+        {
+          "@id": "odo:LeadPrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:Co-PrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:Co-ChiefScientistRole"
+        },
+        {
+          "@id": "odo:ContactRole"
+        },
+        {
+          "@id": "odo:ChiefScientistRole"
+        },
+        {
+          "@id": "odo:DataPublisherRole"
+        }
+      ],
+      "rdfs:label": "International Collaborator",
+      "rdfs:subClassOf": {
+        "@id": "odo:Role"
+      }
+    },
+    {
+      "@id": "odo:requiresConversion",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": "The values in the dataset for this property need to be converted.",
+      "rdfs:domain": {
+        "@id": "odo:DatasetMonitoredProperty"
+      },
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odo:hasAffiliation",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "foaf:Person"
+      },
+      "rdfs:range": {
+        "@id": "foaf:Organization"
+      }
+    },
+    {
+      "@id": "odo:SubContractAward",
+      "@type": "owl:Class",
+      "owl:disjointWith": [
+        {
+          "@id": "odo:ContractAward"
+        },
+        {
+          "@id": "odo:GrantAward"
+        }
+      ],
+      "rdfs:label": "Sub-Contract Award",
+      "rdfs:subClassOf": {
+        "@id": "odo:Award"
+      }
+    },
+    {
+      "@id": "odo:matches",
+      "@type": "owl:SymmetricProperty",
+      "rdfs:comment": "A symmetric match for linking between instance data of ODO and coreferences in external Linked Data sets",
+      "rdfs:domain": {
+        "@id": "owl:Thing"
+      },
+      "rdfs:range": {
+        "@id": "owl:Thing"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "rdf:seeAlso"
+      }
+    },
+    {
+      "@id": "odo:Dock",
+      "@type": "owl:Class",
+      "rdfs:label": "Dock",
+      "rdfs:subClassOf": {
+        "@id": "odo:StationaryPlatform"
+      }
+    },
+    {
+      "@id": "odo:relationshipType",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "The type of relation between two Creative Works.",
+      "rdfs:domain": {
+        "@id": "odo:CreativeWork"
+      },
+      "rdfs:range": {
+        "@id": "odo:CreativeWorkRelation"
+      }
+    },
+    {
+      "@id": "odo:Island",
+      "@type": "owl:Class",
+      "rdfs:label": "Island",
+      "rdfs:subClassOf": {
+        "@id": "odo:StationaryPlatform"
+      }
+    },
+    {
+      "@id": "odo:hasUnitOfMeasure",
+      "@type": "owl:ObjectProperty",
+      "owl:equivalentProperty": {
+        "@id": "cpm:opUnitOfMeasure"
+      },
+      "rdfs:domain": {
+        "@id": "odo:MonitoredProperty"
+      },
+      "rdfs:label": "hasUnitOfMeasure - Links odo:MonitoredProperty to a SKOS Concept defining the unit of measure",
+      "rdfs:range": {
+        "@id": "odo:UnitOfMeasure"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "skos:related"
+      }
+    },
+    {
+      "@id": "odo:hasProjectDates",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "A date range for the start and end of a project",
+      "rdfs:domain": {
+        "@id": "odo:Project"
+      },
+      "rdfs:range": {
+        "@id": "time:TemporalEntity"
+      }
+    },
+    {
+      "@id": "odo:GrantAward",
+      "@type": "owl:Class",
+      "rdfs:label": "Grant Award",
+      "rdfs:subClassOf": {
+        "@id": "odo:Award"
+      }
+    },
+    {
+      "@id": "odo:ContactRole",
+      "@type": "owl:Class",
+      "owl:disjointWith": [
+        {
+          "@id": "odo:TechnicianRole"
+        },
+        {
+          "@id": "odo:ChiefScientistRole"
+        },
+        {
+          "@id": "odo:StudentRole"
+        },
+        {
+          "@id": "odo:PrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:Co-PrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:CaptainRole"
+        },
+        {
+          "@id": "odo:CuratorRole"
+        },
+        {
+          "@id": "odo:AnalystRole"
+        },
+        {
+          "@id": "odo:LeadPrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:DataPublisherRole"
+        },
+        {
+          "@id": "odo:DataManagerRole"
+        },
+        {
+          "@id": "odo:ScientistRole"
+        },
+        {
+          "@id": "odo:GuestRole"
+        },
+        {
+          "@id": "odo:Co-ChiefScientistRole"
+        },
+        {
+          "@id": "odo:OriginatorRole"
+        }
+      ],
+      "rdfs:label": "Contact",
+      "rdfs:subClassOf": {
+        "@id": "odo:Role"
+      }
+    },
+    {
+      "@id": "odo:TechnicianRole",
+      "@type": "owl:Class",
+      "owl:disjointWith": [
+        {
+          "@id": "odo:CaptainRole"
+        },
+        {
+          "@id": "odo:ChiefScientistRole"
+        },
+        {
+          "@id": "odo:ScientistRole"
+        },
+        {
+          "@id": "odo:GuestRole"
+        },
+        {
+          "@id": "odo:LeadPrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:PrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:StudentRole"
+        },
+        {
+          "@id": "odo:Co-PrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:Co-ChiefScientistRole"
+        }
+      ],
+      "rdfs:label": "Technician",
+      "rdfs:subClassOf": {
+        "@id": "odo:Role"
+      }
+    },
+    {
+      "@id": "_:N6cff4d28b0c4482299470da6c5ee35e1",
+      "@type": "owl:Restriction",
+      "owl:hasValue": {
+        "@id": "odo:Vessel"
+      },
+      "owl:onProperty": {
+        "@id": "odo:ofPlatform"
+      }
+    },
+    {
+      "@id": "odo:UnitOfMeasure",
+      "@type": "owl:Class",
+      "owl:disjointWith": [
+        {
+          "@id": "odo:FundingSource"
+        },
+        {
+          "@id": "odo:Deployment"
+        },
+        {
+          "@id": "odo:Dataset"
+        },
+        {
+          "@id": "odo:Award"
+        },
+        {
+          "@id": "odo:Instrument"
+        },
+        {
+          "@id": "odo:MonitoredProperty"
+        },
+        {
+          "@id": "foaf:Organization"
+        }
+      ],
+      "rdfs:comment": "A unit of measure",
+      "rdfs:label": "Unit of Measure",
+      "rdfs:subClassOf": {
+        "@id": "skos:Concept"
+      }
+    },
+    {
+      "@id": "odo:Co-ChiefScientistRole",
+      "@type": "owl:Class",
+      "owl:disjointWith": [
+        {
+          "@id": "odo:ChiefScientistRole"
+        },
+        {
+          "@id": "odo:CaptainRole"
+        }
+      ],
+      "rdfs:label": "Co-Chief Scientist",
+      "rdfs:subClassOf": {
+        "@id": "odo:Role"
+      }
+    },
+    {
+      "@id": "odo:hasInventory",
+      "@type": "owl:ObjectProperty",
+      "owl:inverseOf": {
+        "@id": "odo:fromCollection"
+      },
+      "rdfs:domain": {
+        "@id": "odo:DatasetCollection"
+      },
+      "rdfs:label": "hasInventory",
+      "rdfs:range": {
+        "@id": "odo:Dataset"
+      }
+    },
+    {
+      "@id": "odo:ScientistRole",
+      "@type": "owl:Class",
+      "owl:disjointWith": [
+        {
+          "@id": "odo:ChiefScientistRole"
+        },
+        {
+          "@id": "odo:CaptainRole"
+        },
+        {
+          "@id": "odo:LeadPrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:Co-PrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:Co-ChiefScientistRole"
+        },
+        {
+          "@id": "odo:PrincipalInvestigatorRole"
+        }
+      ],
+      "rdfs:label": "Scientist",
+      "rdfs:subClassOf": {
+        "@id": "odo:Role"
+      }
+    },
+    {
+      "@id": "odo:DeploymentDataset",
+      "@type": "owl:Class",
+      "owl:disjointWith": {
+        "@id": "odo:LaboratoryDataset"
+      },
+      "rdfs:comment": "A deployment dataset is a dataset that is collected on a specific deployment of a platform from a specific instrument on that platform.",
+      "rdfs:label": "Deployment Dataset",
+      "rdfs:subClassOf": {
+        "@id": "odo:Dataset"
+      }
+    },
+    {
+      "@id": "odo:hasParentProgram",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odo:Project"
+      },
+      "rdfs:range": {
+        "@id": "odo:Program"
+      }
+    },
+    {
+      "@id": "odo:Laboratory",
+      "@type": "owl:Class",
+      "rdfs:label": "Laboratory",
+      "rdfs:subClassOf": {
+        "@id": "odo:StationaryPlatform"
+      }
+    },
+    {
+      "@id": "odo:DataManagerRole",
+      "@type": "owl:Class",
+      "owl:disjointWith": [
+        {
+          "@id": "odo:Co-ChiefScientistRole"
+        },
+        {
+          "@id": "odo:TechnicianRole"
+        },
+        {
+          "@id": "odo:Co-PrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:PrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:GuestRole"
+        },
+        {
+          "@id": "odo:OriginatorRole"
+        },
+        {
+          "@id": "odo:ChiefScientistRole"
+        },
+        {
+          "@id": "odo:LeadPrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:ScientistRole"
+        },
+        {
+          "@id": "odo:CaptainRole"
+        },
+        {
+          "@id": "odo:DataPublisherRole"
+        },
+        {
+          "@id": "odo:StudentRole"
+        }
+      ],
+      "rdfs:label": "Data Manager",
+      "rdfs:subClassOf": {
+        "@id": "odo:Role"
+      }
+    },
+    {
+      "@id": "odo:DatasetMonitoredProperty",
+      "@type": "owl:Class",
+      "rdfs:label": "Dataset Property",
+      "rdfs:subClassOf": {
+        "@id": "odo:MonitoredProperty"
+      },
+      "skos:defintion": "odo:DatasetMonitoredProperty is an instance of a odo:MonitoredProperty but with project-specific label and definition known by the researcher."
+    },
+    {
+      "@id": "foaf:Person",
+      "@type": "owl:Class",
+      "owl:disjointWith": [
+        {
+          "@id": "odo:Deployment"
+        },
+        {
+          "@id": "odo:Dataset"
+        },
+        {
+          "@id": "odo:Award"
+        },
+        {
+          "@id": "odo:Project"
+        },
+        {
+          "@id": "odo:UnitOfMeasure"
+        },
+        {
+          "@id": "odo:Program"
+        },
+        {
+          "@id": "odo:MonitoredProperty"
+        },
+        {
+          "@id": "foaf:Organization"
+        },
+        {
+          "@id": "odo:Instrument"
+        },
+        {
+          "@id": "odo:FundingSource"
+        },
+        {
+          "@id": "odo:Platform"
         }
       ],
       "rdfs:label": "Person"
@@ -2064,25 +2056,25 @@
       "@type": "owl:Class",
       "owl:disjointWith": [
         {
+          "@id": "odo:Synthesis"
+        },
+        {
           "@id": "odo:Float"
         },
         {
           "@id": "odo:Glider"
         },
         {
-          "@id": "odo:Model"
-        },
-        {
-          "@id": "odo:Synthesis"
+          "@id": "odo:Drifter"
         },
         {
           "@id": "odo:Satellite"
         },
         {
-          "@id": "odo:StationaryPlatform"
+          "@id": "odo:Model"
         },
         {
-          "@id": "odo:Drifter"
+          "@id": "odo:StationaryPlatform"
         }
       ],
       "rdfs:label": "Vehicle",
@@ -2097,29 +2089,36 @@
         "@id": "foaf:Organization"
       },
       "owl:equivalentClass": {
-        "@id": "_:Nada1656bc4cc4d40a2d8e0df6e67ecb9"
+        "@id": "_:Ne1e8c5a9b168462bb9e9cd5558df8e6a"
       },
       "rdfs:comment": "A funding award provided by an Funding Source (Organization) to a Project. This Award may fund Datasets.",
       "rdfs:label": "Award"
+    },
+    {
+      "@id": "_:N9acc8fb242f94b06b2572e0d2fd67b46",
+      "@type": "owl:DataRange",
+      "owl:oneOf": {
+        "@id": "_:N99917f762b684793bb92d66f387a7ed3"
+      }
     },
     {
       "@id": "odo:Synthesis",
       "@type": "owl:Class",
       "owl:disjointWith": [
         {
-          "@id": "odo:Satellite"
+          "@id": "odo:Model"
         },
         {
-          "@id": "odo:Model"
+          "@id": "odo:Drifter"
+        },
+        {
+          "@id": "odo:Satellite"
         },
         {
           "@id": "odo:Glider"
         },
         {
           "@id": "odo:Float"
-        },
-        {
-          "@id": "odo:Drifter"
         }
       ],
       "rdfs:label": "Synthesis",
@@ -2128,68 +2127,62 @@
       }
     },
     {
+      "@id": "odo:hasParameterShortName",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odo:MonitoredProperty"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
       "@id": "odo:CuratorRole",
       "@type": "owl:Class",
       "owl:disjointWith": [
         {
-          "@id": "odo:PrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:ScientistRole"
-        },
-        {
-          "@id": "odo:Co-PrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:DataManagerRole"
-        },
-        {
-          "@id": "odo:LeadPrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:Co-ChiefScientistRole"
-        },
-        {
-          "@id": "odo:CaptainRole"
-        },
-        {
-          "@id": "odo:StudentRole"
-        },
-        {
-          "@id": "odo:OriginatorRole"
-        },
-        {
-          "@id": "odo:ChiefScientistRole"
-        },
-        {
-          "@id": "odo:GuestRole"
+          "@id": "odo:TechnicianRole"
         },
         {
           "@id": "odo:DataPublisherRole"
         },
         {
-          "@id": "odo:TechnicianRole"
+          "@id": "odo:CaptainRole"
+        },
+        {
+          "@id": "odo:ScientistRole"
+        },
+        {
+          "@id": "odo:StudentRole"
+        },
+        {
+          "@id": "odo:LeadPrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:OriginatorRole"
+        },
+        {
+          "@id": "odo:GuestRole"
+        },
+        {
+          "@id": "odo:PrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:Co-PrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:Co-ChiefScientistRole"
+        },
+        {
+          "@id": "odo:DataManagerRole"
+        },
+        {
+          "@id": "odo:ChiefScientistRole"
         }
       ],
       "rdfs:label": "Curator",
       "rdfs:subClassOf": {
         "@id": "odo:Role"
-      }
-    },
-    {
-      "@id": "odo:r2r_page",
-      "@type": "owl:DatatypeProperty",
-      "rdfs:comment": "Used by odo:Cruise, but I don't thnk we use this anymore. Instead, we link to R2R cruises with owl:sameAs or odo:matches",
-      "rdfs:subPropertyOf": {
-        "@id": "rdfs:seeAlso"
-      }
-    },
-    {
-      "@id": "_:N15c80b7b23954ea785474e3561d81a62",
-      "@type": "rdf:List",
-      "rdf:first": {
-        "@type": "odo:CrossrefIntraRelation",
-        "@value": ""
       }
     },
     {
@@ -2200,14 +2193,25 @@
           "@id": "odo:Award"
         },
         {
-          "@id": "odo:Dataset"
+          "@id": "foaf:Organization"
         },
         {
-          "@id": "foaf:Organization"
+          "@id": "odo:Dataset"
         }
       ],
       "rdfs:comment": "A platform is deployed during a specific duration of time over a specific spacial coverage. For example, a boat is a platform. That boat is doployed (sent on a cruise) in order to collect data.",
       "rdfs:label": "Deployment"
+    },
+    {
+      "@id": "_:N78ab9d8aa3114f2db1300540644c9361",
+      "@type": "owl:Restriction",
+      "owl:maxCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "odo:restricted"
+      }
     },
     {
       "@id": "odo:PrincipalInvestigatorRole",
@@ -2217,13 +2221,13 @@
           "@id": "odo:ChiefScientistRole"
         },
         {
-          "@id": "odo:CaptainRole"
-        },
-        {
           "@id": "odo:Co-ChiefScientistRole"
         },
         {
           "@id": "odo:LeadPrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:CaptainRole"
         }
       ],
       "rdfs:label": "Principal Investigator",
@@ -2232,59 +2236,40 @@
       }
     },
     {
-      "@id": "odo:DatasetMonitoredProperty",
+      "@id": "odo:Aircraft",
       "@type": "owl:Class",
-      "rdfs:label": "Dataset Property",
+      "rdfs:label": "Aircraft",
       "rdfs:subClassOf": {
-        "@id": "odo:MonitoredProperty"
-      },
-      "skos:defintion": "odo:DatasetMonitoredProperty is an instance of a odo:MonitoredProperty but with project-specific label and definition known by the researcher."
+        "@id": "odo:Vehicle"
+      }
     },
     {
       "@id": "odo:BcoDmoDataManagerRole",
       "@type": "owl:Class",
       "owl:disjointWith": [
         {
-          "@id": "odo:UnknownRole"
-        },
-        {
-          "@id": "odo:TechnicianRole"
-        },
-        {
-          "@id": "odo:LeadPrincipalInvestigatorRole"
-        },
-        {
           "@id": "odo:ContactRole"
-        },
-        {
-          "@id": "odo:DataPublisherRole"
-        },
-        {
-          "@id": "odo:Co-PrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:PrincipalInvestigatorRole"
-        },
-        {
-          "@id": "odo:ChiefScientistRole"
-        },
-        {
-          "@id": "odo:DataManagerRole"
         },
         {
           "@id": "odo:InternationalCollaboratorRole"
         },
         {
-          "@id": "odo:CuratorRole"
+          "@id": "odo:CaptainRole"
         },
         {
           "@id": "odo:ProgramManagerRole"
         },
         {
-          "@id": "odo:ProjectCoordinatorRole"
+          "@id": "odo:TechnicianRole"
         },
         {
-          "@id": "odo:Co-ChiefScientistRole"
+          "@id": "odo:CuratorRole"
+        },
+        {
+          "@id": "odo:DataPublisherRole"
+        },
+        {
+          "@id": "odo:ProjectCoordinatorRole"
         },
         {
           "@id": "odo:ScientistRole"
@@ -2293,7 +2278,16 @@
           "@id": "odo:GuestRole"
         },
         {
-          "@id": "odo:CaptainRole"
+          "@id": "odo:StudentRole"
+        },
+        {
+          "@id": "odo:PrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:Co-PrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:Co-ChiefScientistRole"
         },
         {
           "@id": "odo:OriginatorRole"
@@ -2302,7 +2296,16 @@
           "@id": "odo:AnalystRole"
         },
         {
-          "@id": "odo:StudentRole"
+          "@id": "odo:ChiefScientistRole"
+        },
+        {
+          "@id": "odo:LeadPrincipalInvestigatorRole"
+        },
+        {
+          "@id": "odo:DataManagerRole"
+        },
+        {
+          "@id": "odo:UnknownRole"
         }
       ],
       "rdfs:label": "BCO-DMO Data Manager",
@@ -2333,13 +2336,10 @@
       "@type": "owl:Class",
       "owl:disjointWith": [
         {
-          "@id": "odo:Dataset"
+          "@id": "odo:UnitOfMeasure"
         },
         {
-          "@id": "odo:Instrument"
-        },
-        {
-          "@id": "foaf:Organization"
+          "@id": "odo:MonitoredProperty"
         },
         {
           "@id": "odo:Deployment"
@@ -2348,16 +2348,19 @@
           "@id": "odo:FundingSource"
         },
         {
-          "@id": "odo:Platform"
+          "@id": "odo:Instrument"
         },
         {
           "@id": "odo:Award"
         },
         {
-          "@id": "odo:UnitOfMeasure"
+          "@id": "odo:Platform"
         },
         {
-          "@id": "odo:MonitoredProperty"
+          "@id": "odo:Dataset"
+        },
+        {
+          "@id": "foaf:Organization"
         }
       ],
       "rdfs:comment": "A large-scale project that encompasses smaller Projects.",
@@ -2371,7 +2374,7 @@
         "@id": "odo:CreativeWorkRelation"
       },
       "rdfs:range": {
-        "@id": "_:N8c50349665ee41e1afd320892c22604d"
+        "@id": "_:N9acc8fb242f94b06b2572e0d2fd67b46"
       }
     },
     {
@@ -2387,10 +2390,10 @@
       "@type": "owl:Class",
       "owl:disjointWith": [
         {
-          "@id": "odo:CaptainRole"
+          "@id": "odo:ChiefScientistRole"
         },
         {
-          "@id": "odo:ChiefScientistRole"
+          "@id": "odo:CaptainRole"
         },
         {
           "@id": "odo:Co-ChiefScientistRole"
@@ -2418,10 +2421,10 @@
       "rdfs:label": "Stationary Vessel",
       "rdfs:subClassOf": [
         {
-          "@id": "odo:StationaryPlatform"
+          "@id": "odo:Vessel"
         },
         {
-          "@id": "odo:Vessel"
+          "@id": "odo:StationaryPlatform"
         }
       ]
     },
@@ -2438,7 +2441,7 @@
       "@type": "owl:Class",
       "rdfs:subClassOf": [
         {
-          "@id": "_:N325d8f66278d4660b9da0479ef1e6dc6"
+          "@id": "_:N6654a5e20d074c27b81a84b12d5ebaab"
         },
         {
           "@id": "odo:DatasetCollection"
@@ -2537,22 +2540,22 @@
       },
       "rdfs:subPropertyOf": [
         {
-          "@id": "skos:related"
+          "@id": "rdfs:isDefinedBy"
         },
         {
-          "@id": "rdfs:isDefinedBy"
+          "@id": "skos:related"
         }
       ]
     },
     {
-      "@id": "odo:requiresConversion",
-      "@type": "owl:DatatypeProperty",
-      "rdfs:comment": "The values in the dataset for this property need to be converted.",
-      "rdfs:domain": {
-        "@id": "odo:DatasetMonitoredProperty"
+      "@id": "_:N45b20ec43f124f7292b9af10fcb79bb1",
+      "@type": "owl:Restriction",
+      "owl:maxCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
       },
-      "rdfs:range": {
-        "@id": "xsd:boolean"
+      "owl:onProperty": {
+        "@id": "odo:validated"
       }
     },
     {
@@ -2560,31 +2563,31 @@
       "@type": "owl:Class",
       "owl:disjointWith": [
         {
-          "@id": "foaf:Organization"
-        },
-        {
-          "@id": "odo:Award"
-        },
-        {
           "@id": "odo:Deployment"
         },
         {
-          "@id": "odo:Platform"
+          "@id": "odo:Program"
         },
         {
-          "@id": "odo:Instrument"
-        },
-        {
-          "@id": "odo:Dataset"
+          "@id": "foaf:Organization"
         },
         {
           "@id": "odo:MonitoredProperty"
         },
         {
+          "@id": "odo:Award"
+        },
+        {
+          "@id": "odo:Platform"
+        },
+        {
+          "@id": "odo:Dataset"
+        },
+        {
           "@id": "odo:UnitOfMeasure"
         },
         {
-          "@id": "odo:Program"
+          "@id": "odo:Instrument"
         },
         {
           "@id": "odo:FundingSource"
