@@ -1119,7 +1119,7 @@
   </owl:ObjectProperty>
 
   <owl:SymmetricProperty rdf:about="&odo;matches">
-    <rdfs:subPropertyOf rdf:resource="&rdf;seeAlso"/>
+    <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
     <rdfs:domain rdf:resource="&owl;Thing"/>
     <rdfs:range  rdf:resource="&owl;Thing"/>
     <rdfs:comment rdf:datatype="&xsd;string">A symmetric match for linking between instance data of ODO and coreferences in external Linked Data sets</rdfs:comment>
