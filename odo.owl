@@ -6,11 +6,14 @@
   <!ENTITY foaf "http://xmlns.com/foaf/0.1/">
   <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
   <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+  <!ENTITY datacite "http://purl.org/spar/datacite/">
   <!ENTITY dc "http://purl.org/dc/elements/1.1/">
   <!ENTITY dcterms "http://purl.org/dc/terms/">
-  <!ENTITY spacetime "http://escience.rpi.edu/ontology/sesf/spacetime/1/0/">
   <!ENTITY geos "http://www.opengis.net/def/geosparql/">
+  <!ENTITY schema "http://schema.org/">
   <!ENTITY skos "http://www.w3.org/2004/02/skos/core#">
+  <!ENTITY time "http://www.w3.org/2006/time#">
+  <!ENTITY cpm "http://purl.org/voc/cpm#">
 ]>
 <rdf:RDF
     xmlns:owl="&owl;"
@@ -19,23 +22,29 @@
     xmlns:foaf="&foaf;"
     xmlns:rdf="&rdf;"
     xmlns:rdfs="&rdfs;"
+    xmlns:datacite="&datacite;"
     xmlns:dc="&dc;"
     xmlns:dcterms="&dcterms;"
-    xmlns:spacetime="&spacetime;"
-    xmlns:geos="&geos;" 
+    xmlns:geos="&geos;"
+    xmlns:schema="&schema;"
     xmlns:skos="&skos;"
+    xmlns:time="&time;"
+    xmlns:cpm="&cpm;"
     xml:base="&odo;">
-    
+
   <owl:Ontology rdf:about="&odo;">
     <rdfs:label rdf:datatype="&xsd;string">Ocean Data Ontology</rdfs:label>
     <dc:description>An ontology for describing ocean data</dc:description>
-    <owl:imports rdf:resource="&spacetime;"/>
     <owl:imports rdf:resource="&foaf;"/>
+    <dcterms:source rdf:datatype="xsd:anyURI">https://github.com/BCODMO/Ocean-Data-Ontology</dcterms:source>
+    <dcterms:issued rdf:datatype="xsd:date">2017-03-01</dcterms:issued>
+    <owl:versionInfo>0.9.0</owl:versionInfo>
   </owl:Ontology>
-  
+
   <!-- AFFILIATION -->
   <owl:Class rdf:about="&foaf;Organization">
-	  <rdfs:label rdf:datatype="&xsd;string">Organization</rdfs:label>
+    <rdfs:label rdf:datatype="&xsd;string">Organization</rdfs:label>
+    <rdfs:comment rdf:datatype="&xsd;string">Organizations are used to keep track of Funding Sources and also a Person's affiliation.</rdfs:comment>
   </owl:Class>
   <owl:DatatypeProperty rdf:about="&odo;hasOrganizationSubName">
     <rdfs:range rdf:resource="&xsd;string"/>
@@ -45,11 +54,22 @@
     <rdfs:range rdf:resource="&xsd;string"/>
     <rdfs:domain rdf:resource="&foaf;Organization"/>
   </owl:DatatypeProperty>
-  
-  
+
+
   <!-- AWARD -->
   <owl:Class rdf:about="&odo;Award">
-  	<rdfs:label rdf:datatype="&xsd;string">Award</rdfs:label>
+    <rdfs:label rdf:datatype="&xsd;string">Award</rdfs:label>
+    <rdfs:comment rdf:datatype="&xsd;string">A funding award provided by an Funding Source (Organization) to a Project. This Award may fund Datasets.</rdfs:comment>
+    <owl:disjointWith rdf:resource="&foaf;Organization"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+	  <owl:Class rdf:about="&odo;GrantAward"/>
+          <owl:Class rdf:about="&odo;ContractAward"/>
+          <owl:Class rdf:about="&odo;SubContractAward"/>
+        </owl:unionOf>
+      </owl:Class>
+    </owl:equivalentClass>
   </owl:Class>
   <owl:DatatypeProperty rdf:about="&odo;hasAwardNumber">
     <rdfs:range rdf:resource="&xsd;string"/>
@@ -59,24 +79,121 @@
     <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
     <rdfs:domain rdf:resource="&odo;Award"/>
   </owl:DatatypeProperty>
-  
+
   <owl:Class rdf:about="&odo;GrantAward">
-	  <rdfs:label rdf:datatype="&xsd;string">Grant Award</rdfs:label>
+	<rdfs:label rdf:datatype="&xsd;string">Grant Award</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Award"/>
   </owl:Class>
   <owl:Class rdf:about="&odo;ContractAward">
-	  <rdfs:label rdf:datatype="&xsd;string">Contract Award</rdfs:label>
+    <rdfs:label rdf:datatype="&xsd;string">Contract Award</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Award"/>
+    <owl:disjointWith rdf:resource="&odo;GrantAward"/>
   </owl:Class>
   <owl:Class rdf:about="&odo;SubContractAward">
     <rdfs:label rdf:datatype="&xsd;string">Sub-Contract Award</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Award"/>
+    <owl:disjointWith rdf:resource="&odo;GrantAward"/>
+    <owl:disjointWith rdf:resource="&odo;ContractAward"/>
   </owl:Class>
+  
+  <!-- CREATIVE WORK -->
+  <owl:Class rdf:about="&odo;CreativeWork">
+    <rdfs:label rdf:datatype="&xsd;string">Creative Work</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&schema;CreativeWork"/>
+  </owl:Class>
+  
+  <owl:ObjectProperty rdf:about="&odo;relatedWork">
+    <rdfs:domain rdf:resource="&odo;CreativeWork" />
+    <rdfs:comment rdf:datatype="&xsd;string">A related work.</rdfs:comment>
+    <rdfs:range rdf:resource="&skos;CreativeWork" />
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="&odo;relationshipType">
+    <rdfs:domain rdf:resource="&odo;CreativeWork" />
+    <rdfs:comment rdf:datatype="&xsd;string">The type of relation between two Creative Works.</rdfs:comment>
+    <rdfs:range rdf:resource="&odo;CreativeWorkRelation" />
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="&odo;hasIdentifier">
+    <rdfs:subPropertyOf rdf:resource="&datacite;hasIdentifier" />
+    <rdfs:domain rdf:resource="&odo;CreativeWork" />
+    <rdfs:comment rdf:datatype="&xsd;string">An identifier for a Creative Work.</rdfs:comment>
+    <rdfs:range rdf:resource="&datacite;Identifier" />
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="&odo;citationText">
+    <rdfs:comment rdf:datatype="&xsd;string">The citation text for a Creative Work.</rdfs:comment>
+    <rdfs:domain rdf:resource="&odo;CreativeWork" />
+    <rdfs:range rdf:resource="&xsd;string" />
+  </owl:DatatypeProperty>
 
+  <owl:Class rdf:About="&odo;CreativeWorkRelation">
+    <rdfs:label rdf:datatype="&xsd;string">Creative Work Relationship</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&skos;Concept"/>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="&odo;crossrefRelation">
+    <rdfs:comment rdf:datatype="&xsd;string">The type of relationship defined by Crossref.</rdfs:comment>
+    <rdfs:domain rdf:resource="&odo;CreativeWorkRelation" />
+    <rdfs:range rdf:resource="&xsd;string" />
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="&odo;crossrefRelationType">
+    <rdfs:comment rdf:datatype="&xsd;string">Either it's an inter-relation or an intra-relation depending on if its the same work or not.</rdfs:comment>
+    <rdfs:domain rdf:resource="&odo;CreativeWorkRelation" />
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf>
+          <rdf:List>
+            <rdf:first rdf:datatype="&odo;CrossrefInterRelation" />
+            <rdf:rest>
+              <rdf:List>
+                <rdf:first rdf:datatype="&odo;CrossrefIntraRelation" />
+              </rdf:List>
+            </rdf:rest>
+          </rdf:List>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:NamedIndividual rdf:about="odo:CrossrefInterRelation">
+    <rdfs:label xml:lang="en-US">Crossref Inter-relation</rdfs:label>
+    <rdfs:comment xml:lang="en-US">A relationship between two different creative works.</rdfs:comment>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="odo:CrossrefIntraRelation">
+    <rdfs:label xml:lang="en-US">Crossref Intra-relation</rdfs:label>
+    <rdfs:comment xml:lang="en-US">A relationship between two variations of the same creative work.</rdfs:comment>
+  </owl:NamedIndividual>
 
   <!-- DATASETS -->
   <owl:Class rdf:about="&odo;Dataset">
     <rdfs:label rdf:datatype="&xsd;string">Dataset</rdfs:label>
+    <rdfs:comment rdf:datatype="&xsd;string">A super class for discovering any type of oceanographic dataset.</rdfs:comment>
+    <owl:disjointWith rdf:resource="&odo;Award"/>
+    <owl:disjointWith rdf:resource="&foaf;Organization"/>
+    <rdfs:subClassOf rdf:resource="&odo;CreativeWork"/>
+    <rdfs:subClassOf>
+    	<owl:Restriction>
+          <owl:onProperty rdf:resource="&odo;restricted" />
+          <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+    	<owl:Restriction>
+          <owl:onProperty rdf:resource="&odo;releaseDate" />
+          <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+    	<owl:Restriction>
+          <owl:onProperty rdf:resource="&odo;validated" />
+          <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+	  <owl:Class rdf:about="&odo;LaboratoryDataset"/>
+          <owl:Class rdf:about="&odo;DeploymentDataset"/>
+          <owl:Class rdf:about="&odo;DatasetCollection"/>
+        </owl:unionOf>
+      </owl:Class>
+    </owl:equivalentClass>
   </owl:Class>
   <owl:DatatypeProperty rdf:about="&odo;hasDatasetURL">
     <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
@@ -90,37 +207,79 @@
     <rdfs:subPropertyOf rdf:resource="&dcterms;description"/>
     <rdfs:domain rdf:resource="&odo;Dataset"/>
   </owl:DatatypeProperty>
-  
+  <owl:DatatypeProperty rdf:about="&odo;dataFile">
+    <rdfs:domain rdf:resource="&odo;Dataset" />
+    <rdfs:range rdf:resource="&owl;Thing" />
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&odo;dataFileLandingPage">
+    <rdfs:domain rdf:resource="&odo;Dataset" />
+    <rdfs:range rdf:resource="&owl;Thing" />
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&odo;restricted">
+    <rdfs:domain rdf:resource="&odo;Dataset" />
+    <rdfs:comment rdf:datatype="&xsd;string">Is the dataset restricted for access by the public.</rdfs:comment>
+    <rdfs:range rdf:resource="&xsd;boolean"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&odo;releaseDate">
+    <rdfs:comment rdf:datatype="&xsd;string">The date the dataset will be available. Useful for reporting when a restricted dataset will become available.</rdfs:comment>
+    <rdfs:domain rdf:resource="&odo;Dataset" />
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&odo;versionLabel">
+    <rdfs:domain rdf:resource="&odo;Dataset" />
+    <rdfs:comment rdf:datatype="&xsd;string">An string signifying the version of the dataset.</rdfs:comment>
+    <rdfs:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&odo;validated">
+    <rdfs:domain rdf:resource="&odo;Dataset" />
+    <rdfs:comment rdf:datatype="&xsd;string">Has the dataset been validated by the PI.</rdfs:comment>
+    <rdfs:range rdf:resource="&xsd;boolean"/>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="&odo;currentState">
+    <rdfs:domain rdf:resource="&odo;Dataset" />
+    <rdfs:comment rdf:datatype="&xsd;string">A term describing the current state of the dataset.</rdfs:comment>
+    <rdfs:range rdf:resource="&skos;Concept" />
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="&odo;datasetType">
+    <rdfs:domain rdf:resource="&odo;Dataset" />
+    <rdfs:comment rdf:datatype="&xsd;string">The type of dataset.</rdfs:comment>
+    <rdfs:range rdf:resource="&skos;Concept" />
+  </owl:ObjectProperty>
+
   <owl:Class rdf:about="&odo;LaboratoryDataset">
     <rdfs:label rdf:datatype="&xsd;string">Laboratory Dataset</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Dataset"/>
   </owl:Class>
-  
+
   <owl:Class rdf:about="&odo;DeploymentDataset">
     <rdfs:label rdf:datatype="&xsd;string">Deployment Dataset</rdfs:label>
     <rdfs:comment rdf:datatype="&xsd;string">A deployment dataset is a dataset that is collected on a specific deployment of a platform from a specific instrument on that platform.</rdfs:comment>
     <rdfs:subClassOf rdf:resource="&odo;Dataset"/>
+    <owl:disjointWith rdf:resource="&odo;LaboratoryDataset"/>
   </owl:Class>
   <owl:ObjectProperty rdf:about="&odo;fromDeployment">
     <rdfs:range rdf:resource="&odo;Deployment"/>
     <rdfs:domain rdf:resource="&odo;DeploymentDataset"/>
   </owl:ObjectProperty>
-  
+
   <owl:Class rdf:about="&odo;DatasetCollection">
     <rdfs:label rdf:datatype="&xsd;string">Dataset Collection</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Dataset"/>
+    <owl:disjointWith rdf:resource="&odo;LaboratoryDataset"/>
+    <owl:disjointWith rdf:resource="&odo;DeploymentDataset"/>
   </owl:Class>
   <owl:ObjectProperty rdf:about="&odo;hasInventory">
+    <rdfs:label rdf:datatype="&xsd;string">hasInventory</rdfs:label>
     <rdfs:range rdf:resource="&odo;Dataset"/>
     <rdfs:domain rdf:resource="&odo;DatasetCollection"/>
     <owl:inverseOf rdf:resource="&odo;fromCollection"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="&odo;fromCollection">
+    <rdfs:label rdf:datatype="&xsd;string">fromCollection</rdfs:label>
     <owl:inverseOf>
       <owl:ObjectProperty rdf:about="&odo;hasInventory"/>
     </owl:inverseOf>
   </owl:ObjectProperty>
-  
+
   <owl:Class rdf:about="&odo;DeploymentDatasetCollection">
     <rdfs:subClassOf rdf:resource="&odo;DatasetCollection"/>
     <rdfs:subClassOf>
@@ -143,12 +302,16 @@
     <rdfs:comment rdf:datatype="&xsd;string">This dataset was collected from an instrument that is located on the platform during this deployment.</rdfs:comment>
     <rdfs:domain rdf:resource="&odo;DeploymentDatasetCollection"/>
   </owl:ObjectProperty>
-  
+
+
 
   <!-- DEPLOYMENT -->
   <owl:Class rdf:about="&odo;Deployment">
     <rdfs:label rdf:datatype="&xsd;string">Deployment</rdfs:label>
     <rdfs:comment rdf:datatype="&xsd;string">A platform is deployed during a specific duration of time over a specific spacial coverage. For example, a boat is a platform. That boat is doployed (sent on a cruise) in order to collect data.</rdfs:comment>
+    <owl:disjointWith rdf:resource="&odo;Award"/>
+    <owl:disjointWith rdf:resource="&odo;Dataset"/>
+    <owl:disjointWith rdf:resource="&foaf;Organization"/>
   </owl:Class>
   <owl:DatatypeProperty rdf:about="&odo;hasReportURL">
     <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
@@ -170,12 +333,12 @@
     <rdfs:subPropertyOf rdf:resource="&dcterms;description"/>
     <rdfs:domain rdf:resource="&odo;Deployment"/>
   </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="&odo;hasGeometryFeature">
+  <owl:DatatypeProperty rdf:about="&odo;hasCruiseTrajectory">
     <rdfs:range rdf:resource="&geos;Feature"/>
     <rdfs:domain rdf:resource="&odo;Deployment"/>
   </owl:DatatypeProperty>
   <owl:Class rdf:about="&odo;Cruise">
-   <rdfs:subClassOf rdf:resource="&odo;Deployment"/> 
+   <rdfs:subClassOf rdf:resource="&odo;Deployment"/>
    <rdfs:subClassOf>
      <owl:Restriction>
        <owl:onProperty>
@@ -188,43 +351,151 @@
    </rdfs:subClassOf>
  </owl:Class>
 
-  
+
   <!-- FUNDING SOURCE -->
   <owl:Class rdf:about="&odo;FundingSource">
     <rdfs:label rdf:datatype="&xsd;string">Funding Source</rdfs:label>
+    <rdfs:comment rdf:datatype="&xsd;string">An Organization that provides funding Awards to a Project.</rdfs:comment>
     <rdfs:subClassOf rdf:resource="&foaf;Organization"/>
+    <owl:disjointWith rdf:resource="&odo;Award"/>
+    <owl:disjointWith rdf:resource="&odo;Dataset"/>
+    <owl:disjointWith rdf:resource="&odo;Deployment"/>
   </owl:Class>
-  
-    
+
+
   <!-- INSTRUMENT -->
   <owl:Class rdf:about="&odo;Instrument">
     <rdfs:label rdf:datatype="&xsd;string">Instrument</rdfs:label>
+    <skos:defintion>odo:Instrument is an instance of an NVS L22 Concept. Use odo:isInstanceOf to link the odo:Instrument to the L22 Concept's URI.</skos:defintion>
     <rdfs:subClassOf rdf:resource="&skos;Concept"/>
+    <owl:disjointWith rdf:resource="&odo;Award"/>
+    <owl:disjointWith rdf:resource="&odo;Dataset"/>
+    <owl:disjointWith rdf:resource="&odo;Deployment"/>
+    <owl:disjointWith rdf:resource="&odo;FundingSource"/>
+    <owl:disjointWith rdf:resource="&foaf;Organization"/>
   </owl:Class>
-
-
-  <!-- PARAMETER -->
-  <owl:Class rdf:about="&odo;Parameter">
-	  <rdfs:label rdf:datatype="&xsd;string">Parameter</rdfs:label>
-	  <rdfs:subClassOf rdf:resource="&skos;Concept"/>
-  </owl:Class>
-  <owl:ObjectProperty rdf:about="&odo;hasMeasuredParameter">
-    <rdfs:domain rdf:resource="&odo;Instrument"/>
-    <rdfs:range rdf:resource="&odo;Parameter"/>
+  <owl:DatatypeProperty rdf:about="&odo;hasSerialNumber">
+    <rdfs:range rdf:resource="&xsd;string"/>
+     <rdfs:domain rdf:resource="&odo;Instrument"/>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="&odo;hasMakeAndModel">
+    <rdfs:subPropertyOf rdf:resource="&skos;related" />
+    <rdfs:subPropertyOf rdf:resource="&rdfs;isDefinedBy" />
+    <rdfs:label rdf:datatype="&xsd;string">Links odo:Instrument to a skos:Concept of which the odo:Instrument is an instance</rdfs:label>
+    <rdfs:domain rdf:resource="&odo;Instrument" />
+    <rdfs:range rdf:resource="&skos;Concept" />
   </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="&odo;obsoletedBy">
+    <rdfs:label rdf:datatype="&xsd;string">Defines the resource that has replaced this resource.</rdfs:label>
+    <rdfs:domain rdf:resource="&skos;Concept" />
+    <rdfs:range rdf:resource="&skos;Concept" />
+  </owl:ObjectProperty>
+
+
+  <!-- MONITORED PROPERTY -->
+  <owl:Class rdf:about="&odo;MonitoredProperty">
+    <rdfs:label rdf:datatype="&xsd;string">Monitored Property</rdfs:label>
+    <skos:defintion>odo:MonitoredProperty is an instance of an NVS P01 Concept. Use odo:isInstanceOf to link the odo:MonitoredProperty to the P01 Concept's URI.</skos:defintion>
+    <rdfs:subClassOf rdf:resource="&skos;Concept"/>
+    <owl:disjointWith rdf:resource="&odo;Award"/>
+    <owl:disjointWith rdf:resource="&odo;Dataset"/>
+    <owl:disjointWith rdf:resource="&odo;Deployment"/>
+    <owl:disjointWith rdf:resource="&odo;FundingSource"/>
+    <owl:disjointWith rdf:resource="&odo;Instrument"/>
+    <owl:disjointWith rdf:resource="&foaf;Organization"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;UnitOfMeasure">
+  	<rdfs:label rdf:datatype="&xsd;string">Unit of Measure</rdfs:label>
+  	<rdfs:comment rdf:datatype="&xsd;string">A unit of measure</rdfs:comment>
+  	<rdfs:subClassOf rdf:resource="&skos;Concept"/>
+	<owl:disjointWith rdf:resource="&odo;Award"/>
+    <owl:disjointWith rdf:resource="&odo;Dataset"/>
+    <owl:disjointWith rdf:resource="&odo;Deployment"/>
+    <owl:disjointWith rdf:resource="&odo;FundingSource"/>
+    <owl:disjointWith rdf:resource="&odo;Instrument"/>
+    <owl:disjointWith rdf:resource="&odo;MonitoredProperty"/>
+    <owl:disjointWith rdf:resource="&foaf;Organization"/>
+  </owl:Class>
+
   <owl:DatatypeProperty rdf:about="&odo;hasParameterShortDescription">
     <rdfs:subPropertyOf rdf:resource="&dcterms;description"/>
-    <rdfs:domain rdf:resource="&odo;Parameter"/>
+    <rdfs:domain rdf:resource="&odo;MonitoredProperty"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="&odo;hasParameterShortName">
     <rdfs:range rdf:resource="&xsd;string"/>
-    <rdfs:domain rdf:resource="&odo;Parameter"/>
+    <rdfs:domain rdf:resource="&odo;MonitoredProperty"/>
   </owl:DatatypeProperty>
-  
-  
+  <owl:DatatypeProperty rdf:about="&odo;hasNoDataValue">
+    <rdfs:comment>The value to expect in a Dataset when there was no data for the given record.</rdfs:comment>
+    <rdfs:range rdf:resource="&xsd;string"/>
+    <rdfs:domain rdf:resource="&odo;MonitoredProperty"/>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="&odo;hasUnitOfMeasure">
+    <rdfs:subPropertyOf rdf:resource="&skos;related" />
+    <owl:equivalentProperty rdf:resource="&cpm;opUnitOfMeasure" />
+    <rdfs:label rdf:datatype="&xsd;string">hasUnitOfMeasure - Links odo:MonitoredProperty to a SKOS Concept defining the unit of measure</rdfs:label>
+    <rdfs:domain rdf:resource="&odo;MonitoredProperty" />
+    <rdfs:range rdf:resource="&odo;UnitOfMeasure"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="&odo;featureOfInterest">
+    <rdfs:label rdf:datatype="&xsd;string">Links an odo:MonitoredProperty to the feature, and from there the geometry, of interest</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="&skos;related" />
+    <rdfs:domain rdf:resource="&odo;MonitoredProperty" />
+    <rdfs:range rdf:resource="&geos;Feature"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="&odo;hasMonitoredProperty">
+    <rdfs:range rdf:resource="&odo;Instrument"/>
+    <rdfs:domain rdf:resource="&odo;MonitoredProperty"/>
+   </owl:ObjectProperty>
+   <owl:ObjectProperty rdf:about="&odo;storesValuesFor">
+    <rdfs:domain rdf:resource="&odo;Dataset" />
+    <rdfs:range rdf:resource="&odo;MonitoredProperty" />
+   </owl:ObjectProperty>
+
+   <!-- DATASET PARAMETER -->
+   <owl:Class rdf:about="&odo;DatasetMonitoredProperty">
+   	<rdfs:subClassOf rdf:resource="&odo;MonitoredProperty"/>
+   	<rdfs:label rdf:datatype="&xsd;string">Dataset Property</rdfs:label>
+    	<skos:defintion>odo:DatasetMonitoredProperty is an instance of a odo:MonitoredProperty but with project-specific label and definition known by the researcher.</skos:defintion>
+   </owl:Class>
+   <owl:DatatypeProperty rdf:about="&odo;requiresConversion">
+    <rdfs:comment>The values in the dataset for this property need to be converted.</rdfs:comment>
+    <rdfs:range rdf:resource="&xsd;boolean"/>
+    <rdfs:domain rdf:resource="&odo;DatasetMonitoredProperty"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:about="&odo;conversionDescription">
+    <rdfs:comment>Describes how the values can be converted.</rdfs:comment>
+    <rdfs:range rdf:resource="&xsd;string"/>
+    <rdfs:domain rdf:resource="&odo;DatasetMonitoredProperty"/>
+   </owl:DatatypeProperty>
+
   <!-- PLATFORM -->
   <owl:Class rdf:about="&odo;Platform">
-	  <rdfs:label rdf:datatype="&xsd;string">Platform</rdfs:label>
+    <rdfs:label rdf:datatype="&xsd;string">Platform</rdfs:label>
+    <rdfs:comment rdf:datatype="&xsd;string">A thing from which a Deployment occurs.</rdfs:comment>
+    <owl:disjointWith rdf:resource="&odo;Award"/>
+    <owl:disjointWith rdf:resource="&odo;Dataset"/>
+    <owl:disjointWith rdf:resource="&odo;Deployment"/>
+    <owl:disjointWith rdf:resource="&odo;FundingSource"/>
+    <owl:disjointWith rdf:resource="&odo;Instrument"/>
+    <owl:disjointWith rdf:resource="&odo;MonitoredProperty"/>
+    <owl:disjointWith rdf:resource="&odo;UnitOfMeasure"/>
+    <owl:disjointWith rdf:resource="&foaf;Organization"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+	  <owl:Class rdf:about="&odo;Float"/>
+          <owl:Class rdf:about="&odo;Glider"/>
+          <owl:Class rdf:about="&odo;Drifter"/>
+	  <owl:Class rdf:about="&odo;Satellite"/>
+          <owl:Class rdf:about="&odo;Model"/>
+          <owl:Class rdf:about="&odo;Synthesis"/>
+	  <owl:Class rdf:about="&odo;StationaryPlatform"/>
+	  <owl:Class rdf:about="&odo;Vehicle"/>
+        </owl:unionOf>
+      </owl:Class>
+    </owl:equivalentClass>
   </owl:Class>
   <owl:DatatypeProperty rdf:about="&odo;hasPlatformTitle">
     <rdfs:range rdf:resource="&xsd;string"/>
@@ -241,7 +512,7 @@
     <rdfs:range rdf:resource="&odo;Deployment"/>
     <rdfs:domain rdf:resource="&odo;Platform"/>
   </owl:ObjectProperty>
-  
+
   <owl:Class rdf:about="&odo;Float">
     <rdfs:label rdf:datatype="&xsd;string">Float</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Platform"/>
@@ -249,26 +520,47 @@
   <owl:Class rdf:about="&odo;Glider">
     <rdfs:label rdf:datatype="&xsd;string">Glider</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Platform"/>
+    <owl:disjointWith rdf:resource="&odo;Float"/>
   </owl:Class>
   <owl:Class rdf:about="&odo;Drifter">
     <rdfs:label rdf:datatype="&xsd;string">Drifter</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Platform"/>
+    <owl:disjointWith rdf:resource="&odo;Float"/>
+    <owl:disjointWith rdf:resource="&odo;Glider"/>
   </owl:Class>
   <owl:Class rdf:about="&odo;Satellite">
   	<rdfs:label rdf:datatype="&xsd;string">Satellite</rdfs:label>
   	<rdfs:subClassOf rdf:resource="&odo;Platform"/>
+	<owl:disjointWith rdf:resource="&odo;Float"/>
+	<owl:disjointWith rdf:resource="&odo;Glider"/>
+	<owl:disjointWith rdf:resource="&odo;Drifter"/>
   </owl:Class>
   <owl:Class rdf:about="&odo;Model">
   	<rdfs:label rdf:datatype="&xsd;string">Model</rdfs:label>
   	<rdfs:subClassOf rdf:resource="&odo;Platform"/>
+	<owl:disjointWith rdf:resource="&odo;Float"/>
+	<owl:disjointWith rdf:resource="&odo;Glider"/>
+	<owl:disjointWith rdf:resource="&odo;Drifter"/>
+	<owl:disjointWith rdf:resource="&odo;Satellite"/>
   </owl:Class>
   <owl:Class rdf:about="&odo;Synthesis">
   	<rdfs:label rdf:datatype="&xsd;string">Synthesis</rdfs:label>
   	<rdfs:subClassOf rdf:resource="&odo;Platform"/>
+	<owl:disjointWith rdf:resource="&odo;Float"/>
+	<owl:disjointWith rdf:resource="&odo;Glider"/>
+	<owl:disjointWith rdf:resource="&odo;Drifter"/>
+	<owl:disjointWith rdf:resource="&odo;Satellite"/>
+	<owl:disjointWith rdf:resource="&odo;Model"/>
   </owl:Class>
   <owl:Class rdf:about="&odo;StationaryPlatform">
     <rdfs:label rdf:datatype="&xsd;string">Stationary Platform</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Platform"/>
+    <owl:disjointWith rdf:resource="&odo;Float"/>
+    <owl:disjointWith rdf:resource="&odo;Glider"/>
+    <owl:disjointWith rdf:resource="&odo;Drifter"/>
+    <owl:disjointWith rdf:resource="&odo;Satellite"/>
+    <owl:disjointWith rdf:resource="&odo;Model"/>
+    <owl:disjointWith rdf:resource="&odo;Synthesis"/>
   </owl:Class>
   <owl:Class rdf:about="&odo;Dock">
     <rdfs:label rdf:datatype="&xsd;string">Dock</rdfs:label>
@@ -289,6 +581,13 @@
   <owl:Class rdf:about="&odo;Vehicle">
     <rdfs:label rdf:datatype="&xsd;string">Vehicle</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Platform"/>
+    <owl:disjointWith rdf:resource="&odo;Float"/>
+    <owl:disjointWith rdf:resource="&odo;Glider"/>
+    <owl:disjointWith rdf:resource="&odo;Drifter"/>
+    <owl:disjointWith rdf:resource="&odo;Satellite"/>
+    <owl:disjointWith rdf:resource="&odo;Model"/>
+    <owl:disjointWith rdf:resource="&odo;Synthesis"/>
+    <owl:disjointWith rdf:resource="&odo;StationaryPlatform"/>
   </owl:Class>
   <owl:Class rdf:about="&odo;Aircraft">
     <rdfs:label rdf:datatype="&xsd;string">Aircraft</rdfs:label>
@@ -317,7 +616,7 @@
   <owl:Class rdf:about="&odo;AutonomousUnderwaterVehicle">
 	  <rdfs:label rdf:datatype="&xsd;string">AUV</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;UnmannedSubmarine"/>
-  </owl:Class>  
+  </owl:Class>
   <owl:Class rdf:about="&odo;Vessel">
     <rdfs:label rdf:datatype="&xsd;string">Vessel</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Vehicle"/>
@@ -327,33 +626,65 @@
     <rdfs:subClassOf rdf:resource="&odo;Vessel"/>
     <rdfs:subClassOf rdf:resource="&odo;StationaryPlatform"/>
   </owl:Class>
-  
-  
+
+
   <!-- PROGRAM -->
   <owl:Class rdf:about="&odo;Program">
-	  <rdfs:label rdf:datatype="&xsd;string">Program</rdfs:label>
+    <rdfs:label rdf:datatype="&xsd;string">Program</rdfs:label>
+    <rdfs:comment rdf:datatype="&xsd;string">A large-scale project that encompasses smaller Projects.</rdfs:comment>
+    <owl:disjointWith rdf:resource="&odo;Award"/>
+    <owl:disjointWith rdf:resource="&odo;Dataset"/>
+    <owl:disjointWith rdf:resource="&odo;Deployment"/>
+    <owl:disjointWith rdf:resource="&odo;FundingSource"/>
+    <owl:disjointWith rdf:resource="&odo;Instrument"/>
+    <owl:disjointWith rdf:resource="&odo;MonitoredProperty"/>
+    <owl:disjointWith rdf:resource="&odo;UnitOfMeasure"/>
+    <owl:disjointWith rdf:resource="&odo;Platform"/>
+    <owl:disjointWith rdf:resource="&foaf;Organization"/>
   </owl:Class>
   <owl:ObjectProperty rdf:about="&odo;hasProject">
     <owl:inverseOf>
       <owl:ObjectProperty rdf:about="&odo;hasParentProgram"/>
     </owl:inverseOf>
   </owl:ObjectProperty>
-  
-  
+
+
   <!-- PROJECT -->
   <owl:Class rdf:about="&odo;Project">
-  	<rdfs:label rdf:datatype="&xsd;string">Project</rdfs:label>
-  	<rdfs:subClassOf rdf:resource="&foaf;Project"/>
+    <rdfs:label rdf:datatype="&xsd;string">Project</rdfs:label>
+    <rdfs:comment rdf:datatype="&xsd;string">A funded, scientific objective that may produce Datasets.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="&foaf;Project"/>
+    <owl:disjointWith rdf:resource="&odo;Award"/>
+    <owl:disjointWith rdf:resource="&odo;Dataset"/>
+    <owl:disjointWith rdf:resource="&odo;Deployment"/>
+    <owl:disjointWith rdf:resource="&odo;FundingSource"/>
+    <owl:disjointWith rdf:resource="&odo;Instrument"/>
+    <owl:disjointWith rdf:resource="&odo;MonitoredProperty"/>
+    <owl:disjointWith rdf:resource="&odo;UnitOfMeasure"/>
+    <owl:disjointWith rdf:resource="&odo;Platform"/>
+    <owl:disjointWith rdf:resource="&odo;Program"/>
+    <owl:disjointWith rdf:resource="&foaf;Organization"/>
   </owl:Class>
   <owl:ObjectProperty rdf:about="&odo;hasParentProgram">
     <rdfs:range rdf:resource="&odo;Program"/>
     <rdfs:domain rdf:resource="&odo;Project"/>
   </owl:ObjectProperty>
-  
-  
+
+
   <!-- PERSON -->
   <owl:Class rdf:about="&foaf;Person">
-	  <rdfs:label rdf:datatype="&xsd;string">Person</rdfs:label>
+    <rdfs:label rdf:datatype="&xsd;string">Person</rdfs:label>
+    <owl:disjointWith rdf:resource="&odo;Award"/>
+    <owl:disjointWith rdf:resource="&odo;Dataset"/>
+    <owl:disjointWith rdf:resource="&odo;Deployment"/>
+    <owl:disjointWith rdf:resource="&odo;FundingSource"/>
+    <owl:disjointWith rdf:resource="&odo;Instrument"/>
+    <owl:disjointWith rdf:resource="&odo;MonitoredProperty"/>
+    <owl:disjointWith rdf:resource="&odo;UnitOfMeasure"/>
+    <owl:disjointWith rdf:resource="&odo;Platform"/>
+    <owl:disjointWith rdf:resource="&odo;Program"/>
+    <owl:disjointWith rdf:resource="&odo;Project"/>
+    <owl:disjointWith rdf:resource="&foaf;Organization"/>
   </owl:Class>
   <owl:ObjectProperty rdf:about="&odo;hasAffiliation">
     <rdfs:range rdf:resource="&foaf;Organization"/>
@@ -364,11 +695,50 @@
     <rdfs:domain rdf:resource="&foaf;Person"/>
   </owl:ObjectProperty>
 
-  
+
   <!-- ROLES -->
   <owl:Class rdf:about="&odo;Role">
     <rdfs:label rdf:datatype="&xsd;string">Role</rdfs:label>
     <rdfs:comment rdf:datatype="&xsd;string">A person can play many roles, such as principle investigator or captain or lead scientists. This role is played over a specific period of time</rdfs:comment>
+    <owl:disjointWith rdf:resource="&odo;Award"/>
+    <owl:disjointWith rdf:resource="&odo;Dataset"/>
+    <owl:disjointWith rdf:resource="&odo;Deployment"/>
+    <owl:disjointWith rdf:resource="&odo;FundingSource"/>
+    <owl:disjointWith rdf:resource="&odo;Instrument"/>
+    <owl:disjointWith rdf:resource="&odo;MonitoredProperty"/>
+    <owl:disjointWith rdf:resource="&odo;UnitOfMeasure"/>
+    <owl:disjointWith rdf:resource="&odo;Platform"/>
+    <owl:disjointWith rdf:resource="&odo;Program"/>
+    <owl:disjointWith rdf:resource="&odo;Project"/>
+    <owl:disjointWith rdf:resource="&foaf;Person"/>
+    <owl:disjointWith rdf:resource="&foaf;Organization"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+	  <owl:Class rdf:about="&odo;CaptainRole"/>
+          <owl:Class rdf:about="&odo;ChiefScientistRole"/>
+          <owl:Class rdf:about="&odo;Co-ChiefScientistRole"/>
+	  <owl:Class rdf:about="&odo;LeadPrincipalInvestigatorRole"/>
+          <owl:Class rdf:about="&odo;PrincipalInvestigatorRole"/>
+          <owl:Class rdf:about="&odo;Co-PrincipalInvestigatorRole"/>
+	  <owl:Class rdf:about="&odo;ScientistRole"/>
+	  <owl:Class rdf:about="&odo;GuestRole"/>
+	  <owl:Class rdf:about="&odo;StudentRole"/>
+          <owl:Class rdf:about="&odo;TechnicianRole"/>
+          <owl:Class rdf:about="&odo;OriginatorRole"/>
+	  <owl:Class rdf:about="&odo;DataPublisherRole"/>
+          <owl:Class rdf:about="&odo;DataManagerRole"/>
+          <owl:Class rdf:about="&odo;CuratorRole"/>
+	  <owl:Class rdf:about="&odo;AnalystRole"/>
+	  <owl:Class rdf:about="&odo;ContactRole"/>
+	  <owl:Class rdf:about="&odo;ProgramManagerRole"/>
+          <owl:Class rdf:about="&odo;UnknownRole"/>
+          <owl:Class rdf:about="&odo;InternationalCollaboratorRole"/>
+	  <owl:Class rdf:about="&odo;ProjectCoordinatorRole"/>
+	  <owl:Class rdf:about="&odo;BcoDmoDataManagerRole"/>
+        </owl:unionOf>
+      </owl:Class>
+    </owl:equivalentClass>
   </owl:Class>
   <owl:ObjectProperty rdf:about="&odo;forOrganization">
     <rdfs:range rdf:resource="&foaf;Organization"/>
@@ -378,7 +748,7 @@
     <rdfs:range rdf:resource="&foaf;Person"/>
     <rdfs:domain rdf:resource="&odo;Role"/>
   </owl:ObjectProperty>
-  
+
   <owl:Class rdf:about="&odo;CaptainRole">
     <rdfs:label rdf:datatype="&xsd;string">Captain</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Role"/>
@@ -386,113 +756,380 @@
   <owl:Class rdf:about="&odo;ChiefScientistRole">
     <rdfs:label rdf:datatype="&xsd;string">Chief Scientist</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Role"/>
+    <owl:disjointWith rdf:resource="&odo;CaptainRole"/>
   </owl:Class>
   <owl:Class rdf:about="&odo;Co-ChiefScientistRole">
     <rdfs:label rdf:datatype="&xsd;string">Co-Chief Scientist</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Role"/>
+    <owl:disjointWith rdf:resource="&odo;CaptainRole"/>
+    <owl:disjointWith rdf:resource="&odo;ChiefScientistRole"/>
   </owl:Class>
   <owl:Class rdf:about="&odo;LeadPrincipalInvestigatorRole">
-  	<rdfs:label rdf:datatype="&xsd;string">Lead Principle Investigator</rdfs:label>
-  	<rdfs:subClassOf rdf:resource="&odo;Role"/>
+    <rdfs:label rdf:datatype="&xsd;string">Lead Principle Investigator</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+    <owl:disjointWith rdf:resource="&odo;CaptainRole"/>
+    <owl:disjointWith rdf:resource="&odo;ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-ChiefScientistRole"/>
   </owl:Class>
   <owl:Class rdf:about="&odo;PrincipalInvestigatorRole">
     <rdfs:label rdf:datatype="&xsd;string">Principal Investigator</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Role"/>
+    <owl:disjointWith rdf:resource="&odo;CaptainRole"/>
+    <owl:disjointWith rdf:resource="&odo;ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;LeadPrincipalInvestigatorRole"/>
   </owl:Class>
   <owl:Class rdf:about="&odo;Co-PrincipalInvestigatorRole">
     <rdfs:label rdf:datatype="&xsd;string">Co-Principal Investigator</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Role"/>
+    <owl:disjointWith rdf:resource="&odo;CaptainRole"/>
+    <owl:disjointWith rdf:resource="&odo;ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;LeadPrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;PrincipalInvestigatorRole"/>
   </owl:Class>
   <owl:Class rdf:about="&odo;ScientistRole">
     <rdfs:label rdf:datatype="&xsd;string">Scientist</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Role"/>
+    <owl:disjointWith rdf:resource="&odo;CaptainRole"/>
+    <owl:disjointWith rdf:resource="&odo;ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;LeadPrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;PrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-PrincipalInvestigatorRole"/>
   </owl:Class>
   <owl:Class rdf:about="&odo;GuestRole">
     <rdfs:label rdf:datatype="&xsd;string">Guest</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Role"/>
+    <owl:disjointWith rdf:resource="&odo;CaptainRole"/>
+    <owl:disjointWith rdf:resource="&odo;ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;LeadPrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;PrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-PrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;ScientistRole"/>
   </owl:Class>
   <owl:Class rdf:about="&odo;StudentRole">
     <rdfs:label rdf:datatype="&xsd;string">Student</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Role"/>
+    <owl:disjointWith rdf:resource="&odo;CaptainRole"/>
+    <owl:disjointWith rdf:resource="&odo;ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;LeadPrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;PrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-PrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;ScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;GuestRole"/>
   </owl:Class>
   <owl:Class rdf:about="&odo;TechnicianRole">
     <rdfs:label rdf:datatype="&xsd;string">Technician</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Role"/>
+    <owl:disjointWith rdf:resource="&odo;CaptainRole"/>
+    <owl:disjointWith rdf:resource="&odo;ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;LeadPrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;PrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-PrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;ScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;GuestRole"/>
+    <owl:disjointWith rdf:resource="&odo;StudentRole"/>
   </owl:Class>
   <owl:Class rdf:about="&odo;OriginatorRole">
     <rdfs:label rdf:datatype="&xsd;string">Originator</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Role"/>
+    <owl:disjointWith rdf:resource="&odo;CaptainRole"/>
+    <owl:disjointWith rdf:resource="&odo;ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;LeadPrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;PrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-PrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;ScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;GuestRole"/>
+    <owl:disjointWith rdf:resource="&odo;StudentRole"/>
+    <owl:disjointWith rdf:resource="&odo;TechnicianRole"/>
   </owl:Class>
   <owl:Class rdf:about="&odo;DataPublisherRole">
     <rdfs:label rdf:datatype="&xsd;string">Data Publisher</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Role"/>
+    <owl:disjointWith rdf:resource="&odo;CaptainRole"/>
+    <owl:disjointWith rdf:resource="&odo;ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;LeadPrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;PrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-PrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;ScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;GuestRole"/>
+    <owl:disjointWith rdf:resource="&odo;StudentRole"/>
+    <owl:disjointWith rdf:resource="&odo;TechnicianRole"/>
+    <owl:disjointWith rdf:resource="&odo;OriginatorRole"/>
   </owl:Class>
   <owl:Class rdf:about="&odo;DataManagerRole">
     <rdfs:subClassOf rdf:resource="&odo;Role"/>
     <rdfs:label rdf:datatype="&xsd;string">Data Manager</rdfs:label>
+    <owl:disjointWith rdf:resource="&odo;CaptainRole"/>
+    <owl:disjointWith rdf:resource="&odo;ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;LeadPrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;PrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-PrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;ScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;GuestRole"/>
+    <owl:disjointWith rdf:resource="&odo;StudentRole"/>
+    <owl:disjointWith rdf:resource="&odo;TechnicianRole"/>
+    <owl:disjointWith rdf:resource="&odo;OriginatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;DataPublisherRole"/>
   </owl:Class>
   <owl:Class rdf:about="&odo;CuratorRole">
     <rdfs:label rdf:datatype="&xsd;string">Curator</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Role"/>
+    <owl:disjointWith rdf:resource="&odo;CaptainRole"/>
+    <owl:disjointWith rdf:resource="&odo;ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;LeadPrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;PrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-PrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;ScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;GuestRole"/>
+    <owl:disjointWith rdf:resource="&odo;StudentRole"/>
+    <owl:disjointWith rdf:resource="&odo;TechnicianRole"/>
+    <owl:disjointWith rdf:resource="&odo;OriginatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;DataPublisherRole"/>
+    <owl:disjointWith rdf:resource="&odo;DataManagerRole"/>
   </owl:Class>
   <owl:Class rdf:about="&odo;AnalystRole">
     <rdfs:label rdf:datatype="&xsd;string">Analyst</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Role"/>
+    <owl:disjointWith rdf:resource="&odo;CaptainRole"/>
+    <owl:disjointWith rdf:resource="&odo;ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;LeadPrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;PrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-PrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;ScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;GuestRole"/>
+    <owl:disjointWith rdf:resource="&odo;StudentRole"/>
+    <owl:disjointWith rdf:resource="&odo;TechnicianRole"/>
+    <owl:disjointWith rdf:resource="&odo;OriginatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;DataPublisherRole"/>
+    <owl:disjointWith rdf:resource="&odo;DataManagerRole"/>
+    <owl:disjointWith rdf:resource="&odo;CuratorRole"/>
   </owl:Class>
   <owl:Class rdf:about="&odo;ContactRole">
     <rdfs:label rdf:datatype="&xsd;string">Contact</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Role"/>
+    <owl:disjointWith rdf:resource="&odo;CaptainRole"/>
+    <owl:disjointWith rdf:resource="&odo;ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;LeadPrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;PrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-PrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;ScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;GuestRole"/>
+    <owl:disjointWith rdf:resource="&odo;StudentRole"/>
+    <owl:disjointWith rdf:resource="&odo;TechnicianRole"/>
+    <owl:disjointWith rdf:resource="&odo;OriginatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;DataPublisherRole"/>
+    <owl:disjointWith rdf:resource="&odo;DataManagerRole"/>
+    <owl:disjointWith rdf:resource="&odo;CuratorRole"/>
+    <owl:disjointWith rdf:resource="&odo;AnalystRole"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;ProgramManagerRole">
+    <rdfs:label rdf:datatype="&xsd;string">Program Manager</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+    <owl:disjointWith rdf:resource="&odo;CaptainRole"/>
+    <owl:disjointWith rdf:resource="&odo;ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;LeadPrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;PrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-PrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;ScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;GuestRole"/>
+    <owl:disjointWith rdf:resource="&odo;StudentRole"/>
+    <owl:disjointWith rdf:resource="&odo;TechnicianRole"/>
+    <owl:disjointWith rdf:resource="&odo;OriginatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;DataPublisherRole"/>
+    <owl:disjointWith rdf:resource="&odo;DataManagerRole"/>
+    <owl:disjointWith rdf:resource="&odo;CuratorRole"/>
+    <owl:disjointWith rdf:resource="&odo;AnalystRole"/>
+    <owl:disjointWith rdf:resource="&odo;ContactRole"/>
   </owl:Class>
   <owl:Class rdf:about="&odo;UnknownRole">
     <rdfs:label rdf:datatype="&xsd;string">Unknown</rdfs:label>
     <rdfs:subClassOf rdf:resource="&odo;Role"/>
+    <owl:disjointWith rdf:resource="&odo;CaptainRole"/>
+    <owl:disjointWith rdf:resource="&odo;ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;LeadPrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;PrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-PrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;ScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;GuestRole"/>
+    <owl:disjointWith rdf:resource="&odo;StudentRole"/>
+    <owl:disjointWith rdf:resource="&odo;TechnicianRole"/>
+    <owl:disjointWith rdf:resource="&odo;OriginatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;DataPublisherRole"/>
+    <owl:disjointWith rdf:resource="&odo;DataManagerRole"/>
+    <owl:disjointWith rdf:resource="&odo;CuratorRole"/>
+    <owl:disjointWith rdf:resource="&odo;AnalystRole"/>
+    <owl:disjointWith rdf:resource="&odo;ContactRole"/>
+    <owl:disjointWith rdf:resource="&odo;ProgramManagerRole"/>
   </owl:Class>
-  
-      
+  <owl:Class rdf:about="&odo;InternationalCollaboratorRole">
+    <rdfs:label rdf:datatype="&xsd;string">International Collaborator</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+    <owl:disjointWith rdf:resource="&odo;CaptainRole"/>
+    <owl:disjointWith rdf:resource="&odo;ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;LeadPrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;PrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-PrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;ScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;GuestRole"/>
+    <owl:disjointWith rdf:resource="&odo;StudentRole"/>
+    <owl:disjointWith rdf:resource="&odo;TechnicianRole"/>
+    <owl:disjointWith rdf:resource="&odo;OriginatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;DataPublisherRole"/>
+    <owl:disjointWith rdf:resource="&odo;DataManagerRole"/>
+    <owl:disjointWith rdf:resource="&odo;CuratorRole"/>
+    <owl:disjointWith rdf:resource="&odo;AnalystRole"/>
+    <owl:disjointWith rdf:resource="&odo;ContactRole"/>
+    <owl:disjointWith rdf:resource="&odo;ProgramManagerRole"/>
+    <owl:disjointWith rdf:resource="&odo;UnknownRole"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;ProjectCoordinatorRole">
+    <rdfs:label rdf:datatype="&xsd;string">Project Coordinator</rdfs:label>
+    <rdfs:subClassOf rdf:Resource="&odo;Role"/>
+    <owl:disjointWith rdf:resource="&odo;CaptainRole"/>
+    <owl:disjointWith rdf:resource="&odo;ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;LeadPrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;PrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-PrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;ScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;GuestRole"/>
+    <owl:disjointWith rdf:resource="&odo;StudentRole"/>
+    <owl:disjointWith rdf:resource="&odo;TechnicianRole"/>
+    <owl:disjointWith rdf:resource="&odo;OriginatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;DataPublisherRole"/>
+    <owl:disjointWith rdf:resource="&odo;DataManagerRole"/>
+    <owl:disjointWith rdf:resource="&odo;CuratorRole"/>
+    <owl:disjointWith rdf:resource="&odo;AnalystRole"/>
+    <owl:disjointWith rdf:resource="&odo;ContactRole"/>
+    <owl:disjointWith rdf:resource="&odo;ProgramManagerRole"/>
+    <owl:disjointWith rdf:resource="&odo;UnknownRole"/>
+    <owl:disjointWith rdf:resource="&odo;InternationalCollaboratorRole"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;BcoDmoDataManagerRole">
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+    <rdfs:label rdf:datatype="&xsd;string">BCO-DMO Data Manager</rdfs:label>
+    <owl:disjointWith rdf:resource="&odo;CaptainRole"/>
+    <owl:disjointWith rdf:resource="&odo;ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-ChiefScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;LeadPrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;PrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;Co-PrincipalInvestigatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;ScientistRole"/>
+    <owl:disjointWith rdf:resource="&odo;GuestRole"/>
+    <owl:disjointWith rdf:resource="&odo;StudentRole"/>
+    <owl:disjointWith rdf:resource="&odo;TechnicianRole"/>
+    <owl:disjointWith rdf:resource="&odo;OriginatorRole"/>
+    <owl:disjointWith rdf:resource="&odo;DataPublisherRole"/>
+    <owl:disjointWith rdf:resource="&odo;DataManagerRole"/>
+    <owl:disjointWith rdf:resource="&odo;CuratorRole"/>
+    <owl:disjointWith rdf:resource="&odo;AnalystRole"/>
+    <owl:disjointWith rdf:resource="&odo;ContactRole"/>
+    <owl:disjointWith rdf:resource="&odo;ProgramManagerRole"/>
+    <owl:disjointWith rdf:resource="&odo;UnknownRole"/>
+    <owl:disjointWith rdf:resource="&odo;InternationalCollaboratorRole"/>
+    <owl:disjointWith rdf:resource="&odo;ProjectCoordinatorRole"/>
+  </owl:Class>
+
   <!-- PROPERTIES -->
-    
+
   <owl:ObjectProperty rdf:about="&odo;hasDataset">
     <rdfs:range rdf:resource="&odo;Dataset"/>
+    <rdfs:comment rdf:datatype="&xsd;string">Used by odo:DeploymentDataset, odo:Award, odo:Project classes</rdfs:comment>
   </owl:ObjectProperty>
 
   <owl:ObjectProperty rdf:about="&odo;hasAward">
     <rdfs:range rdf:resource="&odo;Award"/>
+    <rdfs:comment rdf:datatype="&xsd;string">Used by odo:Dataset, odo:FundingSource classes</rdfs:comment>
   </owl:ObjectProperty>
 
   <owl:DatatypeProperty rdf:about="&odo;hasSmallLogoURL">
     <rdfs:subPropertyOf rdf:resource="&foaf;logo"/>
+    <rdfs:comment rdf:datatype="&xsd;string">Used by odo:Project, odo:Program classes</rdfs:comment>
   </owl:DatatypeProperty>
-  
+
+  <owl:DatatypeProperty rdf:about="&odo;hasDataManagementPlan">
+    <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
+    <rdfs:comment rdf:datatype="&xsd;string">Used by odo:Projectto specify the URL to the Project's Data Management Plan.</rdfs:comment>
+    <rdfs:domain rdf:resource="&odo;Project"/>
+  </owl:DatatypeProperty>
+
   <owl:DatatypeProperty rdf:about="&odo;osprey_page">
     <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
+    <rdfs:comment rdf:datatype="&xsd;string">Used by odo:Project, odo:Program, odo:Dataset, Person, Organization, odo:FundingSource, odo:Role, odo:Award, odo:Deployment, odo:Platform, odo:Instrument, odo:Parameter to specify the URL to the HTML metadata page at www.bco-dmo.org</rdfs:comment>
   </owl:DatatypeProperty>
-  
+
   <owl:DatatypeProperty rdf:about="&odo;r2r_page">
     <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
+    <rdfs:comment rdf:datatype="&xsd;string">Used by odo:Cruise, but I don't thnk we use this anymore. Instead, we link to R2R cruises with owl:sameAs or odo:matches</rdfs:comment>
   </owl:DatatypeProperty>
-  
+
   <owl:ObjectProperty rdf:about="&odo;hasAgentWithRole">
     <rdfs:range rdf:resource="&odo;Role"/>
+    <rdfs:comment rdf:datatype="&xsd;string">Used by odo:Project, odo:Program, odo:Dataset, odo:Deployment classes</rdfs:comment>
   </owl:ObjectProperty>
-  
-  <owl:ObjectProperty rdf:about="&odo;hasDateTimeCoverage">
-    <rdfs:range rdf:resource="&spacetime;ContinuousTimeInterval"/>
-  </owl:ObjectProperty>  
-  
+
   <owl:ObjectProperty rdf:about="&odo;hasFundingSource">
     <rdfs:range rdf:resource="&foaf;Organization"/>
+    <rdfs:comment rdf:datatype="&xsd;string">Used by odo:Award class, so not sure why the range hasn't been set on this property</rdfs:comment>
   </owl:ObjectProperty>
-  
+
   <owl:ObjectProperty rdf:about="&odo;hasParameter">
     <rdfs:range rdf:resource="&odo;Parameter"/>
+    <rdfs:comment rdf:datatype="&xsd;string">Used by odo:Dataset class, so not sure why the range hasn't been set on this property. This property may have duplicate resources for now and these represent that there were 'n' number of parameters that measured the same conceptual property. This is the issue we are seeking to fix by modeling the local, colloquial term the PI used for this parameter, and then mapping it to this more conceptual understanding of that measured parameter.</rdfs:comment>
   </owl:ObjectProperty>
-  
+
+  <owl:ObjectProperty rdf:about="&odo;hasDeploymentDates">
+    <rdfs:range rdf:resource="&time;TemporalEntity"/>
+    <rdfs:domain rdf:resource="&odo;Deployment"/>
+    <rdfs:comment rdf:datatype="&xsd;string">A date range for the start and end of a deployment</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="&odo;hasProjectDates">
+    <rdfs:range rdf:resource="&time;TemporalEntity"/>
+    <rdfs:domain rdf:resource="&odo;Project"/>
+    <rdfs:comment rdf:datatype="&xsd;string">A date range for the start and end of a project</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="&odo;hasProgramDates">
+    <rdfs:range rdf:resource="&time;TemporalEntity"/>
+    <rdfs:domain rdf:resource="&odo;Program"/>
+    <rdfs:comment rdf:datatype="&xsd;string">A date range for the start and end of a program</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="&odo;isInstanceOf">
+    <rdfs:subPropertyOf rdf:resource="&skos;related" />
+    <rdfs:subPropertyOf rdf:resource="&rdfs;isDefinedBy" />
+    <rdfs:label rdf:datatype="&xsd;string">Links odo instances (odo:Instrument and odo:MonitoredProperty) to skos:Concept</rdfs:label>
+    <rdfs:domain rdf:resource="&owl;Thing" />
+    <rdfs:range rdf:resource="&skos;Concept" />
+  </owl:ObjectProperty>
+
   <owl:SymmetricProperty rdf:about="&odo;matches">
-    <rdfs:subPropertyOf rdf:resource="&rdf;seeAlso"/>
+    <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
     <rdfs:domain rdf:resource="&owl;Thing"/>
     <rdfs:range  rdf:resource="&owl;Thing"/>
     <rdfs:comment rdf:datatype="&xsd;string">A symmetric match for linking between instance data of ODO and coreferences in external Linked Data sets</rdfs:comment>
   </owl:SymmetricProperty>
-  
+
+  <owl:DatatypeProperty rdf:about="&odo;wktLiteral">
+    <rdfs:subPropertyOf rdf:resource="&geos;wktLiteral"/>
+    <rdfs:domain rdf:resource="&owl;Thing"/>
+    <rdfs:range rdf:resource="&geos;wktLiteral"/>
+    <rdfs:comment rdf:datatype="&xsd;string">A WKT representation of a geometry to use when avoiding Virtuoso's geometry validation.</rdfs:comment>
+  </owl:DatatypeProperty>
 </rdf:RDF>
 
