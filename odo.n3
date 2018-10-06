@@ -14,105 +14,664 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+
 odo: a owl:Ontology ;
-    rdfs:label "Ocean Data Ontology"^^xsd:string ;
-    dc:description "An ontology for describing ocean data" ;
-    dcterms:issued "2017-03-01"^^<xsd:date> ;
-    dcterms:source "https://github.com/BCODMO/Ocean-Data-Ontology"^^<xsd:anyURI> ;
+    rdfs:label "Ocean Data Ontology"@en-US ;
+    rdfs:comment "An ontology for describing ocean data"@en-US  ;
+    dcterms:issued "2018-10-01"^^<xsd:date> ;
+    dcterms:source "https://github.com/BCODMO/Ocean-Data-Ontology"^^xsd:anyURI ;
+    dc:creator "Adam Shepherd" ;  
+    dcterms:creator <http://orcid.org/0000-0003-4486-9448> ;  
+    dc:publisher "Biological and Chemical Oceanography Data Management Office (BCO-DMO)"@en-US  ;
+    dcterms:publisher <http://lod.bco-dmo.org/id/affiliation/191> ;
     owl:imports foaf: ;
-    owl:versionInfo "0.9.0" .
+    owl:versionInfo "0.9.1" .
+    
 
-odo:Aircraft a owl:Class ;
-    rdfs:label "Aircraft"^^xsd:string ;
-    rdfs:subClassOf odo:Vehicle .
+## Annotation Properties ##
 
-odo:AutonomousUnderwaterVehicle a owl:Class ;
-    rdfs:label "AUV"^^xsd:string ;
-    rdfs:subClassOf odo:UnmannedSubmarine .
+dcterms:issued a owl:AnnotationProperty .
+dcterms:source a owl:AnnotationProperty .
+dc:creator a owl:AnnotationProperty .
+dcterms:creator a owl:AnnotationProperty .
+dc:publisher a owl:AnnotationProperty .
+dcterms:publisher a owl:AnnotationProperty .
+skos:related a owl:AnnotationProperty .
 
+
+## Classes ##
+
+### People & Organizations ###
+odo:Person a owl:Class ;
+    rdfs:subClassOf foaf:Person,
+        schema:Person ;
+    rdfs:label "Person"@en-US ;
+    rdfs:comment "Person"@en-US .
+    
+odo:Organization a owl:Class ;
+    rdfs:subClassOf foaf:Organization,
+        schema:Organization ;
+    owl:disjointWith odo:Person .
+        
+odo:Affiliation a owl:Class ;
+    rdfs:subClassOf odo:Organization ;
+    rdfs:label "Affiliation"@en-US ;
+    rdfs:comment "The organization at which a Person is affiliated with when serving in a certain role"@en-US .
+        
+odo:FundingSource a owl:Class ;
+    rdfs:subClassOf odo:Organization ;
+    rdfs:label "Funding Source"@en-US ;
+    rdfs:comment "An Organization that provides funding Awards to a Project."@en-US .
+        
+        
+### Awards ###
+odo:Award a owl:Class ;
+    owl:equivalentClass schema:MonetaryGrant ;
+    rdfs:label "Award"@en-US ;
+    rdfs:comment "A funding award provided by an Funding Source (Organization) to a Project. This Award may fund Datasets."@en-US ;
+    owl:disjointWith odo:Organization,
+        odo:Person .
+        
+odo:GrantAward a owl:Class ;
+    rdfs:subClassOf odo:Award ;
+    rdfs:label "Grant Award"@en-US ;
+    rdfs:comment "Grant Award"@en-US .
+    
+odo:ContractAward a owl:Class ;
+    rdfs:subClassOf odo:Award ;
+    rdfs:label "Contract Award"@en-US ;
+    rdfs:comment "Contract Award"@en-US ;
+    owl:disjointWith odo:GrantAward .
+    
+odo:SubContractAward a owl:Class ;
+    rdfs:subClassOf odo:Award ;
+    rdfs:label "Sub-Contract Award"@en-US ;
+    rdfs:comment "Sub-Contract Award"@en-US ;
+    owl:disjointWith odo:ContractAward,
+        odo:GrantAward .
+
+### CreativeWorks ###
+odo:CreativeWork a owl:Class ;
+    owl:equivalentClass schema:CreativeWork ;
+    rdfs:label "Creative Work"@en-US ;
+    rdfs:comment "Creative Work"@en-US ;
+    owl:disjointWith odo:Award,
+        odo:Organization,
+        odo:Person .
+    
+odo:CreativeWorkRelation a owl:Class ;
+    rdfs:label "Creative Work Relationship"@en-US ;
+    rdfs:comment "A relationship between two or more Creative Works. This is used by persistent identifier metadata schemas to describe related works."@en-US .
+    
+odo:Dataset a owl:Class ;
+    rdfs:subClassOf odo:CreativeWork,
+        schema:Dataset ;
+    rdfs:subClassOf
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty odo:validated ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty odo:releaseDate ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty odo:restricted ] ;
+    rdfs:label "Dataset"@en-US ;
+    rdfs:comment "A super class for describing any type of oceanographic dataset."@en-US ;
+    owl:disjointWith odo:Award .
+    
+odo:DeploymentDataset a owl:Class ;
+    rdfs:subClassOf odo:Dataset ;
+    rdfs:label "Deployment Dataset"@en-US ;
+    rdfs:comment "A deployment dataset is a dataset that is collected on a specific deployment of a platform from a specific instrument on that platform."@en-US . 
+    
+odo:LaboratoryDataset a owl:Class ;
+    rdfs:subClassOf odo:Dataset ;
+    rdfs:label "Laboratory Dataset"@en-US ;
+    rdfs:comment "A laboratiry dataset is a dataset that is generated in a lab."@en-US ;
+    owl:disjointWith odo:DeploymentDataset .
+    
+odo:DatasetCollection a owl:Class ;
+    rdfs:subClassOf odo:Dataset ;
+    rdfs:label "Dataset Collection"@en-US ;
+    rdfs:comment "A dataset collection is a set of one or more Datasets that share the same Awards, Projects, Instruments and Parameters."@en-US .
+
+odo:DeploymentDatasetCollection a owl:Class ;
+    rdfs:subClassOf odo:DatasetCollection ;
+    rdfs:subClassOf [ 
+        a owl:Restriction ;
+        owl:allValuesFrom odo:DeploymentDataset ;
+        owl:onProperty odo:hasInventory 
+    ] ;
+    rdfs:label "Deployment Dataset Collection"@en-US ;
+    rdfs:comment "A dataset collection of Deployment Datasets."@en-US .
+  
+odo:Publication a owl:Class ;
+    rdfs:subClassOf odo:CreativeWork ;
+    rdfs:label "Publication"@en-US ;
+    rdfs:comment "A citable work that describes some set of knowledge. Typically a paper, article, abstract, website, etc."@en-US ;
+    owl:disjointWith odo:Dataset .
+    
+odo:SupplementalDocument a owl:Class ;
+    rdfs:subClassOf odo:CreativeWork,
+        schema:DigitalDocument ;
+    rdfs:label "Supplemental Document"@en-US ;
+    rdfs:comment "A digital version of a supporting document related to a Dataset that helps contextualize the understanding of the DatasetMonitoredProperty contained within."@en-US ;
+    owl:disjointWith odo:Dataset .
+    
+odo:DataDownload a owl:Class ;
+    rdfs:subClassOf odo:CreativeWork,
+        schema:DataDownload ;
+    rdfs:label "Data Download"@en-US ;
+    rdfs:comment "A data resource that serializes a Dataset."@en-US ;
+    owl:disjointWith odo:Dataset,
+        odo:Publication,
+        odo:SupplementalDocument .
+        
+odo:ArchiveRecord a owl:Class ;
+    rdfs:subClassOf odo:CreativeWork,
+        schema:DigitalDocument ;
+    rdfs:label "ArchiveRecord"@en-US ;
+    rdfs:comment "An archive record records how a version of a Dataset was made immutable for storing at a certain archival institution."@en-US ;
+    owl:disjointWith odo:Dataset,
+        odo:Publication,
+        odo:SupplementalDocument,
+        odo:DataDownload .
+
+### Deployments ###
+odo:Deployment a owl:Class ;
+    rdfs:label "Deployment"@en-US ;
+    rdfs:comment "A platform is deployed during a specific duration of time over a specific spacial coverage. For example, a boat is a platform. That boat is doployed (sent on a cruise) in order to collect data."@en-US ;
+    owl:disjointWith odo:Award,
+        odo:CreativeWork,
+        odo:Organization,
+        odo:Person .
+        
 odo:Cruise a owl:Class ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:hasValue odo:Vessel ;
-            owl:onProperty odo:ofPlatform ],
-        odo:Deployment .
+    rdfs:subClassOf odo:Deployment ;
+    rdfs:subClassOf [ 
+        a owl:Restriction ;
+        owl:hasValue odo:Vessel ;
+        owl:onProperty odo:ofPlatform 
+    ] ;   
+    rdfs:label "Cruise"@en-US ;
+    rdfs:comment "A Cruise is a Deployment that occurs on a Platform that is a Vessel."@en-US .
 
+### Instruments ###
+odo:Instrument a owl:Class ;
+    rdfs:subClassOf skos:Concept ;
+    rdfs:label "Instrument"@en-US ;
+    skos:defintion "odo:Instrument is an instance of an NVS L22 Concept. Use odo:isInstanceOf to link the odo:Instrument to the L22 Concept's URI."@en-US ;
+    owl:disjointWith odo:Award,
+        odo:CreativeWork,
+        odo:Deployment,
+        odo:FundingSource,
+        odo:Organization,
+        odo:Person .
+
+### Monitored Property & Units ###
+odo:MonitoredProperty a owl:Class ;
+    rdfs:label "Monitored Property"@en-US ;
+    rdfs:comment "MonitoredProperty is an instance of an NVS P01/P02 Concept."@en-US ;
+    owl:disjointWith odo:Award,
+        odo:CreativeWork,
+        odo:Deployment,
+        odo:FundingSource,
+        odo:Instrument,
+        odo:Organization,
+        odo:Person .
+    
+odo:DatasetMonitoredProperty a owl:Class ;
+    rdfs:subClassOf odo:MonitoredProperty ;
+    rdfs:label "Dataset MonitoredProperty"@en-US ;
+    rdfs:comment "An instance of a MonitoredProperty but with project-specific label and definition known by the Dataset's authors."@en-US .
+
+odo:UnitOfMeasure a owl:Class ;
+    rdfs:label "Unit of Measure"@en-US ;
+    rdfs:comment "A unit of measure for a Monitored Property"@en-US ;
+    owl:disjointWith odo:Award,
+        odo:CreativeWork,
+        odo:Deployment,
+        odo:FundingSource,
+        odo:Instrument,
+        odo:MonitoredProperty,
+        odo:Organization,
+        odo:Person .
+
+### Platforms ###
+odo:Platform a owl:Class ;
+    rdfs:label "Platform"@en-US ;
+    rdfs:comment "A thing from which a Deployment occurs."@en-US ;
+    owl:disjointWith odo:Award,
+        odo:CreativeWork,
+        odo:Deployment,
+        odo:FundingSource,
+        odo:Instrument,
+        odo:MonitoredProperty,
+        odo:UnitOfMeasure,
+        odo:Organization,
+        odo:Person .
+
+odo:Float a owl:Class ;
+    rdfs:subClassOf odo:Platform ;
+    rdfs:label "Float"@en-US ;
+    rdfs:comment "Float"@en-US .
+    
+odo:Glider a owl:Class ;
+    rdfs:subClassOf odo:Platform ;
+    rdfs:label "Glider"@en-US ;
+    rdfs:comment "Float"@en-US ;
+    owl:disjointWith odo:Float .
+ 
+odo:Drifter a owl:Class ;
+    rdfs:subClassOf odo:Platform ;
+    rdfs:label "Drifter"@en-US ;
+    rdfs:comment "Drifter"@en-US ;
+    owl:disjointWith odo:Float,
+        odo:Glider .
+        
+odo:Satellite a owl:Class ;
+    rdfs:label "Satellite"@en-US ;
+    rdfs:comment "Satellite"@en-US ;
+    rdfs:subClassOf odo:Platform ;
+    owl:disjointWith odo:Drifter,
+        odo:Float,
+        odo:Glider .
+
+odo:Model a owl:Class ;
+    rdfs:subClassOf odo:Platform ;
+    rdfs:label "Model"@en-US ;
+    rdfs:comment "Model"@en-US ;
+    owl:disjointWith odo:Drifter,
+        odo:Float,
+        odo:Glider,
+        odo:Satellite .   
+        
+odo:Synthesis a owl:Class ;
+    rdfs:subClassOf odo:Platform ;
+    rdfs:label "Synthesis"@en-US ;
+    rdfs:comment "Synthesis"@en-US ;
+    owl:disjointWith odo:Drifter,
+        odo:Float,
+        odo:Glider,
+        odo:Satellite,
+        odo:Model .
+
+#### Stationary Platform ####
+odo:StationaryPlatform a owl:Class ;
+    rdfs:subClassOf odo:Platform ;
+    rdfs:label "Stationary Platform"@en-US ;
+    rdfs:comment "Stationary Platform"@en-US ;
+    owl:disjointWith odo:Drifter,
+        odo:Float,
+        odo:Glider,
+        odo:Satellite,
+        odo:Model,
+        odo:Synthesis .
+        
 odo:Dock a owl:Class ;
-    rdfs:label "Dock"^^xsd:string ;
-    rdfs:subClassOf odo:StationaryPlatform .
+    rdfs:subClassOf odo:StationaryPlatform ;
+    rdfs:label "Dock"@en-US ;
+    rdfs:comment "Dock"@en-US .
 
 odo:Island a owl:Class ;
-    rdfs:label "Island"^^xsd:string ;
-    rdfs:subClassOf odo:StationaryPlatform .
-
+    rdfs:subClassOf odo:StationaryPlatform ;
+    rdfs:label "Island"@en-US ;
+    rdfs:comment "Island"@en-US ;
+    owl:disjointWith odo:Dock .
+    
 odo:Laboratory a owl:Class ;
-    rdfs:label "Laboratory"^^xsd:string ;
-    rdfs:subClassOf odo:StationaryPlatform .
-
-odo:MannedSubmarine a owl:Class ;
-    rdfs:label "Manned Submarine"^^xsd:string ;
-    rdfs:subClassOf odo:Submarine .
+    rdfs:subClassOf odo:StationaryPlatform ;
+    rdfs:label "Laboratory"@en-US ;
+    rdfs:comment "Laboratory"@en-US ;
+    owl:disjointWith odo:Dock,
+        odo:Island .
 
 odo:Mooring a owl:Class ;
-    rdfs:label "Mooring"^^xsd:string ;
-    rdfs:subClassOf odo:StationaryPlatform .
-
-odo:RemotelyOperatedVehicle a owl:Class ;
-    rdfs:label "ROV"^^xsd:string ;
-    rdfs:subClassOf odo:UnmannedSubmarine .
+    rdfs:subClassOf odo:StationaryPlatform ;
+    rdfs:label "Mooring"@en-US ;
+    rdfs:comment "Mooring"@en-US ;
+    owl:disjointWith odo:Dock,
+        odo:Island,
+        odo:Laboratory .
 
 odo:StationaryVessel a owl:Class ;
-    rdfs:label "Stationary Vessel"^^xsd:string ;
     rdfs:subClassOf odo:StationaryPlatform,
-        odo:Vessel .
+        odo:Vessel ;
+    rdfs:label "Stationary Vessel"@en-US ;
+    rdfs:comment "Stationary Vessel"@en-US ;
+    owl:disjointWith odo:Dock,
+        odo:Island,
+        odo:Laboratory,
+        odo:Mooring .
+        
+#### Vehicle ####
+odo:Vehicle a owl:Class ;
+    rdfs:subClassOf odo:Platform,
+        schema:Vehicle;
+    rdfs:label "Vehicle"@en-US ;
+    rdfs:comment "Vehicle.  Vehicle is not owl:disjointWith StationaryPlatform because a StationaryVessel can be both a Vehicle and a StationaryPlatform."@en-US ;
+    owl:disjointWith odo:Drifter,
+        odo:Float,
+        odo:Glider,
+        odo:Satellite,
+        odo:Model,
+        odo:Synthesis .
+        
+odo:Aircraft a owl:Class ;
+    rdfs:subClassOf odo:Vehicle ;
+    rdfs:label "Aircraft"@en-US ;
+    rdfs:comment "Aircraft"@en-US .
 
 odo:TowedVehicle a owl:Class ;
-    rdfs:label "Towed Vehicle"^^xsd:string ;
-    rdfs:subClassOf odo:Vehicle .
+    rdfs:subClassOf odo:Vehicle ;
+    rdfs:label "Towed Vehicle"@en-US ;
+    rdfs:comment "Towed Vehicle"@en-US ;
+    owl:disjointWith odo:Aircraft .
+
+odo:Vessel a owl:Class ;
+    rdfs:subClassOf odo:Vehicle ;
+    rdfs:label "Vessel"@en-US ;
+    rdfs:comment "Vessel"@en-US ;
+    owl:disjointWith odo:Aircraft,
+        odo:TowedVehicle .
+    
+##### Submarine #####
+odo:Submarine a owl:Class ;
+    rdfs:subClassOf odo:Vehicle ;
+    rdfs:label "Submarine"@en-US ;
+    rdfs:comment "Submarine"@en-US ;
+    owl:disjointWith odo:Aircraft,
+        odo:TowedVehicle,
+        odo:Vessel .
+
+odo:MannedSubmarine a owl:Class ;
+    rdfs:subClassOf odo:Submarine ;
+    rdfs:label "Manned Submarine"@en-US ;
+    rdfs:comment "Manned Submarine"@en-US .
+
+###### Unmanned Submarine ######
+odo:UnmannedSubmarine a owl:Class ;
+    rdfs:subClassOf odo:Submarine ;
+    rdfs:label "Unmanned Submarine"@en-US ;
+    rdfs:comment "Unmanned Submarine"@en-US ;
+    owl:disjointWith odo:MannedSubmarine .
+    
+odo:AutonomousUnderwaterVehicle a owl:Class ;
+    rdfs:subClassOf odo:UnmannedSubmarine ;
+    rdfs:label "AUV"@en-US ;
+    rdfs:comment "Autonomous Underwater Vehicle"@en-US .
+    
+odo:RemotelyOperatedVehicle a owl:Class ;
+    rdfs:subClassOf odo:UnmannedSubmarine ;
+    rdfs:label "ROV"@en-US ;
+    rdfs:comment "Remotely Operated Vehicle"@en-US ;
+    owl:disjointWith odo:AutonomousUnderwaterVehicle .
+    
+
+### Programs & Projects ###
+odo:Program a owl:Class ;
+    rdfs:label "Program"@en-US ;
+    rdfs:comment "A large-scale project that encompasses smaller Projects."@en-US ;
+    owl:disjointWith odo:Award,
+        odo:CreativeWork,
+        odo:Deployment,
+        odo:FundingSource,
+        odo:Instrument,
+        odo:MonitoredProperty,
+        odo:UnitOfMeasure,
+        odo:Platform,
+        odo:Organization,
+        odo:Person .
+  
+odo:Project a owl:Class ;
+    rdfs:label "Project"@en-US ;
+    rdfs:comment "A funded, scientific objective that may produce CreativeWorks."@en-US ;
+    owl:disjointWith odo:Award,
+        odo:CreativeWork,
+        odo:Deployment,
+        odo:FundingSource,
+        odo:Instrument,
+        odo:MonitoredProperty,
+        odo:UnitOfMeasure,
+        odo:Platform,
+        odo:Program,
+        odo:Organization,
+        odo:Person .
+        
+### Roles ###
+odo:Role a owl:Class ;
+    skos:related schema:Role ;
+    rdfs:label "Role"@en-US ;
+    rdfs:comment "A person can play many roles, such as principle investigator or captain or lead scientists. This role is played over a specific period of time"@en-US ;
+    owl:disjointWith odo:Award,
+        odo:Dataset,
+        odo:Deployment,
+        odo:FundingSource,
+        odo:Instrument,
+        odo:MonitoredProperty,
+        odo:UnitOfMeasure,
+        odo:Platform,
+        odo:Program,
+        odo:Project,
+        odo:Organization,
+        odo:Person .
+
+
+## Datatype Properties ##
 
 odo:citationText a owl:DatatypeProperty ;
-    rdfs:comment "The citation text for a Creative Work."^^xsd:string ;
+    owl:equivalentProperty schema:citation ;
+    rdfs:label "Citation Text"@en-US ;
+    rdfs:comment "The citation text for a Creative Work."@en-US ;
     rdfs:domain odo:CreativeWork ;
     rdfs:range xsd:string .
 
 odo:conversionDescription a owl:DatatypeProperty ;
+    rdfs:subpropertyOf schema:description ;
+    rdfs:label "Conversion Description"@en-US ;
     rdfs:comment "Describes how the values can be converted." ;
     rdfs:domain odo:DatasetMonitoredProperty ;
     rdfs:range xsd:string .
 
 odo:crossrefRelation a owl:DatatypeProperty ;
-    rdfs:comment "The type of relationship defined by Crossref."^^xsd:string ;
+    rdfs:label "CrossRef Relation"@en-US ;
+    rdfs:comment "The type of relationship defined by Crossref between two citable entities. See https://data.crossref.org/reports/help/schema_doc/4.3.7/relations_xsd.html#relations_type.atts"@en-US ;
     rdfs:domain odo:CreativeWorkRelation ;
     rdfs:range xsd:string .
+    
+odo:hasAcquisitionDescription a owl:DatatypeProperty ;
+    rdfs:label "Acquisition Description"@en-US ;
+    rdfs:comment "A description of how the data was acquired."@en-US ;
+    rdfs:domain odo:Dataset ;
+    rdfs:range xsd:string .
+
+odo:hasAcronym a owl:DatatypeProperty ;
+    owl:equivalentProperty schema:alternateName ;
+    rdfs:label "Acronym"@en-US ;
+    rdfs:comment "An acronym, or alternate name, representing an Organization."@en-US ;
+    rdfs:domain odo:Organization ;
+    rdfs:range xsd:string .
+
+odo:hasAwardNumber a owl:DatatypeProperty ;
+    rdfs:subPropertyOf schema:identifier ;
+    rdfs:label "Award Number"@en-US ;
+    rdfs:comment "An unique identifier for an award specific to a Funding Source."@en-US ;
+    rdfs:domain odo:Award ;
+    rdfs:range xsd:string .
+
+odo:hasAwardURL a owl:DatatypeProperty ;
+    rdfs:subPropertyOf rdfs:seeAlso ;
+    owl:equivalentProperty schema:sameAs ;
+    rdfs:label "Award URL"@en-US ;
+    rdfs:comment "A URL describing an award specific to a Funding Source."@en-US ;
+    rdfs:domain odo:Award ;
+    rdfs:range xsd:anyURI .
+    
+odo:hasBriefDescription a owl:DatatypeProperty ;
+    rdfs:subPropertyOf schema:description ;
+    rdfs:label "Brief Description"@en-US ;
+    rdfs:comment "A simple description in plain text."@en-US ;
+    rdfs:domain odo:Dataset ;
+    rdfs:range xsd:string .
+
+odo:hasDataManagementPlan a owl:DatatypeProperty ;
+    rdfs:label "Cruise Trajectory"@en-US ;
+    rdfs:comment "Used by odo:Projectto specify the URL to the Project's Data Management Plan."@en-US ;
+    rdfs:domain odo:Project ;
+    rdfs:range xsd:anyURI .
+    
+odo:hasDatasetURL a owl:DatatypeProperty ;
+    rdfs:label "Dataset URL"@en-US ;
+    rdfs:comment "A URL at which the dataset can be further interacted with (particularly the actual measurements)."@en-US ;
+    rdfs:domain odo:Dataset ;
+    rdfs:range xsd:anyURI .
+    
+odo:hasDeploymentDescription a owl:DatatypeProperty ;
+    rdfs:subPropertyOf dcterms:description ;
+    rdfs:label "Deployment Description"@en-US ;
+    rdfs:comment "A description ."@en-US ;
+    rdfs:domain odo:Deployment ;
+    rdfs:range xsd:string .
+    
+odo:hasOrganizationSubName a owl:DatatypeProperty ;
+    rdfs:subPropertyOf schema:alternateName ;
+    rdfs:label "Sub Organization Name"@en-US ;
+    rdfs:comment "The name of a sub organization that contextualizes the officiel organization name. We should replace this in teh future with hierarchical odo:Organizations."@en-US ;
+    rdfs:domain odo:Organization ;
+    rdfs:range xsd:string .
+    
+odo:hasParameterShortDescription a owl:DatatypeProperty ;
+    rdfs:subPropertyOf dcterms:description ;
+    rdfs:label "Parameter Short Description"@en-US ;
+    rdfs:comment "A short description of the parameter."@en-US ;
+    rdfs:domain odo:MonitoredProperty ;
+    rdfs:range xsd:string .
+
+odo:hasParameterShortName a owl:DatatypeProperty ;
+    rdfs:subPropertyOf dcterms:title ;
+    rdfs:label "Parameter Short Name"@en-US ;
+    rdfs:comment "A short name for the parameter."@en-US ;
+    rdfs:domain odo:MonitoredProperty ;
+    rdfs:range xsd:string .
+
+odo:hasPlatformTitle a owl:DatatypeProperty ;
+    rdfs:subPropertyOf dcterms:title ;
+    rdfs:label "Platform Title"@en-US ;
+    rdfs:comment "The name of the platform."@en-US ;
+    rdfs:domain odo:Platform ;
+    rdfs:range xsd:string .
+
+odo:hasPlatformURL a owl:DatatypeProperty ;
+    rdfs:subPropertyOf rdfs:seeAlso ;
+    rdfs:label "Platform URL"@en-US ;
+    rdfs:comment "The external URL for a platform."@en-US ;
+    rdfs:domain odo:Platform ;
+    rdfs:range xsd:anyURI .
+
+odo:hasProcessingDescription a owl:DatatypeProperty ;
+    rdfs:subPropertyOf dcterms:description ;
+    rdfs:label "Processing Description"@en-US ;
+    rdfs:comment "A description of thow the Dataset was processed."@en-US ;
+    rdfs:domain odo:Dataset ;
+    rdfs:range xsd:string .
+
+
+odo:hasNoDataValue a owl:DatatypeProperty ;
+    rdfs:label "No Data Value"@en-US ;
+    rdfs:comment "The value to expect in a Dataset when there was no data for the given record." ;
+    rdfs:domain odo:MonitoredProperty ;
+    rdfs:range xsd:string .
+    
+odo:hasReportURL a owl:DatatypeProperty ;
+    rdfs:subPropertyOf rdfs:seeAlso ;
+    rdfs:label "Deployment Report URL"@en-US ;
+    rdfs:comment "A URL for the official deployment report."@en-US ;
+    rdfs:domain odo:Deployment ;
+    rdfs:range xsd:anyURI .
+
+odo:hasSerialNumber a owl:DatatypeProperty ;
+    rdfs:label "Instrument Serial Number"@en-US ;
+    rdfs:comment "A serial nuber for the Instrument."@en-US ;
+    rdfs:domain odo:Instrument ;
+    rdfs:range xsd:string .
+
+odo:hasSmallLogoURL a owl:DatatypeProperty ;
+    rdfs:label "Instrument Serial Number"@en-US ;
+    rdfs:comment "Used by odo:Project, odo:Program classes"@en-US ;
+    rdfs:subPropertyOf schema:logo .
+
+odo:hasSynonym a owl:DatatypeProperty ;
+    rdfs:domain odo:Deployment ;
+    rdfs:range xsd:string .
+
+odo:osprey_page a owl:DatatypeProperty ;
+    rdfs:comment "Used by odo:Project, odo:Program, odo:Dataset, Person, Organization, odo:FundingSource, odo:Role, odo:Award, odo:Deployment, odo:Platform, odo:Instrument, odo:Parameter to specify the URL to the HTML metadata page at www.bco-dmo.org"@en-US ;
+    rdfs:subPropertyOf rdfs:seeAlso .
+    
+odo:r2r_page a owl:DatatypeProperty ;
+    rdfs:comment "Used by odo:Cruise, but I don't thnk we use this anymore. Instead, we link to R2R cruises with owl:sameAs or odo:matches"@en-US ;
+    rdfs:subPropertyOf rdfs:seeAlso .
+
+odo:requiresConversion a owl:DatatypeProperty ;
+    rdfs:comment "The values in the dataset for this property need to be converted." ;
+    rdfs:domain odo:DatasetMonitoredProperty ;
+    rdfs:range xsd:boolean .
+
+odo:versionLabel a owl:DatatypeProperty ;
+    rdfs:comment "An string signifying the version of the dataset."@en-US ;
+    rdfs:domain odo:Dataset ;
+    rdfs:range xsd:string .
+
+odo:wktLiteral a owl:DatatypeProperty ;
+    rdfs:comment "A WKT representation of a geometry to use when avoiding Virtuoso's geometry validation."@en-US ;
+    rdfs:domain owl:Thing ;
+    rdfs:range geos:wktLiteral ;
+    rdfs:subPropertyOf geos:wktLiteral .
+
+odo:releaseDate a owl:DatatypeProperty ;
+    rdfs:comment "The date the dataset will be available. Useful for reporting when a restricted dataset will become available."@en-US ;
+    rdfs:domain odo:Dataset .
+
+odo:restricted a owl:DatatypeProperty ;
+    rdfs:comment "Is the dataset restricted for access by the public."@en-US ;
+    rdfs:domain odo:Dataset ;
+    rdfs:range xsd:boolean .
+
+odo:validated a owl:DatatypeProperty ;
+    rdfs:comment "Has the dataset been validated by the PI."@en-US ;
+    rdfs:domain odo:Dataset ;
+    rdfs:range xsd:boolean .
+    
+    
+## Object Properties ##
 
 odo:crossrefRelationType a owl:ObjectProperty ;
-    rdfs:comment "Either it's an inter-relation or an intra-relation depending on if its the same work or not."^^xsd:string ;
+    rdfs:comment "Either it's an inter-relation or an intra-relation depending on if its the same work or not."@en-US ;
     rdfs:domain odo:CreativeWorkRelation ;
     rdfs:range [ a owl:DataRange ;
             owl:oneOf [ a rdf:List ;
-                    rdf:first ""^^odo:CrossrefInterRelation ;
+                    rdf:first odo:CrossrefInterRelation ;
                     rdf:rest [ a rdf:List ;
-                            rdf:first ""^^odo:CrossrefIntraRelation ] ] ] .
+                            rdf:first odo:CrossrefIntraRelation ] ] ] .
 
 odo:currentState a owl:ObjectProperty ;
-    rdfs:comment "A term describing the current state of the dataset."^^xsd:string ;
+    rdfs:comment "A term describing the current state of the dataset."@en-US ;
     rdfs:domain odo:Dataset ;
     rdfs:range skos:Concept .
 
-odo:dataFile a owl:DatatypeProperty ;
+odo:dataFile a owl:ObjectProperty ;
+    rdfs:label "Data File"@en-US ;
     rdfs:domain odo:Dataset ;
     rdfs:range owl:Thing .
-
-odo:dataFileLandingPage a owl:DatatypeProperty ;
-    rdfs:domain odo:Dataset ;
-    rdfs:range owl:Thing .
-
+    
 odo:datasetType a owl:ObjectProperty ;
-    rdfs:comment "The type of dataset."^^xsd:string ;
+    rdfs:comment "The type of dataset."@en-US ;
     rdfs:domain odo:Dataset ;
     rdfs:range skos:Concept .
 
 odo:featureOfInterest a owl:ObjectProperty ;
-    rdfs:label "Links an odo:MonitoredProperty to the feature, and from there the geometry, of interest"^^xsd:string ;
+    rdfs:label "Links an odo:MonitoredProperty to the feature, and from there the geometry, of interest"@en-US ;
     rdfs:domain odo:MonitoredProperty ;
     rdfs:range geos:Feature ;
     rdfs:subPropertyOf skos:related .
@@ -126,84 +685,53 @@ odo:fromDeployment a owl:ObjectProperty ;
     rdfs:range odo:Deployment .
 
 odo:fromInstrument a owl:ObjectProperty ;
-    rdfs:comment "This dataset was collected from an instrument that is located on the platform during this deployment."^^xsd:string ;
+    rdfs:comment "This dataset was collected from an instrument that is located on the platform during this deployment."@en-US ;
     rdfs:domain odo:DeploymentDatasetCollection ;
     rdfs:range odo:Instrument .
-
-odo:hasAcquisitionDescription a owl:DatatypeProperty ;
-    rdfs:domain odo:Dataset ;
-    rdfs:subPropertyOf dcterms:description .
-
-odo:hasAcronym a owl:DatatypeProperty ;
-    rdfs:domain foaf:Organization ;
-    rdfs:range xsd:string .
 
 odo:hasAffiliation a owl:ObjectProperty ;
     rdfs:domain foaf:Person ;
     rdfs:range foaf:Organization .
 
 odo:hasAgentWithRole a owl:ObjectProperty ;
-    rdfs:comment "Used by odo:Project, odo:Program, odo:Dataset, odo:Deployment classes"^^xsd:string ;
+    rdfs:comment "Used by odo:Project, odo:Program, odo:Dataset, odo:Deployment classes"@en-US ;
     rdfs:range odo:Role .
 
 odo:hasAward a owl:ObjectProperty ;
-    rdfs:comment "Used by odo:Dataset, odo:FundingSource classes"^^xsd:string ;
+    rdfs:comment "Used by odo:Dataset, odo:FundingSource classes"@en-US ;
     rdfs:range odo:Award .
-
-odo:hasAwardNumber a owl:DatatypeProperty ;
-    rdfs:domain odo:Award ;
-    rdfs:range xsd:string .
-
-odo:hasAwardURL a owl:DatatypeProperty ;
-    rdfs:domain odo:Award ;
-    rdfs:subPropertyOf rdfs:seeAlso .
-
-odo:hasBriefDescription a owl:DatatypeProperty ;
-    rdfs:domain odo:DeploymentDatasetCollection ;
-    rdfs:subPropertyOf dcterms:description .
 
 odo:hasCoordinatedDeployment a owl:ObjectProperty ;
     rdfs:domain odo:Deployment ;
     rdfs:range odo:Deployment .
 
-odo:hasCruiseTrajectory a owl:DatatypeProperty ;
-    rdfs:domain odo:Deployment ;
+odo:hasCruiseTrajectory a owl:ObjectProperty ;
+    rdfs:label "Cruise Trajectory"@en-US ;
+    rdfs:comment "A cruise trajectory undertaken by the related Cruise."@en-US 
+    rdfs:domain odo:Cruise ;
     rdfs:range geos:Feature .
-
-odo:hasDataManagementPlan a owl:DatatypeProperty ;
-    rdfs:comment "Used by odo:Projectto specify the URL to the Project's Data Management Plan."^^xsd:string ;
-    rdfs:domain odo:Project ;
-    rdfs:subPropertyOf rdfs:seeAlso .
-
+    
 odo:hasDataset a owl:ObjectProperty ;
-    rdfs:comment "Used by odo:DeploymentDataset, odo:Award, odo:Project classes"^^xsd:string ;
+    rdfs:comment "Used by odo:DeploymentDataset, odo:Award, odo:Project classes"@en-US ;
     rdfs:range odo:Dataset .
 
-odo:hasDatasetURL a owl:DatatypeProperty ;
-    rdfs:domain odo:Dataset ;
-    rdfs:subPropertyOf rdfs:seeAlso .
-
 odo:hasDeploymentDates a owl:ObjectProperty ;
-    rdfs:comment "A date range for the start and end of a deployment"^^xsd:string ;
+    rdfs:comment "A date range for the start and end of a deployment"@en-US ;
     rdfs:domain odo:Deployment ;
     rdfs:range time:TemporalEntity .
 
-odo:hasDeploymentDescription a owl:DatatypeProperty ;
-    rdfs:domain odo:Deployment ;
-    rdfs:subPropertyOf dcterms:description .
-
 odo:hasFundingSource a owl:ObjectProperty ;
-    rdfs:comment "Used by odo:Award class, so not sure why the range hasn't been set on this property"^^xsd:string ;
+    rdfs:comment "Used by odo:Award class, so not sure why the range hasn't been set on this property"@en-US ;
     rdfs:range foaf:Organization .
 
 odo:hasIdentifier a owl:ObjectProperty ;
-    rdfs:comment "An identifier for a Creative Work."^^xsd:string ;
+    rdfs:comment "An identifier for a Creative Work."@en-US ;
     rdfs:domain odo:CreativeWork ;
     rdfs:range dcite:Identifier ;
     rdfs:subPropertyOf dcite:hasIdentifier .
 
 odo:hasMakeAndModel a owl:ObjectProperty ;
-    rdfs:label "Links odo:Instrument to a skos:Concept of which the odo:Instrument is an instance"^^xsd:string ;
+    rdfs:label "Links odo:Instrument to a skos:Concept of which the odo:Instrument is an instance"@en-US ;
     rdfs:domain odo:Instrument ;
     rdfs:range skos:Concept ;
     rdfs:subPropertyOf rdfs:isDefinedBy,
@@ -213,41 +741,12 @@ odo:hasMonitoredProperty a owl:ObjectProperty ;
     rdfs:domain odo:MonitoredProperty ;
     rdfs:range odo:Instrument .
 
-odo:hasNoDataValue a owl:DatatypeProperty ;
-    rdfs:comment "The value to expect in a Dataset when there was no data for the given record." ;
-    rdfs:domain odo:MonitoredProperty ;
-    rdfs:range xsd:string .
-
-odo:hasOrganizationSubName a owl:DatatypeProperty ;
-    rdfs:domain foaf:Organization ;
-    rdfs:range xsd:string .
-
 odo:hasParameter a owl:ObjectProperty ;
-    rdfs:comment "Used by odo:Dataset class, so not sure why the range hasn't been set on this property. This property may have duplicate resources for now and these represent that there were 'n' number of parameters that measured the same conceptual property. This is the issue we are seeking to fix by modeling the local, colloquial term the PI used for this parameter, and then mapping it to this more conceptual understanding of that measured parameter."^^xsd:string ;
+    rdfs:comment "Used by odo:Dataset class, so not sure why the range hasn't been set on this property. This property may have duplicate resources for now and these represent that there were 'n' number of parameters that measured the same conceptual property. This is the issue we are seeking to fix by modeling the local, colloquial term the PI used for this parameter, and then mapping it to this more conceptual understanding of that measured parameter."@en-US ;
     rdfs:range odo:Parameter .
 
-odo:hasParameterShortDescription a owl:DatatypeProperty ;
-    rdfs:domain odo:MonitoredProperty ;
-    rdfs:subPropertyOf dcterms:description .
-
-odo:hasParameterShortName a owl:DatatypeProperty ;
-    rdfs:domain odo:MonitoredProperty ;
-    rdfs:range xsd:string .
-
-odo:hasPlatformTitle a owl:DatatypeProperty ;
-    rdfs:domain odo:Platform ;
-    rdfs:range xsd:string .
-
-odo:hasPlatformURL a owl:DatatypeProperty ;
-    rdfs:domain odo:Platform ;
-    rdfs:subPropertyOf rdfs:seeAlso .
-
-odo:hasProcessingDescription a owl:DatatypeProperty ;
-    rdfs:domain odo:Dataset ;
-    rdfs:subPropertyOf dcterms:description .
-
 odo:hasProgramDates a owl:ObjectProperty ;
-    rdfs:comment "A date range for the start and end of a program"^^xsd:string ;
+    rdfs:comment "A date range for the start and end of a program"@en-US ;
     rdfs:domain odo:Program ;
     rdfs:range time:TemporalEntity .
 
@@ -255,32 +754,16 @@ odo:hasProject a owl:ObjectProperty ;
     owl:inverseOf odo:hasParentProgram .
 
 odo:hasProjectDates a owl:ObjectProperty ;
-    rdfs:comment "A date range for the start and end of a project"^^xsd:string ;
+    rdfs:comment "A date range for the start and end of a project"@en-US ;
     rdfs:domain odo:Project ;
     rdfs:range time:TemporalEntity .
-
-odo:hasReportURL a owl:DatatypeProperty ;
-    rdfs:domain odo:Deployment ;
-    rdfs:subPropertyOf rdfs:seeAlso .
-
+    
 odo:hasRole a owl:ObjectProperty ;
     rdfs:domain foaf:Person ;
     rdfs:range odo:Role .
 
-odo:hasSerialNumber a owl:DatatypeProperty ;
-    rdfs:domain odo:Instrument ;
-    rdfs:range xsd:string .
-
-odo:hasSmallLogoURL a owl:DatatypeProperty ;
-    rdfs:comment "Used by odo:Project, odo:Program classes"^^xsd:string ;
-    rdfs:subPropertyOf foaf:logo .
-
-odo:hasSynonym a owl:DatatypeProperty ;
-    rdfs:domain odo:Deployment ;
-    rdfs:range xsd:string .
-
 odo:hasUnitOfMeasure a owl:ObjectProperty ;
-    rdfs:label "hasUnitOfMeasure - Links odo:MonitoredProperty to a SKOS Concept defining the unit of measure"^^xsd:string ;
+    rdfs:label "hasUnitOfMeasure - Links odo:MonitoredProperty to a SKOS Concept defining the unit of measure"@en-US ;
     rdfs:domain odo:MonitoredProperty ;
     rdfs:range odo:UnitOfMeasure ;
     rdfs:subPropertyOf skos:related ;
@@ -292,178 +775,52 @@ odo:isDeployed a owl:ObjectProperty ;
     owl:inverseOf odo:ofPlatform .
 
 odo:isInstanceOf a owl:ObjectProperty ;
-    rdfs:label "Links odo instances (odo:Instrument and odo:MonitoredProperty) to skos:Concept"^^xsd:string ;
+    rdfs:label "Links odo instances (odo:Instrument and odo:MonitoredProperty) to skos:Concept"@en-US ;
     rdfs:domain owl:Thing ;
     rdfs:range skos:Concept ;
     rdfs:subPropertyOf rdfs:isDefinedBy,
         skos:related .
 
 odo:matches a owl:SymmetricProperty ;
-    rdfs:comment "A symmetric match for linking between instance data of ODO and coreferences in external Linked Data sets"^^xsd:string ;
+    rdfs:comment "A symmetric match for linking between instance data of ODO and coreferences in external Linked Data sets"@en-US ;
     rdfs:domain owl:Thing ;
     rdfs:range owl:Thing ;
     rdfs:subPropertyOf rdfs:seeAlso .
 
 odo:obsoletedBy a owl:ObjectProperty ;
-    rdfs:label "Defines the resource that has replaced this resource."^^xsd:string ;
+    rdfs:label "Defines the resource that has replaced this resource."@en-US ;
     rdfs:domain skos:Concept ;
     rdfs:range skos:Concept .
-
-odo:osprey_page a owl:DatatypeProperty ;
-    rdfs:comment "Used by odo:Project, odo:Program, odo:Dataset, Person, Organization, odo:FundingSource, odo:Role, odo:Award, odo:Deployment, odo:Platform, odo:Instrument, odo:Parameter to specify the URL to the HTML metadata page at www.bco-dmo.org"^^xsd:string ;
-    rdfs:subPropertyOf rdfs:seeAlso .
 
 odo:performedBy a owl:ObjectProperty ;
     rdfs:domain odo:Role ;
     rdfs:range foaf:Person .
 
-odo:r2r_page a owl:DatatypeProperty ;
-    rdfs:comment "Used by odo:Cruise, but I don't thnk we use this anymore. Instead, we link to R2R cruises with owl:sameAs or odo:matches"^^xsd:string ;
-    rdfs:subPropertyOf rdfs:seeAlso .
 
 odo:relatedWork a owl:ObjectProperty ;
-    rdfs:comment "A related work."^^xsd:string ;
+    rdfs:comment "A related work."@en-US ;
     rdfs:domain odo:CreativeWork ;
     rdfs:range skos:CreativeWork .
 
 odo:relationshipType a owl:ObjectProperty ;
-    rdfs:comment "The type of relation between two Creative Works."^^xsd:string ;
+    rdfs:comment "The type of relation between two Creative Works."@en-US ;
     rdfs:domain odo:CreativeWork ;
     rdfs:range odo:CreativeWorkRelation .
-
-odo:requiresConversion a owl:DatatypeProperty ;
-    rdfs:comment "The values in the dataset for this property need to be converted." ;
-    rdfs:domain odo:DatasetMonitoredProperty ;
-    rdfs:range xsd:boolean .
 
 odo:storesValuesFor a owl:ObjectProperty ;
     rdfs:domain odo:Dataset ;
     rdfs:range odo:MonitoredProperty .
 
-odo:versionLabel a owl:DatatypeProperty ;
-    rdfs:comment "An string signifying the version of the dataset."^^xsd:string ;
-    rdfs:domain odo:Dataset ;
-    rdfs:range xsd:string .
-
-odo:wktLiteral a owl:DatatypeProperty ;
-    rdfs:comment "A WKT representation of a geometry to use when avoiding Virtuoso's geometry validation."^^xsd:string ;
-    rdfs:domain owl:Thing ;
-    rdfs:range geos:wktLiteral ;
-    rdfs:subPropertyOf geos:wktLiteral .
-
-<odo:CrossrefInterRelation> a owl:NamedIndividual ;
-    rdfs:label "Crossref Inter-relation"@en-US ;
-    rdfs:comment "A relationship between two different creative works."@en-US .
-
-<odo:CrossrefIntraRelation> a owl:NamedIndividual ;
-    rdfs:label "Crossref Intra-relation"@en-US ;
-    rdfs:comment "A relationship between two variations of the same creative work."@en-US .
-
-odo:BcoDmoDataManagerRole a owl:Class ;
-    rdfs:label "BCO-DMO Data Manager"^^xsd:string ;
-    rdfs:subClassOf odo:Role ;
-    owl:disjointWith odo:AnalystRole,
-        odo:CaptainRole,
-        odo:ChiefScientistRole,
-        odo:Co-ChiefScientistRole,
-        odo:Co-PrincipalInvestigatorRole,
-        odo:ContactRole,
-        odo:CuratorRole,
-        odo:DataManagerRole,
-        odo:DataPublisherRole,
-        odo:GuestRole,
-        odo:InternationalCollaboratorRole,
-        odo:LeadPrincipalInvestigatorRole,
-        odo:OriginatorRole,
-        odo:PrincipalInvestigatorRole,
-        odo:ProgramManagerRole,
-        odo:ProjectCoordinatorRole,
-        odo:ScientistRole,
-        odo:StudentRole,
-        odo:TechnicianRole,
-        odo:UnknownRole .
-
-odo:SubContractAward a owl:Class ;
-    rdfs:label "Sub-Contract Award"^^xsd:string ;
-    rdfs:subClassOf odo:Award ;
-    owl:disjointWith odo:ContractAward,
-        odo:GrantAward .
-
 odo:fromCollection a owl:ObjectProperty ;
-    rdfs:label "fromCollection"^^xsd:string ;
+    rdfs:label "fromCollection"@en-US ;
     owl:inverseOf odo:hasInventory .
 
 odo:hasParentProgram a owl:ObjectProperty ;
     rdfs:domain odo:Project ;
     rdfs:range odo:Program .
-
-odo:releaseDate a owl:DatatypeProperty ;
-    rdfs:comment "The date the dataset will be available. Useful for reporting when a restricted dataset will become available."^^xsd:string ;
-    rdfs:domain odo:Dataset .
-
-odo:restricted a owl:DatatypeProperty ;
-    rdfs:comment "Is the dataset restricted for access by the public."^^xsd:string ;
-    rdfs:domain odo:Dataset ;
-    rdfs:range xsd:boolean .
-
-odo:validated a owl:DatatypeProperty ;
-    rdfs:comment "Has the dataset been validated by the PI."^^xsd:string ;
-    rdfs:domain odo:Dataset ;
-    rdfs:range xsd:boolean .
-
-odo:ContractAward a owl:Class ;
-    rdfs:label "Contract Award"^^xsd:string ;
-    rdfs:subClassOf odo:Award ;
-    owl:disjointWith odo:GrantAward .
-
-odo:DatasetMonitoredProperty a owl:Class ;
-    rdfs:label "Dataset Property"^^xsd:string ;
-    rdfs:subClassOf odo:MonitoredProperty ;
-    skos:defintion "odo:DatasetMonitoredProperty is an instance of a odo:MonitoredProperty but with project-specific label and definition known by the researcher." .
-
-odo:DeploymentDatasetCollection a owl:Class ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom odo:DeploymentDataset ;
-            owl:onProperty odo:hasInventory ],
-        odo:DatasetCollection .
-
-odo:ProjectCoordinatorRole a owl:Class ;
-    rdfs:label "Project Coordinator"^^xsd:string ;
-    rdfs:subClassOf [ rdf:Resource "http://ocean-data.org/schema/Role" ] ;
-    owl:disjointWith odo:AnalystRole,
-        odo:CaptainRole,
-        odo:ChiefScientistRole,
-        odo:Co-ChiefScientistRole,
-        odo:Co-PrincipalInvestigatorRole,
-        odo:ContactRole,
-        odo:CuratorRole,
-        odo:DataManagerRole,
-        odo:DataPublisherRole,
-        odo:GuestRole,
-        odo:InternationalCollaboratorRole,
-        odo:LeadPrincipalInvestigatorRole,
-        odo:OriginatorRole,
-        odo:PrincipalInvestigatorRole,
-        odo:ProgramManagerRole,
-        odo:ScientistRole,
-        odo:StudentRole,
-        odo:TechnicianRole,
-        odo:UnknownRole .
-
-odo:Submarine a owl:Class ;
-    rdfs:label "Submarine"^^xsd:string ;
-    rdfs:subClassOf odo:Vehicle .
-
-odo:UnmannedSubmarine a owl:Class ;
-    rdfs:label "Unmanned Submarine"^^xsd:string ;
-    rdfs:subClassOf odo:Submarine .
-
-odo:Vessel a owl:Class ;
-    rdfs:label "Vessel"^^xsd:string ;
-    rdfs:subClassOf odo:Vehicle .
-
+ 
 odo:hasInventory a owl:ObjectProperty ;
-    rdfs:label "hasInventory"^^xsd:string ;
+    rdfs:label "hasInventory"@en-US ;
     rdfs:domain odo:DatasetCollection ;
     rdfs:range odo:Dataset ;
     owl:inverseOf odo:fromCollection .
@@ -471,491 +828,77 @@ odo:hasInventory a owl:ObjectProperty ;
 odo:ofPlatform a owl:ObjectProperty ;
     rdfs:domain odo:Deployment ;
     rdfs:range odo:Platform .
+    
+    
+## Named Individuals ##
 
-odo:DatasetCollection a owl:Class ;
-    rdfs:label "Dataset Collection"^^xsd:string ;
-    rdfs:subClassOf odo:Dataset ;
-    owl:disjointWith odo:DeploymentDataset,
-        odo:LaboratoryDataset .
+### CreativeWorkRelations ###
+odo:CrossrefInterRelation a owl:NamedIndividual, odo:CreativeWorkRelation ;
+    rdfs:label "Crossref Inter-relation"@en-US ;
+    rdfs:comment "A relationship between two different creative works."@en-US .
 
-odo:GrantAward a owl:Class ;
-    rdfs:label "Grant Award"^^xsd:string ;
-    rdfs:subClassOf odo:Award .
+odo:CrossrefIntraRelation a owl:NamedIndividual, odo:CreativeWorkRelation ;
+    rdfs:label "Crossref Intra-relation"@en-US ;
+    rdfs:comment "A relationship between two variations of the same creative work."@en-US .
+    
+### Roles ###
+odo:CaptainRole a owl:NamedIndividual, odo:Role ;
+    rdfs:label "Captain"@en-US .
+    
+odo:ChiefScientistRole a owl:NamedIndividual, odo:Role ;
+    rdfs:label "Chief Scientist"@en-US .
 
-odo:InternationalCollaboratorRole a owl:Class ;
-    rdfs:label "International Collaborator"^^xsd:string ;
-    rdfs:subClassOf odo:Role ;
-    owl:disjointWith odo:AnalystRole,
-        odo:CaptainRole,
-        odo:ChiefScientistRole,
-        odo:Co-ChiefScientistRole,
-        odo:Co-PrincipalInvestigatorRole,
-        odo:ContactRole,
-        odo:CuratorRole,
-        odo:DataManagerRole,
-        odo:DataPublisherRole,
-        odo:GuestRole,
-        odo:LeadPrincipalInvestigatorRole,
-        odo:OriginatorRole,
-        odo:PrincipalInvestigatorRole,
-        odo:ProgramManagerRole,
-        odo:ScientistRole,
-        odo:StudentRole,
-        odo:TechnicianRole,
-        odo:UnknownRole .
+odo:Co-ChiefScientistRole a owl:NamedIndividual, odo:Role ;
+    rdfs:label "Co-Chief Scientist"@en-US .
+   
+odo:LeadPrincipalInvestigatorRole a owl:NamedIndividual, odo:Role ;
+    rdfs:label "Lead Principle Investigator"@en-US .
+        
+odo:PrincipalInvestigatorRole a owl:NamedIndividual, odo:Role ;
+    rdfs:label "Principal Investigator"@en-US .
 
-odo:LaboratoryDataset a owl:Class ;
-    rdfs:label "Laboratory Dataset"^^xsd:string ;
-    rdfs:subClassOf odo:Dataset .
+odo:Co-PrincipalInvestigatorRole a owl:NamedIndividual, odo:Role ;
+    rdfs:label "Co-Principal Investigator"@en-US .
 
-odo:Synthesis a owl:Class ;
-    rdfs:label "Synthesis"^^xsd:string ;
-    rdfs:subClassOf odo:Platform ;
-    owl:disjointWith odo:Drifter,
-        odo:Float,
-        odo:Glider,
-        odo:Model,
-        odo:Satellite .
+odo:ScientistRole a owl:NamedIndividual, odo:Role ;
+    rdfs:label "Scientist"@en-US .
+        
+odo:GuestRole a owl:NamedIndividual, odo:Role ;
+    rdfs:label "Guest"@en-US .
 
-odo:DeploymentDataset a owl:Class ;
-    rdfs:label "Deployment Dataset"^^xsd:string ;
-    rdfs:comment "A deployment dataset is a dataset that is collected on a specific deployment of a platform from a specific instrument on that platform."^^xsd:string ;
-    rdfs:subClassOf odo:Dataset ;
-    owl:disjointWith odo:LaboratoryDataset .
+odo:StudentRole a owl:NamedIndividual, odo:Role ;
+    rdfs:label "Student"@en-US .
+        
+odo:BcoDmoDataManagerRole a owl:NamedIndividual, odo:Role ;
+    rdfs:label "BCO-DMO Data Manager"@en-US .
+    
+odo:ProjectCoordinatorRole a owl:NamedIndividual, odo:Role ;
+    rdfs:label "Project Coordinator"@en-US .
+    
+odo:InternationalCollaboratorRole a owl:NamedIndividual, odo:Role ;
+    rdfs:label "International Collaborator"@en-US .
+ 
+odo:UnknownRole a owl:NamedIndividual, odo:Role ;
+    rdfs:label "Unknown"@en-US .
 
-odo:Model a owl:Class ;
-    rdfs:label "Model"^^xsd:string ;
-    rdfs:subClassOf odo:Platform ;
-    owl:disjointWith odo:Drifter,
-        odo:Float,
-        odo:Glider,
-        odo:Satellite .
+odo:ProgramManagerRole a owl:NamedIndividual, odo:Role ;
+    rdfs:label "Program Manager"@en-US .
 
-odo:UnknownRole a owl:Class ;
-    rdfs:label "Unknown"^^xsd:string ;
-    rdfs:subClassOf odo:Role ;
-    owl:disjointWith odo:AnalystRole,
-        odo:CaptainRole,
-        odo:ChiefScientistRole,
-        odo:Co-ChiefScientistRole,
-        odo:Co-PrincipalInvestigatorRole,
-        odo:ContactRole,
-        odo:CuratorRole,
-        odo:DataManagerRole,
-        odo:DataPublisherRole,
-        odo:GuestRole,
-        odo:LeadPrincipalInvestigatorRole,
-        odo:OriginatorRole,
-        odo:PrincipalInvestigatorRole,
-        odo:ProgramManagerRole,
-        odo:ScientistRole,
-        odo:StudentRole,
-        odo:TechnicianRole .
+odo:AnalystRole a owl:NamedIndividual, odo:Role ;
+    rdfs:label "Analyst"@en-US .
 
-foaf:Person a owl:Class ;
-    rdfs:label "Person"^^xsd:string ;
-    owl:disjointWith odo:Award,
-        odo:Dataset,
-        odo:Deployment,
-        odo:FundingSource,
-        odo:Instrument,
-        odo:MonitoredProperty,
-        odo:Platform,
-        odo:Program,
-        odo:Project,
-        odo:UnitOfMeasure,
-        foaf:Organization .
+odo:CuratorRole a owl:NamedIndividual, odo:Role ;
+    rdfs:label "Curator"@en-US .
 
-odo:CreativeWork a owl:Class ;
-    rdfs:label "Creative Work"^^xsd:string ;
-    rdfs:subClassOf schema:CreativeWork .
+odo:DataManagerRole a owl:NamedIndividual, odo:Role ;
+    rdfs:label "Data Manager"@en-US .
 
-odo:Program a owl:Class ;
-    rdfs:label "Program"^^xsd:string ;
-    rdfs:comment "A large-scale project that encompasses smaller Projects."^^xsd:string ;
-    owl:disjointWith odo:Award,
-        odo:Dataset,
-        odo:Deployment,
-        odo:FundingSource,
-        odo:Instrument,
-        odo:MonitoredProperty,
-        odo:Platform,
-        odo:UnitOfMeasure,
-        foaf:Organization .
+odo:DataPublisherRole a owl:NamedIndividual, odo:Role ;
+    rdfs:label "Data Publisher"@en-US .
 
-odo:ProgramManagerRole a owl:Class ;
-    rdfs:label "Program Manager"^^xsd:string ;
-    rdfs:subClassOf odo:Role ;
-    owl:disjointWith odo:AnalystRole,
-        odo:CaptainRole,
-        odo:ChiefScientistRole,
-        odo:Co-ChiefScientistRole,
-        odo:Co-PrincipalInvestigatorRole,
-        odo:ContactRole,
-        odo:CuratorRole,
-        odo:DataManagerRole,
-        odo:DataPublisherRole,
-        odo:GuestRole,
-        odo:LeadPrincipalInvestigatorRole,
-        odo:OriginatorRole,
-        odo:PrincipalInvestigatorRole,
-        odo:ScientistRole,
-        odo:StudentRole,
-        odo:TechnicianRole .
+odo:OriginatorRole a owl:NamedIndividual, odo:Role ;
+    rdfs:label "Originator"@en-US .
 
-odo:Project a owl:Class ;
-    rdfs:label "Project"^^xsd:string ;
-    rdfs:comment "A funded, scientific objective that may produce Datasets."^^xsd:string ;
-    rdfs:subClassOf foaf:Project ;
-    owl:disjointWith odo:Award,
-        odo:Dataset,
-        odo:Deployment,
-        odo:FundingSource,
-        odo:Instrument,
-        odo:MonitoredProperty,
-        odo:Platform,
-        odo:Program,
-        odo:UnitOfMeasure,
-        foaf:Organization .
-
-odo:Satellite a owl:Class ;
-    rdfs:label "Satellite"^^xsd:string ;
-    rdfs:subClassOf odo:Platform ;
-    owl:disjointWith odo:Drifter,
-        odo:Float,
-        odo:Glider .
-
-odo:Vehicle a owl:Class ;
-    rdfs:label "Vehicle"^^xsd:string ;
-    rdfs:subClassOf odo:Platform ;
-    owl:disjointWith odo:Drifter,
-        odo:Float,
-        odo:Glider,
-        odo:Model,
-        odo:Satellite,
-        odo:StationaryPlatform,
-        odo:Synthesis .
-
-odo:ContactRole a owl:Class ;
-    rdfs:label "Contact"^^xsd:string ;
-    rdfs:subClassOf odo:Role ;
-    owl:disjointWith odo:AnalystRole,
-        odo:CaptainRole,
-        odo:ChiefScientistRole,
-        odo:Co-ChiefScientistRole,
-        odo:Co-PrincipalInvestigatorRole,
-        odo:CuratorRole,
-        odo:DataManagerRole,
-        odo:DataPublisherRole,
-        odo:GuestRole,
-        odo:LeadPrincipalInvestigatorRole,
-        odo:OriginatorRole,
-        odo:PrincipalInvestigatorRole,
-        odo:ScientistRole,
-        odo:StudentRole,
-        odo:TechnicianRole .
-
-odo:Drifter a owl:Class ;
-    rdfs:label "Drifter"^^xsd:string ;
-    rdfs:subClassOf odo:Platform ;
-    owl:disjointWith odo:Float,
-        odo:Glider .
-
-odo:UnitOfMeasure a owl:Class ;
-    rdfs:label "Unit of Measure"^^xsd:string ;
-    rdfs:comment "A unit of measure"^^xsd:string ;
-    rdfs:subClassOf skos:Concept ;
-    owl:disjointWith odo:Award,
-        odo:Dataset,
-        odo:Deployment,
-        odo:FundingSource,
-        odo:Instrument,
-        odo:MonitoredProperty,
-        foaf:Organization .
-
-odo:AnalystRole a owl:Class ;
-    rdfs:label "Analyst"^^xsd:string ;
-    rdfs:subClassOf odo:Role ;
-    owl:disjointWith odo:CaptainRole,
-        odo:ChiefScientistRole,
-        odo:Co-ChiefScientistRole,
-        odo:Co-PrincipalInvestigatorRole,
-        odo:CuratorRole,
-        odo:DataManagerRole,
-        odo:DataPublisherRole,
-        odo:GuestRole,
-        odo:LeadPrincipalInvestigatorRole,
-        odo:OriginatorRole,
-        odo:PrincipalInvestigatorRole,
-        odo:ScientistRole,
-        odo:StudentRole,
-        odo:TechnicianRole .
-
-odo:Glider a owl:Class ;
-    rdfs:label "Glider"^^xsd:string ;
-    rdfs:subClassOf odo:Platform ;
-    owl:disjointWith odo:Float .
-
-odo:StationaryPlatform a owl:Class ;
-    rdfs:label "Stationary Platform"^^xsd:string ;
-    rdfs:subClassOf odo:Platform ;
-    owl:disjointWith odo:Drifter,
-        odo:Float,
-        odo:Glider,
-        odo:Model,
-        odo:Satellite,
-        odo:Synthesis .
-
-odo:CuratorRole a owl:Class ;
-    rdfs:label "Curator"^^xsd:string ;
-    rdfs:subClassOf odo:Role ;
-    owl:disjointWith odo:CaptainRole,
-        odo:ChiefScientistRole,
-        odo:Co-ChiefScientistRole,
-        odo:Co-PrincipalInvestigatorRole,
-        odo:DataManagerRole,
-        odo:DataPublisherRole,
-        odo:GuestRole,
-        odo:LeadPrincipalInvestigatorRole,
-        odo:OriginatorRole,
-        odo:PrincipalInvestigatorRole,
-        odo:ScientistRole,
-        odo:StudentRole,
-        odo:TechnicianRole .
-
-odo:Float a owl:Class ;
-    rdfs:label "Float"^^xsd:string ;
-    rdfs:subClassOf odo:Platform .
-
-odo:FundingSource a owl:Class ;
-    rdfs:label "Funding Source"^^xsd:string ;
-    rdfs:comment "An Organization that provides funding Awards to a Project."^^xsd:string ;
-    rdfs:subClassOf foaf:Organization ;
-    owl:disjointWith odo:Award,
-        odo:Dataset,
-        odo:Deployment .
-
-odo:DataManagerRole a owl:Class ;
-    rdfs:label "Data Manager"^^xsd:string ;
-    rdfs:subClassOf odo:Role ;
-    owl:disjointWith odo:CaptainRole,
-        odo:ChiefScientistRole,
-        odo:Co-ChiefScientistRole,
-        odo:Co-PrincipalInvestigatorRole,
-        odo:DataPublisherRole,
-        odo:GuestRole,
-        odo:LeadPrincipalInvestigatorRole,
-        odo:OriginatorRole,
-        odo:PrincipalInvestigatorRole,
-        odo:ScientistRole,
-        odo:StudentRole,
-        odo:TechnicianRole .
-
-odo:DataPublisherRole a owl:Class ;
-    rdfs:label "Data Publisher"^^xsd:string ;
-    rdfs:subClassOf odo:Role ;
-    owl:disjointWith odo:CaptainRole,
-        odo:ChiefScientistRole,
-        odo:Co-ChiefScientistRole,
-        odo:Co-PrincipalInvestigatorRole,
-        odo:GuestRole,
-        odo:LeadPrincipalInvestigatorRole,
-        odo:OriginatorRole,
-        odo:PrincipalInvestigatorRole,
-        odo:ScientistRole,
-        odo:StudentRole,
-        odo:TechnicianRole .
-
-odo:Instrument a owl:Class ;
-    rdfs:label "Instrument"^^xsd:string ;
-    rdfs:subClassOf skos:Concept ;
-    owl:disjointWith odo:Award,
-        odo:Dataset,
-        odo:Deployment,
-        odo:FundingSource,
-        foaf:Organization ;
-    skos:defintion "odo:Instrument is an instance of an NVS L22 Concept. Use odo:isInstanceOf to link the odo:Instrument to the L22 Concept's URI." .
-
-odo:OriginatorRole a owl:Class ;
-    rdfs:label "Originator"^^xsd:string ;
-    rdfs:subClassOf odo:Role ;
-    owl:disjointWith odo:CaptainRole,
-        odo:ChiefScientistRole,
-        odo:Co-ChiefScientistRole,
-        odo:Co-PrincipalInvestigatorRole,
-        odo:GuestRole,
-        odo:LeadPrincipalInvestigatorRole,
-        odo:PrincipalInvestigatorRole,
-        odo:ScientistRole,
-        odo:StudentRole,
-        odo:TechnicianRole .
-
-odo:TechnicianRole a owl:Class ;
-    rdfs:label "Technician"^^xsd:string ;
-    rdfs:subClassOf odo:Role ;
-    owl:disjointWith odo:CaptainRole,
-        odo:ChiefScientistRole,
-        odo:Co-ChiefScientistRole,
-        odo:Co-PrincipalInvestigatorRole,
-        odo:GuestRole,
-        odo:LeadPrincipalInvestigatorRole,
-        odo:PrincipalInvestigatorRole,
-        odo:ScientistRole,
-        odo:StudentRole .
-
-odo:StudentRole a owl:Class ;
-    rdfs:label "Student"^^xsd:string ;
-    rdfs:subClassOf odo:Role ;
-    owl:disjointWith odo:CaptainRole,
-        odo:ChiefScientistRole,
-        odo:Co-ChiefScientistRole,
-        odo:Co-PrincipalInvestigatorRole,
-        odo:GuestRole,
-        odo:LeadPrincipalInvestigatorRole,
-        odo:PrincipalInvestigatorRole,
-        odo:ScientistRole .
-
-odo:GuestRole a owl:Class ;
-    rdfs:label "Guest"^^xsd:string ;
-    rdfs:subClassOf odo:Role ;
-    owl:disjointWith odo:CaptainRole,
-        odo:ChiefScientistRole,
-        odo:Co-ChiefScientistRole,
-        odo:Co-PrincipalInvestigatorRole,
-        odo:LeadPrincipalInvestigatorRole,
-        odo:PrincipalInvestigatorRole,
-        odo:ScientistRole .
-
-odo:MonitoredProperty a owl:Class ;
-    rdfs:label "Monitored Property"^^xsd:string ;
-    rdfs:subClassOf skos:Concept ;
-    owl:disjointWith odo:Award,
-        odo:Dataset,
-        odo:Deployment,
-        odo:FundingSource,
-        odo:Instrument,
-        foaf:Organization ;
-    skos:defintion "odo:MonitoredProperty is an instance of an NVS P01 Concept. Use odo:isInstanceOf to link the odo:MonitoredProperty to the P01 Concept's URI." .
-
-odo:ScientistRole a owl:Class ;
-    rdfs:label "Scientist"^^xsd:string ;
-    rdfs:subClassOf odo:Role ;
-    owl:disjointWith odo:CaptainRole,
-        odo:ChiefScientistRole,
-        odo:Co-ChiefScientistRole,
-        odo:Co-PrincipalInvestigatorRole,
-        odo:LeadPrincipalInvestigatorRole,
-        odo:PrincipalInvestigatorRole .
-
-odo:Co-PrincipalInvestigatorRole a owl:Class ;
-    rdfs:label "Co-Principal Investigator"^^xsd:string ;
-    rdfs:subClassOf odo:Role ;
-    owl:disjointWith odo:CaptainRole,
-        odo:ChiefScientistRole,
-        odo:Co-ChiefScientistRole,
-        odo:LeadPrincipalInvestigatorRole,
-        odo:PrincipalInvestigatorRole .
-
-odo:Platform a owl:Class ;
-    rdfs:label "Platform"^^xsd:string ;
-    rdfs:comment "A thing from which a Deployment occurs."^^xsd:string ;
-    owl:disjointWith odo:Award,
-        odo:Dataset,
-        odo:Deployment,
-        odo:FundingSource,
-        odo:Instrument,
-        odo:MonitoredProperty,
-        odo:UnitOfMeasure,
-        foaf:Organization ;
-    owl:equivalentClass [ a owl:Class ;
-            owl:unionOf ( odo:Float odo:Glider odo:Drifter odo:Satellite odo:Model odo:Synthesis odo:StationaryPlatform odo:Vehicle ) ] .
-
-odo:Award a owl:Class ;
-    rdfs:label "Award"^^xsd:string ;
-    rdfs:comment "A funding award provided by an Funding Source (Organization) to a Project. This Award may fund Datasets."^^xsd:string ;
-    owl:disjointWith foaf:Organization ;
-    owl:equivalentClass [ a owl:Class ;
-            owl:unionOf ( odo:GrantAward odo:ContractAward odo:SubContractAward ) ] .
-
-odo:PrincipalInvestigatorRole a owl:Class ;
-    rdfs:label "Principal Investigator"^^xsd:string ;
-    rdfs:subClassOf odo:Role ;
-    owl:disjointWith odo:CaptainRole,
-        odo:ChiefScientistRole,
-        odo:Co-ChiefScientistRole,
-        odo:LeadPrincipalInvestigatorRole .
-
-foaf:Organization a owl:Class ;
-    rdfs:label "Organization"^^xsd:string ;
-    rdfs:comment "Organizations are used to keep track of Funding Sources and also a Person's affiliation."^^xsd:string .
-
-odo:LeadPrincipalInvestigatorRole a owl:Class ;
-    rdfs:label "Lead Principle Investigator"^^xsd:string ;
-    rdfs:subClassOf odo:Role ;
-    owl:disjointWith odo:CaptainRole,
-        odo:ChiefScientistRole,
-        odo:Co-ChiefScientistRole .
-
-odo:Co-ChiefScientistRole a owl:Class ;
-    rdfs:label "Co-Chief Scientist"^^xsd:string ;
-    rdfs:subClassOf odo:Role ;
-    owl:disjointWith odo:CaptainRole,
-        odo:ChiefScientistRole .
-
-odo:ChiefScientistRole a owl:Class ;
-    rdfs:label "Chief Scientist"^^xsd:string ;
-    rdfs:subClassOf odo:Role ;
-    owl:disjointWith odo:CaptainRole .
-
-odo:Deployment a owl:Class ;
-    rdfs:label "Deployment"^^xsd:string ;
-    rdfs:comment "A platform is deployed during a specific duration of time over a specific spacial coverage. For example, a boat is a platform. That boat is doployed (sent on a cruise) in order to collect data."^^xsd:string ;
-    owl:disjointWith odo:Award,
-        odo:Dataset,
-        foaf:Organization .
-
-odo:CaptainRole a owl:Class ;
-    rdfs:label "Captain"^^xsd:string ;
-    rdfs:subClassOf odo:Role .
-
-odo:Role a owl:Class ;
-    rdfs:label "Role"^^xsd:string ;
-    rdfs:comment "A person can play many roles, such as principle investigator or captain or lead scientists. This role is played over a specific period of time"^^xsd:string ;
-    owl:disjointWith odo:Award,
-        odo:Dataset,
-        odo:Deployment,
-        odo:FundingSource,
-        odo:Instrument,
-        odo:MonitoredProperty,
-        odo:Platform,
-        odo:Program,
-        odo:Project,
-        odo:UnitOfMeasure,
-        foaf:Organization,
-        foaf:Person ;
-    owl:equivalentClass [ a owl:Class ;
-            owl:unionOf ( odo:CaptainRole odo:ChiefScientistRole odo:Co-ChiefScientistRole odo:LeadPrincipalInvestigatorRole odo:PrincipalInvestigatorRole odo:Co-PrincipalInvestigatorRole odo:ScientistRole odo:GuestRole odo:StudentRole odo:TechnicianRole odo:OriginatorRole odo:DataPublisherRole odo:DataManagerRole odo:CuratorRole odo:AnalystRole odo:ContactRole odo:ProgramManagerRole odo:UnknownRole odo:InternationalCollaboratorRole odo:ProjectCoordinatorRole odo:BcoDmoDataManagerRole ) ] .
-
-odo:Dataset a owl:Class ;
-    rdfs:label "Dataset"^^xsd:string ;
-    rdfs:comment "A super class for discovering any type of oceanographic dataset."^^xsd:string ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onProperty odo:validated ],
-        [ a owl:Restriction ;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onProperty odo:releaseDate ],
-        [ a owl:Restriction ;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onProperty odo:restricted ],
-        odo:CreativeWork ;
-    owl:disjointWith odo:Award,
-        foaf:Organization ;
-    owl:equivalentClass [ a owl:Class ;
-            owl:unionOf ( odo:LaboratoryDataset odo:DeploymentDataset odo:DatasetCollection ) ] .
-
-[] a owl:Class ;
-    rdfs:label "Creative Work Relationship"^^xsd:string ;
-    rdf:About "http://ocean-data.org/schema/CreativeWorkRelation" ;
-    rdfs:subClassOf skos:Concept .
-
+odo:TechnicianRole a owl:NamedIndividual, odo:Role ;
+    rdfs:label "Technician"@en-US .
+   
