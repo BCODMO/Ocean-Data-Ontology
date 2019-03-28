@@ -1,36 +1,30 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="http://ocean-data.org/schema/"
      xml:base="http://ocean-data.org/schema/"
-     xmlns:schema="http://schema.org/"
-     xmlns:cpm="http://purl.org/voc/cpm#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:geosparql="http://www.opengis.net/ont/geosparql#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     xmlns:dcterms="http://purl.org/dc/terms/"
-     xmlns:time="http://www.w3.org/2006/time#"
-     xmlns:odo="http://ocean-data.org/schema/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:vann="http://purl.org/vocab/vann/"
-     xmlns:foaf="http://xmlns.com/foaf/0.1/"
-     xmlns:dc="http://purl.org/dc/elements/1.1/">
+     xmlns:terms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="http://ocean-data.org/schema/">
         <owl:versionIRI rdf:resource="http://ocean-data.org/schema/"/>
+        <dc:publisher xml:lang="en-us">Biological and Chemical Oceanography Data Management Office (BCO-DMO)</dc:publisher>
+        <terms:created xml:lang="en-us">2012-01-01</terms:created>
+        <terms:creator rdf:resource="http://orcid.org/0000-0003-4486-9448"/>
+        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2019-03-27</terms:issued>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2019-03-27</terms:modified>
+        <terms:publisher rdf:resource="http://lod.bco-dmo.org/id/affiliation/191"/>
+        <terms:source rdf:datatype="xsd:anyURI">https://github.com/BCODMO/Ocean-Data-Ontology</terms:source>
+        <terms:title xml:lang="en-us">Ocean Data Ontology</terms:title>
+        <vann:preferredNamespaceUri rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://ocean-data.org/schema/</vann:preferredNamespaceUri>
+        <vann:preferredNamespaceUri>odo</vann:preferredNamespaceUri>
+        <rdfs:comment xml:lang="en-us">An ontology for describing metadata about oceanographic data.</rdfs:comment>
         <rdfs:label xml:lang="en-us">Ocean Data Ontology</rdfs:label>
         <owl:versionInfo>0.9.0</owl:versionInfo>
-        <vann:preferredNamespaceUri rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://ocean-data.org/schema/</vann:preferredNamespaceUri>
-        <dcterms:title xml:lang="en-us">Ocean Data Ontology</dcterms:title>
-        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2019-03-27</dcterms:modified>
-        <rdfs:comment xml:lang="en-us">An ontology for describing metadata about oceanographic data.</rdfs:comment>
-        <dcterms:source rdf:datatype="xsd:anyURI">https://github.com/BCODMO/Ocean-Data-Ontology</dcterms:source>
-        <dcterms:publisher rdf:resource="http://lod.bco-dmo.org/id/affiliation/191"/>
-        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2019-03-27</dcterms:issued>
-        <vann:preferredNamespaceUri rdf:datatype="http://www.w3.org/2001/XMLSchema#string">odo</vann:preferredNamespaceUri>
-        <dcterms:created xml:lang="en-us">2012-01-01</dcterms:created>
-        <dcterms:creator rdf:resource="http://orcid.org/0000-0003-4486-9448"/>
-        <dc:publisher xml:lang="en-us">Biological and Chemical Oceanography Data Management Office (BCO-DMO)</dc:publisher>
     </owl:Ontology>
     
 
@@ -43,10 +37,12 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+
     
 
 
     <!-- http://purl.org/dc/elements/1.1/creator -->
+
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
     
@@ -54,11 +50,13 @@
 
     <!-- http://purl.org/dc/elements/1.1/publisher -->
 
+
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/publisher"/>
     
 
 
     <!-- http://purl.org/dc/terms/created -->
+
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/created"/>
     
@@ -66,11 +64,13 @@
 
     <!-- http://purl.org/dc/terms/creator -->
 
+
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
     
 
 
     <!-- http://purl.org/dc/terms/issued -->
+
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/issued"/>
     
@@ -78,11 +78,13 @@
 
     <!-- http://purl.org/dc/terms/modified -->
 
+
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/modified"/>
     
 
 
     <!-- http://purl.org/dc/terms/publisher -->
+
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/publisher"/>
     
@@ -90,11 +92,13 @@
 
     <!-- http://purl.org/dc/terms/source -->
 
+
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/source"/>
     
 
 
     <!-- http://purl.org/dc/terms/title -->
+
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
     
@@ -102,11 +106,13 @@
 
     <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
 
+
     <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
     
 
 
     <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
+
 
     <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
     
@@ -114,11 +120,13 @@
 
     <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#About -->
 
+
     <owl:AnnotationProperty rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#About"/>
     
 
 
     <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#Resource -->
+
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#Resource"/>
     
@@ -126,11 +134,13 @@
 
     <!-- http://www.w3.org/2004/02/skos/core#defintion -->
 
+
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#defintion"/>
     
 
 
     <!-- http://www.w3.org/2004/02/skos/core#related -->
+
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#related"/>
     
@@ -144,10 +154,12 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+
     
 
 
     <!-- http://www.opengis.net/ont/geosparql#wktLiteral -->
+
 
     <rdfs:Datatype rdf:about="http://www.opengis.net/ont/geosparql#wktLiteral"/>
     
@@ -155,11 +167,13 @@
 
     <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML -->
 
+
     <rdfs:Datatype rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"/>
     
 
 
     <!-- http://www.w3.org/2001/XMLSchema#date -->
+
 
     <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
     
@@ -173,10 +187,12 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+
     
 
 
     <!-- http://ocean-data.org/schema/archiver -->
+
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/archiver">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
@@ -189,6 +205,7 @@
 
 
     <!-- http://ocean-data.org/schema/archives -->
+
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/archives">
         <owl:inverseOf rdf:resource="http://ocean-data.org/schema/isArchivedBy"/>
@@ -203,6 +220,7 @@
 
     <!-- http://ocean-data.org/schema/checksumAlgorithm -->
 
+
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/checksumAlgorithm">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalDocument"/>
         <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
@@ -214,6 +232,7 @@
 
     <!-- http://ocean-data.org/schema/crossrefRelation -->
 
+
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/crossrefRelation">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/CreativeWorkRelationType"/>
         <rdfs:range rdf:resource="http://ocean-data.org/schema/CrossrefRelation"/>
@@ -224,6 +243,7 @@
 
 
     <!-- http://ocean-data.org/schema/currentState -->
+
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/currentState">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
@@ -247,6 +267,7 @@
 
     <!-- http://ocean-data.org/schema/dataFile -->
 
+
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/dataFile">
         <owl:inverseOf rdf:resource="http://ocean-data.org/schema/serializes"/>
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
@@ -258,6 +279,7 @@
 
 
     <!-- http://ocean-data.org/schema/datasetType -->
+
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/datasetType">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
@@ -280,6 +302,7 @@
 
     <!-- http://ocean-data.org/schema/forOrganization -->
 
+
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/forOrganization">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Role"/>
         <rdfs:range rdf:resource="http://ocean-data.org/schema/Organization"/>
@@ -288,6 +311,7 @@
 
 
     <!-- http://ocean-data.org/schema/fromCollection -->
+
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/fromCollection">
         <owl:inverseOf rdf:resource="http://ocean-data.org/schema/hasInventory"/>
@@ -298,6 +322,7 @@
 
 
     <!-- http://ocean-data.org/schema/fromDeployment -->
+
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/fromDeployment">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
@@ -311,6 +336,7 @@
 
     <!-- http://ocean-data.org/schema/fromInstrument -->
 
+
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/fromInstrument">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
         <rdfs:range rdf:resource="http://ocean-data.org/schema/Instrument"/>
@@ -321,6 +347,7 @@
 
 
     <!-- http://ocean-data.org/schema/funded -->
+
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/funded">
         <owl:inverseOf rdf:resource="http://ocean-data.org/schema/fundedBy"/>
@@ -341,6 +368,7 @@
 
     <!-- http://ocean-data.org/schema/fundedBy -->
 
+
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/fundedBy">
         <rdfs:domain>
             <owl:Class>
@@ -359,6 +387,7 @@
 
     <!-- http://ocean-data.org/schema/generatedWork -->
 
+
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/generatedWork">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#generated"/>
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/ResearchActivity"/>
@@ -370,6 +399,7 @@
 
 
     <!-- http://ocean-data.org/schema/hasAgentWithRole -->
+
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasAgentWithRole">
         <owl:inverseOf rdf:resource="http://ocean-data.org/schema/roleAbout"/>
@@ -393,6 +423,7 @@
 
     <!-- http://ocean-data.org/schema/hasAuthoritativePublisher -->
 
+
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasAuthoritativePublisher">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/CreativeWork"/>
         <rdfs:range rdf:resource="http://ocean-data.org/schema/Agent"/>
@@ -403,6 +434,7 @@
 
 
     <!-- http://ocean-data.org/schema/hasAward -->
+
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasAward">
         <rdfs:domain>
@@ -426,6 +458,7 @@
 
     <!-- http://ocean-data.org/schema/hasCoordinatedDeployment -->
 
+
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasCoordinatedDeployment">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Deployment"/>
         <rdfs:range rdf:resource="http://ocean-data.org/schema/Deployment"/>
@@ -437,6 +470,7 @@
 
     <!-- http://ocean-data.org/schema/hasCruiseTrajectory -->
 
+
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasCruiseTrajectory">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Cruise"/>
         <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
@@ -447,6 +481,7 @@
 
 
     <!-- http://ocean-data.org/schema/hasDataset -->
+
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasDataset">
         <rdfs:domain>
@@ -465,6 +500,7 @@
 
     <!-- http://ocean-data.org/schema/hasDeploymentDates -->
 
+
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasDeploymentDates">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Deployment"/>
         <rdfs:range rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
@@ -475,6 +511,7 @@
 
 
     <!-- http://ocean-data.org/schema/hasFundingSource -->
+
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasFundingSource">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Award"/>
@@ -487,6 +524,7 @@
 
     <!-- http://ocean-data.org/schema/hasIdentifier -->
 
+
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasIdentifier">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/CreativeWork"/>
         <rdfs:range rdf:resource="http://ocean-data.org/schema/Identifier"/>
@@ -496,6 +534,7 @@
 
 
     <!-- http://ocean-data.org/schema/hasInventory -->
+
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasInventory">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/DatasetCollection"/>
@@ -509,6 +548,7 @@
 
     <!-- http://ocean-data.org/schema/hasParentProgram -->
 
+
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasParentProgram">
         <owl:inverseOf rdf:resource="http://ocean-data.org/schema/hasProject"/>
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Project"/>
@@ -521,6 +561,7 @@
 
     <!-- http://ocean-data.org/schema/hasPlatformTitle -->
 
+
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasPlatformTitle">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Platform"/>
         <rdfs:range rdf:resource="http://ocean-data.org/schema/PlatformTitle"/>
@@ -531,6 +572,7 @@
 
 
     <!-- http://ocean-data.org/schema/hasProgramDates -->
+
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasProgramDates">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Program"/>
@@ -543,6 +585,7 @@
 
     <!-- http://ocean-data.org/schema/hasProject -->
 
+
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasProject">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Program"/>
         <rdfs:range rdf:resource="http://ocean-data.org/schema/Project"/>
@@ -553,6 +596,7 @@
 
 
     <!-- http://ocean-data.org/schema/hasProjectDates -->
+
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasProjectDates">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Project"/>
@@ -565,6 +609,7 @@
 
     <!-- http://ocean-data.org/schema/hasRole -->
 
+
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasRole">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Agent"/>
         <rdfs:range rdf:resource="http://ocean-data.org/schema/Role"/>
@@ -573,6 +618,7 @@
 
 
     <!-- http://ocean-data.org/schema/hasUnitOfMeasure -->
+
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasUnitOfMeasure">
         <rdfs:domain>
@@ -592,6 +638,7 @@
 
     <!-- http://ocean-data.org/schema/isArchivedBy -->
 
+
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/isArchivedBy">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/CreativeWork"/>
         <rdfs:range rdf:resource="http://ocean-data.org/schema/ArchiveRecord"/>
@@ -602,6 +649,7 @@
 
 
     <!-- http://ocean-data.org/schema/isDeployed -->
+
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/isDeployed">
         <owl:inverseOf rdf:resource="http://ocean-data.org/schema/ofPlatform"/>
@@ -615,6 +663,7 @@
 
 
     <!-- http://ocean-data.org/schema/isInstanceOf -->
+
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/isInstanceOf">
         <rdfs:domain>
@@ -641,6 +690,7 @@
 
     <!-- http://ocean-data.org/schema/lastKnownAffiliation -->
 
+
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/lastKnownAffiliation">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Person"/>
         <rdfs:range rdf:resource="http://ocean-data.org/schema/Organization"/>
@@ -651,6 +701,7 @@
 
 
     <!-- http://ocean-data.org/schema/matches -->
+
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/matches">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#exactMatch"/>
@@ -665,6 +716,7 @@
 
     <!-- http://ocean-data.org/schema/obsoletedBy -->
 
+
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/obsoletedBy">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
@@ -677,6 +729,7 @@
 
     <!-- http://ocean-data.org/schema/ofPlatform -->
 
+
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/ofPlatform">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Deployment"/>
         <rdfs:range rdf:resource="http://ocean-data.org/schema/Platform"/>
@@ -687,6 +740,7 @@
 
 
     <!-- http://ocean-data.org/schema/performedBy -->
+
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/performedBy">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Role"/>
@@ -699,6 +753,7 @@
 
     <!-- http://ocean-data.org/schema/performedRole -->
 
+
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/performedRole">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Agent"/>
         <rdfs:range rdf:resource="http://ocean-data.org/schema/Role"/>
@@ -709,6 +764,7 @@
 
 
     <!-- http://ocean-data.org/schema/producedWork -->
+
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/producedWork">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/ResearchActivity"/>
@@ -721,6 +777,7 @@
 
     <!-- http://ocean-data.org/schema/providesAward -->
 
+
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/providesAward">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/FundingSource"/>
         <rdfs:range rdf:resource="http://ocean-data.org/schema/Award"/>
@@ -731,6 +788,7 @@
 
 
     <!-- http://ocean-data.org/schema/relatedWork -->
+
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/relatedWork">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/CreativeWork"/>
@@ -743,6 +801,7 @@
 
     <!-- http://ocean-data.org/schema/relationshipType -->
 
+
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/relationshipType">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/CreativeWorkRelation"/>
         <rdfs:range rdf:resource="http://ocean-data.org/schema/CreativeWorkRelationType"/>
@@ -753,6 +812,7 @@
 
 
     <!-- http://ocean-data.org/schema/roleAbout -->
+
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/roleAbout">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Role"/>
@@ -775,6 +835,7 @@
 
     <!-- http://ocean-data.org/schema/roleType -->
 
+
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/roleType">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Role"/>
         <rdfs:range>
@@ -796,6 +857,7 @@
 
     <!-- http://ocean-data.org/schema/serializes -->
 
+
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/serializes">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/DataFile"/>
@@ -808,6 +870,7 @@
 
     <!-- http://ocean-data.org/schema/storesValuesFor -->
 
+
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/storesValuesFor">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
         <rdfs:range rdf:resource="http://ocean-data.org/schema/DatasetMonitoredProperty"/>
@@ -818,6 +881,7 @@
 
 
     <!-- http://ocean-data.org/schema/usesIdentifierScheme -->
+
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/usesIdentifierScheme">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Identifier"/>
@@ -830,11 +894,13 @@
 
     <!-- http://www.w3.org/2004/02/skos/core#exactMatch -->
 
+
     <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#exactMatch"/>
     
 
 
     <!-- http://www.w3.org/2004/02/skos/core#member -->
+
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#member"/>
     
@@ -842,11 +908,13 @@
 
     <!-- http://www.w3.org/ns/prov#generated -->
 
+
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#generated"/>
     
 
 
     <!-- http://www.w3.org/ns/prov#onBehalfOf -->
+
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#onBehalfOf"/>
     
@@ -860,10 +928,12 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+
     
 
 
     <!-- http://ocean-data.org/schema/alternateName -->
+
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/alternateName">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Platform"/>
@@ -875,6 +945,7 @@
 
 
     <!-- http://ocean-data.org/schema/archivedDate -->
+
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/archivedDate">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
@@ -888,6 +959,7 @@
 
     <!-- http://ocean-data.org/schema/bytesize -->
 
+
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/bytesize">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalDocument"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
@@ -898,6 +970,7 @@
 
 
     <!-- http://ocean-data.org/schema/checksum -->
+
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/checksum">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalDocument"/>
@@ -910,6 +983,7 @@
 
     <!-- http://ocean-data.org/schema/citationText -->
 
+
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/citationText">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/CreativeWork"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -920,6 +994,7 @@
 
 
     <!-- http://ocean-data.org/schema/conversionDescription -->
+
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/conversionDescription">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
@@ -933,6 +1008,7 @@
 
     <!-- http://ocean-data.org/schema/downloadUrl -->
 
+
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/downloadUrl">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalDocument"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
@@ -943,6 +1019,7 @@
 
 
     <!-- http://ocean-data.org/schema/firstName -->
+
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/firstName">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Person"/>
@@ -955,6 +1032,7 @@
 
     <!-- http://ocean-data.org/schema/fullName -->
 
+
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/fullName">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Person"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -965,6 +1043,7 @@
 
 
     <!-- http://ocean-data.org/schema/hasAcquisitionDescription -->
+
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasAcquisitionDescription">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
@@ -984,6 +1063,7 @@
 
 
     <!-- http://ocean-data.org/schema/hasAcronym -->
+
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasAcronym">
         <rdfs:domain>
@@ -1005,6 +1085,7 @@
 
     <!-- http://ocean-data.org/schema/hasAwardNumber -->
 
+
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasAwardNumber">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Award"/>
@@ -1017,6 +1098,7 @@
 
     <!-- http://ocean-data.org/schema/hasAwardURL -->
 
+
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasAwardURL">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Award"/>
@@ -1028,6 +1110,7 @@
 
 
     <!-- http://ocean-data.org/schema/hasBriefDescription -->
+
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasBriefDescription">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
@@ -1048,6 +1131,7 @@
 
     <!-- http://ocean-data.org/schema/hasDataManagementPlan -->
 
+
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasDataManagementPlan">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Project"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
@@ -1059,6 +1143,7 @@
 
 
     <!-- http://ocean-data.org/schema/hasDatasetDescription -->
+
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasDatasetDescription">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
@@ -1078,6 +1163,7 @@
 
     <!-- http://ocean-data.org/schema/hasDatasetURL -->
 
+
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasDatasetURL">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
@@ -1088,6 +1174,7 @@
 
 
     <!-- http://ocean-data.org/schema/hasDeploymentDescription -->
+
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasDeploymentDescription">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
@@ -1107,6 +1194,7 @@
 
 
     <!-- http://ocean-data.org/schema/hasLocation -->
+
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasLocation">
         <rdfs:domain>
@@ -1128,6 +1216,7 @@
 
     <!-- http://ocean-data.org/schema/hasLogo -->
 
+
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasLogo">
         <rdfs:domain>
             <owl:Class>
@@ -1146,6 +1235,7 @@
 
 
     <!-- http://ocean-data.org/schema/hasLogoURL -->
+
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasLogoURL">
         <rdfs:domain>
@@ -1166,6 +1256,7 @@
 
     <!-- http://ocean-data.org/schema/hasNoDataValue -->
 
+
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasNoDataValue">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/MonitoredProperty"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -1177,6 +1268,7 @@
 
     <!-- http://ocean-data.org/schema/hasOrganizationSubName -->
 
+
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasOrganizationSubName">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Organization"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -1187,6 +1279,7 @@
 
 
     <!-- http://ocean-data.org/schema/hasParameterShortDescription -->
+
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasParameterShortDescription">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
@@ -1200,6 +1293,7 @@
 
     <!-- http://ocean-data.org/schema/hasParameterShortName -->
 
+
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasParameterShortName">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/MonitoredProperty"/>
@@ -1212,6 +1306,7 @@
 
     <!-- http://ocean-data.org/schema/hasPlatformURL -->
 
+
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasPlatformURL">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Platform"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
@@ -1222,6 +1317,7 @@
 
 
     <!-- http://ocean-data.org/schema/hasProcessingDescription -->
+
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasProcessingDescription">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
@@ -1242,6 +1338,7 @@
 
     <!-- http://ocean-data.org/schema/hasProgramDescription -->
 
+
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasProgramDescription">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Program"/>
         <rdfs:range>
@@ -1259,6 +1356,7 @@
 
 
     <!-- http://ocean-data.org/schema/hasProjectDescription -->
+
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasProjectDescription">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Project"/>
@@ -1278,6 +1376,7 @@
 
     <!-- http://ocean-data.org/schema/hasReportURL -->
 
+
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasReportURL">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Deployment"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
@@ -1288,6 +1387,7 @@
 
 
     <!-- http://ocean-data.org/schema/hasRoleWeight -->
+
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasRoleWeight">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/AgentRole"/>
@@ -1300,6 +1400,7 @@
 
     <!-- http://ocean-data.org/schema/hasSerialNumber -->
 
+
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasSerialNumber">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/DatasetInstrument"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -1310,6 +1411,7 @@
 
 
     <!-- http://ocean-data.org/schema/hasSmallLogoURL -->
+
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasSmallLogoURL">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
@@ -1323,6 +1425,7 @@
 
     <!-- http://ocean-data.org/schema/hasSynonym -->
 
+
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasSynonym">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Deployment"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -1333,6 +1436,7 @@
 
 
     <!-- http://ocean-data.org/schema/honorific -->
+
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/honorific">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Person"/>
@@ -1345,6 +1449,7 @@
 
     <!-- http://ocean-data.org/schema/identifierValue -->
 
+
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/identifierValue">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Identifier"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -1355,6 +1460,7 @@
 
 
     <!-- http://ocean-data.org/schema/issueDate -->
+
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/issueDate">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
@@ -1367,6 +1473,7 @@
 
     <!-- http://ocean-data.org/schema/lastName -->
 
+
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/lastName">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Person"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -1378,6 +1485,7 @@
 
     <!-- http://ocean-data.org/schema/middleName -->
 
+
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/middleName">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Person"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -1388,6 +1496,7 @@
 
 
     <!-- http://ocean-data.org/schema/mimetype -->
+
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/mimetype">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalDocument"/>
@@ -1407,6 +1516,7 @@
 
     <!-- http://ocean-data.org/schema/nickname -->
 
+
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/nickname">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Person"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -1417,6 +1527,7 @@
 
 
     <!-- http://ocean-data.org/schema/releaseDate -->
+
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/releaseDate">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
@@ -1429,6 +1540,7 @@
 
     <!-- http://ocean-data.org/schema/requiresConversion -->
 
+
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/requiresConversion">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/DatasetMonitoredProperty"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
@@ -1439,6 +1551,7 @@
 
 
     <!-- http://ocean-data.org/schema/restricted -->
+
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/restricted">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
@@ -1451,6 +1564,7 @@
 
     <!-- http://ocean-data.org/schema/title -->
 
+
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/title">
         <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -1461,6 +1575,7 @@
 
 
     <!-- http://ocean-data.org/schema/validated -->
+
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/validated">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
@@ -1473,6 +1588,7 @@
 
     <!-- http://ocean-data.org/schema/versionLabel -->
 
+
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/versionLabel">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -1484,6 +1600,7 @@
 
     <!-- http://ocean-data.org/schema/webpage -->
 
+
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/webpage">
         <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
@@ -1494,6 +1611,7 @@
 
 
     <!-- http://ocean-data.org/schema/wktLiteral -->
+
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/wktLiteral">
         <rdfs:subPropertyOf rdf:resource="http://www.opengis.net/ont/geosparql#asWKT"/>
@@ -1514,6 +1632,7 @@
 
     <!-- http://www.opengis.net/ont/geosparql#asWKT -->
 
+
     <owl:DatatypeProperty rdf:about="http://www.opengis.net/ont/geosparql#asWKT"/>
     
 
@@ -1526,10 +1645,12 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+
     
 
 
     <!-- http://ocean-data.org/schema/Agent -->
+
 
     <owl:Class rdf:about="http://ocean-data.org/schema/Agent">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent"/>
@@ -1541,6 +1662,7 @@
 
     <!-- http://ocean-data.org/schema/AgentRole -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/AgentRole">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
     </owl:Class>
@@ -1548,6 +1670,7 @@
 
 
     <!-- http://ocean-data.org/schema/Aircraft -->
+
 
     <owl:Class rdf:about="http://ocean-data.org/schema/Aircraft">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Vehicle"/>
@@ -1559,6 +1682,7 @@
 
     <!-- http://ocean-data.org/schema/ArchiveRecord -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/ArchiveRecord">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
         <rdfs:comment xml:lang="en-us">A record describing a version of a Dataset in some Archive.</rdfs:comment>
@@ -1568,6 +1692,7 @@
 
 
     <!-- http://ocean-data.org/schema/AutonomousUnderwaterVehicle -->
+
 
     <owl:Class rdf:about="http://ocean-data.org/schema/AutonomousUnderwaterVehicle">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/UnmannedSubmarine"/>
@@ -1579,6 +1704,7 @@
 
     <!-- http://ocean-data.org/schema/Award -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/Award">
         <rdfs:comment xml:lang="en-us">A funding award provided by an Funding Source (Organization) to a Project. This Award may fund Datasets.</rdfs:comment>
         <rdfs:label xml:lang="en-us">Award</rdfs:label>
@@ -1587,6 +1713,7 @@
 
 
     <!-- http://ocean-data.org/schema/CreativeWork -->
+
 
     <owl:Class rdf:about="http://ocean-data.org/schema/CreativeWork">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
@@ -1598,6 +1725,7 @@
 
     <!-- http://ocean-data.org/schema/CreativeWorkRelation -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/CreativeWorkRelation">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
         <rdfs:comment xml:lang="en-us">A relationship between two CreativeWorks</rdfs:comment>
@@ -1607,6 +1735,7 @@
 
 
     <!-- http://ocean-data.org/schema/CreativeWorkRelationType -->
+
 
     <owl:Class rdf:about="http://ocean-data.org/schema/CreativeWorkRelationType">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
@@ -1618,6 +1747,7 @@
 
     <!-- http://ocean-data.org/schema/CrossrefRelation -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/CrossrefRelation">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
         <rdfs:comment xml:lang="en-us">Defines The Crossref-specific elements of a relation between two CreativeWorks</rdfs:comment>
@@ -1627,6 +1757,7 @@
 
 
     <!-- http://ocean-data.org/schema/Cruise -->
+
 
     <owl:Class rdf:about="http://ocean-data.org/schema/Cruise">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Deployment"/>
@@ -1638,6 +1769,7 @@
 
     <!-- http://ocean-data.org/schema/CurrentState -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/CurrentState">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
         <rdfs:comment xml:lang="en-us">A controlled vocaublary of current states for a dataset</rdfs:comment>
@@ -1647,6 +1779,7 @@
 
 
     <!-- http://ocean-data.org/schema/DataFile -->
+
 
     <owl:Class rdf:about="http://ocean-data.org/schema/DataFile">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/DigitalDocument"/>
@@ -1658,6 +1791,7 @@
 
     <!-- http://ocean-data.org/schema/DataManagementPlan -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/DataManagementPlan">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/DigitalDocument"/>
         <rdfs:comment xml:lang="en-us">A document that details a plan for managing data as a result of some research activity.</rdfs:comment>
@@ -1667,6 +1801,7 @@
 
 
     <!-- http://ocean-data.org/schema/Dataset -->
+
 
     <owl:Class rdf:about="http://ocean-data.org/schema/Dataset">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/CreativeWork"/>
@@ -1696,6 +1831,7 @@
 
     <!-- http://ocean-data.org/schema/DatasetCollection -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/DatasetCollection">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Dataset"/>
         <rdfs:comment xml:lang="en-us">A collection of one or more Datasets. This was primarily used by the large Programs JGOFS and GLOBEC where it was valuable to annotate datasets by which deployment they belonged to. The same data observations made over multiple cruises would be have a DatasetCollection of multiple DeploymentDataset instances.</rdfs:comment>
@@ -1705,6 +1841,7 @@
 
 
     <!-- http://ocean-data.org/schema/DatasetInstrument -->
+
 
     <owl:Class rdf:about="http://ocean-data.org/schema/DatasetInstrument">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
@@ -1722,6 +1859,7 @@
 
     <!-- http://ocean-data.org/schema/DatasetMonitoredProperty -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/DatasetMonitoredProperty">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
         <rdfs:subClassOf>
@@ -1738,6 +1876,7 @@
 
     <!-- http://ocean-data.org/schema/DatasetType -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/DatasetType">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
         <rdfs:comment xml:lang="en-us">The type of Dataset. Can have multiple types. Could be defined by a group of parameters or the type sof platofrm used, etc.</rdfs:comment>
@@ -1747,6 +1886,7 @@
 
 
     <!-- http://ocean-data.org/schema/Deployment -->
+
 
     <owl:Class rdf:about="http://ocean-data.org/schema/Deployment">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
@@ -1765,6 +1905,7 @@
 
     <!-- http://ocean-data.org/schema/DeploymentDataset -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/DeploymentDataset">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Dataset"/>
         <rdfs:comment xml:lang="en-us">A deployment dataset is a dataset that is collected on a specific deployment of a platform from a specific instrument on that platform.</rdfs:comment>
@@ -1774,6 +1915,7 @@
 
 
     <!-- http://ocean-data.org/schema/DeploymentDatasetCollection -->
+
 
     <owl:Class rdf:about="http://ocean-data.org/schema/DeploymentDatasetCollection">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/DatasetCollection"/>
@@ -1791,6 +1933,7 @@
 
     <!-- http://ocean-data.org/schema/DigitalDocument -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/DigitalDocument">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/CreativeWork"/>
         <rdfs:comment xml:lang="en-us">An electronic file or document.</rdfs:comment>
@@ -1800,6 +1943,7 @@
 
 
     <!-- http://ocean-data.org/schema/Dock -->
+
 
     <owl:Class rdf:about="http://ocean-data.org/schema/Dock">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/StationaryPlatform"/>
@@ -1811,6 +1955,7 @@
 
     <!-- http://ocean-data.org/schema/Drifter -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/Drifter">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Platform"/>
         <rdfs:comment xml:lang="en-us">Drifter</rdfs:comment>
@@ -1820,6 +1965,7 @@
 
 
     <!-- http://ocean-data.org/schema/Float -->
+
 
     <owl:Class rdf:about="http://ocean-data.org/schema/Float">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Platform"/>
@@ -1831,6 +1977,7 @@
 
     <!-- http://ocean-data.org/schema/FundingSource -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/FundingSource">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Organization"/>
         <rdfs:comment xml:lang="en-us">An Organization that provides funding Awards to a Project.</rdfs:comment>
@@ -1840,6 +1987,7 @@
 
 
     <!-- http://ocean-data.org/schema/Glider -->
+
 
     <owl:Class rdf:about="http://ocean-data.org/schema/Glider">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Platform"/>
@@ -1851,6 +1999,7 @@
 
     <!-- http://ocean-data.org/schema/GrantAward -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/GrantAward">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Award"/>
         <rdfs:comment xml:lang="en-us">An award made to one or more Agents to perform some Research Activity</rdfs:comment>
@@ -1860,6 +2009,7 @@
 
 
     <!-- http://ocean-data.org/schema/Identifier -->
+
 
     <owl:Class rdf:about="http://ocean-data.org/schema/Identifier">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
@@ -1871,6 +2021,7 @@
 
     <!-- http://ocean-data.org/schema/IdentifierScheme -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/IdentifierScheme">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en-us">A scheme or domain for which an Identifier value uniquely identifies some thing. (example: DOI, ARK, ISBN, Handle, URI, etc)</rdfs:comment>
@@ -1880,6 +2031,7 @@
 
 
     <!-- http://ocean-data.org/schema/Instrument -->
+
 
     <owl:Class rdf:about="http://ocean-data.org/schema/Instrument">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
@@ -1891,6 +2043,7 @@
 
     <!-- http://ocean-data.org/schema/InterCrossrefRelation -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/InterCrossrefRelation">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/CrossrefRelation"/>
         <rdfs:comment xml:lang="en-us">Used to describe relations between items that are not the same work.</rdfs:comment>
@@ -1900,6 +2053,7 @@
 
 
     <!-- http://ocean-data.org/schema/IntraCrossrefRelation -->
+
 
     <owl:Class rdf:about="http://ocean-data.org/schema/IntraCrossrefRelation">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/CrossrefRelation"/>
@@ -1911,6 +2065,7 @@
 
     <!-- http://ocean-data.org/schema/Island -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/Island">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/StationaryPlatform"/>
         <rdfs:comment xml:lang="en-us">Island</rdfs:comment>
@@ -1920,6 +2075,7 @@
 
 
     <!-- http://ocean-data.org/schema/Laboratory -->
+
 
     <owl:Class rdf:about="http://ocean-data.org/schema/Laboratory">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/StationaryPlatform"/>
@@ -1931,6 +2087,7 @@
 
     <!-- http://ocean-data.org/schema/LaboratoryDataset -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/LaboratoryDataset">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Dataset"/>
         <rdfs:comment xml:lang="en-us">A dataset generated in the Laboratory.</rdfs:comment>
@@ -1940,6 +2097,7 @@
 
 
     <!-- http://ocean-data.org/schema/MannedSubmarine -->
+
 
     <owl:Class rdf:about="http://ocean-data.org/schema/MannedSubmarine">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Submarine"/>
@@ -1951,6 +2109,7 @@
 
     <!-- http://ocean-data.org/schema/Model -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/Model">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Platform"/>
         <rdfs:comment xml:lang="en-us">Model</rdfs:comment>
@@ -1960,6 +2119,7 @@
 
 
     <!-- http://ocean-data.org/schema/MonitoredProperty -->
+
 
     <owl:Class rdf:about="http://ocean-data.org/schema/MonitoredProperty">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
@@ -1971,6 +2131,7 @@
 
     <!-- http://ocean-data.org/schema/Mooring -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/Mooring">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/StationaryPlatform"/>
         <rdfs:comment xml:lang="en-us">Mooring</rdfs:comment>
@@ -1980,6 +2141,7 @@
 
 
     <!-- http://ocean-data.org/schema/Organization -->
+
 
     <owl:Class rdf:about="http://ocean-data.org/schema/Organization">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Agent"/>
@@ -1991,6 +2153,7 @@
 
     <!-- http://ocean-data.org/schema/Person -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/Person">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Agent"/>
         <rdfs:comment xml:lang="en-us">A non-Organization Agent corresponding to a human individual</rdfs:comment>
@@ -2000,6 +2163,7 @@
 
 
     <!-- http://ocean-data.org/schema/Platform -->
+
 
     <owl:Class rdf:about="http://ocean-data.org/schema/Platform">
         <owl:equivalentClass>
@@ -2025,6 +2189,7 @@
 
     <!-- http://ocean-data.org/schema/PlatformTitle -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/PlatformTitle">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en-us">A controlled vocabulary of platform titles/types.</rdfs:comment>
@@ -2036,6 +2201,7 @@
 
     <!-- http://ocean-data.org/schema/Program -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/Program">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/ResearchActivity"/>
         <rdfs:comment xml:lang="en-us">A large-scale project that encompasses smaller Projects.</rdfs:comment>
@@ -2045,6 +2211,7 @@
 
 
     <!-- http://ocean-data.org/schema/Project -->
+
 
     <owl:Class rdf:about="http://ocean-data.org/schema/Project">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/ResearchActivity"/>
@@ -2056,6 +2223,7 @@
 
     <!-- http://ocean-data.org/schema/Publication -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/Publication">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/DigitalDocument"/>
         <rdfs:comment xml:lang="en-us">A published CreativeWork such as a journal article, book chapter, or web page.</rdfs:comment>
@@ -2065,6 +2233,7 @@
 
 
     <!-- http://ocean-data.org/schema/RemotelyOperatedVehicle -->
+
 
     <owl:Class rdf:about="http://ocean-data.org/schema/RemotelyOperatedVehicle">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/UnmannedSubmarine"/>
@@ -2076,6 +2245,7 @@
 
     <!-- http://ocean-data.org/schema/ResearchActivity -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/ResearchActivity">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
         <rdfs:comment xml:lang="en-us">An activity for some period of time that under which  research is conducted</rdfs:comment>
@@ -2085,6 +2255,7 @@
 
 
     <!-- http://ocean-data.org/schema/Role -->
+
 
     <owl:Class rdf:about="http://ocean-data.org/schema/Role">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Influence"/>
@@ -2096,6 +2267,7 @@
 
     <!-- http://ocean-data.org/schema/RoleType -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/RoleType">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
         <rdfs:comment xml:lang="en-us">The type of Role perfomed by an Agent for some research activity or product.</rdfs:comment>
@@ -2105,6 +2277,7 @@
 
 
     <!-- http://ocean-data.org/schema/Satellite -->
+
 
     <owl:Class rdf:about="http://ocean-data.org/schema/Satellite">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Platform"/>
@@ -2116,6 +2289,7 @@
 
     <!-- http://ocean-data.org/schema/StationaryPlatform -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/StationaryPlatform">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Platform"/>
         <rdfs:comment xml:lang="en-us">Stationary Platform</rdfs:comment>
@@ -2125,6 +2299,7 @@
 
 
     <!-- http://ocean-data.org/schema/StationaryVessel -->
+
 
     <owl:Class rdf:about="http://ocean-data.org/schema/StationaryVessel">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/StationaryPlatform"/>
@@ -2137,6 +2312,7 @@
 
     <!-- http://ocean-data.org/schema/SubContractAward -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/SubContractAward">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Award"/>
         <rdfs:comment xml:lang="en-us">An award made to one or more Agents to perform work as part of a larger award.</rdfs:comment>
@@ -2146,6 +2322,7 @@
 
 
     <!-- http://ocean-data.org/schema/Submarine -->
+
 
     <owl:Class rdf:about="http://ocean-data.org/schema/Submarine">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Vehicle"/>
@@ -2157,6 +2334,7 @@
 
     <!-- http://ocean-data.org/schema/SupplementalDocument -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/SupplementalDocument">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/DigitalDocument"/>
         <rdfs:comment xml:lang="en-us">A document that further contextualizes aor supports the understanding of another CreativeWork such as a cruise report.</rdfs:comment>
@@ -2166,6 +2344,7 @@
 
 
     <!-- http://ocean-data.org/schema/Synthesis -->
+
 
     <owl:Class rdf:about="http://ocean-data.org/schema/Synthesis">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Platform"/>
@@ -2177,6 +2356,7 @@
 
     <!-- http://ocean-data.org/schema/TowedVehicle -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/TowedVehicle">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Vehicle"/>
         <rdfs:comment xml:lang="en-us">Towed Vehicle</rdfs:comment>
@@ -2186,6 +2366,7 @@
 
 
     <!-- http://ocean-data.org/schema/UnitOfMeasure -->
+
 
     <owl:Class rdf:about="http://ocean-data.org/schema/UnitOfMeasure">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
@@ -2197,6 +2378,7 @@
 
     <!-- http://ocean-data.org/schema/UnmannedSubmarine -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/UnmannedSubmarine">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Submarine"/>
         <rdfs:label xml:lang="en-us">Unmanned Submarine</rdfs:label>
@@ -2205,6 +2387,7 @@
 
 
     <!-- http://ocean-data.org/schema/Vehicle -->
+
 
     <owl:Class rdf:about="http://ocean-data.org/schema/Vehicle">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Platform"/>
@@ -2216,6 +2399,7 @@
 
     <!-- http://ocean-data.org/schema/Vessel -->
 
+
     <owl:Class rdf:about="http://ocean-data.org/schema/Vessel">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Vehicle"/>
     </owl:Class>
@@ -2224,11 +2408,13 @@
 
     <!-- http://www.opengis.net/ont/geosparql#Feature -->
 
+
     <owl:Class rdf:about="http://www.opengis.net/ont/geosparql#Feature"/>
     
 
 
     <!-- http://www.w3.org/2004/02/skos/core#Concept -->
+
 
     <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
     
@@ -2236,11 +2422,13 @@
 
     <!-- http://www.w3.org/2004/02/skos/core#ConceptScheme -->
 
+
     <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
     
 
 
     <!-- http://www.w3.org/2006/time#TemporalEntity -->
+
 
     <owl:Class rdf:about="http://www.w3.org/2006/time#TemporalEntity"/>
     
@@ -2248,11 +2436,13 @@
 
     <!-- http://www.w3.org/ns/prov#Activity -->
 
+
     <owl:Class rdf:about="http://www.w3.org/ns/prov#Activity"/>
     
 
 
     <!-- http://www.w3.org/ns/prov#Agent -->
+
 
     <owl:Class rdf:about="http://www.w3.org/ns/prov#Agent"/>
     
@@ -2260,11 +2450,13 @@
 
     <!-- http://www.w3.org/ns/prov#Entity -->
 
+
     <owl:Class rdf:about="http://www.w3.org/ns/prov#Entity"/>
     
 
 
     <!-- http://www.w3.org/ns/prov#Influence -->
+
 
     <owl:Class rdf:about="http://www.w3.org/ns/prov#Influence"/>
     
@@ -2278,10 +2470,12 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+
     
 
 
     <!-- http://ocean-data.org/schema/AnalystRole -->
+
 
     <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/AnalystRole">
         <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRole"/>
@@ -2292,6 +2486,7 @@
 
     <!-- http://ocean-data.org/schema/BcoDmoDataManagerRole -->
 
+
     <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/BcoDmoDataManagerRole">
         <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRole"/>
         <rdfs:label xml:lang="en-us">BCO-DMO Data Manager</rdfs:label>
@@ -2300,6 +2495,7 @@
 
 
     <!-- http://ocean-data.org/schema/BcoDmoIdentifier -->
+
 
     <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/BcoDmoIdentifier">
         <rdf:type rdf:resource="http://ocean-data.org/schema/IdentifierScheme"/>
@@ -2310,6 +2506,7 @@
 
     <!-- http://ocean-data.org/schema/CaptainRole -->
 
+
     <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/CaptainRole">
         <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRole"/>
         <rdfs:label xml:lang="en-us">Captain</rdfs:label>
@@ -2318,6 +2515,7 @@
 
 
     <!-- http://ocean-data.org/schema/ChiefScientistRole -->
+
 
     <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/ChiefScientistRole">
         <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRole"/>
@@ -2328,6 +2526,7 @@
 
     <!-- http://ocean-data.org/schema/Co-ChiefScientistRole -->
 
+
     <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/Co-ChiefScientistRole">
         <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRole"/>
         <rdfs:label xml:lang="en-us">Co-Chief Scientist</rdfs:label>
@@ -2336,6 +2535,7 @@
 
 
     <!-- http://ocean-data.org/schema/Co-PrincipalInvestigatorRole -->
+
 
     <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/Co-PrincipalInvestigatorRole">
         <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRole"/>
@@ -2346,6 +2546,7 @@
 
     <!-- http://ocean-data.org/schema/ContactRole -->
 
+
     <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/ContactRole">
         <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRole"/>
         <rdfs:label xml:lang="en-us">Contact</rdfs:label>
@@ -2354,6 +2555,7 @@
 
 
     <!-- http://ocean-data.org/schema/CuratorRole -->
+
 
     <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/CuratorRole">
         <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRole"/>
@@ -2364,6 +2566,7 @@
 
     <!-- http://ocean-data.org/schema/DOIIdentifierScheme -->
 
+
     <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/DOIIdentifierScheme">
         <rdf:type rdf:resource="http://ocean-data.org/schema/IdentifierScheme"/>
         <rdfs:label xml:lang="en-us">DOI</rdfs:label>
@@ -2372,6 +2575,7 @@
 
 
     <!-- http://ocean-data.org/schema/DataManagerRole -->
+
 
     <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/DataManagerRole">
         <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRole"/>
@@ -2382,6 +2586,7 @@
 
     <!-- http://ocean-data.org/schema/DataPublisherRole -->
 
+
     <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/DataPublisherRole">
         <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRole"/>
         <rdfs:label xml:lang="en-us">Data Publisher</rdfs:label>
@@ -2390,6 +2595,7 @@
 
 
     <!-- http://ocean-data.org/schema/GuestRole -->
+
 
     <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/GuestRole">
         <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRole"/>
@@ -2400,6 +2606,7 @@
 
     <!-- http://ocean-data.org/schema/InternationalCollaboratorRole -->
 
+
     <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/InternationalCollaboratorRole">
         <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRole"/>
         <rdfs:label xml:lang="en-us">International Collaborator</rdfs:label>
@@ -2408,6 +2615,7 @@
 
 
     <!-- http://ocean-data.org/schema/LeadPrincipalInvestigatorRole -->
+
 
     <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/LeadPrincipalInvestigatorRole">
         <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRole"/>
@@ -2418,6 +2626,7 @@
 
     <!-- http://ocean-data.org/schema/OriginatorRole -->
 
+
     <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/OriginatorRole">
         <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRole"/>
         <rdfs:label xml:lang="en-us">Originator</rdfs:label>
@@ -2426,6 +2635,7 @@
 
 
     <!-- http://ocean-data.org/schema/PrincipalInvestigatorRole -->
+
 
     <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/PrincipalInvestigatorRole">
         <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRole"/>
@@ -2436,6 +2646,7 @@
 
     <!-- http://ocean-data.org/schema/ProgramManagerRole -->
 
+
     <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/ProgramManagerRole">
         <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRole"/>
         <rdfs:label xml:lang="en-us">Program Manager</rdfs:label>
@@ -2444,6 +2655,7 @@
 
 
     <!-- http://ocean-data.org/schema/ProjectCoordinatorRole -->
+
 
     <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/ProjectCoordinatorRole">
         <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRole"/>
@@ -2454,6 +2666,7 @@
 
     <!-- http://ocean-data.org/schema/ScientistRole -->
 
+
     <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/ScientistRole">
         <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRole"/>
         <rdfs:label xml:lang="en-us">Scientist</rdfs:label>
@@ -2462,6 +2675,7 @@
 
 
     <!-- http://ocean-data.org/schema/StudentRole -->
+
 
     <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/StudentRole">
         <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRole"/>
@@ -2472,6 +2686,7 @@
 
     <!-- http://ocean-data.org/schema/TechnicianRole -->
 
+
     <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/TechnicianRole">
         <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRole"/>
         <rdfs:label xml:lang="en-us">Technician</rdfs:label>
@@ -2480,6 +2695,7 @@
 
 
     <!-- http://ocean-data.org/schema/UnknownRole -->
+
 
     <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/UnknownRole">
         <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRole"/>
@@ -2490,11 +2706,13 @@
 
     <!-- http://ocean-data.org/schema/forOrganization -->
 
+
     <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/forOrganization"/>
     
 
 
     <!-- http://ocean-data.org/schema/fromCollection -->
+
 
     <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/fromCollection"/>
     
@@ -2502,11 +2720,13 @@
 
     <!-- http://ocean-data.org/schema/hasDataset -->
 
+
     <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/hasDataset"/>
     
 
 
     <!-- http://ocean-data.org/schema/hasRole -->
+
 
     <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/hasRole"/>
     
@@ -2520,11 +2740,12 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+
     <rdf:Description rdf:about="http://ocean-data.org/schema/forOrganization">
-        <skos:related rdf:resource="http://www.w3.org/ns/prov#onBehalfOf"/>
         <rdfs:comment xml:lang="en-us">The organization at which an agent performing a role was affiliated with.</rdfs:comment>
         <rdfs:label xml:lang="en-us">forOrganization</rdfs:label>
         <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <skos:related rdf:resource="http://www.w3.org/ns/prov#onBehalfOf"/>
     </rdf:Description>
     <rdf:Description rdf:about="http://ocean-data.org/schema/fromCollection">
         <rdfs:comment xml:lang="en-us">specifies that a Dataset is part of some DatasetCollection</rdfs:comment>
@@ -2532,21 +2753,22 @@
     </rdf:Description>
     <rdf:Description rdf:about="http://ocean-data.org/schema/hasDataset">
         <rdfs:comment xml:lang="en-us">Used by odo:DeploymentDataset, odo:Award, odo:Project classes</rdfs:comment>
-        <skos:related rdf:resource="http://ocean-data.org/schema/funded"/>
         <rdfs:label xml:lang="en-us">hasDataset</rdfs:label>
-        <skos:related rdf:resource="http://ocean-data.org/schema/producedWork"/>
-        <skos:related rdf:resource="http://ocean-data.org/schema/fromCollection"/>
         <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <skos:related rdf:resource="http://ocean-data.org/schema/fromCollection"/>
+        <skos:related rdf:resource="http://ocean-data.org/schema/funded"/>
+        <skos:related rdf:resource="http://ocean-data.org/schema/producedWork"/>
     </rdf:Description>
     <rdf:Description rdf:about="http://ocean-data.org/schema/hasRole">
         <rdfs:comment xml:lang="en-us">All the roles associated to some Agent</rdfs:comment>
+        <rdfs:label xml:lang="en-us">hasRole</rdfs:label>
         <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
         <skos:related rdf:resource="http://ocean-data.org/schema/performedRole"/>
-        <rdfs:label xml:lang="en-us">hasRole</rdfs:label>
     </rdf:Description>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 5.1.9) https://github.com/owlcs/owlapi/ -->
+
 
