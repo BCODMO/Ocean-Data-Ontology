@@ -7,9 +7,7 @@ This section provides details for each class and property defined by Ocean Data 
          <a href="#Agent" title="http://ocean-data.org/schema/Agent">Agent</a>
       </li>
       <li>
-         <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">
-            <span>agent role</span>
-         </a>
+         <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">Agent Role</a>
       </li>
       <li>
          <a href="#Aircraft" title="http://ocean-data.org/schema/Aircraft">Aircraft</a>
@@ -204,9 +202,7 @@ This section provides details for each class and property defined by Ocean Data 
          <a href="#Vehicle" title="http://ocean-data.org/schema/Vehicle">Vehicle</a>
       </li>
       <li>
-         <a href="#Vessel" title="http://ocean-data.org/schema/Vessel">
-            <span>vessel</span>
-         </a>
+         <a href="#Vessel" title="http://ocean-data.org/schema/Vessel">Vessel</a>
       </li>
    </ul>
    <div class="entity" id="Agent">
@@ -247,12 +243,15 @@ This section provides details for each class and property defined by Ocean Data 
       </dl>
    </div>
    <div class="entity" id="AgentRole">
-      <h3>agent role<sup class="type-c" title="class">c</sup>
+      <h3>Agent Role<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
       <p>
          <strong>IRI:</strong> http://ocean-data.org/schema/AgentRole</p>
+      <div class="comment">
+         <span class="markdown">The Role performed by some agent.</span>
+      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -639,9 +638,11 @@ This section provides details for each class and property defined by Ocean Data 
          </dd>
          <dt>is in domain of</dt>
          <dd>
-            <a href="#currentState" title="http://ocean-data.org/schema/currentState">currentState</a>
+            <a href="#abstract" title="http://ocean-data.org/schema/abstract">abstract</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#currentState" title="http://ocean-data.org/schema/currentState">currentState</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#dataFile" title="http://ocean-data.org/schema/dataFile">dataFile</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#datasetType" title="http://ocean-data.org/schema/datasetType">datasetType</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#datasetTitle" title="http://ocean-data.org/schema/datasetTitle">datasetTitle</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#datasetType" title="http://ocean-data.org/schema/datasetType">datasetType</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#fromCollection" title="http://ocean-data.org/schema/fromCollection">fromCollection</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#fromInstrument" title="http://ocean-data.org/schema/fromInstrument">fromInstrument</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#hasAcquisitionDescription"
@@ -1343,32 +1344,6 @@ This section provides details for each class and property defined by Ocean Data 
          <span class="markdown">A thing from which a Deployment occurs.</span>
       </div>
       <dl class="description">
-         <dt>is equivalent to</dt>
-         <dd>
-            <a href="#Drifter" title="http://ocean-data.org/schema/Drifter">Drifter</a>
-            <sup class="type-c" title="class">c</sup> 
-            <span class="logic">or</span> 
-            <a href="#Float" title="http://ocean-data.org/schema/Float">Float</a>
-            <sup class="type-c" title="class">c</sup> 
-            <span class="logic">or</span> 
-            <a href="#Glider" title="http://ocean-data.org/schema/Glider">Glider</a>
-            <sup class="type-c" title="class">c</sup> 
-            <span class="logic">or</span> 
-            <a href="#Model" title="http://ocean-data.org/schema/Model">Model</a>
-            <sup class="type-c" title="class">c</sup> 
-            <span class="logic">or</span> 
-            <a href="#Satellite" title="http://ocean-data.org/schema/Satellite">Satellite</a>
-            <sup class="type-c" title="class">c</sup> 
-            <span class="logic">or</span> 
-            <a href="#StationaryPlatform" title="http://ocean-data.org/schema/StationaryPlatform">Stationary Platform</a>
-            <sup class="type-c" title="class">c</sup> 
-            <span class="logic">or</span> 
-            <a href="#Synthesis" title="http://ocean-data.org/schema/Synthesis">Synthesis</a>
-            <sup class="type-c" title="class">c</sup> 
-            <span class="logic">or</span> 
-            <a href="#Vehicle" title="http://ocean-data.org/schema/Vehicle">Vehicle</a>
-            <sup class="type-c" title="class">c</sup>
-         </dd>
          <dt>has super-classes</dt>
          <dd>
             <span class="dotted" title="http://www.w3.org/ns/prov#Entity">entity</span>
@@ -1666,7 +1641,7 @@ This section provides details for each class and property defined by Ocean Data 
          <dt>has super-classes</dt>
          <dd>
             <a href="#StationaryPlatform" title="http://ocean-data.org/schema/StationaryPlatform">Stationary Platform</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#Vessel" title="http://ocean-data.org/schema/Vessel">vessel</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Vessel" title="http://ocean-data.org/schema/Vessel">Vessel</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -1834,18 +1809,21 @@ This section provides details for each class and property defined by Ocean Data 
             <a href="#Aircraft" title="http://ocean-data.org/schema/Aircraft">Aircraft</a>
             <sup class="type-c" title="class">c</sup>, <a href="#Submarine" title="http://ocean-data.org/schema/Submarine">Submarine</a>
             <sup class="type-c" title="class">c</sup>, <a href="#TowedVehicle" title="http://ocean-data.org/schema/TowedVehicle">Towed Vehicle</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#Vessel" title="http://ocean-data.org/schema/Vessel">vessel</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Vessel" title="http://ocean-data.org/schema/Vessel">Vessel</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
    </div>
    <div class="entity" id="Vessel">
-      <h3>vessel<sup class="type-c" title="class">c</sup>
+      <h3>Vessel<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
       <p>
          <strong>IRI:</strong> http://ocean-data.org/schema/Vessel</p>
+      <div class="comment">
+         <span class="markdown">A vessel, boat, or ship.</span>
+      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -3325,7 +3303,7 @@ This section provides details for each class and property defined by Ocean Data 
                <span class="logic">and</span> (<span class="dotted" title="http://www.w3.org/2004/02/skos/core#member">member</span>
                <sup class="type-op" title="object property">op</sup> 
                <span class="logic">only</span> 
-               <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">agent role</a>
+               <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">Agent Role</a>
                <sup class="type-c" title="class">c</sup>)</dd>
          </dl>
       </div>
@@ -3419,6 +3397,9 @@ This section provides details for each class and property defined by Ocean Data 
    <h3 id="dataproperties-headline" class="list">Data Properties</h3>
    <ul class="hlist">
       <li>
+         <a href="#abstract" title="http://ocean-data.org/schema/abstract">abstract</a>
+      </li>
+      <li>
          <a href="#alternateName" title="http://ocean-data.org/schema/alternateName">alternateName</a>
       </li>
       <li>
@@ -3436,6 +3417,9 @@ This section provides details for each class and property defined by Ocean Data 
       <li>
          <a href="#conversionDescription"
             title="http://ocean-data.org/schema/conversionDescription">conversionDescription</a>
+      </li>
+      <li>
+         <a href="#datasetTitle" title="http://ocean-data.org/schema/datasetTitle">datasetTitle</a>
       </li>
       <li>
          <a href="#downloadUrl" title="http://ocean-data.org/schema/downloadUrl">downloadUrl</a>
@@ -3565,9 +3549,6 @@ This section provides details for each class and property defined by Ocean Data 
          <a href="#restricted" title="http://ocean-data.org/schema/restricted">restricted</a>
       </li>
       <li>
-         <a href="#title" title="http://ocean-data.org/schema/title">title</a>
-      </li>
-      <li>
          <a href="#validated" title="http://ocean-data.org/schema/validated">validated</a>
       </li>
       <li>
@@ -3580,6 +3561,30 @@ This section provides details for each class and property defined by Ocean Data 
          <a href="#wktLiteral" title="http://ocean-data.org/schema/wktLiteral">wktLiteral</a>
       </li>
    </ul>
+   <div class="entity" id="abstract">
+      <h3>abstract<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://ocean-data.org/schema/abstract</p>
+      <div class="comment">
+         <span class="markdown">A description of some research activity or research product.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Dataset" title="http://ocean-data.org/schema/Dataset">Dataset</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
    <div class="entity" id="alternateName">
       <h3>alternateName<sup class="type-dp" title="data property">dp</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
@@ -3720,6 +3725,30 @@ This section provides details for each class and property defined by Ocean Data 
             <dd>
                <a href="#DatasetMonitoredProperty"
                   title="http://ocean-data.org/schema/DatasetMonitoredProperty">Dataset Property</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="datasetTitle">
+      <h3>datasetTitle<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://ocean-data.org/schema/datasetTitle</p>
+      <div class="comment">
+         <span class="markdown">the title of a Dataset. was using dc:title or dct:title</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Dataset" title="http://ocean-data.org/schema/Dataset">Dataset</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
@@ -4374,7 +4403,7 @@ This section provides details for each class and property defined by Ocean Data 
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">agent role</a>
+               <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">Agent Role</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
@@ -4698,30 +4727,6 @@ This section provides details for each class and property defined by Ocean Data 
          </dl>
       </div>
    </div>
-   <div class="entity" id="title">
-      <h3>title<sup class="type-dp" title="data property">dp</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://ocean-data.org/schema/title</p>
-      <div class="comment">
-         <span class="markdown">the title of a Thing. was using dc:title or dct:title</span>
-      </div>
-      <div class="description">
-         <dl>
-            <dt>has domain</dt>
-            <dd>
-               <span class="dotted" title="http://www.w3.org/2002/07/owl#Thing">thing</span>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dt>has range</dt>
-            <dd>
-               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>
-            </dd>
-         </dl>
-      </div>
-   </div>
    <div class="entity" id="validated">
       <h3>validated<sup class="type-dp" title="data property">dp</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
@@ -4826,6 +4831,207 @@ This section provides details for each class and property defined by Ocean Data 
          </dl>
       </div>
    </div>
+</div><div id="annotationproperties">
+   <h3 id="annotationproperties" class="list">Annotation Properties</h3>
+   <ul class="hlist">
+      <li>
+         <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#About" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#About">
+            <span>about</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://purl.org/dc/terms/created" title="http://purl.org/dc/terms/created">
+            <span>created</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://purl.org/dc/elements/1.1/creator" title="http://purl.org/dc/elements/1.1/creator">
+            <span>creator</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://purl.org/dc/terms/creator" title="http://purl.org/dc/terms/creator">
+            <span>creator</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://www.w3.org/2004/02/skos/core#defintion" title="http://www.w3.org/2004/02/skos/core#defintion">
+            <span>defintion</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://purl.org/dc/terms/issued" title="http://purl.org/dc/terms/issued">
+            <span>issued</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://purl.org/dc/terms/modified" title="http://purl.org/dc/terms/modified">
+            <span>modified</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://purl.org/vocab/vann/preferredNamespacePrefix"
+            title="http://purl.org/vocab/vann/preferredNamespacePrefix">
+            <span>preferred namespace prefix</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://purl.org/vocab/vann/preferredNamespaceUri" title="http://purl.org/vocab/vann/preferredNamespaceUri">
+            <span>preferred namespace uri</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://purl.org/dc/elements/1.1/publisher" title="http://purl.org/dc/elements/1.1/publisher">
+            <span>publisher</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://purl.org/dc/terms/publisher" title="http://purl.org/dc/terms/publisher">
+            <span>publisher</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://www.w3.org/2004/02/skos/core#related" title="http://www.w3.org/2004/02/skos/core#related">
+            <span>related</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#Resource"
+            title="http://www.w3.org/1999/02/22-rdf-syntax-ns#Resource">
+            <span>resource</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://purl.org/dc/terms/source" title="http://purl.org/dc/terms/source">
+            <span>source</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://purl.org/dc/terms/title" title="http://purl.org/dc/terms/title">
+            <span>title</span>
+         </a>
+      </li>
+   </ul>
+   <div class="entity" id="http://www.w3.org/1999/02/22-rdf-syntax-ns#About">
+      <h3>about<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/1999/02/22-rdf-syntax-ns#About</p>
+   </div>
+   <div class="entity" id="http://purl.org/dc/terms/created">
+      <h3>created<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/dc/terms/created</p>
+   </div>
+   <div class="entity" id="http://purl.org/dc/elements/1.1/creator">
+      <h3>creator<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/dc/elements/1.1/creator</p>
+   </div>
+   <div class="entity" id="http://purl.org/dc/terms/creator">
+      <h3>creator<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/dc/terms/creator</p>
+   </div>
+   <div class="entity" id="http://www.w3.org/2004/02/skos/core#defintion">
+      <h3>defintion<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/2004/02/skos/core#defintion</p>
+   </div>
+   <div class="entity" id="http://purl.org/dc/terms/issued">
+      <h3>issued<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/dc/terms/issued</p>
+   </div>
+   <div class="entity" id="http://purl.org/dc/terms/modified">
+      <h3>modified<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/dc/terms/modified</p>
+   </div>
+   <div class="entity" id="http://purl.org/vocab/vann/preferredNamespacePrefix">
+      <h3>preferred namespace prefix<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/vocab/vann/preferredNamespacePrefix</p>
+   </div>
+   <div class="entity" id="http://purl.org/vocab/vann/preferredNamespaceUri">
+      <h3>preferred namespace uri<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/vocab/vann/preferredNamespaceUri</p>
+   </div>
+   <div class="entity" id="http://purl.org/dc/elements/1.1/publisher">
+      <h3>publisher<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/dc/elements/1.1/publisher</p>
+   </div>
+   <div class="entity" id="http://purl.org/dc/terms/publisher">
+      <h3>publisher<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/dc/terms/publisher</p>
+   </div>
+   <div class="entity" id="http://www.w3.org/2004/02/skos/core#related">
+      <h3>related<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/2004/02/skos/core#related</p>
+   </div>
+   <div class="entity" id="http://www.w3.org/1999/02/22-rdf-syntax-ns#Resource">
+      <h3>resource<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/1999/02/22-rdf-syntax-ns#Resource</p>
+   </div>
+   <div class="entity" id="http://purl.org/dc/terms/source">
+      <h3>source<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/dc/terms/source</p>
+   </div>
+   <div class="entity" id="http://purl.org/dc/terms/title">
+      <h3>title<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/dc/terms/title</p>
+   </div>
 </div><div id="namedindividuals">
    <h3 id="namedindividuals" class="list">Named Individuals</h3>
    <ul class="hlist">
@@ -4917,7 +5123,7 @@ This section provides details for each class and property defined by Ocean Data 
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">agent role</a>
+            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">Agent Role</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -4947,7 +5153,7 @@ This section provides details for each class and property defined by Ocean Data 
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">agent role</a>
+            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">Agent Role</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -4962,7 +5168,7 @@ This section provides details for each class and property defined by Ocean Data 
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">agent role</a>
+            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">Agent Role</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -4977,7 +5183,7 @@ This section provides details for each class and property defined by Ocean Data 
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">agent role</a>
+            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">Agent Role</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -4992,7 +5198,7 @@ This section provides details for each class and property defined by Ocean Data 
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">agent role</a>
+            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">Agent Role</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -5007,7 +5213,7 @@ This section provides details for each class and property defined by Ocean Data 
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">agent role</a>
+            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">Agent Role</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -5022,7 +5228,7 @@ This section provides details for each class and property defined by Ocean Data 
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">agent role</a>
+            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">Agent Role</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -5037,7 +5243,7 @@ This section provides details for each class and property defined by Ocean Data 
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">agent role</a>
+            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">Agent Role</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -5052,7 +5258,7 @@ This section provides details for each class and property defined by Ocean Data 
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">agent role</a>
+            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">Agent Role</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -5067,7 +5273,7 @@ This section provides details for each class and property defined by Ocean Data 
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">agent role</a>
+            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">Agent Role</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -5097,7 +5303,7 @@ This section provides details for each class and property defined by Ocean Data 
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">agent role</a>
+            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">Agent Role</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -5112,7 +5318,7 @@ This section provides details for each class and property defined by Ocean Data 
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">agent role</a>
+            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">Agent Role</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -5127,7 +5333,7 @@ This section provides details for each class and property defined by Ocean Data 
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">agent role</a>
+            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">Agent Role</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -5142,7 +5348,7 @@ This section provides details for each class and property defined by Ocean Data 
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">agent role</a>
+            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">Agent Role</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -5157,7 +5363,7 @@ This section provides details for each class and property defined by Ocean Data 
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">agent role</a>
+            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">Agent Role</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -5172,7 +5378,7 @@ This section provides details for each class and property defined by Ocean Data 
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">agent role</a>
+            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">Agent Role</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -5187,7 +5393,7 @@ This section provides details for each class and property defined by Ocean Data 
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">agent role</a>
+            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">Agent Role</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -5202,7 +5408,7 @@ This section provides details for each class and property defined by Ocean Data 
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">agent role</a>
+            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">Agent Role</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -5217,7 +5423,7 @@ This section provides details for each class and property defined by Ocean Data 
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">agent role</a>
+            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">Agent Role</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -5232,7 +5438,7 @@ This section provides details for each class and property defined by Ocean Data 
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">agent role</a>
+            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">Agent Role</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -5247,7 +5453,7 @@ This section provides details for each class and property defined by Ocean Data 
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">agent role</a>
+            <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">Agent Role</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>

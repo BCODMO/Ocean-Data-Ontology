@@ -21,8 +21,8 @@
         <rdfs:label xml:lang="en-us">Ocean Data Ontology</rdfs:label>
         <owl:versionInfo>0.9.0</owl:versionInfo>
         <vann:preferredNamespaceUri rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://ocean-data.org/schema/</vann:preferredNamespaceUri>
-        <dcterms:title xml:lang="en-us">Ocean Data Ontology</dcterms:title>
         <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2019-03-27</dcterms:modified>
+        <dcterms:title xml:lang="en-us">Ocean Data Ontology</dcterms:title>
         <rdfs:comment xml:lang="en-us">An ontology for describing metadata about oceanographic data.</rdfs:comment>
         <dcterms:source rdf:datatype="xsd:anyURI">https://github.com/BCODMO/Ocean-Data-Ontology</dcterms:source>
         <dcterms:publisher rdf:resource="http://lod.bco-dmo.org/id/affiliation/191"/>
@@ -863,6 +863,17 @@
     
 
 
+    <!-- http://ocean-data.org/schema/abstract -->
+
+    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/abstract">
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en-us">A description of some research activity or research product.</rdfs:comment>
+        <rdfs:label xml:lang="en-us">abstract</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://ocean-data.org/schema/alternateName -->
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/alternateName">
@@ -927,6 +938,17 @@
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment xml:lang="en-us">Describes how the values can be converted.</rdfs:comment>
         <rdfs:label xml:lang="en-us">conversionDescription</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ocean-data.org/schema/datasetTitle -->
+
+    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/datasetTitle">
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en-us">the title of a Dataset. was using dc:title or dct:title</rdfs:comment>
+        <rdfs:label xml:lang="en-us">datasetTitle</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1449,17 +1471,6 @@
     
 
 
-    <!-- http://ocean-data.org/schema/title -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/title">
-        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment xml:lang="en-us">the title of a Thing. was using dc:title or dct:title</rdfs:comment>
-        <rdfs:label xml:lang="en-us">title</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
     <!-- http://ocean-data.org/schema/validated -->
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/validated">
@@ -1543,6 +1554,8 @@
 
     <owl:Class rdf:about="http://ocean-data.org/schema/AgentRole">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="en-us">The Role performed by some agent.</rdfs:comment>
+        <rdfs:label xml:lang="en-us">Agent Role</rdfs:label>
     </owl:Class>
     
 
@@ -2002,20 +2015,6 @@
     <!-- http://ocean-data.org/schema/Platform -->
 
     <owl:Class rdf:about="http://ocean-data.org/schema/Platform">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Drifter"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Float"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Glider"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Model"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Satellite"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/StationaryPlatform"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Synthesis"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Vehicle"/>
-                </owl:unionOf>
-            </owl:Class>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
         <rdfs:comment xml:lang="en-us">A thing from which a Deployment occurs.</rdfs:comment>
         <rdfs:label xml:lang="en-us">Platform</rdfs:label>
@@ -2218,6 +2217,8 @@
 
     <owl:Class rdf:about="http://ocean-data.org/schema/Vessel">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Vehicle"/>
+        <rdfs:comment xml:lang="en-us">A vessel, boat, or ship.</rdfs:comment>
+        <rdfs:label xml:lang="en-us">Vessel</rdfs:label>
     </owl:Class>
     
 

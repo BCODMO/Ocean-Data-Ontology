@@ -374,28 +374,6 @@
     "@id" : "http://ocean-data.org/schema/hasInventory"
   } ]
 }, {
-  "@id" : "_:genid95",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#unionOf" : [ {
-    "@list" : [ {
-      "@id" : "http://ocean-data.org/schema/Drifter"
-    }, {
-      "@id" : "http://ocean-data.org/schema/Float"
-    }, {
-      "@id" : "http://ocean-data.org/schema/Glider"
-    }, {
-      "@id" : "http://ocean-data.org/schema/Model"
-    }, {
-      "@id" : "http://ocean-data.org/schema/Satellite"
-    }, {
-      "@id" : "http://ocean-data.org/schema/StationaryPlatform"
-    }, {
-      "@id" : "http://ocean-data.org/schema/Synthesis"
-    }, {
-      "@id" : "http://ocean-data.org/schema/Vehicle"
-    } ]
-  } ]
-}, {
   "@id" : "http://ocean-data.org/schema/",
   "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ],
   "http://purl.org/dc/elements/1.1/publisher" : [ {
@@ -465,6 +443,14 @@
 }, {
   "@id" : "http://ocean-data.org/schema/AgentRole",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "The Role performed by some agent."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "Agent Role"
+  } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.w3.org/2004/02/skos/core#Concept"
   } ]
@@ -1178,9 +1164,6 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.w3.org/ns/prov#Entity"
-  } ],
-  "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid95"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/PlatformTitle",
@@ -1500,8 +1483,33 @@
 }, {
   "@id" : "http://ocean-data.org/schema/Vessel",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "A vessel, boat, or ship."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "Vessel"
+  } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://ocean-data.org/schema/Vehicle"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/abstract",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "A description of some research activity or research product."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://ocean-data.org/schema/Dataset"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "abstract"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/alternateName",
@@ -1712,6 +1720,23 @@
   } ],
   "http://www.w3.org/2002/07/owl#inverseOf" : [ {
     "@id" : "http://ocean-data.org/schema/serializes"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/datasetTitle",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "the title of a Dataset. was using dc:title or dct:title"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://ocean-data.org/schema/Dataset"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "datasetTitle"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/datasetType",
@@ -3149,23 +3174,6 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://ocean-data.org/schema/DatasetMonitoredProperty"
-  } ]
-}, {
-  "@id" : "http://ocean-data.org/schema/title",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en-us",
-    "@value" : "the title of a Thing. was using dc:title or dct:title"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.w3.org/2002/07/owl#Thing"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en-us",
-    "@value" : "title"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/usesIdentifierScheme",

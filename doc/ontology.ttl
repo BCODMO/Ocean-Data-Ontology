@@ -595,6 +595,14 @@ xsd:date rdf:type rdfs:Datatype .
 #    Data properties
 #################################################################
 
+###  http://ocean-data.org/schema/abstract
+:abstract rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Dataset ;
+          rdfs:range xsd:string ;
+          rdfs:comment "A description of some research activity or research product."@en-us ;
+          rdfs:label "abstract"@en-us .
+
+
 ###  http://ocean-data.org/schema/alternateName
 :alternateName rdf:type owl:DatatypeProperty ;
                rdfs:domain :Platform ;
@@ -643,6 +651,14 @@ xsd:date rdf:type rdfs:Datatype .
                        rdfs:range xsd:string ;
                        rdfs:comment "Describes how the values can be converted."@en-us ;
                        rdfs:label "conversionDescription"@en-us .
+
+
+###  http://ocean-data.org/schema/datasetTitle
+:datasetTitle rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Dataset ;
+              rdfs:range xsd:string ;
+              rdfs:comment "the title of a Dataset. was using dc:title or dct:title"@en-us ;
+              rdfs:label "datasetTitle"@en-us .
 
 
 ###  http://ocean-data.org/schema/downloadUrl
@@ -1017,14 +1033,6 @@ xsd:date rdf:type rdfs:Datatype .
             rdfs:label "restricted"@en-us .
 
 
-###  http://ocean-data.org/schema/title
-:title rdf:type owl:DatatypeProperty ;
-       rdfs:domain owl:Thing ;
-       rdfs:range xsd:string ;
-       rdfs:comment "the title of a Thing. was using dc:title or dct:title"@en-us ;
-       rdfs:label "title"@en-us .
-
-
 ###  http://ocean-data.org/schema/validated
 :validated rdf:type owl:DatatypeProperty ;
            rdfs:domain :Dataset ;
@@ -1079,7 +1087,9 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://ocean-data.org/schema/AgentRole
 :AgentRole rdf:type owl:Class ;
-           rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept> .
+           rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept> ;
+           rdfs:comment "The Role performed by some agent."@en-us ;
+           rdfs:label "Agent Role"@en-us .
 
 
 ###  http://ocean-data.org/schema/Aircraft
@@ -1399,17 +1409,6 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://ocean-data.org/schema/Platform
 :Platform rdf:type owl:Class ;
-          owl:equivalentClass [ rdf:type owl:Class ;
-                                owl:unionOf ( :Drifter
-                                              :Float
-                                              :Glider
-                                              :Model
-                                              :Satellite
-                                              :StationaryPlatform
-                                              :Synthesis
-                                              :Vehicle
-                                            )
-                              ] ;
           rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ;
           rdfs:comment "A thing from which a Deployment occurs."@en-us ;
           rdfs:label "Platform"@en-us .
@@ -1551,7 +1550,9 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://ocean-data.org/schema/Vessel
 :Vessel rdf:type owl:Class ;
-        rdfs:subClassOf :Vehicle .
+        rdfs:subClassOf :Vehicle ;
+        rdfs:comment "A vessel, boat, or ship."@en-us ;
+        rdfs:label "Vessel"@en-us .
 
 
 ###  http://www.opengis.net/ont/geosparql#Feature
