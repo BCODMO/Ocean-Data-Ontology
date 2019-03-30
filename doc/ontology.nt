@@ -76,11 +76,17 @@
 # #################################################################
 # 
 # 
+# http://ocean-data.org/schema/JSON
+<http://ocean-data.org/schema/JSON> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+# 
 # http://www.opengis.net/ont/geosparql#wktLiteral
 <http://www.opengis.net/ont/geosparql#wktLiteral> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
 # 
 # http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML
 <http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+# 
+# http://www.w3.org/2000/01/rdf-schema#langString
+<http://www.w3.org/2000/01/rdf-schema#langString> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
 # 
 # http://www.w3.org/2001/XMLSchema#date
 <http://www.w3.org/2001/XMLSchema#date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
@@ -93,6 +99,13 @@
 # #
 # #################################################################
 # 
+# 
+# http://ocean-data.org/schema/archiveFile
+<http://ocean-data.org/schema/archiveFile> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ocean-data.org/schema/archiveFile> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/ArchiveRecord> .
+<http://ocean-data.org/schema/archiveFile> <http://www.w3.org/2000/01/rdf-schema#range> <http://ocean-data.org/schema/DigitalDocument> .
+<http://ocean-data.org/schema/archiveFile> <http://www.w3.org/2000/01/rdf-schema#comment> "A DigitalDocument submitted to an archive as part of an archive record"@en-us .
+<http://ocean-data.org/schema/archiveFile> <http://www.w3.org/2000/01/rdf-schema#label> "archiveFile"@en-us .
 # 
 # http://ocean-data.org/schema/archiver
 <http://ocean-data.org/schema/archiver> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
@@ -118,6 +131,28 @@
 <http://ocean-data.org/schema/checksumAlgorithm> <http://www.w3.org/2000/01/rdf-schema#comment> "The algorithm of some cryptographic hash"@en-us .
 <http://ocean-data.org/schema/checksumAlgorithm> <http://www.w3.org/2000/01/rdf-schema#label> "checksumAlgorithm"@en-us .
 # 
+# http://ocean-data.org/schema/citation
+<http://ocean-data.org/schema/citation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ocean-data.org/schema/citation> <http://www.w3.org/2002/07/owl#inverseOf> <http://ocean-data.org/schema/cites> .
+<http://ocean-data.org/schema/citation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/CreativeWork> .
+<http://ocean-data.org/schema/citation> <http://www.w3.org/2000/01/rdf-schema#range> <http://ocean-data.org/schema/Citation> .
+<http://ocean-data.org/schema/citation> <http://www.w3.org/2000/01/rdf-schema#comment> "A styled citation for a CreativeWork"@en-us .
+<http://ocean-data.org/schema/citation> <http://www.w3.org/2000/01/rdf-schema#label> "citation"@en-us .
+# 
+# http://ocean-data.org/schema/citationStyle
+<http://ocean-data.org/schema/citationStyle> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ocean-data.org/schema/citationStyle> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://ocean-data.org/schema/citationStyle> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Citation> .
+<http://ocean-data.org/schema/citationStyle> <http://www.w3.org/2000/01/rdf-schema#range> <http://ocean-data.org/schema/CitationStyle> .
+<http://ocean-data.org/schema/citationStyle> <http://www.w3.org/2000/01/rdf-schema#comment> "The style for a citation of a CreativeWork"@en-us .
+<http://ocean-data.org/schema/citationStyle> <http://www.w3.org/2000/01/rdf-schema#label> "citationStyle"@en-us .
+# 
+# http://ocean-data.org/schema/cites
+<http://ocean-data.org/schema/cites> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ocean-data.org/schema/cites> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://ocean-data.org/schema/cites> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Citation> .
+<http://ocean-data.org/schema/cites> <http://www.w3.org/2000/01/rdf-schema#range> <http://ocean-data.org/schema/CreativeWork> .
+# 
 # http://ocean-data.org/schema/crossrefRelation
 <http://ocean-data.org/schema/crossrefRelation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://ocean-data.org/schema/crossrefRelation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/CreativeWorkRelationType> .
@@ -129,18 +164,7 @@
 <http://ocean-data.org/schema/currentState> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://ocean-data.org/schema/currentState> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
 <http://ocean-data.org/schema/currentState> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Dataset> .
-<http://ocean-data.org/schema/currentState> <http://www.w3.org/2000/01/rdf-schema#range> _:genid1 .
-_:genid1 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid4 .
-_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2004/02/skos/core#Concept> .
-_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid2 .
-_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid3 .
-_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid3 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2004/02/skos/core#member> .
-_:genid3 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://ocean-data.org/schema/CurrentState> .
-_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ocean-data.org/schema/currentState> <http://www.w3.org/2000/01/rdf-schema#range> <http://ocean-data.org/schema/CurrentState> .
 <http://ocean-data.org/schema/currentState> <http://www.w3.org/2000/01/rdf-schema#comment> "A term describing the current state of the dataset."@en-us .
 <http://ocean-data.org/schema/currentState> <http://www.w3.org/2000/01/rdf-schema#label> "currentState"@en-us .
 # 
@@ -152,27 +176,30 @@ _:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 <http://ocean-data.org/schema/dataFile> <http://www.w3.org/2000/01/rdf-schema#comment> "A data file recording the observations and measurements for a dataset."@en-us .
 <http://ocean-data.org/schema/dataFile> <http://www.w3.org/2000/01/rdf-schema#label> "dataFile"@en-us .
 # 
+# http://ocean-data.org/schema/dataciteRelation
+<http://ocean-data.org/schema/dataciteRelation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ocean-data.org/schema/dataciteRelation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/CreativeWorkRelationType> .
+<http://ocean-data.org/schema/dataciteRelation> <http://www.w3.org/2000/01/rdf-schema#range> <http://ocean-data.org/schema/DataciteRelation> .
+<http://ocean-data.org/schema/dataciteRelation> <http://www.w3.org/2000/01/rdf-schema#comment> "The type of relationship defined by Datacite."@en-us .
+<http://ocean-data.org/schema/dataciteRelation> <http://www.w3.org/2000/01/rdf-schema#label> "dataciteRelation"@en-us .
+# 
 # http://ocean-data.org/schema/datasetType
 <http://ocean-data.org/schema/datasetType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://ocean-data.org/schema/datasetType> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Dataset> .
-<http://ocean-data.org/schema/datasetType> <http://www.w3.org/2000/01/rdf-schema#range> _:genid5 .
-_:genid5 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid8 .
-_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2004/02/skos/core#Concept> .
-_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid6 .
-_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid7 .
-_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid7 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2004/02/skos/core#member> .
-_:genid7 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://ocean-data.org/schema/DatasetType> .
-_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ocean-data.org/schema/datasetType> <http://www.w3.org/2000/01/rdf-schema#range> <http://ocean-data.org/schema/DatasetType> .
 <http://ocean-data.org/schema/datasetType> <http://www.w3.org/2000/01/rdf-schema#comment> "The type of dataset."@en-us .
 <http://ocean-data.org/schema/datasetType> <http://www.w3.org/2000/01/rdf-schema#label> "datasetType"@en-us .
 # 
+# http://ocean-data.org/schema/fileFormat
+<http://ocean-data.org/schema/fileFormat> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ocean-data.org/schema/fileFormat> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/DigitalDocument> .
+<http://ocean-data.org/schema/fileFormat> <http://www.w3.org/2000/01/rdf-schema#range> <http://ocean-data.org/schema/FileFormat> .
+<http://ocean-data.org/schema/fileFormat> <http://www.w3.org/2000/01/rdf-schema#comment> "The file format for a DigitalDocument"@en-us .
+<http://ocean-data.org/schema/fileFormat> <http://www.w3.org/2000/01/rdf-schema#label> "fileFormat"@en-us .
+# 
 # http://ocean-data.org/schema/forOrganization
 <http://ocean-data.org/schema/forOrganization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://ocean-data.org/schema/forOrganization> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Role> .
+<http://ocean-data.org/schema/forOrganization> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/AgentRole> .
 <http://ocean-data.org/schema/forOrganization> <http://www.w3.org/2000/01/rdf-schema#range> <http://ocean-data.org/schema/Organization> .
 # 
 # http://ocean-data.org/schema/fromCollection
@@ -200,29 +227,29 @@ _:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 <http://ocean-data.org/schema/funded> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://ocean-data.org/schema/funded> <http://www.w3.org/2002/07/owl#inverseOf> <http://ocean-data.org/schema/fundedBy> .
 <http://ocean-data.org/schema/funded> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Award> .
-<http://ocean-data.org/schema/funded> <http://www.w3.org/2000/01/rdf-schema#range> _:genid9 .
-_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid9 <http://www.w3.org/2002/07/owl#unionOf> _:genid11 .
-_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/CreativeWork> .
-_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid10 .
-_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/ResearchActivity> .
-_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ocean-data.org/schema/funded> <http://www.w3.org/2000/01/rdf-schema#range> _:genid1 .
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid1 <http://www.w3.org/2002/07/owl#unionOf> _:genid3 .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/CreativeWork> .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid2 .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/ResearchActivity> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/funded> <http://www.w3.org/2000/01/rdf-schema#comment> "Funded the research actvity or product."@en-us .
 <http://ocean-data.org/schema/funded> <http://www.w3.org/2000/01/rdf-schema#label> "funded"@en-us .
 # 
 # http://ocean-data.org/schema/fundedBy
 <http://ocean-data.org/schema/fundedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://ocean-data.org/schema/fundedBy> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid12 .
-_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid12 <http://www.w3.org/2002/07/owl#unionOf> _:genid14 .
-_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/CreativeWork> .
-_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid13 .
-_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/ResearchActivity> .
-_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ocean-data.org/schema/fundedBy> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid4 .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid4 <http://www.w3.org/2002/07/owl#unionOf> _:genid6 .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/CreativeWork> .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid5 .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/ResearchActivity> .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/fundedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://ocean-data.org/schema/Award> .
 <http://ocean-data.org/schema/fundedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Specifies how a research activity or product was funded"@en-us .
 <http://ocean-data.org/schema/fundedBy> <http://www.w3.org/2000/01/rdf-schema#label> "fundedBy"@en-us .
@@ -238,25 +265,25 @@ _:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 # http://ocean-data.org/schema/hasAgentWithRole
 <http://ocean-data.org/schema/hasAgentWithRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://ocean-data.org/schema/hasAgentWithRole> <http://www.w3.org/2002/07/owl#inverseOf> <http://ocean-data.org/schema/roleAbout> .
-<http://ocean-data.org/schema/hasAgentWithRole> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid15 .
-_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid15 <http://www.w3.org/2002/07/owl#unionOf> _:genid20 .
-_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Award> .
-_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid19 .
-_:genid19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Dataset> .
-_:genid19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid18 .
-_:genid18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Deployment> .
-_:genid18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid17 .
-_:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Organization> .
-_:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid16 .
-_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/ResearchActivity> .
-_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-<http://ocean-data.org/schema/hasAgentWithRole> <http://www.w3.org/2000/01/rdf-schema#range> <http://ocean-data.org/schema/Role> .
+<http://ocean-data.org/schema/hasAgentWithRole> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid7 .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid7 <http://www.w3.org/2002/07/owl#unionOf> _:genid12 .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Award> .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid11 .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Dataset> .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid10 .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Deployment> .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid9 .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Organization> .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid8 .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/ResearchActivity> .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ocean-data.org/schema/hasAgentWithRole> <http://www.w3.org/2000/01/rdf-schema#range> <http://ocean-data.org/schema/AgentRole> .
 <http://ocean-data.org/schema/hasAgentWithRole> <http://www.w3.org/2000/01/rdf-schema#comment> "Specifies role some agent played on a certain research activity or product."@en-us .
 <http://ocean-data.org/schema/hasAgentWithRole> <http://www.w3.org/2000/01/rdf-schema#label> "hasAgentWithRole"@en-us .
 # 
@@ -269,18 +296,18 @@ _:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 # 
 # http://ocean-data.org/schema/hasAward
 <http://ocean-data.org/schema/hasAward> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://ocean-data.org/schema/hasAward> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid21 .
-_:genid21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid21 <http://www.w3.org/2002/07/owl#unionOf> _:genid24 .
-_:genid24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Dataset> .
-_:genid24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid23 .
-_:genid23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/FundingSource> .
-_:genid23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid22 .
-_:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Project> .
-_:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ocean-data.org/schema/hasAward> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid13 .
+_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid13 <http://www.w3.org/2002/07/owl#unionOf> _:genid16 .
+_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Dataset> .
+_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid15 .
+_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/FundingSource> .
+_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid14 .
+_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Project> .
+_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/hasAward> <http://www.w3.org/2000/01/rdf-schema#range> <http://ocean-data.org/schema/Award> .
 <http://ocean-data.org/schema/hasAward> <http://www.w3.org/2000/01/rdf-schema#comment> "Whether an activity (Project) or Entity (Dataset or Funding Source) is attached to an award. This should probably be brokenn into different terms - :Dataset 'fundedBy' :Award; :FundingSource 'provesAward' :Award; :Award 'fundsActivity' :Project"@en-us .
 <http://ocean-data.org/schema/hasAward> <http://www.w3.org/2000/01/rdf-schema#label> "hasAward"@en-us .
@@ -304,18 +331,18 @@ _:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 # 
 # http://ocean-data.org/schema/hasDataset
 <http://ocean-data.org/schema/hasDataset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://ocean-data.org/schema/hasDataset> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid25 .
-_:genid25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid25 <http://www.w3.org/2002/07/owl#unionOf> _:genid28 .
-_:genid28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Award> .
-_:genid28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid27 .
-_:genid27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/DeploymentDataset> .
-_:genid27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid26 .
-_:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Project> .
-_:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ocean-data.org/schema/hasDataset> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid17 .
+_:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid17 <http://www.w3.org/2002/07/owl#unionOf> _:genid20 .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Award> .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid19 .
+_:genid19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/DeploymentDataset> .
+_:genid19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid18 .
+_:genid18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Project> .
+_:genid18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/hasDataset> <http://www.w3.org/2000/01/rdf-schema#range> <http://ocean-data.org/schema/Dataset> .
 # 
 # http://ocean-data.org/schema/hasDeploymentDates
@@ -334,7 +361,15 @@ _:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 # 
 # http://ocean-data.org/schema/hasIdentifier
 <http://ocean-data.org/schema/hasIdentifier> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://ocean-data.org/schema/hasIdentifier> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/CreativeWork> .
+<http://ocean-data.org/schema/hasIdentifier> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid21 .
+_:genid21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid21 <http://www.w3.org/2002/07/owl#unionOf> _:genid23 .
+_:genid23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Citation> .
+_:genid23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid22 .
+_:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/CreativeWork> .
+_:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/hasIdentifier> <http://www.w3.org/2000/01/rdf-schema#range> <http://ocean-data.org/schema/Identifier> .
 <http://ocean-data.org/schema/hasIdentifier> <http://www.w3.org/2000/01/rdf-schema#comment> "An identifier for a Creative Work."@en-us .
 # 
@@ -346,13 +381,13 @@ _:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 <http://ocean-data.org/schema/hasInventory> <http://www.w3.org/2000/01/rdf-schema#comment> "fix" .
 <http://ocean-data.org/schema/hasInventory> <http://www.w3.org/2000/01/rdf-schema#label> "hasInventory"@en-us .
 # 
-# http://ocean-data.org/schema/hasParentProgram
-<http://ocean-data.org/schema/hasParentProgram> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://ocean-data.org/schema/hasParentProgram> <http://www.w3.org/2002/07/owl#inverseOf> <http://ocean-data.org/schema/hasProject> .
-<http://ocean-data.org/schema/hasParentProgram> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Project> .
-<http://ocean-data.org/schema/hasParentProgram> <http://www.w3.org/2000/01/rdf-schema#range> <http://ocean-data.org/schema/Program> .
-<http://ocean-data.org/schema/hasParentProgram> <http://www.w3.org/2000/01/rdf-schema#comment> "The Program which made the Project possible"@en-us .
-<http://ocean-data.org/schema/hasParentProgram> <http://www.w3.org/2000/01/rdf-schema#label> "hasParentProgram"@en-us .
+# http://ocean-data.org/schema/hasLeadCollaborativeAward
+<http://ocean-data.org/schema/hasLeadCollaborativeAward> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ocean-data.org/schema/hasLeadCollaborativeAward> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://ocean-data.org/schema/hasLeadCollaborativeAward> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Award> .
+<http://ocean-data.org/schema/hasLeadCollaborativeAward> <http://www.w3.org/2000/01/rdf-schema#range> <http://ocean-data.org/schema/Award> .
+<http://ocean-data.org/schema/hasLeadCollaborativeAward> <http://www.w3.org/2000/01/rdf-schema#comment> "The Lead Collaborative award in a collaborative project that awarded multiple awards to multiple Organizations. THis field identifies the Lead Award."@en-us .
+<http://ocean-data.org/schema/hasLeadCollaborativeAward> <http://www.w3.org/2000/01/rdf-schema#label> "hasLeadCollaborativeAward"@en-us .
 # 
 # http://ocean-data.org/schema/hasPlatformTitle
 <http://ocean-data.org/schema/hasPlatformTitle> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
@@ -370,6 +405,7 @@ _:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 # 
 # http://ocean-data.org/schema/hasProject
 <http://ocean-data.org/schema/hasProject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ocean-data.org/schema/hasProject> <http://www.w3.org/2002/07/owl#inverseOf> <http://ocean-data.org/schema/isPartOfProgram> .
 <http://ocean-data.org/schema/hasProject> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Program> .
 <http://ocean-data.org/schema/hasProject> <http://www.w3.org/2000/01/rdf-schema#range> <http://ocean-data.org/schema/Project> .
 <http://ocean-data.org/schema/hasProject> <http://www.w3.org/2000/01/rdf-schema#comment> "A Project that is a part of this Program"@en-us .
@@ -385,19 +421,19 @@ _:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 # http://ocean-data.org/schema/hasRole
 <http://ocean-data.org/schema/hasRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://ocean-data.org/schema/hasRole> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Agent> .
-<http://ocean-data.org/schema/hasRole> <http://www.w3.org/2000/01/rdf-schema#range> <http://ocean-data.org/schema/Role> .
+<http://ocean-data.org/schema/hasRole> <http://www.w3.org/2000/01/rdf-schema#range> <http://ocean-data.org/schema/AgentRole> .
 # 
 # http://ocean-data.org/schema/hasUnitOfMeasure
 <http://ocean-data.org/schema/hasUnitOfMeasure> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://ocean-data.org/schema/hasUnitOfMeasure> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid29 .
-_:genid29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid29 <http://www.w3.org/2002/07/owl#unionOf> _:genid31 .
-_:genid31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/DatasetMonitoredProperty> .
-_:genid31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid30 .
-_:genid30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/MonitoredProperty> .
-_:genid30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ocean-data.org/schema/hasUnitOfMeasure> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid24 .
+_:genid24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid24 <http://www.w3.org/2002/07/owl#unionOf> _:genid26 .
+_:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/DatasetMonitoredProperty> .
+_:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid25 .
+_:genid25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/MonitoredProperty> .
+_:genid25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/hasUnitOfMeasure> <http://www.w3.org/2000/01/rdf-schema#range> <http://ocean-data.org/schema/UnitOfMeasure> .
 <http://ocean-data.org/schema/hasUnitOfMeasure> <http://www.w3.org/2000/01/rdf-schema#comment> "The unit of Measure used for a certain MonitoredProperty. In the case of MonitoredProperty where these are conceptual, the unit of measure is considered to the default, or convention, for that property. For DatasetMonitoredProperty, the unit of measure is what was actually used within the Dataset."@en-us .
 <http://ocean-data.org/schema/hasUnitOfMeasure> <http://www.w3.org/2000/01/rdf-schema#label> "hasUnitOfMeasure"@en-us .
@@ -408,6 +444,14 @@ _:genid30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 <http://ocean-data.org/schema/isArchivedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://ocean-data.org/schema/ArchiveRecord> .
 <http://ocean-data.org/schema/isArchivedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "An ArchiveRecord that stores soem CreativeWork"@en-us .
 <http://ocean-data.org/schema/isArchivedBy> <http://www.w3.org/2000/01/rdf-schema#label> "isArchivedBy"@en-us .
+# 
+# http://ocean-data.org/schema/isContinuingAwardOf
+<http://ocean-data.org/schema/isContinuingAwardOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ocean-data.org/schema/isContinuingAwardOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://ocean-data.org/schema/isContinuingAwardOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Award> .
+<http://ocean-data.org/schema/isContinuingAwardOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://ocean-data.org/schema/Award> .
+<http://ocean-data.org/schema/isContinuingAwardOf> <http://www.w3.org/2000/01/rdf-schema#comment> "This Award is a continuation of a pre-existing Award"@en-us .
+<http://ocean-data.org/schema/isContinuingAwardOf> <http://www.w3.org/2000/01/rdf-schema#label> "isContinuingAwardOf"@en-us .
 # 
 # http://ocean-data.org/schema/isDeployed
 <http://ocean-data.org/schema/isDeployed> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
@@ -420,26 +464,33 @@ _:genid30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 # 
 # http://ocean-data.org/schema/isInstanceOf
 <http://ocean-data.org/schema/isInstanceOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://ocean-data.org/schema/isInstanceOf> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid32 .
-_:genid32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid32 <http://www.w3.org/2002/07/owl#unionOf> _:genid34 .
-_:genid34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/DatasetInstrument> .
-_:genid34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid33 .
-_:genid33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/DatasetMonitoredProperty> .
-_:genid33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-<http://ocean-data.org/schema/isInstanceOf> <http://www.w3.org/2000/01/rdf-schema#range> _:genid35 .
-_:genid35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid35 <http://www.w3.org/2002/07/owl#unionOf> _:genid37 .
-_:genid37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Instrument> .
-_:genid37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid36 .
-_:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/MonitoredProperty> .
-_:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ocean-data.org/schema/isInstanceOf> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid27 .
+_:genid27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid27 <http://www.w3.org/2002/07/owl#unionOf> _:genid29 .
+_:genid29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/DatasetInstrument> .
+_:genid29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid28 .
+_:genid28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/DatasetMonitoredProperty> .
+_:genid28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ocean-data.org/schema/isInstanceOf> <http://www.w3.org/2000/01/rdf-schema#range> _:genid30 .
+_:genid30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid30 <http://www.w3.org/2002/07/owl#unionOf> _:genid32 .
+_:genid32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Instrument> .
+_:genid32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid31 .
+_:genid31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/MonitoredProperty> .
+_:genid31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/isInstanceOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines the concept for which the subject is a realized instance."@en-us .
 <http://ocean-data.org/schema/isInstanceOf> <http://www.w3.org/2000/01/rdf-schema#label> "isInstanceOf"@en-us .
+# 
+# http://ocean-data.org/schema/isPartOfProgram
+<http://ocean-data.org/schema/isPartOfProgram> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ocean-data.org/schema/isPartOfProgram> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Project> .
+<http://ocean-data.org/schema/isPartOfProgram> <http://www.w3.org/2000/01/rdf-schema#range> <http://ocean-data.org/schema/Program> .
+<http://ocean-data.org/schema/isPartOfProgram> <http://www.w3.org/2000/01/rdf-schema#comment> "The Program which made the Project possible. Was 'hasParentProgram'."@en-us .
+<http://ocean-data.org/schema/isPartOfProgram> <http://www.w3.org/2000/01/rdf-schema#label> "isPartOfProgram"@en-us .
 # 
 # http://ocean-data.org/schema/lastKnownAffiliation
 <http://ocean-data.org/schema/lastKnownAffiliation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
@@ -474,7 +525,7 @@ _:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 # 
 # http://ocean-data.org/schema/performedBy
 <http://ocean-data.org/schema/performedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://ocean-data.org/schema/performedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Role> .
+<http://ocean-data.org/schema/performedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/AgentRole> .
 <http://ocean-data.org/schema/performedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://ocean-data.org/schema/Agent> .
 <http://ocean-data.org/schema/performedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "The Agent performing a certain Role in a research activity or on a research product."@en-us .
 <http://ocean-data.org/schema/performedBy> <http://www.w3.org/2000/01/rdf-schema#label> "performedBy"@en-us .
@@ -482,9 +533,17 @@ _:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 # http://ocean-data.org/schema/performedRole
 <http://ocean-data.org/schema/performedRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://ocean-data.org/schema/performedRole> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Agent> .
-<http://ocean-data.org/schema/performedRole> <http://www.w3.org/2000/01/rdf-schema#range> <http://ocean-data.org/schema/Role> .
+<http://ocean-data.org/schema/performedRole> <http://www.w3.org/2000/01/rdf-schema#range> <http://ocean-data.org/schema/AgentRole> .
 <http://ocean-data.org/schema/performedRole> <http://www.w3.org/2000/01/rdf-schema#comment> "The roles performed by a certain Agent"@en-us .
 <http://ocean-data.org/schema/performedRole> <http://www.w3.org/2000/01/rdf-schema#label> "performedRole"@en-us .
+# 
+# http://ocean-data.org/schema/producedDataset
+<http://ocean-data.org/schema/producedDataset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ocean-data.org/schema/producedDataset> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ocean-data.org/schema/producedWork> .
+<http://ocean-data.org/schema/producedDataset> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/ResearchActivity> .
+<http://ocean-data.org/schema/producedDataset> <http://www.w3.org/2000/01/rdf-schema#range> <http://ocean-data.org/schema/Dataset> .
+<http://ocean-data.org/schema/producedDataset> <http://www.w3.org/2000/01/rdf-schema#comment> "The Dataset that was produced as a result of some ResearchActivity"@en-us .
+<http://ocean-data.org/schema/producedDataset> <http://www.w3.org/2000/01/rdf-schema#label> "producedDataset"@en-us .
 # 
 # http://ocean-data.org/schema/producedWork
 <http://ocean-data.org/schema/producedWork> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
@@ -516,43 +575,32 @@ _:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 # 
 # http://ocean-data.org/schema/roleAbout
 <http://ocean-data.org/schema/roleAbout> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://ocean-data.org/schema/roleAbout> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Role> .
-<http://ocean-data.org/schema/roleAbout> <http://www.w3.org/2000/01/rdf-schema#range> _:genid38 .
-_:genid38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid38 <http://www.w3.org/2002/07/owl#unionOf> _:genid43 .
-_:genid43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Award> .
-_:genid43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid42 .
-_:genid42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Dataset> .
-_:genid42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid41 .
-_:genid41 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid41 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Deployment> .
-_:genid41 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid40 .
-_:genid40 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid40 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Organization> .
-_:genid40 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid39 .
-_:genid39 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid39 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/ResearchActivity> .
-_:genid39 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ocean-data.org/schema/roleAbout> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/AgentRole> .
+<http://ocean-data.org/schema/roleAbout> <http://www.w3.org/2000/01/rdf-schema#range> _:genid33 .
+_:genid33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid33 <http://www.w3.org/2002/07/owl#unionOf> _:genid38 .
+_:genid38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Award> .
+_:genid38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid37 .
+_:genid37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Dataset> .
+_:genid37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid36 .
+_:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Deployment> .
+_:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid35 .
+_:genid35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Organization> .
+_:genid35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid34 .
+_:genid34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/ResearchActivity> .
+_:genid34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/roleAbout> <http://www.w3.org/2000/01/rdf-schema#comment> "The research activity or product of which this role is about. Was using dc:subject"@en-us .
 <http://ocean-data.org/schema/roleAbout> <http://www.w3.org/2000/01/rdf-schema#label> "roleAbout"@en-us .
 # 
 # http://ocean-data.org/schema/roleType
 <http://ocean-data.org/schema/roleType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://ocean-data.org/schema/roleType> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Role> .
-<http://ocean-data.org/schema/roleType> <http://www.w3.org/2000/01/rdf-schema#range> _:genid44 .
-_:genid44 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid47 .
-_:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2004/02/skos/core#Concept> .
-_:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid45 .
-_:genid45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid46 .
-_:genid46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid46 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2004/02/skos/core#member> .
-_:genid46 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://ocean-data.org/schema/AgentRole> .
-_:genid45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ocean-data.org/schema/roleType> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/AgentRole> .
+<http://ocean-data.org/schema/roleType> <http://www.w3.org/2000/01/rdf-schema#range> <http://ocean-data.org/schema/AgentRoleType> .
 <http://ocean-data.org/schema/roleType> <http://www.w3.org/2000/01/rdf-schema#comment> "The type of Role"@en-us .
 <http://ocean-data.org/schema/roleType> <http://www.w3.org/2000/01/rdf-schema#label> "roleType"@en-us .
 # 
@@ -571,6 +619,13 @@ _:genid44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2
 <http://ocean-data.org/schema/storesValuesFor> <http://www.w3.org/2000/01/rdf-schema#comment> "This dataset stores values for the specified DatasetMonitoredProperty"@en-us .
 <http://ocean-data.org/schema/storesValuesFor> <http://www.w3.org/2000/01/rdf-schema#label> "storesValuesFor"@en-us .
 # 
+# http://ocean-data.org/schema/supplementedBy
+<http://ocean-data.org/schema/supplementedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ocean-data.org/schema/supplementedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Dataset> .
+<http://ocean-data.org/schema/supplementedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://ocean-data.org/schema/DataFile> .
+<http://ocean-data.org/schema/supplementedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "The DataFile supplements the Dataset by providing contextual information"@en-us .
+<http://ocean-data.org/schema/supplementedBy> <http://www.w3.org/2000/01/rdf-schema#label> "supplementedBy"@en-us .
+# 
 # http://ocean-data.org/schema/usesIdentifierScheme
 <http://ocean-data.org/schema/usesIdentifierScheme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://ocean-data.org/schema/usesIdentifierScheme> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Identifier> .
@@ -580,9 +635,6 @@ _:genid44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2
 # 
 # http://www.w3.org/2004/02/skos/core#exactMatch
 <http://www.w3.org/2004/02/skos/core#exactMatch> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-# 
-# http://www.w3.org/2004/02/skos/core#member
-<http://www.w3.org/2004/02/skos/core#member> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 # 
 # http://www.w3.org/ns/prov#generated
 <http://www.w3.org/ns/prov#generated> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
@@ -602,14 +654,30 @@ _:genid44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2
 # http://ocean-data.org/schema/abstract
 <http://ocean-data.org/schema/abstract> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://ocean-data.org/schema/abstract> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Dataset> .
-<http://ocean-data.org/schema/abstract> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ocean-data.org/schema/abstract> <http://www.w3.org/2000/01/rdf-schema#range> _:genid39 .
+_:genid39 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+_:genid39 <http://www.w3.org/2002/07/owl#unionOf> _:genid41 .
+_:genid41 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid41 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2000/01/rdf-schema#langString> .
+_:genid41 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid40 .
+_:genid40 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid40 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid40 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/abstract> <http://www.w3.org/2000/01/rdf-schema#comment> "A description of some research activity or research product."@en-us .
 <http://ocean-data.org/schema/abstract> <http://www.w3.org/2000/01/rdf-schema#label> "abstract"@en-us .
 # 
 # http://ocean-data.org/schema/alternateName
 <http://ocean-data.org/schema/alternateName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://ocean-data.org/schema/alternateName> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Platform> .
-<http://ocean-data.org/schema/alternateName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ocean-data.org/schema/alternateName> <http://www.w3.org/2000/01/rdf-schema#range> _:genid42 .
+_:genid42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+_:genid42 <http://www.w3.org/2002/07/owl#unionOf> _:genid44 .
+_:genid44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2000/01/rdf-schema#langString> .
+_:genid44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid43 .
+_:genid43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/alternateName> <http://www.w3.org/2000/01/rdf-schema#comment> "An alternate name for some thing"@en-us .
 <http://ocean-data.org/schema/alternateName> <http://www.w3.org/2000/01/rdf-schema#label> "alternateName"@en-us .
 # 
@@ -635,25 +703,54 @@ _:genid44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2
 <http://ocean-data.org/schema/checksum> <http://www.w3.org/2000/01/rdf-schema#comment> "The checksum value of some DigitalDocument for some checksum algorithm"@en-us .
 <http://ocean-data.org/schema/checksum> <http://www.w3.org/2000/01/rdf-schema#label> "checksum"@en-us .
 # 
+# http://ocean-data.org/schema/citationJSON
+<http://ocean-data.org/schema/citationJSON> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ocean-data.org/schema/citationJSON> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Citation> .
+<http://ocean-data.org/schema/citationJSON> <http://www.w3.org/2000/01/rdf-schema#range> <http://ocean-data.org/schema/JSON> .
+# 
 # http://ocean-data.org/schema/citationText
 <http://ocean-data.org/schema/citationText> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<http://ocean-data.org/schema/citationText> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/CreativeWork> .
+<http://ocean-data.org/schema/citationText> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Citation> .
 <http://ocean-data.org/schema/citationText> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
-<http://ocean-data.org/schema/citationText> <http://www.w3.org/2000/01/rdf-schema#comment> "The citation text for a Creative Work."@en-us .
-<http://ocean-data.org/schema/citationText> <http://www.w3.org/2000/01/rdf-schema#label> "citationText"@en-us .
+# 
+# http://ocean-data.org/schema/citationTextGeneratedDate
+<http://ocean-data.org/schema/citationTextGeneratedDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ocean-data.org/schema/citationTextGeneratedDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://ocean-data.org/schema/citationTextGeneratedDate> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Citation> .
+<http://ocean-data.org/schema/citationTextGeneratedDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://ocean-data.org/schema/citationTextGeneratedDate> <http://www.w3.org/2000/01/rdf-schema#comment> "The dateTime at which the citationJSON was retreived and the citationText was auto-generated."@en-us .
+<http://ocean-data.org/schema/citationTextGeneratedDate> <http://www.w3.org/2000/01/rdf-schema#label> "citationTextGeneratedDate"@en-us .
 # 
 # http://ocean-data.org/schema/conversionDescription
 <http://ocean-data.org/schema/conversionDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://ocean-data.org/schema/conversionDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
 <http://ocean-data.org/schema/conversionDescription> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/DatasetMonitoredProperty> .
-<http://ocean-data.org/schema/conversionDescription> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ocean-data.org/schema/conversionDescription> <http://www.w3.org/2000/01/rdf-schema#range> _:genid45 .
+_:genid45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+_:genid45 <http://www.w3.org/2002/07/owl#unionOf> _:genid47 .
+_:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2000/01/rdf-schema#langString> .
+_:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid46 .
+_:genid46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/conversionDescription> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes how the values can be converted."@en-us .
 <http://ocean-data.org/schema/conversionDescription> <http://www.w3.org/2000/01/rdf-schema#label> "conversionDescription"@en-us .
 # 
+# http://ocean-data.org/schema/createdDate
+<http://ocean-data.org/schema/createdDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ocean-data.org/schema/createdDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://ocean-data.org/schema/createdDate> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2002/07/owl#Thing> .
+<http://ocean-data.org/schema/createdDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://ocean-data.org/schema/createdDate> <http://www.w3.org/2000/01/rdf-schema#comment> "The created datetime for some Thing"@en-us .
+<http://ocean-data.org/schema/createdDate> <http://www.w3.org/2000/01/rdf-schema#label> "createdDate"@en-us .
+# 
 # http://ocean-data.org/schema/datasetTitle
 <http://ocean-data.org/schema/datasetTitle> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ocean-data.org/schema/datasetTitle> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ocean-data.org/schema/title> .
+<http://ocean-data.org/schema/datasetTitle> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
 <http://ocean-data.org/schema/datasetTitle> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Dataset> .
-<http://ocean-data.org/schema/datasetTitle> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ocean-data.org/schema/datasetTitle> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#langString> .
 <http://ocean-data.org/schema/datasetTitle> <http://www.w3.org/2000/01/rdf-schema#comment> "the title of a Dataset. was using dc:title or dct:title"@en-us .
 <http://ocean-data.org/schema/datasetTitle> <http://www.w3.org/2000/01/rdf-schema#label> "datasetTitle"@en-us .
 # 
@@ -667,14 +764,30 @@ _:genid44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2
 # http://ocean-data.org/schema/firstName
 <http://ocean-data.org/schema/firstName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://ocean-data.org/schema/firstName> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Person> .
-<http://ocean-data.org/schema/firstName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ocean-data.org/schema/firstName> <http://www.w3.org/2000/01/rdf-schema#range> _:genid48 .
+_:genid48 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+_:genid48 <http://www.w3.org/2002/07/owl#unionOf> _:genid50 .
+_:genid50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2000/01/rdf-schema#langString> .
+_:genid50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid49 .
+_:genid49 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid49 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid49 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/firstName> <http://www.w3.org/2000/01/rdf-schema#comment> "First name of a Person"@en-us .
 <http://ocean-data.org/schema/firstName> <http://www.w3.org/2000/01/rdf-schema#label> "firstName"@en-us .
 # 
 # http://ocean-data.org/schema/fullName
 <http://ocean-data.org/schema/fullName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://ocean-data.org/schema/fullName> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Person> .
-<http://ocean-data.org/schema/fullName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ocean-data.org/schema/fullName> <http://www.w3.org/2000/01/rdf-schema#range> _:genid51 .
+_:genid51 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+_:genid51 <http://www.w3.org/2002/07/owl#unionOf> _:genid53 .
+_:genid53 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid53 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2000/01/rdf-schema#langString> .
+_:genid53 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid52 .
+_:genid52 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid52 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid52 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/fullName> <http://www.w3.org/2000/01/rdf-schema#comment> "Full name of a Person"@en-us .
 <http://ocean-data.org/schema/fullName> <http://www.w3.org/2000/01/rdf-schema#label> "fullName"@en-us .
 # 
@@ -682,35 +795,38 @@ _:genid44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2
 <http://ocean-data.org/schema/hasAcquisitionDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://ocean-data.org/schema/hasAcquisitionDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
 <http://ocean-data.org/schema/hasAcquisitionDescription> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Dataset> .
-<http://ocean-data.org/schema/hasAcquisitionDescription> <http://www.w3.org/2000/01/rdf-schema#range> _:genid48 .
-_:genid48 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
-_:genid48 <http://www.w3.org/2002/07/owl#unionOf> _:genid50 .
-_:genid50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML> .
-_:genid50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid49 .
-_:genid49 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid49 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2001/XMLSchema#string> .
-_:genid49 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ocean-data.org/schema/hasAcquisitionDescription> <http://www.w3.org/2000/01/rdf-schema#range> _:genid54 .
+_:genid54 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+_:genid54 <http://www.w3.org/2002/07/owl#unionOf> _:genid57 .
+_:genid57 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid57 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML> .
+_:genid57 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid56 .
+_:genid56 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid56 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2000/01/rdf-schema#langString> .
+_:genid56 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid55 .
+_:genid55 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid55 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid55 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/hasAcquisitionDescription> <http://www.w3.org/2000/01/rdf-schema#comment> "A textual description of the methodology used to acquire the data."@en-us .
 <http://ocean-data.org/schema/hasAcquisitionDescription> <http://www.w3.org/2000/01/rdf-schema#label> "hasAcquisitionDescription"@en-us .
 # 
 # http://ocean-data.org/schema/hasAcronym
 <http://ocean-data.org/schema/hasAcronym> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<http://ocean-data.org/schema/hasAcronym> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid51 .
-_:genid51 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid51 <http://www.w3.org/2002/07/owl#unionOf> _:genid55 .
-_:genid55 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid55 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/FundingSource> .
-_:genid55 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid54 .
-_:genid54 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid54 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Organization> .
-_:genid54 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid53 .
-_:genid53 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid53 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Program> .
-_:genid53 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid52 .
-_:genid52 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid52 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Project> .
-_:genid52 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ocean-data.org/schema/hasAcronym> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid58 .
+_:genid58 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid58 <http://www.w3.org/2002/07/owl#unionOf> _:genid62 .
+_:genid62 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid62 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/FundingSource> .
+_:genid62 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid61 .
+_:genid61 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid61 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Organization> .
+_:genid61 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid60 .
+_:genid60 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid60 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Program> .
+_:genid60 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid59 .
+_:genid59 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid59 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Project> .
+_:genid59 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/hasAcronym> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <http://ocean-data.org/schema/hasAcronym> <http://www.w3.org/2000/01/rdf-schema#comment> "An acronym, or shortened name, for a Thing."@en-us .
 <http://ocean-data.org/schema/hasAcronym> <http://www.w3.org/2000/01/rdf-schema#label> "hasAcronym"@en-us .
@@ -735,15 +851,18 @@ _:genid52 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 <http://ocean-data.org/schema/hasBriefDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://ocean-data.org/schema/hasBriefDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
 <http://ocean-data.org/schema/hasBriefDescription> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Dataset> .
-<http://ocean-data.org/schema/hasBriefDescription> <http://www.w3.org/2000/01/rdf-schema#range> _:genid56 .
-_:genid56 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
-_:genid56 <http://www.w3.org/2002/07/owl#unionOf> _:genid58 .
-_:genid58 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid58 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML> .
-_:genid58 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid57 .
-_:genid57 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid57 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2001/XMLSchema#string> .
-_:genid57 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ocean-data.org/schema/hasBriefDescription> <http://www.w3.org/2000/01/rdf-schema#range> _:genid63 .
+_:genid63 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+_:genid63 <http://www.w3.org/2002/07/owl#unionOf> _:genid66 .
+_:genid66 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid66 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML> .
+_:genid66 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid65 .
+_:genid65 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid65 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2000/01/rdf-schema#langString> .
+_:genid65 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid64 .
+_:genid64 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid64 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid64 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/hasBriefDescription> <http://www.w3.org/2000/01/rdf-schema#comment> "A brief description of a Dataset"@en-us .
 <http://ocean-data.org/schema/hasBriefDescription> <http://www.w3.org/2000/01/rdf-schema#label> "hasBriefDescription"@en-us .
 # 
@@ -758,15 +877,18 @@ _:genid57 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 # http://ocean-data.org/schema/hasDatasetDescription
 <http://ocean-data.org/schema/hasDatasetDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://ocean-data.org/schema/hasDatasetDescription> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Dataset> .
-<http://ocean-data.org/schema/hasDatasetDescription> <http://www.w3.org/2000/01/rdf-schema#range> _:genid59 .
-_:genid59 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
-_:genid59 <http://www.w3.org/2002/07/owl#unionOf> _:genid61 .
-_:genid61 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid61 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML> .
-_:genid61 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid60 .
-_:genid60 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid60 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2001/XMLSchema#string> .
-_:genid60 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ocean-data.org/schema/hasDatasetDescription> <http://www.w3.org/2000/01/rdf-schema#range> _:genid67 .
+_:genid67 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+_:genid67 <http://www.w3.org/2002/07/owl#unionOf> _:genid70 .
+_:genid70 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid70 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML> .
+_:genid70 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid69 .
+_:genid69 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid69 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2000/01/rdf-schema#langString> .
+_:genid69 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid68 .
+_:genid68 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid68 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid68 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/hasDatasetDescription> <http://www.w3.org/2000/01/rdf-schema#comment> "A description of the dataset."@en-us .
 <http://ocean-data.org/schema/hasDatasetDescription> <http://www.w3.org/2000/01/rdf-schema#label> "hasDatasetDescription"@en-us .
 # 
@@ -781,48 +903,59 @@ _:genid60 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 <http://ocean-data.org/schema/hasDeploymentDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://ocean-data.org/schema/hasDeploymentDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
 <http://ocean-data.org/schema/hasDeploymentDescription> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Deployment> .
-<http://ocean-data.org/schema/hasDeploymentDescription> <http://www.w3.org/2000/01/rdf-schema#range> _:genid62 .
-_:genid62 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
-_:genid62 <http://www.w3.org/2002/07/owl#unionOf> _:genid64 .
-_:genid64 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid64 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML> .
-_:genid64 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid63 .
-_:genid63 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid63 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2001/XMLSchema#string> .
-_:genid63 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ocean-data.org/schema/hasDeploymentDescription> <http://www.w3.org/2000/01/rdf-schema#range> _:genid71 .
+_:genid71 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+_:genid71 <http://www.w3.org/2002/07/owl#unionOf> _:genid74 .
+_:genid74 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid74 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML> .
+_:genid74 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid73 .
+_:genid73 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid73 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2000/01/rdf-schema#langString> .
+_:genid73 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid72 .
+_:genid72 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid72 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid72 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/hasDeploymentDescription> <http://www.w3.org/2000/01/rdf-schema#comment> "Specifies the URL to inspect the data."@en-us .
 <http://ocean-data.org/schema/hasDeploymentDescription> <http://www.w3.org/2000/01/rdf-schema#label> "hasDeploymentDescription"@en-us .
 # 
 # http://ocean-data.org/schema/hasLocation
 <http://ocean-data.org/schema/hasLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<http://ocean-data.org/schema/hasLocation> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid65 .
-_:genid65 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid65 <http://www.w3.org/2002/07/owl#unionOf> _:genid68 .
-_:genid68 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid68 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Dataset> .
-_:genid68 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid67 .
-_:genid67 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid67 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Deployment> .
-_:genid67 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid66 .
-_:genid66 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid66 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/ResearchActivity> .
-_:genid66 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-<http://ocean-data.org/schema/hasLocation> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ocean-data.org/schema/hasLocation> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid75 .
+_:genid75 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid75 <http://www.w3.org/2002/07/owl#unionOf> _:genid78 .
+_:genid78 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid78 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Dataset> .
+_:genid78 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid77 .
+_:genid77 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid77 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Deployment> .
+_:genid77 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid76 .
+_:genid76 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid76 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/ResearchActivity> .
+_:genid76 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ocean-data.org/schema/hasLocation> <http://www.w3.org/2000/01/rdf-schema#range> _:genid79 .
+_:genid79 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+_:genid79 <http://www.w3.org/2002/07/owl#unionOf> _:genid81 .
+_:genid81 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid81 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2000/01/rdf-schema#langString> .
+_:genid81 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid80 .
+_:genid80 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid80 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid80 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/hasLocation> <http://www.w3.org/2000/01/rdf-schema#comment> "A textual description of some location. Typically its a generic description, and this should probably be made into an ObjectProperty."@en-us .
 <http://ocean-data.org/schema/hasLocation> <http://www.w3.org/2000/01/rdf-schema#comment> "fix" .
 <http://ocean-data.org/schema/hasLocation> <http://www.w3.org/2000/01/rdf-schema#label> "hasLocation"@en-us .
 # 
 # http://ocean-data.org/schema/hasLogo
 <http://ocean-data.org/schema/hasLogo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<http://ocean-data.org/schema/hasLogo> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid69 .
-_:genid69 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid69 <http://www.w3.org/2002/07/owl#unionOf> _:genid71 .
-_:genid71 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid71 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Organization> .
-_:genid71 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid70 .
-_:genid70 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid70 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/ResearchActivity> .
-_:genid70 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ocean-data.org/schema/hasLogo> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid82 .
+_:genid82 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid82 <http://www.w3.org/2002/07/owl#unionOf> _:genid84 .
+_:genid84 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid84 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Organization> .
+_:genid84 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid83 .
+_:genid83 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid83 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/ResearchActivity> .
+_:genid83 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/hasLogo> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
 <http://ocean-data.org/schema/hasLogo> <http://www.w3.org/2000/01/rdf-schema#comment> "A URL to an image file of a log for som research activity or organization."@en-us .
 <http://ocean-data.org/schema/hasLogo> <http://www.w3.org/2000/01/rdf-schema#label> "hasLogo"@en-us .
@@ -830,15 +963,15 @@ _:genid70 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 # 
 # http://ocean-data.org/schema/hasLogoURL
 <http://ocean-data.org/schema/hasLogoURL> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<http://ocean-data.org/schema/hasLogoURL> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid72 .
-_:genid72 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid72 <http://www.w3.org/2002/07/owl#unionOf> _:genid74 .
-_:genid74 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid74 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Organization> .
-_:genid74 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid73 .
-_:genid73 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid73 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/ResearchActivity> .
-_:genid73 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ocean-data.org/schema/hasLogoURL> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid85 .
+_:genid85 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid85 <http://www.w3.org/2002/07/owl#unionOf> _:genid87 .
+_:genid87 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid87 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Organization> .
+_:genid87 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid86 .
+_:genid86 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid86 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/ResearchActivity> .
+_:genid86 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/hasLogoURL> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
 <http://ocean-data.org/schema/hasLogoURL> <http://www.w3.org/2000/01/rdf-schema#comment> "The official logo URL"@en-us .
 <http://ocean-data.org/schema/hasLogoURL> <http://www.w3.org/2000/01/rdf-schema#label> "hasLogoURL"@en-us .
@@ -854,7 +987,15 @@ _:genid73 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 # http://ocean-data.org/schema/hasOrganizationSubName
 <http://ocean-data.org/schema/hasOrganizationSubName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://ocean-data.org/schema/hasOrganizationSubName> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Organization> .
-<http://ocean-data.org/schema/hasOrganizationSubName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ocean-data.org/schema/hasOrganizationSubName> <http://www.w3.org/2000/01/rdf-schema#range> _:genid88 .
+_:genid88 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+_:genid88 <http://www.w3.org/2002/07/owl#unionOf> _:genid90 .
+_:genid90 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid90 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2000/01/rdf-schema#langString> .
+_:genid90 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid89 .
+_:genid89 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid89 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid89 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/hasOrganizationSubName> <http://www.w3.org/2000/01/rdf-schema#comment> "The sub-name of some organization"@en-us .
 <http://ocean-data.org/schema/hasOrganizationSubName> <http://www.w3.org/2000/01/rdf-schema#label> "hasOrganizationSubName"@en-us .
 # 
@@ -862,7 +1003,15 @@ _:genid73 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 <http://ocean-data.org/schema/hasParameterShortDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://ocean-data.org/schema/hasParameterShortDescription> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
 <http://ocean-data.org/schema/hasParameterShortDescription> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/MonitoredProperty> .
-<http://ocean-data.org/schema/hasParameterShortDescription> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ocean-data.org/schema/hasParameterShortDescription> <http://www.w3.org/2000/01/rdf-schema#range> _:genid91 .
+_:genid91 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+_:genid91 <http://www.w3.org/2002/07/owl#unionOf> _:genid93 .
+_:genid93 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid93 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2000/01/rdf-schema#langString> .
+_:genid93 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid92 .
+_:genid92 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid92 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid92 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/hasParameterShortDescription> <http://www.w3.org/2000/01/rdf-schema#comment> "A short description of some monitored property"@en-us .
 <http://ocean-data.org/schema/hasParameterShortDescription> <http://www.w3.org/2000/01/rdf-schema#label> "hasParameterShortDescription"@en-us .
 # 
@@ -870,7 +1019,15 @@ _:genid73 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 <http://ocean-data.org/schema/hasParameterShortName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://ocean-data.org/schema/hasParameterShortName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
 <http://ocean-data.org/schema/hasParameterShortName> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/MonitoredProperty> .
-<http://ocean-data.org/schema/hasParameterShortName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ocean-data.org/schema/hasParameterShortName> <http://www.w3.org/2000/01/rdf-schema#range> _:genid94 .
+_:genid94 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+_:genid94 <http://www.w3.org/2002/07/owl#unionOf> _:genid96 .
+_:genid96 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid96 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2000/01/rdf-schema#langString> .
+_:genid96 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid95 .
+_:genid95 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid95 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid95 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/hasParameterShortName> <http://www.w3.org/2000/01/rdf-schema#comment> "A short name to describe a monitored property"@en-us .
 <http://ocean-data.org/schema/hasParameterShortName> <http://www.w3.org/2000/01/rdf-schema#label> "hasParameterShortName"@en-us .
 # 
@@ -885,45 +1042,54 @@ _:genid73 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 <http://ocean-data.org/schema/hasProcessingDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://ocean-data.org/schema/hasProcessingDescription> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
 <http://ocean-data.org/schema/hasProcessingDescription> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Dataset> .
-<http://ocean-data.org/schema/hasProcessingDescription> <http://www.w3.org/2000/01/rdf-schema#range> _:genid75 .
-_:genid75 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
-_:genid75 <http://www.w3.org/2002/07/owl#unionOf> _:genid77 .
-_:genid77 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid77 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML> .
-_:genid77 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid76 .
-_:genid76 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid76 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2001/XMLSchema#string> .
-_:genid76 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ocean-data.org/schema/hasProcessingDescription> <http://www.w3.org/2000/01/rdf-schema#range> _:genid97 .
+_:genid97 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+_:genid97 <http://www.w3.org/2002/07/owl#unionOf> _:genid100 .
+_:genid100 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid100 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML> .
+_:genid100 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid99 .
+_:genid99 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid99 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2000/01/rdf-schema#langString> .
+_:genid99 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid98 .
+_:genid98 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid98 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid98 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/hasProcessingDescription> <http://www.w3.org/2000/01/rdf-schema#comment> "The processing description for some Dataset"@en-us .
 <http://ocean-data.org/schema/hasProcessingDescription> <http://www.w3.org/2000/01/rdf-schema#label> "hasProcessingDescription"@en-us .
 # 
 # http://ocean-data.org/schema/hasProgramDescription
 <http://ocean-data.org/schema/hasProgramDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://ocean-data.org/schema/hasProgramDescription> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Program> .
-<http://ocean-data.org/schema/hasProgramDescription> <http://www.w3.org/2000/01/rdf-schema#range> _:genid78 .
-_:genid78 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
-_:genid78 <http://www.w3.org/2002/07/owl#unionOf> _:genid80 .
-_:genid80 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid80 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML> .
-_:genid80 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid79 .
-_:genid79 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid79 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2001/XMLSchema#string> .
-_:genid79 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ocean-data.org/schema/hasProgramDescription> <http://www.w3.org/2000/01/rdf-schema#range> _:genid101 .
+_:genid101 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+_:genid101 <http://www.w3.org/2002/07/owl#unionOf> _:genid104 .
+_:genid104 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid104 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML> .
+_:genid104 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid103 .
+_:genid103 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid103 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2000/01/rdf-schema#langString> .
+_:genid103 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid102 .
+_:genid102 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid102 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid102 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/hasProgramDescription> <http://www.w3.org/2000/01/rdf-schema#comment> "A description of a Program."@en-us .
 <http://ocean-data.org/schema/hasProgramDescription> <http://www.w3.org/2000/01/rdf-schema#comment> "hasProgramDescription"@en-us .
 # 
 # http://ocean-data.org/schema/hasProjectDescription
 <http://ocean-data.org/schema/hasProjectDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://ocean-data.org/schema/hasProjectDescription> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Project> .
-<http://ocean-data.org/schema/hasProjectDescription> <http://www.w3.org/2000/01/rdf-schema#range> _:genid81 .
-_:genid81 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
-_:genid81 <http://www.w3.org/2002/07/owl#unionOf> _:genid83 .
-_:genid83 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid83 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML> .
-_:genid83 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid82 .
-_:genid82 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid82 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2001/XMLSchema#string> .
-_:genid82 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ocean-data.org/schema/hasProjectDescription> <http://www.w3.org/2000/01/rdf-schema#range> _:genid105 .
+_:genid105 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+_:genid105 <http://www.w3.org/2002/07/owl#unionOf> _:genid108 .
+_:genid108 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid108 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML> .
+_:genid108 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid107 .
+_:genid107 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid107 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2000/01/rdf-schema#langString> .
+_:genid107 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid106 .
+_:genid106 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid106 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid106 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/hasProjectDescription> <http://www.w3.org/2000/01/rdf-schema#comment> "The description of some Project"@en-us .
 <http://ocean-data.org/schema/hasProjectDescription> <http://www.w3.org/2000/01/rdf-schema#label> "hasProjectDescription"@en-us .
 # 
@@ -936,9 +1102,10 @@ _:genid82 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 # 
 # http://ocean-data.org/schema/hasRoleWeight
 <http://ocean-data.org/schema/hasRoleWeight> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<http://ocean-data.org/schema/hasRoleWeight> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/AgentRole> .
+<http://ocean-data.org/schema/hasRoleWeight> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://ocean-data.org/schema/hasRoleWeight> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/AgentRoleType> .
 <http://ocean-data.org/schema/hasRoleWeight> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#int> .
-<http://ocean-data.org/schema/hasRoleWeight> <http://www.w3.org/2000/01/rdf-schema#comment> "The sort order in order of importance or meaning or rank."@en-us .
+<http://ocean-data.org/schema/hasRoleWeight> <http://www.w3.org/2000/01/rdf-schema#comment> "Sort ordering for roles"@en-us .
 <http://ocean-data.org/schema/hasRoleWeight> <http://www.w3.org/2000/01/rdf-schema#label> "hasRoleWeight"@en-us .
 # 
 # http://ocean-data.org/schema/hasSerialNumber
@@ -959,14 +1126,30 @@ _:genid82 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 # http://ocean-data.org/schema/hasSynonym
 <http://ocean-data.org/schema/hasSynonym> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://ocean-data.org/schema/hasSynonym> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Deployment> .
-<http://ocean-data.org/schema/hasSynonym> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ocean-data.org/schema/hasSynonym> <http://www.w3.org/2000/01/rdf-schema#range> _:genid109 .
+_:genid109 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+_:genid109 <http://www.w3.org/2002/07/owl#unionOf> _:genid111 .
+_:genid111 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid111 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2000/01/rdf-schema#langString> .
+_:genid111 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid110 .
+_:genid110 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid110 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid110 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/hasSynonym> <http://www.w3.org/2000/01/rdf-schema#label> "hasSynonym"@en-us .
 <http://ocean-data.org/schema/hasSynonym> <http://www.w3.org/2000/01/rdf-schema#label> "the synonym for seom Deployment"@en-us .
 # 
 # http://ocean-data.org/schema/honorific
 <http://ocean-data.org/schema/honorific> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://ocean-data.org/schema/honorific> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Person> .
-<http://ocean-data.org/schema/honorific> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ocean-data.org/schema/honorific> <http://www.w3.org/2000/01/rdf-schema#range> _:genid112 .
+_:genid112 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+_:genid112 <http://www.w3.org/2002/07/owl#unionOf> _:genid114 .
+_:genid114 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid114 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2000/01/rdf-schema#langString> .
+_:genid114 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid113 .
+_:genid113 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid113 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid113 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/honorific> <http://www.w3.org/2000/01/rdf-schema#comment> "Honorific for a Person."@en-us .
 <http://ocean-data.org/schema/honorific> <http://www.w3.org/2000/01/rdf-schema#label> "honorific"@en-us .
 # 
@@ -987,34 +1170,60 @@ _:genid82 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 # http://ocean-data.org/schema/lastName
 <http://ocean-data.org/schema/lastName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://ocean-data.org/schema/lastName> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Person> .
-<http://ocean-data.org/schema/lastName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ocean-data.org/schema/lastName> <http://www.w3.org/2000/01/rdf-schema#range> _:genid115 .
+_:genid115 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+_:genid115 <http://www.w3.org/2002/07/owl#unionOf> _:genid117 .
+_:genid117 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid117 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2000/01/rdf-schema#langString> .
+_:genid117 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid116 .
+_:genid116 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid116 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid116 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/lastName> <http://www.w3.org/2000/01/rdf-schema#comment> "Last name of a Person"@en-us .
 <http://ocean-data.org/schema/lastName> <http://www.w3.org/2000/01/rdf-schema#label> "lastName"@en-us .
 # 
 # http://ocean-data.org/schema/middleName
 <http://ocean-data.org/schema/middleName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://ocean-data.org/schema/middleName> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Person> .
-<http://ocean-data.org/schema/middleName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ocean-data.org/schema/middleName> <http://www.w3.org/2000/01/rdf-schema#range> _:genid118 .
+_:genid118 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+_:genid118 <http://www.w3.org/2002/07/owl#unionOf> _:genid120 .
+_:genid120 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid120 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2000/01/rdf-schema#langString> .
+_:genid120 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid119 .
+_:genid119 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid119 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid119 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/middleName> <http://www.w3.org/2000/01/rdf-schema#comment> "Middle name of a person"@en-us .
 <http://ocean-data.org/schema/middleName> <http://www.w3.org/2000/01/rdf-schema#label> "middleName"@en-us .
 # 
 # http://ocean-data.org/schema/mimetype
 <http://ocean-data.org/schema/mimetype> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<http://ocean-data.org/schema/mimetype> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/DigitalDocument> .
+<http://ocean-data.org/schema/mimetype> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/FileFormat> .
 <http://ocean-data.org/schema/mimetype> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <http://ocean-data.org/schema/mimetype> <http://www.w3.org/2000/01/rdf-schema#comment> "The mimetype for some DigitalDocument"@en-us .
-<http://ocean-data.org/schema/mimetype> <http://www.w3.org/2000/01/rdf-schema#comment> "fix" .
 <http://ocean-data.org/schema/mimetype> <http://www.w3.org/2000/01/rdf-schema#label> "mimetype"@en-us .
-_:genid84 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Axiom> .
-_:genid84 <http://www.w3.org/2002/07/owl#annotatedSource> <http://ocean-data.org/schema/mimetype> .
-_:genid84 <http://www.w3.org/2002/07/owl#annotatedProperty> <http://www.w3.org/2000/01/rdf-schema#comment> .
-_:genid84 <http://www.w3.org/2002/07/owl#annotatedTarget> "fix" .
-_:genid84 <http://www.w3.org/2000/01/rdf-schema#comment> "should this be a controlled vocabulary?"@en-us .
+# 
+# http://ocean-data.org/schema/modifiedDate
+<http://ocean-data.org/schema/modifiedDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ocean-data.org/schema/modifiedDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://ocean-data.org/schema/modifiedDate> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2002/07/owl#Thing> .
+<http://ocean-data.org/schema/modifiedDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://ocean-data.org/schema/modifiedDate> <http://www.w3.org/2000/01/rdf-schema#comment> "The modified date of some Thing"@en-us .
+<http://ocean-data.org/schema/modifiedDate> <http://www.w3.org/2000/01/rdf-schema#label> "modifiedDate"@en-us .
 # 
 # http://ocean-data.org/schema/nickname
 <http://ocean-data.org/schema/nickname> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://ocean-data.org/schema/nickname> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Person> .
-<http://ocean-data.org/schema/nickname> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ocean-data.org/schema/nickname> <http://www.w3.org/2000/01/rdf-schema#range> _:genid121 .
+_:genid121 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+_:genid121 <http://www.w3.org/2002/07/owl#unionOf> _:genid123 .
+_:genid123 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid123 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2000/01/rdf-schema#langString> .
+_:genid123 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid122 .
+_:genid122 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid122 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid122 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/nickname> <http://www.w3.org/2000/01/rdf-schema#comment> "Nickname, or preferred name, of a Person"@en-us .
 <http://ocean-data.org/schema/nickname> <http://www.w3.org/2000/01/rdf-schema#label> "nickname"@en-us .
 # 
@@ -1038,6 +1247,75 @@ _:genid84 <http://www.w3.org/2000/01/rdf-schema#comment> "should this be a contr
 <http://ocean-data.org/schema/restricted> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
 <http://ocean-data.org/schema/restricted> <http://www.w3.org/2000/01/rdf-schema#comment> "Is the dataset restricted for access by the public."@en-us .
 <http://ocean-data.org/schema/restricted> <http://www.w3.org/2000/01/rdf-schema#label> "restricted"@en-us .
+# 
+# http://ocean-data.org/schema/title
+<http://ocean-data.org/schema/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ocean-data.org/schema/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://ocean-data.org/schema/title> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid124 .
+_:genid124 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid124 <http://www.w3.org/2002/07/owl#unionOf> _:genid141 .
+_:genid141 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid141 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Agent> .
+_:genid141 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid140 .
+_:genid140 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid140 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/AgentRole> .
+_:genid140 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid139 .
+_:genid139 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid139 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/AgentRoleType> .
+_:genid139 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid138 .
+_:genid138 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid138 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/ArchiveRecord> .
+_:genid138 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid137 .
+_:genid137 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid137 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Award> .
+_:genid137 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid136 .
+_:genid136 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid136 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/CreativeWork> .
+_:genid136 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid135 .
+_:genid135 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid135 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/DatasetInstrument> .
+_:genid135 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid134 .
+_:genid134 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid134 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/DatasetMonitoredProperty> .
+_:genid134 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid133 .
+_:genid133 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid133 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Deployment> .
+_:genid133 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid132 .
+_:genid132 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid132 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/IdentifierScheme> .
+_:genid132 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid131 .
+_:genid131 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid131 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Instrument> .
+_:genid131 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid130 .
+_:genid130 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid130 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Organization> .
+_:genid130 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid129 .
+_:genid129 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid129 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Parameter> .
+_:genid129 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid128 .
+_:genid128 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid128 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Person> .
+_:genid128 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid127 .
+_:genid127 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid127 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Platform> .
+_:genid127 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid126 .
+_:genid126 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid126 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/ResearchActivity> .
+_:genid126 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid125 .
+_:genid125 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid125 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/UnitOfMeasure> .
+_:genid125 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ocean-data.org/schema/title> <http://www.w3.org/2000/01/rdf-schema#range> _:genid142 .
+_:genid142 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+_:genid142 <http://www.w3.org/2002/07/owl#unionOf> _:genid144 .
+_:genid144 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid144 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2000/01/rdf-schema#langString> .
+_:genid144 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid143 .
+_:genid143 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid143 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid143 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ocean-data.org/schema/title> <http://www.w3.org/2000/01/rdf-schema#comment> "A title for some Thing"@en-us .
+<http://ocean-data.org/schema/title> <http://www.w3.org/2000/01/rdf-schema#label> "title"@en-us .
 # 
 # http://ocean-data.org/schema/validated
 <http://ocean-data.org/schema/validated> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
@@ -1063,15 +1341,15 @@ _:genid84 <http://www.w3.org/2000/01/rdf-schema#comment> "should this be a contr
 # http://ocean-data.org/schema/wktLiteral
 <http://ocean-data.org/schema/wktLiteral> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://ocean-data.org/schema/wktLiteral> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.opengis.net/ont/geosparql#asWKT> .
-<http://ocean-data.org/schema/wktLiteral> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid85 .
-_:genid85 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid85 <http://www.w3.org/2002/07/owl#unionOf> _:genid87 .
-_:genid87 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid87 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Dataset> .
-_:genid87 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid86 .
-_:genid86 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid86 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Deployment> .
-_:genid86 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ocean-data.org/schema/wktLiteral> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid145 .
+_:genid145 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid145 <http://www.w3.org/2002/07/owl#unionOf> _:genid147 .
+_:genid147 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid147 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Dataset> .
+_:genid147 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid146 .
+_:genid146 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid146 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ocean-data.org/schema/Deployment> .
+_:genid146 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <http://ocean-data.org/schema/wktLiteral> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.opengis.net/ont/geosparql#wktLiteral> .
 <http://ocean-data.org/schema/wktLiteral> <http://www.w3.org/2000/01/rdf-schema#comment> "A WKT representation of a geometry to use when avoiding Virtuoso's geometry validation."@en-us .
 <http://ocean-data.org/schema/wktLiteral> <http://www.w3.org/2000/01/rdf-schema#label> "wktLiteral"@en-us .
@@ -1096,9 +1374,15 @@ _:genid86 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 # 
 # http://ocean-data.org/schema/AgentRole
 <http://ocean-data.org/schema/AgentRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://ocean-data.org/schema/AgentRole> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2004/02/skos/core#Concept> .
-<http://ocean-data.org/schema/AgentRole> <http://www.w3.org/2000/01/rdf-schema#comment> "The Role performed by some agent."@en-us .
-<http://ocean-data.org/schema/AgentRole> <http://www.w3.org/2000/01/rdf-schema#label> "Agent Role"@en-us .
+<http://ocean-data.org/schema/AgentRole> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Influence> .
+<http://ocean-data.org/schema/AgentRole> <http://www.w3.org/2000/01/rdf-schema#comment> "A role is the influence of an Agent on a Research Activity or Research Product."@en-us .
+<http://ocean-data.org/schema/AgentRole> <http://www.w3.org/2000/01/rdf-schema#label> "Role"@en-us .
+# 
+# http://ocean-data.org/schema/AgentRoleType
+<http://ocean-data.org/schema/AgentRoleType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ocean-data.org/schema/AgentRoleType> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Role> .
+<http://ocean-data.org/schema/AgentRoleType> <http://www.w3.org/2000/01/rdf-schema#comment> "The type of Role perfomed by an Agent for some research activity or product."@en-us .
+<http://ocean-data.org/schema/AgentRoleType> <http://www.w3.org/2000/01/rdf-schema#label> "Role Type"@en-us .
 # 
 # http://ocean-data.org/schema/Aircraft
 <http://ocean-data.org/schema/Aircraft> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -1120,8 +1404,21 @@ _:genid86 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 # 
 # http://ocean-data.org/schema/Award
 <http://ocean-data.org/schema/Award> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ocean-data.org/schema/Award> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
 <http://ocean-data.org/schema/Award> <http://www.w3.org/2000/01/rdf-schema#comment> "A funding award provided by an Funding Source (Organization) to a Project. This Award may fund Datasets."@en-us .
 <http://ocean-data.org/schema/Award> <http://www.w3.org/2000/01/rdf-schema#label> "Award"@en-us .
+# 
+# http://ocean-data.org/schema/Citation
+<http://ocean-data.org/schema/Citation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ocean-data.org/schema/Citation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<http://ocean-data.org/schema/Citation> <http://www.w3.org/2000/01/rdf-schema#comment> "Formatted text specific to some CitationStyle that describes some CreativeWork"@en-us .
+<http://ocean-data.org/schema/Citation> <http://www.w3.org/2000/01/rdf-schema#label> "Citation"@en-us .
+# 
+# http://ocean-data.org/schema/CitationStyle
+<http://ocean-data.org/schema/CitationStyle> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ocean-data.org/schema/CitationStyle> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<http://ocean-data.org/schema/CitationStyle> <http://www.w3.org/2000/01/rdf-schema#comment> "A citation style that determines the structure of a citation"@en-us .
+<http://ocean-data.org/schema/CitationStyle> <http://www.w3.org/2000/01/rdf-schema#label> "CitationStyle"@en-us .
 # 
 # http://ocean-data.org/schema/CreativeWork
 <http://ocean-data.org/schema/CreativeWork> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -1137,7 +1434,7 @@ _:genid86 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 # 
 # http://ocean-data.org/schema/CreativeWorkRelationType
 <http://ocean-data.org/schema/CreativeWorkRelationType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://ocean-data.org/schema/CreativeWorkRelationType> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2004/02/skos/core#Concept> .
+<http://ocean-data.org/schema/CreativeWorkRelationType> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
 <http://ocean-data.org/schema/CreativeWorkRelationType> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines the type of relationship between two CreativeWorks such as Methods Paper, Results Paper, Different Version of the Data, etc"@en-us .
 <http://ocean-data.org/schema/CreativeWorkRelationType> <http://www.w3.org/2000/01/rdf-schema#label> "CreativeWork Relation Type"@en-us .
 # 
@@ -1155,7 +1452,7 @@ _:genid86 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 # 
 # http://ocean-data.org/schema/CurrentState
 <http://ocean-data.org/schema/CurrentState> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://ocean-data.org/schema/CurrentState> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+<http://ocean-data.org/schema/CurrentState> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
 <http://ocean-data.org/schema/CurrentState> <http://www.w3.org/2000/01/rdf-schema#comment> "A controlled vocaublary of current states for a dataset"@en-us .
 <http://ocean-data.org/schema/CurrentState> <http://www.w3.org/2000/01/rdf-schema#label> "Current State"@en-us .
 # 
@@ -1171,21 +1468,27 @@ _:genid86 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 <http://ocean-data.org/schema/DataManagementPlan> <http://www.w3.org/2000/01/rdf-schema#comment> "A document that details a plan for managing data as a result of some research activity."@en-us .
 <http://ocean-data.org/schema/DataManagementPlan> <http://www.w3.org/2000/01/rdf-schema#label> "Data Management Plan"@en-us .
 # 
+# http://ocean-data.org/schema/DataciteRelation
+<http://ocean-data.org/schema/DataciteRelation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ocean-data.org/schema/DataciteRelation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<http://ocean-data.org/schema/DataciteRelation> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines The Datacite-specific elements of a relation between two CreativeWorks"@en-us .
+<http://ocean-data.org/schema/DataciteRelation> <http://www.w3.org/2000/01/rdf-schema#label> "Datacite Relation"@en-us .
+# 
 # http://ocean-data.org/schema/Dataset
 <http://ocean-data.org/schema/Dataset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://ocean-data.org/schema/Dataset> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ocean-data.org/schema/CreativeWork> .
-<http://ocean-data.org/schema/Dataset> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid88 .
-_:genid88 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid88 <http://www.w3.org/2002/07/owl#onProperty> <http://ocean-data.org/schema/releaseDate> .
-_:genid88 <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-<http://ocean-data.org/schema/Dataset> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid89 .
-_:genid89 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid89 <http://www.w3.org/2002/07/owl#onProperty> <http://ocean-data.org/schema/restricted> .
-_:genid89 <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-<http://ocean-data.org/schema/Dataset> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid90 .
-_:genid90 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid90 <http://www.w3.org/2002/07/owl#onProperty> <http://ocean-data.org/schema/validated> .
-_:genid90 <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://ocean-data.org/schema/Dataset> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid148 .
+_:genid148 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid148 <http://www.w3.org/2002/07/owl#onProperty> <http://ocean-data.org/schema/releaseDate> .
+_:genid148 <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://ocean-data.org/schema/Dataset> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid149 .
+_:genid149 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid149 <http://www.w3.org/2002/07/owl#onProperty> <http://ocean-data.org/schema/restricted> .
+_:genid149 <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://ocean-data.org/schema/Dataset> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid150 .
+_:genid150 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid150 <http://www.w3.org/2002/07/owl#onProperty> <http://ocean-data.org/schema/validated> .
+_:genid150 <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
 <http://ocean-data.org/schema/Dataset> <http://www.w3.org/2000/01/rdf-schema#comment> "A super class for discovering any type of oceanographic dataset."@en-us .
 <http://ocean-data.org/schema/Dataset> <http://www.w3.org/2000/01/rdf-schema#label> "Dataset"@en-us .
 # 
@@ -1198,37 +1501,37 @@ _:genid90 <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org
 # http://ocean-data.org/schema/DatasetInstrument
 <http://ocean-data.org/schema/DatasetInstrument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://ocean-data.org/schema/DatasetInstrument> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
-<http://ocean-data.org/schema/DatasetInstrument> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid91 .
-_:genid91 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid91 <http://www.w3.org/2002/07/owl#onProperty> <http://ocean-data.org/schema/isInstanceOf> .
-_:genid91 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://ocean-data.org/schema/Instrument> .
+<http://ocean-data.org/schema/DatasetInstrument> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid151 .
+_:genid151 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid151 <http://www.w3.org/2002/07/owl#onProperty> <http://ocean-data.org/schema/isInstanceOf> .
+_:genid151 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://ocean-data.org/schema/Instrument> .
 <http://ocean-data.org/schema/DatasetInstrument> <http://www.w3.org/2000/01/rdf-schema#comment> "odo:DatasetInstrument is an instance of a odo:Instrument but with project-specific label and definition known by the researcher."@en-us .
 <http://ocean-data.org/schema/DatasetInstrument> <http://www.w3.org/2000/01/rdf-schema#label> "Dataset Instrument"@en-us .
 # 
 # http://ocean-data.org/schema/DatasetMonitoredProperty
 <http://ocean-data.org/schema/DatasetMonitoredProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://ocean-data.org/schema/DatasetMonitoredProperty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
-<http://ocean-data.org/schema/DatasetMonitoredProperty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid92 .
-_:genid92 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid92 <http://www.w3.org/2002/07/owl#onProperty> <http://ocean-data.org/schema/isInstanceOf> .
-_:genid92 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://ocean-data.org/schema/MonitoredProperty> .
+<http://ocean-data.org/schema/DatasetMonitoredProperty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid152 .
+_:genid152 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid152 <http://www.w3.org/2002/07/owl#onProperty> <http://ocean-data.org/schema/isInstanceOf> .
+_:genid152 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://ocean-data.org/schema/Parameter> .
 <http://ocean-data.org/schema/DatasetMonitoredProperty> <http://www.w3.org/2000/01/rdf-schema#comment> "odo:DatasetMonitoredProperty is an instance of a odo:MonitoredProperty but with project-specific label and definition known by the researcher."@en-us .
-<http://ocean-data.org/schema/DatasetMonitoredProperty> <http://www.w3.org/2000/01/rdf-schema#label> "Dataset Property"@en-us .
+<http://ocean-data.org/schema/DatasetMonitoredProperty> <http://www.w3.org/2000/01/rdf-schema#label> "Dataset Monitored Property"@en-us .
 # 
 # http://ocean-data.org/schema/DatasetType
 <http://ocean-data.org/schema/DatasetType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://ocean-data.org/schema/DatasetType> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+<http://ocean-data.org/schema/DatasetType> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
 <http://ocean-data.org/schema/DatasetType> <http://www.w3.org/2000/01/rdf-schema#comment> "The type of Dataset. Can have multiple types. Could be defined by a group of parameters or the type sof platofrm used, etc."@en-us .
 <http://ocean-data.org/schema/DatasetType> <http://www.w3.org/2000/01/rdf-schema#label> "Dataset Type"@en-us .
 # 
 # http://ocean-data.org/schema/Deployment
 <http://ocean-data.org/schema/Deployment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://ocean-data.org/schema/Deployment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Activity> .
-<http://ocean-data.org/schema/Deployment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid93 .
-_:genid93 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid93 <http://www.w3.org/2002/07/owl#onProperty> <http://ocean-data.org/schema/ofPlatform> .
-_:genid93 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid93 <http://www.w3.org/2002/07/owl#onClass> <http://ocean-data.org/schema/Platform> .
+<http://ocean-data.org/schema/Deployment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid153 .
+_:genid153 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid153 <http://www.w3.org/2002/07/owl#onProperty> <http://ocean-data.org/schema/ofPlatform> .
+_:genid153 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid153 <http://www.w3.org/2002/07/owl#onClass> <http://ocean-data.org/schema/Platform> .
 <http://ocean-data.org/schema/Deployment> <http://www.w3.org/2000/01/rdf-schema#comment> "A platform is deployed during a specific duration of time over a specific spacial coverage. For example, a boat is a platform. That boat is deployed (sent on a cruise) in order to collect data."@en-us .
 <http://ocean-data.org/schema/Deployment> <http://www.w3.org/2000/01/rdf-schema#label> "Deployment"@en-us .
 # 
@@ -1241,10 +1544,10 @@ _:genid93 <http://www.w3.org/2002/07/owl#onClass> <http://ocean-data.org/schema/
 # http://ocean-data.org/schema/DeploymentDatasetCollection
 <http://ocean-data.org/schema/DeploymentDatasetCollection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://ocean-data.org/schema/DeploymentDatasetCollection> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ocean-data.org/schema/DatasetCollection> .
-<http://ocean-data.org/schema/DeploymentDatasetCollection> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid94 .
-_:genid94 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid94 <http://www.w3.org/2002/07/owl#onProperty> <http://ocean-data.org/schema/hasInventory> .
-_:genid94 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://ocean-data.org/schema/DeploymentDataset> .
+<http://ocean-data.org/schema/DeploymentDatasetCollection> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid154 .
+_:genid154 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid154 <http://www.w3.org/2002/07/owl#onProperty> <http://ocean-data.org/schema/hasInventory> .
+_:genid154 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://ocean-data.org/schema/DeploymentDataset> .
 <http://ocean-data.org/schema/DeploymentDatasetCollection> <http://www.w3.org/2000/01/rdf-schema#comment> "A collection of one or more DeploymentDatssets."@en-us .
 <http://ocean-data.org/schema/DeploymentDatasetCollection> <http://www.w3.org/2000/01/rdf-schema#label> "DeploymentDatasetCollection"@en-us .
 # 
@@ -1265,6 +1568,12 @@ _:genid94 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://ocean-data.org/s
 <http://ocean-data.org/schema/Drifter> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ocean-data.org/schema/Platform> .
 <http://ocean-data.org/schema/Drifter> <http://www.w3.org/2000/01/rdf-schema#comment> "Drifter"@en-us .
 <http://ocean-data.org/schema/Drifter> <http://www.w3.org/2000/01/rdf-schema#label> "Drifter"@en-us .
+# 
+# http://ocean-data.org/schema/FileFormat
+<http://ocean-data.org/schema/FileFormat> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ocean-data.org/schema/FileFormat> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<http://ocean-data.org/schema/FileFormat> <http://www.w3.org/2000/01/rdf-schema#comment> "The format of some DigitalDocument"@en-us .
+<http://ocean-data.org/schema/FileFormat> <http://www.w3.org/2000/01/rdf-schema#label> "FileFormat"@en-us .
 # 
 # http://ocean-data.org/schema/Float
 <http://ocean-data.org/schema/Float> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -1298,13 +1607,13 @@ _:genid94 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://ocean-data.org/s
 # 
 # http://ocean-data.org/schema/IdentifierScheme
 <http://ocean-data.org/schema/IdentifierScheme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://ocean-data.org/schema/IdentifierScheme> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2004/02/skos/core#Concept> .
+<http://ocean-data.org/schema/IdentifierScheme> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
 <http://ocean-data.org/schema/IdentifierScheme> <http://www.w3.org/2000/01/rdf-schema#comment> "A scheme or domain for which an Identifier value uniquely identifies some thing. (example: DOI, ARK, ISBN, Handle, URI, etc)"@en-us .
 <http://ocean-data.org/schema/IdentifierScheme> <http://www.w3.org/2000/01/rdf-schema#label> "Identifier Scheme"@en-us .
 # 
 # http://ocean-data.org/schema/Instrument
 <http://ocean-data.org/schema/Instrument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://ocean-data.org/schema/Instrument> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2004/02/skos/core#Concept> .
+<http://ocean-data.org/schema/Instrument> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
 <http://ocean-data.org/schema/Instrument> <http://www.w3.org/2000/01/rdf-schema#comment> "A pyshical device used to measure, gather, or collect data."@en-us .
 <http://ocean-data.org/schema/Instrument> <http://www.w3.org/2000/01/rdf-schema#label> "Instrument"@en-us .
 # 
@@ -1352,7 +1661,7 @@ _:genid94 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://ocean-data.org/s
 # 
 # http://ocean-data.org/schema/MonitoredProperty
 <http://ocean-data.org/schema/MonitoredProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://ocean-data.org/schema/MonitoredProperty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2004/02/skos/core#Concept> .
+<http://ocean-data.org/schema/MonitoredProperty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ocean-data.org/schema/Parameter> .
 <http://ocean-data.org/schema/MonitoredProperty> <http://www.w3.org/2000/01/rdf-schema#comment> "A conceptual understanding of what was generally  observed or monitored and recorded in a dataset as a parameter."@en-us .
 <http://ocean-data.org/schema/MonitoredProperty> <http://www.w3.org/2000/01/rdf-schema#label> "Monitored Property"@en-us .
 # 
@@ -1368,6 +1677,12 @@ _:genid94 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://ocean-data.org/s
 <http://ocean-data.org/schema/Organization> <http://www.w3.org/2000/01/rdf-schema#comment> "A non-Person agent corresponding to instititutions such as research labs, companies, societies, etc."@en-us .
 <http://ocean-data.org/schema/Organization> <http://www.w3.org/2000/01/rdf-schema#label> "Organization"@en-us .
 # 
+# http://ocean-data.org/schema/Parameter
+<http://ocean-data.org/schema/Parameter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ocean-data.org/schema/Parameter> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<http://ocean-data.org/schema/Parameter> <http://www.w3.org/2000/01/rdf-schema#comment> "A parameter measured, observed, or collected as part of a Dataset"@en-us .
+<http://ocean-data.org/schema/Parameter> <http://www.w3.org/2000/01/rdf-schema#label> "Parameter"@en-us .
+# 
 # http://ocean-data.org/schema/Person
 <http://ocean-data.org/schema/Person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://ocean-data.org/schema/Person> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ocean-data.org/schema/Agent> .
@@ -1382,9 +1697,8 @@ _:genid94 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://ocean-data.org/s
 # 
 # http://ocean-data.org/schema/PlatformTitle
 <http://ocean-data.org/schema/PlatformTitle> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://ocean-data.org/schema/PlatformTitle> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2004/02/skos/core#Concept> .
+<http://ocean-data.org/schema/PlatformTitle> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
 <http://ocean-data.org/schema/PlatformTitle> <http://www.w3.org/2000/01/rdf-schema#comment> "A controlled vocabulary of platform titles/types."@en-us .
-<http://ocean-data.org/schema/PlatformTitle> <http://www.w3.org/2000/01/rdf-schema#comment> "fix" .
 <http://ocean-data.org/schema/PlatformTitle> <http://www.w3.org/2000/01/rdf-schema#label> "Platform Title"@en-us .
 # 
 # http://ocean-data.org/schema/Program
@@ -1416,18 +1730,6 @@ _:genid94 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://ocean-data.org/s
 <http://ocean-data.org/schema/ResearchActivity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Activity> .
 <http://ocean-data.org/schema/ResearchActivity> <http://www.w3.org/2000/01/rdf-schema#comment> "An activity for some period of time that under which  research is conducted"@en-us .
 <http://ocean-data.org/schema/ResearchActivity> <http://www.w3.org/2000/01/rdf-schema#label> "Research Activity"@en-us .
-# 
-# http://ocean-data.org/schema/Role
-<http://ocean-data.org/schema/Role> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://ocean-data.org/schema/Role> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Influence> .
-<http://ocean-data.org/schema/Role> <http://www.w3.org/2000/01/rdf-schema#comment> "A role is the influence of an Agent on a Research Activity or Research Product."@en-us .
-<http://ocean-data.org/schema/Role> <http://www.w3.org/2000/01/rdf-schema#label> "Role"@en-us .
-# 
-# http://ocean-data.org/schema/RoleType
-<http://ocean-data.org/schema/RoleType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://ocean-data.org/schema/RoleType> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
-<http://ocean-data.org/schema/RoleType> <http://www.w3.org/2000/01/rdf-schema#comment> "The type of Role perfomed by an Agent for some research activity or product."@en-us .
-<http://ocean-data.org/schema/RoleType> <http://www.w3.org/2000/01/rdf-schema#label> "Role Type"@en-us .
 # 
 # http://ocean-data.org/schema/Satellite
 <http://ocean-data.org/schema/Satellite> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -1480,7 +1782,7 @@ _:genid94 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://ocean-data.org/s
 # 
 # http://ocean-data.org/schema/UnitOfMeasure
 <http://ocean-data.org/schema/UnitOfMeasure> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://ocean-data.org/schema/UnitOfMeasure> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2004/02/skos/core#Concept> .
+<http://ocean-data.org/schema/UnitOfMeasure> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
 <http://ocean-data.org/schema/UnitOfMeasure> <http://www.w3.org/2000/01/rdf-schema#comment> "A unit of measure"@en-us .
 <http://ocean-data.org/schema/UnitOfMeasure> <http://www.w3.org/2000/01/rdf-schema#label> "Unit of Measure"@en-us .
 # 
@@ -1504,12 +1806,6 @@ _:genid94 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://ocean-data.org/s
 # http://www.opengis.net/ont/geosparql#Feature
 <http://www.opengis.net/ont/geosparql#Feature> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 # 
-# http://www.w3.org/2004/02/skos/core#Concept
-<http://www.w3.org/2004/02/skos/core#Concept> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-# 
-# http://www.w3.org/2004/02/skos/core#ConceptScheme
-<http://www.w3.org/2004/02/skos/core#ConceptScheme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-# 
 # http://www.w3.org/2006/time#TemporalEntity
 <http://www.w3.org/2006/time#TemporalEntity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 # 
@@ -1525,6 +1821,9 @@ _:genid94 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://ocean-data.org/s
 # http://www.w3.org/ns/prov#Influence
 <http://www.w3.org/ns/prov#Influence> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 # 
+# http://www.w3.org/ns/prov#Role
+<http://www.w3.org/ns/prov#Role> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
 # 
 # 
 # #################################################################
@@ -1534,120 +1833,187 @@ _:genid94 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://ocean-data.org/s
 # #################################################################
 # 
 # 
-# http://ocean-data.org/schema/AnalystRole
-<http://ocean-data.org/schema/AnalystRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://ocean-data.org/schema/AnalystRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRole> .
-<http://ocean-data.org/schema/AnalystRole> <http://www.w3.org/2000/01/rdf-schema#label> "Analyst"@en-us .
+# http://ocean-data.org/schema/CitationStyle_APA
+<http://ocean-data.org/schema/CitationStyle_APA> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ocean-data.org/schema/CitationStyle_APA> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/CitationStyle> .
+<http://ocean-data.org/schema/CitationStyle_APA> <http://ocean-data.org/schema/title> "APA"@en-us .
+<http://ocean-data.org/schema/CitationStyle_APA> <http://www.w3.org/2000/01/rdf-schema#comment> "The APA style for a citation"@en-us .
+<http://ocean-data.org/schema/CitationStyle_APA> <http://www.w3.org/2000/01/rdf-schema#label> "Citation Style - APA"@en-us .
 # 
-# http://ocean-data.org/schema/BcoDmoDataManagerRole
-<http://ocean-data.org/schema/BcoDmoDataManagerRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://ocean-data.org/schema/BcoDmoDataManagerRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRole> .
-<http://ocean-data.org/schema/BcoDmoDataManagerRole> <http://www.w3.org/2000/01/rdf-schema#label> "BCO-DMO Data Manager"@en-us .
+# http://ocean-data.org/schema/IdentifierScheme_BcoDmo
+<http://ocean-data.org/schema/IdentifierScheme_BcoDmo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ocean-data.org/schema/IdentifierScheme_BcoDmo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/IdentifierScheme> .
+<http://ocean-data.org/schema/IdentifierScheme_BcoDmo> <http://ocean-data.org/schema/title> "BCO-DMO"@en-us .
+<http://ocean-data.org/schema/IdentifierScheme_BcoDmo> <http://www.w3.org/2000/01/rdf-schema#comment> "The Identifier at BCO-DMO"@en-us .
+<http://ocean-data.org/schema/IdentifierScheme_BcoDmo> <http://www.w3.org/2000/01/rdf-schema#label> "Identifier Scheme - BCO-DMO"@en-us .
 # 
-# http://ocean-data.org/schema/BcoDmoIdentifier
-<http://ocean-data.org/schema/BcoDmoIdentifier> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://ocean-data.org/schema/BcoDmoIdentifier> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/IdentifierScheme> .
-<http://ocean-data.org/schema/BcoDmoIdentifier> <http://www.w3.org/2000/01/rdf-schema#label> "BCO-DMO"@en-us .
+# http://ocean-data.org/schema/IdentifierScheme_DOI
+<http://ocean-data.org/schema/IdentifierScheme_DOI> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ocean-data.org/schema/IdentifierScheme_DOI> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/IdentifierScheme> .
+<http://ocean-data.org/schema/IdentifierScheme_DOI> <http://ocean-data.org/schema/title> "DOI"@en-us .
+<http://ocean-data.org/schema/IdentifierScheme_DOI> <http://www.w3.org/2000/01/rdf-schema#comment> "A DOI, Digital Object Identifier."@en-us .
+<http://ocean-data.org/schema/IdentifierScheme_DOI> <http://www.w3.org/2000/01/rdf-schema#label> "DOI Identifier"@en-us .
 # 
-# http://ocean-data.org/schema/CaptainRole
-<http://ocean-data.org/schema/CaptainRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://ocean-data.org/schema/CaptainRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRole> .
-<http://ocean-data.org/schema/CaptainRole> <http://www.w3.org/2000/01/rdf-schema#label> "Captain"@en-us .
+# http://ocean-data.org/schema/IdentifierScheme_NCEIAccession
+<http://ocean-data.org/schema/IdentifierScheme_NCEIAccession> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ocean-data.org/schema/IdentifierScheme_NCEIAccession> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/IdentifierScheme> .
+<http://ocean-data.org/schema/IdentifierScheme_NCEIAccession> <http://ocean-data.org/schema/title> "NCEI Accession #"@en-us .
+<http://ocean-data.org/schema/IdentifierScheme_NCEIAccession> <http://www.w3.org/2000/01/rdf-schema#comment> "An NCEI Accession number"@en-us .
+<http://ocean-data.org/schema/IdentifierScheme_NCEIAccession> <http://www.w3.org/2000/01/rdf-schema#label> "Identifier Scheme - NCEI Accession"@en-us .
 # 
-# http://ocean-data.org/schema/ChiefScientistRole
-<http://ocean-data.org/schema/ChiefScientistRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://ocean-data.org/schema/ChiefScientistRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRole> .
-<http://ocean-data.org/schema/ChiefScientistRole> <http://www.w3.org/2000/01/rdf-schema#label> "Chief Scientist"@en-us .
+# http://ocean-data.org/schema/IdentifierScheme_NODCAccession
+<http://ocean-data.org/schema/IdentifierScheme_NODCAccession> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ocean-data.org/schema/IdentifierScheme_NODCAccession> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/IdentifierScheme> .
+<http://ocean-data.org/schema/IdentifierScheme_NODCAccession> <http://ocean-data.org/schema/title> "NODC Accession #"@en-us .
+<http://ocean-data.org/schema/IdentifierScheme_NODCAccession> <http://www.w3.org/2000/01/rdf-schema#comment> "An NODC accession number"@en-us .
+<http://ocean-data.org/schema/IdentifierScheme_NODCAccession> <http://www.w3.org/2000/01/rdf-schema#label> "Identifier Scheme - NODC Accession"@en-us .
 # 
-# http://ocean-data.org/schema/Co-ChiefScientistRole
-<http://ocean-data.org/schema/Co-ChiefScientistRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://ocean-data.org/schema/Co-ChiefScientistRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRole> .
-<http://ocean-data.org/schema/Co-ChiefScientistRole> <http://www.w3.org/2000/01/rdf-schema#label> "Co-Chief Scientist"@en-us .
+# http://ocean-data.org/schema/Role_Analyst
+<http://ocean-data.org/schema/Role_Analyst> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ocean-data.org/schema/Role_Analyst> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRoleType> .
+<http://ocean-data.org/schema/Role_Analyst> <http://ocean-data.org/schema/title> "Analyst"@en-us .
+<http://ocean-data.org/schema/Role_Analyst> <http://www.w3.org/2000/01/rdf-schema#comment> "An analsyt on the subject of an Agent Role"@en-us .
+<http://ocean-data.org/schema/Role_Analyst> <http://www.w3.org/2000/01/rdf-schema#label> "Role - Analyst"@en-us .
 # 
-# http://ocean-data.org/schema/Co-PrincipalInvestigatorRole
-<http://ocean-data.org/schema/Co-PrincipalInvestigatorRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://ocean-data.org/schema/Co-PrincipalInvestigatorRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRole> .
-<http://ocean-data.org/schema/Co-PrincipalInvestigatorRole> <http://www.w3.org/2000/01/rdf-schema#label> "Co-Principal Investigator"@en-us .
+# http://ocean-data.org/schema/Role_BcoDmoDataManager
+<http://ocean-data.org/schema/Role_BcoDmoDataManager> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ocean-data.org/schema/Role_BcoDmoDataManager> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRoleType> .
+<http://ocean-data.org/schema/Role_BcoDmoDataManager> <http://ocean-data.org/schema/title> "BCO-DMO Data Manager"@en-us .
+<http://ocean-data.org/schema/Role_BcoDmoDataManager> <http://www.w3.org/2000/01/rdf-schema#comment> "A BCO-DMO Data Manager who curated the subject of an AgentRole"@en-us .
+<http://ocean-data.org/schema/Role_BcoDmoDataManager> <http://www.w3.org/2000/01/rdf-schema#label> "Role - BCO-DMO Data Manager"@en-us .
 # 
-# http://ocean-data.org/schema/ContactRole
-<http://ocean-data.org/schema/ContactRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://ocean-data.org/schema/ContactRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRole> .
-<http://ocean-data.org/schema/ContactRole> <http://www.w3.org/2000/01/rdf-schema#label> "Contact"@en-us .
+# http://ocean-data.org/schema/Role_Captain
+<http://ocean-data.org/schema/Role_Captain> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ocean-data.org/schema/Role_Captain> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRoleType> .
+<http://ocean-data.org/schema/Role_Captain> <http://ocean-data.org/schema/title> "Captain"@en-us .
+<http://ocean-data.org/schema/Role_Captain> <http://www.w3.org/2000/01/rdf-schema#comment> "The Captain of the subject of an Agent Role, usually some Deployment."@en-us .
+<http://ocean-data.org/schema/Role_Captain> <http://www.w3.org/2000/01/rdf-schema#label> "Role - Captain"@en-us .
 # 
-# http://ocean-data.org/schema/CuratorRole
-<http://ocean-data.org/schema/CuratorRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://ocean-data.org/schema/CuratorRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRole> .
-<http://ocean-data.org/schema/CuratorRole> <http://www.w3.org/2000/01/rdf-schema#label> "Curator"@en-us .
+# http://ocean-data.org/schema/Role_ChiefScientist
+<http://ocean-data.org/schema/Role_ChiefScientist> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ocean-data.org/schema/Role_ChiefScientist> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRoleType> .
+<http://ocean-data.org/schema/Role_ChiefScientist> <http://ocean-data.org/schema/title> "Chief Scientist"@en-us .
+<http://ocean-data.org/schema/Role_ChiefScientist> <http://www.w3.org/2000/01/rdf-schema#comment> "A Chief Scientist of the subject of an Agent Role, usually some Deployment"@en-us .
+<http://ocean-data.org/schema/Role_ChiefScientist> <http://www.w3.org/2000/01/rdf-schema#label> "Role - Chief Scientist"@en-us .
 # 
-# http://ocean-data.org/schema/DOIIdentifierScheme
-<http://ocean-data.org/schema/DOIIdentifierScheme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://ocean-data.org/schema/DOIIdentifierScheme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/IdentifierScheme> .
-<http://ocean-data.org/schema/DOIIdentifierScheme> <http://www.w3.org/2000/01/rdf-schema#label> "DOI"@en-us .
+# http://ocean-data.org/schema/Role_Co-ChiefScientist
+<http://ocean-data.org/schema/Role_Co-ChiefScientist> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ocean-data.org/schema/Role_Co-ChiefScientist> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRoleType> .
+<http://ocean-data.org/schema/Role_Co-ChiefScientist> <http://ocean-data.org/schema/title> "Co-Chief Scientist"@en-us .
+<http://ocean-data.org/schema/Role_Co-ChiefScientist> <http://www.w3.org/2000/01/rdf-schema#comment> "A Co-Cheif Scientist of the subject of an Agent Role, usually some Deployment"@en-us .
+<http://ocean-data.org/schema/Role_Co-ChiefScientist> <http://www.w3.org/2000/01/rdf-schema#label> "Role - Co-Chief Scientist"@en-us .
 # 
-# http://ocean-data.org/schema/DataManagerRole
-<http://ocean-data.org/schema/DataManagerRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://ocean-data.org/schema/DataManagerRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRole> .
-<http://ocean-data.org/schema/DataManagerRole> <http://www.w3.org/2000/01/rdf-schema#label> "Data Manager"@en-us .
+# http://ocean-data.org/schema/Role_Co-PrincipalInvestigator
+<http://ocean-data.org/schema/Role_Co-PrincipalInvestigator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ocean-data.org/schema/Role_Co-PrincipalInvestigator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRoleType> .
+<http://ocean-data.org/schema/Role_Co-PrincipalInvestigator> <http://ocean-data.org/schema/title> "Co-Principal Investigator"@en-us .
+<http://ocean-data.org/schema/Role_Co-PrincipalInvestigator> <http://www.w3.org/2000/01/rdf-schema#comment> "A Co-Principal Investigator of the subject of an Agent Role"@en-us .
+<http://ocean-data.org/schema/Role_Co-PrincipalInvestigator> <http://www.w3.org/2000/01/rdf-schema#label> "Role - Co-Principal Investigator"@en-us .
 # 
-# http://ocean-data.org/schema/DataPublisherRole
-<http://ocean-data.org/schema/DataPublisherRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://ocean-data.org/schema/DataPublisherRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRole> .
-<http://ocean-data.org/schema/DataPublisherRole> <http://www.w3.org/2000/01/rdf-schema#label> "Data Publisher"@en-us .
+# http://ocean-data.org/schema/Role_Contact
+<http://ocean-data.org/schema/Role_Contact> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ocean-data.org/schema/Role_Contact> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRoleType> .
+<http://ocean-data.org/schema/Role_Contact> <http://ocean-data.org/schema/title> "Contact"@en-us .
+<http://ocean-data.org/schema/Role_Contact> <http://www.w3.org/2000/01/rdf-schema#comment> "A Contact of the subject of an Agent Role"@en-us .
+<http://ocean-data.org/schema/Role_Contact> <http://www.w3.org/2000/01/rdf-schema#label> "Role - Contact"@en-us .
 # 
-# http://ocean-data.org/schema/GuestRole
-<http://ocean-data.org/schema/GuestRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://ocean-data.org/schema/GuestRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRole> .
-<http://ocean-data.org/schema/GuestRole> <http://www.w3.org/2000/01/rdf-schema#label> "Guest"@en-us .
+# http://ocean-data.org/schema/Role_Curator
+<http://ocean-data.org/schema/Role_Curator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ocean-data.org/schema/Role_Curator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRoleType> .
+<http://ocean-data.org/schema/Role_Curator> <http://ocean-data.org/schema/title> "Curator"@en-us .
+<http://ocean-data.org/schema/Role_Curator> <http://www.w3.org/2000/01/rdf-schema#comment> "A Curator of the subject of an Agent Role"@en-us .
+<http://ocean-data.org/schema/Role_Curator> <http://www.w3.org/2000/01/rdf-schema#label> "Role - Curator"@en-us .
 # 
-# http://ocean-data.org/schema/InternationalCollaboratorRole
-<http://ocean-data.org/schema/InternationalCollaboratorRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://ocean-data.org/schema/InternationalCollaboratorRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRole> .
-<http://ocean-data.org/schema/InternationalCollaboratorRole> <http://www.w3.org/2000/01/rdf-schema#label> "International Collaborator"@en-us .
+# http://ocean-data.org/schema/Role_DataManager
+<http://ocean-data.org/schema/Role_DataManager> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ocean-data.org/schema/Role_DataManager> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRoleType> .
+<http://ocean-data.org/schema/Role_DataManager> <http://ocean-data.org/schema/title> "Data Manager"@en-us .
+<http://ocean-data.org/schema/Role_DataManager> <http://www.w3.org/2000/01/rdf-schema#comment> "A Data Manager, external to BCO-DMO, of the subject of an Agent Role"@en-us .
+<http://ocean-data.org/schema/Role_DataManager> <http://www.w3.org/2000/01/rdf-schema#label> "Role - Data Manager"@en-us .
 # 
-# http://ocean-data.org/schema/LeadPrincipalInvestigatorRole
-<http://ocean-data.org/schema/LeadPrincipalInvestigatorRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://ocean-data.org/schema/LeadPrincipalInvestigatorRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRole> .
-<http://ocean-data.org/schema/LeadPrincipalInvestigatorRole> <http://www.w3.org/2000/01/rdf-schema#label> "Lead Principal Investigator"@en-us .
+# http://ocean-data.org/schema/Role_DataPublisher
+<http://ocean-data.org/schema/Role_DataPublisher> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ocean-data.org/schema/Role_DataPublisher> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRoleType> .
+<http://ocean-data.org/schema/Role_DataPublisher> <http://ocean-data.org/schema/title> "Data Publisher"@en-us .
+<http://ocean-data.org/schema/Role_DataPublisher> <http://www.w3.org/2000/01/rdf-schema#comment> "A Data Publisher of the subject of an Agent Role"@en-us .
+<http://ocean-data.org/schema/Role_DataPublisher> <http://www.w3.org/2000/01/rdf-schema#label> "Role - Data Publisher"@en-us .
 # 
-# http://ocean-data.org/schema/OriginatorRole
-<http://ocean-data.org/schema/OriginatorRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://ocean-data.org/schema/OriginatorRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRole> .
-<http://ocean-data.org/schema/OriginatorRole> <http://www.w3.org/2000/01/rdf-schema#label> "Originator"@en-us .
+# http://ocean-data.org/schema/Role_Guest
+<http://ocean-data.org/schema/Role_Guest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ocean-data.org/schema/Role_Guest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRoleType> .
+<http://ocean-data.org/schema/Role_Guest> <http://ocean-data.org/schema/title> "Guest"@en-us .
+<http://ocean-data.org/schema/Role_Guest> <http://www.w3.org/2000/01/rdf-schema#comment> "A Guest of the subject of an Agent Role"@en-us .
+<http://ocean-data.org/schema/Role_Guest> <http://www.w3.org/2000/01/rdf-schema#label> "Role - Guest"@en-us .
 # 
-# http://ocean-data.org/schema/PrincipalInvestigatorRole
-<http://ocean-data.org/schema/PrincipalInvestigatorRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://ocean-data.org/schema/PrincipalInvestigatorRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRole> .
-<http://ocean-data.org/schema/PrincipalInvestigatorRole> <http://www.w3.org/2000/01/rdf-schema#label> "Principal Investigator"@en-us .
+# http://ocean-data.org/schema/Role_InternationalCollaborator
+<http://ocean-data.org/schema/Role_InternationalCollaborator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ocean-data.org/schema/Role_InternationalCollaborator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRoleType> .
+<http://ocean-data.org/schema/Role_InternationalCollaborator> <http://ocean-data.org/schema/title> "International Collaborator"@en-us .
+<http://ocean-data.org/schema/Role_InternationalCollaborator> <http://www.w3.org/2000/01/rdf-schema#comment> "An international collaborator of the subject of an Agent Role"@en-us .
+<http://ocean-data.org/schema/Role_InternationalCollaborator> <http://www.w3.org/2000/01/rdf-schema#label> "Role - International Collaborator"@en-us .
 # 
-# http://ocean-data.org/schema/ProgramManagerRole
-<http://ocean-data.org/schema/ProgramManagerRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://ocean-data.org/schema/ProgramManagerRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRole> .
-<http://ocean-data.org/schema/ProgramManagerRole> <http://www.w3.org/2000/01/rdf-schema#label> "Program Manager"@en-us .
+# http://ocean-data.org/schema/Role_LeadPrincipalInvestigator
+<http://ocean-data.org/schema/Role_LeadPrincipalInvestigator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ocean-data.org/schema/Role_LeadPrincipalInvestigator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRoleType> .
+<http://ocean-data.org/schema/Role_LeadPrincipalInvestigator> <http://ocean-data.org/schema/title> "Lead Principal Investigator"@en-us .
+<http://ocean-data.org/schema/Role_LeadPrincipalInvestigator> <http://www.w3.org/2000/01/rdf-schema#comment> "A Lead Principal Investigator of the subject of an Agent Role"@en-us .
+<http://ocean-data.org/schema/Role_LeadPrincipalInvestigator> <http://www.w3.org/2000/01/rdf-schema#label> "Role - Lead Principal Investigator"@en-us .
 # 
-# http://ocean-data.org/schema/ProjectCoordinatorRole
-<http://ocean-data.org/schema/ProjectCoordinatorRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://ocean-data.org/schema/ProjectCoordinatorRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRole> .
-<http://ocean-data.org/schema/ProjectCoordinatorRole> <http://www.w3.org/2000/01/rdf-schema#label> "Project Coordinator"@en-us .
+# http://ocean-data.org/schema/Role_Originator
+<http://ocean-data.org/schema/Role_Originator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ocean-data.org/schema/Role_Originator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRoleType> .
+<http://ocean-data.org/schema/Role_Originator> <http://ocean-data.org/schema/title> "Originator"@en-us .
+<http://ocean-data.org/schema/Role_Originator> <http://www.w3.org/2000/01/rdf-schema#comment> "An Originator of the subject of an Agent Role"@en-us .
+<http://ocean-data.org/schema/Role_Originator> <http://www.w3.org/2000/01/rdf-schema#label> "Role - Originator"@en-us .
 # 
-# http://ocean-data.org/schema/ScientistRole
-<http://ocean-data.org/schema/ScientistRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://ocean-data.org/schema/ScientistRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRole> .
-<http://ocean-data.org/schema/ScientistRole> <http://www.w3.org/2000/01/rdf-schema#label> "Scientist"@en-us .
+# http://ocean-data.org/schema/Role_PrincipalInvestigator
+<http://ocean-data.org/schema/Role_PrincipalInvestigator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ocean-data.org/schema/Role_PrincipalInvestigator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRoleType> .
+<http://ocean-data.org/schema/Role_PrincipalInvestigator> <http://ocean-data.org/schema/title> "Principal Investigator"@en-us .
+<http://ocean-data.org/schema/Role_PrincipalInvestigator> <http://www.w3.org/2000/01/rdf-schema#comment> "A Principal Investigator of the subject of an Agent Role"@en-us .
+<http://ocean-data.org/schema/Role_PrincipalInvestigator> <http://www.w3.org/2000/01/rdf-schema#label> "Role - Principal Investigator"@en-us .
 # 
-# http://ocean-data.org/schema/StudentRole
-<http://ocean-data.org/schema/StudentRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://ocean-data.org/schema/StudentRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRole> .
-<http://ocean-data.org/schema/StudentRole> <http://www.w3.org/2000/01/rdf-schema#label> "Student"@en-us .
+# http://ocean-data.org/schema/Role_ProgramManager
+<http://ocean-data.org/schema/Role_ProgramManager> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ocean-data.org/schema/Role_ProgramManager> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRoleType> .
+<http://ocean-data.org/schema/Role_ProgramManager> <http://ocean-data.org/schema/title> "Program Manager"@en-us .
+<http://ocean-data.org/schema/Role_ProgramManager> <http://www.w3.org/2000/01/rdf-schema#comment> "A program manager of the subject of an Agent Role"@en-us .
+<http://ocean-data.org/schema/Role_ProgramManager> <http://www.w3.org/2000/01/rdf-schema#label> "Role - Program Manager"@en-us .
 # 
-# http://ocean-data.org/schema/TechnicianRole
-<http://ocean-data.org/schema/TechnicianRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://ocean-data.org/schema/TechnicianRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRole> .
-<http://ocean-data.org/schema/TechnicianRole> <http://www.w3.org/2000/01/rdf-schema#label> "Technician"@en-us .
+# http://ocean-data.org/schema/Role_ProjectCoordinator
+<http://ocean-data.org/schema/Role_ProjectCoordinator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ocean-data.org/schema/Role_ProjectCoordinator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRoleType> .
+<http://ocean-data.org/schema/Role_ProjectCoordinator> <http://ocean-data.org/schema/title> "Project Coordinator"@en-us .
+<http://ocean-data.org/schema/Role_ProjectCoordinator> <http://www.w3.org/2000/01/rdf-schema#comment> "A project coordinator of the subject of an Agent Role"@en-us .
+<http://ocean-data.org/schema/Role_ProjectCoordinator> <http://www.w3.org/2000/01/rdf-schema#label> "Role - Project Coordinator"@en-us .
 # 
-# http://ocean-data.org/schema/UnknownRole
-<http://ocean-data.org/schema/UnknownRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://ocean-data.org/schema/UnknownRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRole> .
-<http://ocean-data.org/schema/UnknownRole> <http://www.w3.org/2000/01/rdf-schema#label> "Unknown"@en-us .
+# http://ocean-data.org/schema/Role_Scientist
+<http://ocean-data.org/schema/Role_Scientist> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ocean-data.org/schema/Role_Scientist> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRoleType> .
+<http://ocean-data.org/schema/Role_Scientist> <http://ocean-data.org/schema/title> "Scientist"@en-us .
+<http://ocean-data.org/schema/Role_Scientist> <http://www.w3.org/2000/01/rdf-schema#comment> "A scientist of the subject of an Agent Role"@en-us .
+<http://ocean-data.org/schema/Role_Scientist> <http://www.w3.org/2000/01/rdf-schema#label> "Role - Scientist"@en-us .
+# 
+# http://ocean-data.org/schema/Role_Student
+<http://ocean-data.org/schema/Role_Student> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ocean-data.org/schema/Role_Student> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRoleType> .
+<http://ocean-data.org/schema/Role_Student> <http://ocean-data.org/schema/title> "Student"@en-us .
+<http://ocean-data.org/schema/Role_Student> <http://www.w3.org/2000/01/rdf-schema#comment> "A student of the subject of an Agent Role"@en-us .
+<http://ocean-data.org/schema/Role_Student> <http://www.w3.org/2000/01/rdf-schema#label> "Role - Student"@en-us .
+# 
+# http://ocean-data.org/schema/Role_Technician
+<http://ocean-data.org/schema/Role_Technician> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ocean-data.org/schema/Role_Technician> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRoleType> .
+<http://ocean-data.org/schema/Role_Technician> <http://ocean-data.org/schema/title> "Technician"@en-us .
+<http://ocean-data.org/schema/Role_Technician> <http://www.w3.org/2000/01/rdf-schema#comment> "A technician of the subject of an Agent Role"@en-us .
+<http://ocean-data.org/schema/Role_Technician> <http://www.w3.org/2000/01/rdf-schema#label> "Role - Technician"@en-us .
+# 
+# http://ocean-data.org/schema/Role_Unknown
+<http://ocean-data.org/schema/Role_Unknown> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ocean-data.org/schema/Role_Unknown> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ocean-data.org/schema/AgentRoleType> .
+<http://ocean-data.org/schema/Role_Unknown> <http://ocean-data.org/schema/title> "Unknown"@en-us .
+<http://ocean-data.org/schema/Role_Unknown> <http://www.w3.org/2000/01/rdf-schema#comment> "An unknown role of the subject of an Agent Role"@en-us .
+<http://ocean-data.org/schema/Role_Unknown> <http://www.w3.org/2000/01/rdf-schema#label> "Role - Unknown"@en-us .
 # 
 # http://ocean-data.org/schema/forOrganization
 <http://ocean-data.org/schema/forOrganization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .

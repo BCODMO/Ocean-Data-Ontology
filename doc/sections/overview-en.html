@@ -7,9 +7,6 @@ This ontology has the following classes and properties.</span>
       <a href="#Agent" title="http://ocean-data.org/schema/Agent">Agent</a>
    </li>
    <li>
-      <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">Agent Role</a>
-   </li>
-   <li>
       <a href="#Aircraft" title="http://ocean-data.org/schema/Aircraft">Aircraft</a>
    </li>
    <li>
@@ -21,6 +18,12 @@ This ontology has the following classes and properties.</span>
    </li>
    <li>
       <a href="#Award" title="http://ocean-data.org/schema/Award">Award</a>
+   </li>
+   <li>
+      <a href="#Citation" title="http://ocean-data.org/schema/Citation">Citation</a>
+   </li>
+   <li>
+      <a href="#CitationStyle" title="http://ocean-data.org/schema/CitationStyle">CitationStyle</a>
    </li>
    <li>
       <a href="#CreativeWork" title="http://ocean-data.org/schema/CreativeWork">Creative Work</a>
@@ -49,6 +52,9 @@ This ontology has the following classes and properties.</span>
       <a href="#DataManagementPlan" title="http://ocean-data.org/schema/DataManagementPlan">Data Management Plan</a>
    </li>
    <li>
+      <a href="#DataciteRelation" title="http://ocean-data.org/schema/DataciteRelation">Datacite Relation</a>
+   </li>
+   <li>
       <a href="#Dataset" title="http://ocean-data.org/schema/Dataset">Dataset</a>
    </li>
    <li>
@@ -59,7 +65,7 @@ This ontology has the following classes and properties.</span>
    </li>
    <li>
       <a href="#DatasetMonitoredProperty"
-         title="http://ocean-data.org/schema/DatasetMonitoredProperty">Dataset Property</a>
+         title="http://ocean-data.org/schema/DatasetMonitoredProperty">Dataset Monitored Property</a>
    </li>
    <li>
       <a href="#DatasetType" title="http://ocean-data.org/schema/DatasetType">Dataset Type</a>
@@ -82,6 +88,9 @@ This ontology has the following classes and properties.</span>
    </li>
    <li>
       <a href="#Drifter" title="http://ocean-data.org/schema/Drifter">Drifter</a>
+   </li>
+   <li>
+      <a href="#FileFormat" title="http://ocean-data.org/schema/FileFormat">FileFormat</a>
    </li>
    <li>
       <a href="#Float" title="http://ocean-data.org/schema/Float">Float</a>
@@ -137,6 +146,9 @@ This ontology has the following classes and properties.</span>
       <a href="#Organization" title="http://ocean-data.org/schema/Organization">Organization</a>
    </li>
    <li>
+      <a href="#Parameter" title="http://ocean-data.org/schema/Parameter">Parameter</a>
+   </li>
+   <li>
       <a href="#Person" title="http://ocean-data.org/schema/Person">Person</a>
    </li>
    <li>
@@ -158,10 +170,10 @@ This ontology has the following classes and properties.</span>
       <a href="#ResearchActivity" title="http://ocean-data.org/schema/ResearchActivity">Research Activity</a>
    </li>
    <li>
-      <a href="#Role" title="http://ocean-data.org/schema/Role">Role</a>
+      <a href="#AgentRole" title="http://ocean-data.org/schema/AgentRole">Role</a>
    </li>
    <li>
-      <a href="#RoleType" title="http://ocean-data.org/schema/RoleType">Role Type</a>
+      <a href="#AgentRoleType" title="http://ocean-data.org/schema/AgentRoleType">Role Type</a>
    </li>
    <li>
       <a href="#RemotelyOperatedVehicle"
@@ -206,6 +218,9 @@ This ontology has the following classes and properties.</span>
    </li>
 </ul><h4>Object Properties</h4><ul class="hlist">
    <li>
+      <a href="#archiveFile" title="http://ocean-data.org/schema/archiveFile">archiveFile</a>
+   </li>
+   <li>
       <a href="#archiver" title="http://ocean-data.org/schema/archiver">archiver</a>
    </li>
    <li>
@@ -215,16 +230,33 @@ This ontology has the following classes and properties.</span>
       <a href="#checksumAlgorithm" title="http://ocean-data.org/schema/checksumAlgorithm">checksumAlgorithm</a>
    </li>
    <li>
+      <a href="#citation" title="http://ocean-data.org/schema/citation">citation</a>
+   </li>
+   <li>
+      <a href="#citationStyle" title="http://ocean-data.org/schema/citationStyle">citationStyle</a>
+   </li>
+   <li>
+      <a href="#cites" title="http://ocean-data.org/schema/cites">
+         <span>cites</span>
+      </a>
+   </li>
+   <li>
       <a href="#crossrefRelation" title="http://ocean-data.org/schema/crossrefRelation">crossrefRelation</a>
    </li>
    <li>
       <a href="#currentState" title="http://ocean-data.org/schema/currentState">currentState</a>
    </li>
    <li>
+      <a href="#dataciteRelation" title="http://ocean-data.org/schema/dataciteRelation">dataciteRelation</a>
+   </li>
+   <li>
       <a href="#dataFile" title="http://ocean-data.org/schema/dataFile">dataFile</a>
    </li>
    <li>
       <a href="#datasetType" title="http://ocean-data.org/schema/datasetType">datasetType</a>
+   </li>
+   <li>
+      <a href="#fileFormat" title="http://ocean-data.org/schema/fileFormat">fileFormat</a>
    </li>
    <li>
       <a href="#forOrganization" title="http://ocean-data.org/schema/forOrganization">
@@ -288,7 +320,8 @@ This ontology has the following classes and properties.</span>
       <a href="#hasInventory" title="http://ocean-data.org/schema/hasInventory">hasInventory</a>
    </li>
    <li>
-      <a href="#hasParentProgram" title="http://ocean-data.org/schema/hasParentProgram">hasParentProgram</a>
+      <a href="#hasLeadCollaborativeAward"
+         title="http://ocean-data.org/schema/hasLeadCollaborativeAward">hasLeadCollaborativeAward</a>
    </li>
    <li>
       <a href="#hasPlatformTitle" title="http://ocean-data.org/schema/hasPlatformTitle">hasPlatformTitle</a>
@@ -314,10 +347,16 @@ This ontology has the following classes and properties.</span>
       <a href="#isArchivedBy" title="http://ocean-data.org/schema/isArchivedBy">isArchivedBy</a>
    </li>
    <li>
+      <a href="#isContinuingAwardOf" title="http://ocean-data.org/schema/isContinuingAwardOf">isContinuingAwardOf</a>
+   </li>
+   <li>
       <a href="#isDeployed" title="http://ocean-data.org/schema/isDeployed">isDeployed</a>
    </li>
    <li>
       <a href="#isInstanceOf" title="http://ocean-data.org/schema/isInstanceOf">isInstanceOf</a>
+   </li>
+   <li>
+      <a href="#isPartOfProgram" title="http://ocean-data.org/schema/isPartOfProgram">isPartOfProgram</a>
    </li>
    <li>
       <a href="#lastKnownAffiliation"
@@ -337,6 +376,9 @@ This ontology has the following classes and properties.</span>
    </li>
    <li>
       <a href="#performedRole" title="http://ocean-data.org/schema/performedRole">performedRole</a>
+   </li>
+   <li>
+      <a href="#producedDataset" title="http://ocean-data.org/schema/producedDataset">producedDataset</a>
    </li>
    <li>
       <a href="#producedWork" title="http://ocean-data.org/schema/producedWork">producedWork</a>
@@ -363,6 +405,9 @@ This ontology has the following classes and properties.</span>
       <a href="#storesValuesFor" title="http://ocean-data.org/schema/storesValuesFor">storesValuesFor</a>
    </li>
    <li>
+      <a href="#supplementedBy" title="http://ocean-data.org/schema/supplementedBy">supplementedBy</a>
+   </li>
+   <li>
       <a href="#usesIdentifierScheme"
          title="http://ocean-data.org/schema/usesIdentifierScheme">usesIdentifierScheme</a>
    </li>
@@ -383,11 +428,25 @@ This ontology has the following classes and properties.</span>
       <a href="#checksum" title="http://ocean-data.org/schema/checksum">checksum</a>
    </li>
    <li>
-      <a href="#citationText" title="http://ocean-data.org/schema/citationText">citationText</a>
+      <a href="#citationJSON" title="http://ocean-data.org/schema/citationJSON">
+         <span>citation j s o n</span>
+      </a>
+   </li>
+   <li>
+      <a href="#citationText" title="http://ocean-data.org/schema/citationText">
+         <span>citation text</span>
+      </a>
+   </li>
+   <li>
+      <a href="#citationTextGeneratedDate"
+         title="http://ocean-data.org/schema/citationTextGeneratedDate">citationTextGeneratedDate</a>
    </li>
    <li>
       <a href="#conversionDescription"
          title="http://ocean-data.org/schema/conversionDescription">conversionDescription</a>
+   </li>
+   <li>
+      <a href="#createdDate" title="http://ocean-data.org/schema/createdDate">createdDate</a>
    </li>
    <li>
       <a href="#datasetTitle" title="http://ocean-data.org/schema/datasetTitle">datasetTitle</a>
@@ -508,6 +567,9 @@ This ontology has the following classes and properties.</span>
       <a href="#mimetype" title="http://ocean-data.org/schema/mimetype">mimetype</a>
    </li>
    <li>
+      <a href="#modifiedDate" title="http://ocean-data.org/schema/modifiedDate">modifiedDate</a>
+   </li>
+   <li>
       <a href="#nickname" title="http://ocean-data.org/schema/nickname">nickname</a>
    </li>
    <li>
@@ -518,6 +580,9 @@ This ontology has the following classes and properties.</span>
    </li>
    <li>
       <a href="#restricted" title="http://ocean-data.org/schema/restricted">restricted</a>
+   </li>
+   <li>
+      <a href="#title" title="http://ocean-data.org/schema/title">title</a>
    </li>
    <li>
       <a href="#validated" title="http://ocean-data.org/schema/validated">validated</a>
@@ -611,80 +676,94 @@ This ontology has the following classes and properties.</span>
    </li>
 </ul><h4>Named Individuals</h4><ul class="hlist">
    <li>
-      <a href="#AnalystRole" title="http://ocean-data.org/schema/AnalystRole">Analyst</a>
+      <a href="#CitationStyle_APA" title="http://ocean-data.org/schema/CitationStyle_APA">Citation Style - APA</a>
    </li>
    <li>
-      <a href="#BcoDmoIdentifier" title="http://ocean-data.org/schema/BcoDmoIdentifier">BCO-DMO</a>
+      <a href="#IdentifierScheme_DOI"
+         title="http://ocean-data.org/schema/IdentifierScheme_DOI">DOI Identifier</a>
    </li>
    <li>
-      <a href="#BcoDmoDataManagerRole"
-         title="http://ocean-data.org/schema/BcoDmoDataManagerRole">BCO-DMO Data Manager</a>
+      <a href="#IdentifierScheme_BcoDmo"
+         title="http://ocean-data.org/schema/IdentifierScheme_BcoDmo">Identifier Scheme - BCO-DMO</a>
    </li>
    <li>
-      <a href="#CaptainRole" title="http://ocean-data.org/schema/CaptainRole">Captain</a>
+      <a href="#IdentifierScheme_NCEIAccession"
+         title="http://ocean-data.org/schema/IdentifierScheme_NCEIAccession">Identifier Scheme - NCEI Accession</a>
    </li>
    <li>
-      <a href="#ChiefScientistRole" title="http://ocean-data.org/schema/ChiefScientistRole">Chief Scientist</a>
+      <a href="#IdentifierScheme_NODCAccession"
+         title="http://ocean-data.org/schema/IdentifierScheme_NODCAccession">Identifier Scheme - NODC Accession</a>
    </li>
    <li>
-      <a href="#Co-ChiefScientistRole"
-         title="http://ocean-data.org/schema/Co-ChiefScientistRole">Co-Chief Scientist</a>
+      <a href="#Role_Analyst" title="http://ocean-data.org/schema/Role_Analyst">Role - Analyst</a>
    </li>
    <li>
-      <a href="#Co-PrincipalInvestigatorRole"
-         title="http://ocean-data.org/schema/Co-PrincipalInvestigatorRole">Co-Principal Investigator</a>
+      <a href="#Role_BcoDmoDataManager"
+         title="http://ocean-data.org/schema/Role_BcoDmoDataManager">Role - BCO-DMO Data Manager</a>
    </li>
    <li>
-      <a href="#ContactRole" title="http://ocean-data.org/schema/ContactRole">Contact</a>
+      <a href="#Role_Captain" title="http://ocean-data.org/schema/Role_Captain">Role - Captain</a>
    </li>
    <li>
-      <a href="#CuratorRole" title="http://ocean-data.org/schema/CuratorRole">Curator</a>
+      <a href="#Role_ChiefScientist"
+         title="http://ocean-data.org/schema/Role_ChiefScientist">Role - Chief Scientist</a>
    </li>
    <li>
-      <a href="#DataManagerRole" title="http://ocean-data.org/schema/DataManagerRole">Data Manager</a>
+      <a href="#Role_Co-ChiefScientist"
+         title="http://ocean-data.org/schema/Role_Co-ChiefScientist">Role - Co-Chief Scientist</a>
    </li>
    <li>
-      <a href="#DataPublisherRole" title="http://ocean-data.org/schema/DataPublisherRole">Data Publisher</a>
+      <a href="#Role_Co-PrincipalInvestigator"
+         title="http://ocean-data.org/schema/Role_Co-PrincipalInvestigator">Role - Co-Principal Investigator</a>
    </li>
    <li>
-      <a href="#DOIIdentifierScheme"
-         title="http://ocean-data.org/schema/DOIIdentifierScheme">DOI</a>
+      <a href="#Role_Contact" title="http://ocean-data.org/schema/Role_Contact">Role - Contact</a>
    </li>
    <li>
-      <a href="#GuestRole" title="http://ocean-data.org/schema/GuestRole">Guest</a>
+      <a href="#Role_Curator" title="http://ocean-data.org/schema/Role_Curator">Role - Curator</a>
    </li>
    <li>
-      <a href="#InternationalCollaboratorRole"
-         title="http://ocean-data.org/schema/InternationalCollaboratorRole">International Collaborator</a>
+      <a href="#Role_DataManager" title="http://ocean-data.org/schema/Role_DataManager">Role - Data Manager</a>
    </li>
    <li>
-      <a href="#LeadPrincipalInvestigatorRole"
-         title="http://ocean-data.org/schema/LeadPrincipalInvestigatorRole">Lead Principal Investigator</a>
+      <a href="#Role_DataPublisher" title="http://ocean-data.org/schema/Role_DataPublisher">Role - Data Publisher</a>
    </li>
    <li>
-      <a href="#OriginatorRole" title="http://ocean-data.org/schema/OriginatorRole">Originator</a>
+      <a href="#Role_Guest" title="http://ocean-data.org/schema/Role_Guest">Role - Guest</a>
    </li>
    <li>
-      <a href="#PrincipalInvestigatorRole"
-         title="http://ocean-data.org/schema/PrincipalInvestigatorRole">Principal Investigator</a>
+      <a href="#Role_InternationalCollaborator"
+         title="http://ocean-data.org/schema/Role_InternationalCollaborator">Role - International Collaborator</a>
    </li>
    <li>
-      <a href="#ProgramManagerRole" title="http://ocean-data.org/schema/ProgramManagerRole">Program Manager</a>
+      <a href="#Role_LeadPrincipalInvestigator"
+         title="http://ocean-data.org/schema/Role_LeadPrincipalInvestigator">Role - Lead Principal Investigator</a>
    </li>
    <li>
-      <a href="#ProjectCoordinatorRole"
-         title="http://ocean-data.org/schema/ProjectCoordinatorRole">Project Coordinator</a>
+      <a href="#Role_Originator" title="http://ocean-data.org/schema/Role_Originator">Role - Originator</a>
    </li>
    <li>
-      <a href="#ScientistRole" title="http://ocean-data.org/schema/ScientistRole">Scientist</a>
+      <a href="#Role_PrincipalInvestigator"
+         title="http://ocean-data.org/schema/Role_PrincipalInvestigator">Role - Principal Investigator</a>
    </li>
    <li>
-      <a href="#StudentRole" title="http://ocean-data.org/schema/StudentRole">Student</a>
+      <a href="#Role_ProgramManager"
+         title="http://ocean-data.org/schema/Role_ProgramManager">Role - Program Manager</a>
    </li>
    <li>
-      <a href="#TechnicianRole" title="http://ocean-data.org/schema/TechnicianRole">Technician</a>
+      <a href="#Role_ProjectCoordinator"
+         title="http://ocean-data.org/schema/Role_ProjectCoordinator">Role - Project Coordinator</a>
    </li>
    <li>
-      <a href="#UnknownRole" title="http://ocean-data.org/schema/UnknownRole">Unknown</a>
+      <a href="#Role_Scientist" title="http://ocean-data.org/schema/Role_Scientist">Role - Scientist</a>
+   </li>
+   <li>
+      <a href="#Role_Student" title="http://ocean-data.org/schema/Role_Student">Role - Student</a>
+   </li>
+   <li>
+      <a href="#Role_Technician" title="http://ocean-data.org/schema/Role_Technician">Role - Technician</a>
+   </li>
+   <li>
+      <a href="#Role_Unknown" title="http://ocean-data.org/schema/Role_Unknown">Role - Unknown</a>
    </li>
 </ul></html>

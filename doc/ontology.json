@@ -1,16 +1,6 @@
 [ {
   "@id" : "_:genid1",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
-    "@list" : [ {
-      "@id" : "http://www.w3.org/2004/02/skos/core#Concept"
-    }, {
-      "@id" : "_:genid3"
-    } ]
-  } ]
-}, {
-  "@id" : "_:genid12",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
       "@id" : "http://ocean-data.org/schema/CreativeWork"
@@ -19,23 +9,121 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid15",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@id" : "_:genid101",
+  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
-      "@id" : "http://ocean-data.org/schema/Award"
+      "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
     }, {
-      "@id" : "http://ocean-data.org/schema/Dataset"
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#langString"
     }, {
-      "@id" : "http://ocean-data.org/schema/Deployment"
-    }, {
-      "@id" : "http://ocean-data.org/schema/Organization"
-    }, {
-      "@id" : "http://ocean-data.org/schema/ResearchActivity"
+      "@id" : "http://www.w3.org/2001/XMLSchema#string"
     } ]
   } ]
 }, {
-  "@id" : "_:genid21",
+  "@id" : "_:genid105",
+  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+    }, {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#langString"
+    }, {
+      "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid109",
+  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#langString"
+    }, {
+      "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid112",
+  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#langString"
+    }, {
+      "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid115",
+  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#langString"
+    }, {
+      "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid118",
+  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#langString"
+    }, {
+      "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid121",
+  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#langString"
+    }, {
+      "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid124",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "http://ocean-data.org/schema/Agent"
+    }, {
+      "@id" : "http://ocean-data.org/schema/AgentRole"
+    }, {
+      "@id" : "http://ocean-data.org/schema/AgentRoleType"
+    }, {
+      "@id" : "http://ocean-data.org/schema/ArchiveRecord"
+    }, {
+      "@id" : "http://ocean-data.org/schema/Award"
+    }, {
+      "@id" : "http://ocean-data.org/schema/CreativeWork"
+    }, {
+      "@id" : "http://ocean-data.org/schema/DatasetInstrument"
+    }, {
+      "@id" : "http://ocean-data.org/schema/DatasetMonitoredProperty"
+    }, {
+      "@id" : "http://ocean-data.org/schema/Deployment"
+    }, {
+      "@id" : "http://ocean-data.org/schema/IdentifierScheme"
+    }, {
+      "@id" : "http://ocean-data.org/schema/Instrument"
+    }, {
+      "@id" : "http://ocean-data.org/schema/Organization"
+    }, {
+      "@id" : "http://ocean-data.org/schema/Parameter"
+    }, {
+      "@id" : "http://ocean-data.org/schema/Person"
+    }, {
+      "@id" : "http://ocean-data.org/schema/Platform"
+    }, {
+      "@id" : "http://ocean-data.org/schema/ResearchActivity"
+    }, {
+      "@id" : "http://ocean-data.org/schema/UnitOfMeasure"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid13",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
@@ -47,7 +135,97 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid25",
+  "@id" : "_:genid142",
+  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#langString"
+    }, {
+      "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid145",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "http://ocean-data.org/schema/Dataset"
+    }, {
+      "@id" : "http://ocean-data.org/schema/Deployment"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid148",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#maxCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "http://ocean-data.org/schema/releaseDate"
+  } ]
+}, {
+  "@id" : "_:genid149",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#maxCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "http://ocean-data.org/schema/restricted"
+  } ]
+}, {
+  "@id" : "_:genid150",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#maxCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "http://ocean-data.org/schema/validated"
+  } ]
+}, {
+  "@id" : "_:genid151",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
+    "@id" : "http://ocean-data.org/schema/Instrument"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "http://ocean-data.org/schema/isInstanceOf"
+  } ]
+}, {
+  "@id" : "_:genid152",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
+    "@id" : "http://ocean-data.org/schema/Parameter"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "http://ocean-data.org/schema/isInstanceOf"
+  } ]
+}, {
+  "@id" : "_:genid153",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "http://ocean-data.org/schema/Platform"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "http://ocean-data.org/schema/ofPlatform"
+  } ],
+  "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ]
+}, {
+  "@id" : "_:genid154",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
+    "@id" : "http://ocean-data.org/schema/DeploymentDataset"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "http://ocean-data.org/schema/hasInventory"
+  } ]
+}, {
+  "@id" : "_:genid17",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
@@ -59,7 +237,17 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid29",
+  "@id" : "_:genid21",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "http://ocean-data.org/schema/Citation"
+    }, {
+      "@id" : "http://ocean-data.org/schema/CreativeWork"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid24",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
@@ -69,16 +257,7 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid3",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
-    "@id" : "http://ocean-data.org/schema/CurrentState"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://www.w3.org/2004/02/skos/core#member"
-  } ]
-}, {
-  "@id" : "_:genid32",
+  "@id" : "_:genid27",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
@@ -88,7 +267,7 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid35",
+  "@id" : "_:genid30",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
@@ -98,7 +277,7 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid38",
+  "@id" : "_:genid33",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
@@ -114,46 +293,79 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid44",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
+  "@id" : "_:genid39",
+  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
-      "@id" : "http://www.w3.org/2004/02/skos/core#Concept"
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#langString"
     }, {
-      "@id" : "_:genid46"
+      "@id" : "http://www.w3.org/2001/XMLSchema#string"
     } ]
   } ]
 }, {
-  "@id" : "_:genid46",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
-    "@id" : "http://ocean-data.org/schema/AgentRole"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://www.w3.org/2004/02/skos/core#member"
+  "@id" : "_:genid4",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "http://ocean-data.org/schema/CreativeWork"
+    }, {
+      "@id" : "http://ocean-data.org/schema/ResearchActivity"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid42",
+  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#langString"
+    }, {
+      "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid45",
+  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#langString"
+    }, {
+      "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    } ]
   } ]
 }, {
   "@id" : "_:genid48",
   "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
-      "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#langString"
     }, {
       "@id" : "http://www.w3.org/2001/XMLSchema#string"
     } ]
   } ]
 }, {
-  "@id" : "_:genid5",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
+  "@id" : "_:genid51",
+  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
-      "@id" : "http://www.w3.org/2004/02/skos/core#Concept"
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#langString"
     }, {
-      "@id" : "_:genid7"
+      "@id" : "http://www.w3.org/2001/XMLSchema#string"
     } ]
   } ]
 }, {
-  "@id" : "_:genid51",
+  "@id" : "_:genid54",
+  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+    }, {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#langString"
+    }, {
+      "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid58",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
@@ -167,37 +379,59 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid56",
+  "@id" : "_:genid63",
   "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
       "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
     }, {
-      "@id" : "http://www.w3.org/2001/XMLSchema#string"
-    } ]
-  } ]
-}, {
-  "@id" : "_:genid59",
-  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ],
-  "http://www.w3.org/2002/07/owl#unionOf" : [ {
-    "@list" : [ {
-      "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#langString"
     }, {
       "@id" : "http://www.w3.org/2001/XMLSchema#string"
     } ]
   } ]
 }, {
-  "@id" : "_:genid62",
+  "@id" : "_:genid67",
   "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
       "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
     }, {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#langString"
+    }, {
       "@id" : "http://www.w3.org/2001/XMLSchema#string"
     } ]
   } ]
 }, {
-  "@id" : "_:genid65",
+  "@id" : "_:genid7",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "http://ocean-data.org/schema/Award"
+    }, {
+      "@id" : "http://ocean-data.org/schema/Dataset"
+    }, {
+      "@id" : "http://ocean-data.org/schema/Deployment"
+    }, {
+      "@id" : "http://ocean-data.org/schema/Organization"
+    }, {
+      "@id" : "http://ocean-data.org/schema/ResearchActivity"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid71",
+  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+    }, {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#langString"
+    }, {
+      "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid75",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
@@ -209,7 +443,17 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid69",
+  "@id" : "_:genid79",
+  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#langString"
+    }, {
+      "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid82",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
@@ -217,161 +461,58 @@
     }, {
       "@id" : "http://ocean-data.org/schema/ResearchActivity"
     } ]
-  } ]
-}, {
-  "@id" : "_:genid7",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
-    "@id" : "http://ocean-data.org/schema/DatasetType"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://www.w3.org/2004/02/skos/core#member"
-  } ]
-}, {
-  "@id" : "_:genid72",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#unionOf" : [ {
-    "@list" : [ {
-      "@id" : "http://ocean-data.org/schema/Organization"
-    }, {
-      "@id" : "http://ocean-data.org/schema/ResearchActivity"
-    } ]
-  } ]
-}, {
-  "@id" : "_:genid75",
-  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ],
-  "http://www.w3.org/2002/07/owl#unionOf" : [ {
-    "@list" : [ {
-      "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
-    }, {
-      "@id" : "http://www.w3.org/2001/XMLSchema#string"
-    } ]
-  } ]
-}, {
-  "@id" : "_:genid78",
-  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ],
-  "http://www.w3.org/2002/07/owl#unionOf" : [ {
-    "@list" : [ {
-      "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
-    }, {
-      "@id" : "http://www.w3.org/2001/XMLSchema#string"
-    } ]
-  } ]
-}, {
-  "@id" : "_:genid81",
-  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ],
-  "http://www.w3.org/2002/07/owl#unionOf" : [ {
-    "@list" : [ {
-      "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
-    }, {
-      "@id" : "http://www.w3.org/2001/XMLSchema#string"
-    } ]
-  } ]
-}, {
-  "@id" : "_:genid84",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Axiom" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en-us",
-    "@value" : "should this be a controlled vocabulary?"
-  } ],
-  "http://www.w3.org/2002/07/owl#annotatedProperty" : [ {
-    "@id" : "http://www.w3.org/2000/01/rdf-schema#comment"
-  } ],
-  "http://www.w3.org/2002/07/owl#annotatedSource" : [ {
-    "@id" : "http://ocean-data.org/schema/mimetype"
-  } ],
-  "http://www.w3.org/2002/07/owl#annotatedTarget" : [ {
-    "@value" : "fix"
   } ]
 }, {
   "@id" : "_:genid85",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
-      "@id" : "http://ocean-data.org/schema/Dataset"
-    }, {
-      "@id" : "http://ocean-data.org/schema/Deployment"
-    } ]
-  } ]
-}, {
-  "@id" : "_:genid88",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#maxCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://ocean-data.org/schema/releaseDate"
-  } ]
-}, {
-  "@id" : "_:genid89",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#maxCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://ocean-data.org/schema/restricted"
-  } ]
-}, {
-  "@id" : "_:genid9",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#unionOf" : [ {
-    "@list" : [ {
-      "@id" : "http://ocean-data.org/schema/CreativeWork"
+      "@id" : "http://ocean-data.org/schema/Organization"
     }, {
       "@id" : "http://ocean-data.org/schema/ResearchActivity"
     } ]
   } ]
 }, {
-  "@id" : "_:genid90",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#maxCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://ocean-data.org/schema/validated"
+  "@id" : "_:genid88",
+  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#langString"
+    }, {
+      "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    } ]
   } ]
 }, {
   "@id" : "_:genid91",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
-    "@id" : "http://ocean-data.org/schema/Instrument"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://ocean-data.org/schema/isInstanceOf"
-  } ]
-}, {
-  "@id" : "_:genid92",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
-    "@id" : "http://ocean-data.org/schema/MonitoredProperty"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://ocean-data.org/schema/isInstanceOf"
-  } ]
-}, {
-  "@id" : "_:genid93",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#onClass" : [ {
-    "@id" : "http://ocean-data.org/schema/Platform"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://ocean-data.org/schema/ofPlatform"
-  } ],
-  "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
+  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#langString"
+    }, {
+      "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    } ]
   } ]
 }, {
   "@id" : "_:genid94",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
-    "@id" : "http://ocean-data.org/schema/DeploymentDataset"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://ocean-data.org/schema/hasInventory"
+  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#langString"
+    }, {
+      "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid97",
+  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+    }, {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#langString"
+    }, {
+      "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    } ]
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/",
@@ -445,14 +586,28 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en-us",
-    "@value" : "The Role performed by some agent."
+    "@value" : "A role is the influence of an Agent on a Research Activity or Research Product."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en-us",
-    "@value" : "Agent Role"
+    "@value" : "Role"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/2004/02/skos/core#Concept"
+    "@id" : "http://www.w3.org/ns/prov#Influence"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/AgentRoleType",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "The type of Role perfomed by an Agent for some research activity or product."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "Role Type"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/prov#Role"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/Aircraft",
@@ -467,13 +622,6 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://ocean-data.org/schema/Vehicle"
-  } ]
-}, {
-  "@id" : "http://ocean-data.org/schema/AnalystRole",
-  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRole" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en-us",
-    "@value" : "Analyst"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/ArchiveRecord",
@@ -513,55 +661,52 @@
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en-us",
     "@value" : "Award"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/prov#Entity"
   } ]
 }, {
-  "@id" : "http://ocean-data.org/schema/BcoDmoDataManagerRole",
-  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRole" ],
+  "@id" : "http://ocean-data.org/schema/Citation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "Formatted text specific to some CitationStyle that describes some CreativeWork"
+  } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en-us",
-    "@value" : "BCO-DMO Data Manager"
+    "@value" : "Citation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/prov#Entity"
   } ]
 }, {
-  "@id" : "http://ocean-data.org/schema/BcoDmoIdentifier",
-  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/IdentifierScheme" ],
+  "@id" : "http://ocean-data.org/schema/CitationStyle",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "A citation style that determines the structure of a citation"
+  } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en-us",
-    "@value" : "BCO-DMO"
+    "@value" : "CitationStyle"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/prov#Entity"
   } ]
 }, {
-  "@id" : "http://ocean-data.org/schema/CaptainRole",
-  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRole" ],
+  "@id" : "http://ocean-data.org/schema/CitationStyle_APA",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/CitationStyle" ],
+  "http://ocean-data.org/schema/title" : [ {
+    "@language" : "en-us",
+    "@value" : "APA"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "The APA style for a citation"
+  } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en-us",
-    "@value" : "Captain"
-  } ]
-}, {
-  "@id" : "http://ocean-data.org/schema/ChiefScientistRole",
-  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRole" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en-us",
-    "@value" : "Chief Scientist"
-  } ]
-}, {
-  "@id" : "http://ocean-data.org/schema/Co-ChiefScientistRole",
-  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRole" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en-us",
-    "@value" : "Co-Chief Scientist"
-  } ]
-}, {
-  "@id" : "http://ocean-data.org/schema/Co-PrincipalInvestigatorRole",
-  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRole" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en-us",
-    "@value" : "Co-Principal Investigator"
-  } ]
-}, {
-  "@id" : "http://ocean-data.org/schema/ContactRole",
-  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRole" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en-us",
-    "@value" : "Contact"
+    "@value" : "Citation Style - APA"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/CreativeWork",
@@ -603,7 +748,7 @@
     "@value" : "CreativeWork Relation Type"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/2004/02/skos/core#Concept"
+    "@id" : "http://www.w3.org/ns/prov#Entity"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/CrossrefRelation",
@@ -634,13 +779,6 @@
     "@id" : "http://ocean-data.org/schema/Deployment"
   } ]
 }, {
-  "@id" : "http://ocean-data.org/schema/CuratorRole",
-  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRole" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en-us",
-    "@value" : "Curator"
-  } ]
-}, {
   "@id" : "http://ocean-data.org/schema/CurrentState",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -652,14 +790,7 @@
     "@value" : "Current State"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/2004/02/skos/core#ConceptScheme"
-  } ]
-}, {
-  "@id" : "http://ocean-data.org/schema/DOIIdentifierScheme",
-  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/IdentifierScheme" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en-us",
-    "@value" : "DOI"
+    "@id" : "http://www.w3.org/ns/prov#Entity"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/DataFile",
@@ -690,18 +821,18 @@
     "@id" : "http://ocean-data.org/schema/DigitalDocument"
   } ]
 }, {
-  "@id" : "http://ocean-data.org/schema/DataManagerRole",
-  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRole" ],
+  "@id" : "http://ocean-data.org/schema/DataciteRelation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "Defines The Datacite-specific elements of a relation between two CreativeWorks"
+  } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en-us",
-    "@value" : "Data Manager"
-  } ]
-}, {
-  "@id" : "http://ocean-data.org/schema/DataPublisherRole",
-  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRole" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en-us",
-    "@value" : "Data Publisher"
+    "@value" : "Datacite Relation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/prov#Entity"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/Dataset",
@@ -717,11 +848,11 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://ocean-data.org/schema/CreativeWork"
   }, {
-    "@id" : "_:genid88"
+    "@id" : "_:genid148"
   }, {
-    "@id" : "_:genid89"
+    "@id" : "_:genid149"
   }, {
-    "@id" : "_:genid90"
+    "@id" : "_:genid150"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/DatasetCollection",
@@ -751,7 +882,7 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.w3.org/ns/prov#Entity"
   }, {
-    "@id" : "_:genid91"
+    "@id" : "_:genid151"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/DatasetMonitoredProperty",
@@ -762,12 +893,12 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en-us",
-    "@value" : "Dataset Property"
+    "@value" : "Dataset Monitored Property"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.w3.org/ns/prov#Entity"
   }, {
-    "@id" : "_:genid92"
+    "@id" : "_:genid152"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/DatasetType",
@@ -781,7 +912,7 @@
     "@value" : "Dataset Type"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+    "@id" : "http://www.w3.org/ns/prov#Entity"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/Deployment",
@@ -797,7 +928,7 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.w3.org/ns/prov#Activity"
   }, {
-    "@id" : "_:genid93"
+    "@id" : "_:genid153"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/DeploymentDataset",
@@ -827,7 +958,7 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://ocean-data.org/schema/DatasetCollection"
   }, {
-    "@id" : "_:genid94"
+    "@id" : "_:genid154"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/DigitalDocument",
@@ -870,6 +1001,20 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://ocean-data.org/schema/Platform"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/FileFormat",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "The format of some DigitalDocument"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "FileFormat"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/prov#Entity"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/Float",
@@ -928,13 +1073,6 @@
     "@id" : "http://ocean-data.org/schema/Award"
   } ]
 }, {
-  "@id" : "http://ocean-data.org/schema/GuestRole",
-  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRole" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en-us",
-    "@value" : "Guest"
-  } ]
-}, {
   "@id" : "http://ocean-data.org/schema/Identifier",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -960,7 +1098,67 @@
     "@value" : "Identifier Scheme"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/2004/02/skos/core#Concept"
+    "@id" : "http://www.w3.org/ns/prov#Entity"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/IdentifierScheme_BcoDmo",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/IdentifierScheme" ],
+  "http://ocean-data.org/schema/title" : [ {
+    "@language" : "en-us",
+    "@value" : "BCO-DMO"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "The Identifier at BCO-DMO"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "Identifier Scheme - BCO-DMO"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/IdentifierScheme_DOI",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/IdentifierScheme" ],
+  "http://ocean-data.org/schema/title" : [ {
+    "@language" : "en-us",
+    "@value" : "DOI"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "A DOI, Digital Object Identifier."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "DOI Identifier"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/IdentifierScheme_NCEIAccession",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/IdentifierScheme" ],
+  "http://ocean-data.org/schema/title" : [ {
+    "@language" : "en-us",
+    "@value" : "NCEI Accession #"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "An NCEI Accession number"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "Identifier Scheme - NCEI Accession"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/IdentifierScheme_NODCAccession",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/IdentifierScheme" ],
+  "http://ocean-data.org/schema/title" : [ {
+    "@language" : "en-us",
+    "@value" : "NODC Accession #"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "An NODC accession number"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "Identifier Scheme - NODC Accession"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/Instrument",
@@ -974,7 +1172,7 @@
     "@value" : "Instrument"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/2004/02/skos/core#Concept"
+    "@id" : "http://www.w3.org/ns/prov#Entity"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/InterCrossrefRelation",
@@ -989,13 +1187,6 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://ocean-data.org/schema/CrossrefRelation"
-  } ]
-}, {
-  "@id" : "http://ocean-data.org/schema/InternationalCollaboratorRole",
-  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRole" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en-us",
-    "@value" : "International Collaborator"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/IntraCrossrefRelation",
@@ -1026,6 +1217,9 @@
     "@id" : "http://ocean-data.org/schema/StationaryPlatform"
   } ]
 }, {
+  "@id" : "http://ocean-data.org/schema/JSON",
+  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ]
+}, {
   "@id" : "http://ocean-data.org/schema/Laboratory",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -1052,13 +1246,6 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://ocean-data.org/schema/Dataset"
-  } ]
-}, {
-  "@id" : "http://ocean-data.org/schema/LeadPrincipalInvestigatorRole",
-  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRole" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en-us",
-    "@value" : "Lead Principal Investigator"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/MannedSubmarine",
@@ -1100,7 +1287,7 @@
     "@value" : "Monitored Property"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/2004/02/skos/core#Concept"
+    "@id" : "http://ocean-data.org/schema/Parameter"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/Mooring",
@@ -1131,11 +1318,18 @@
     "@id" : "http://ocean-data.org/schema/Agent"
   } ]
 }, {
-  "@id" : "http://ocean-data.org/schema/OriginatorRole",
-  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRole" ],
+  "@id" : "http://ocean-data.org/schema/Parameter",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "A parameter measured, observed, or collected as part of a Dataset"
+  } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en-us",
-    "@value" : "Originator"
+    "@value" : "Parameter"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/prov#Entity"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/Person",
@@ -1171,22 +1365,13 @@
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en-us",
     "@value" : "A controlled vocabulary of platform titles/types."
-  }, {
-    "@value" : "fix"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en-us",
     "@value" : "Platform Title"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/2004/02/skos/core#Concept"
-  } ]
-}, {
-  "@id" : "http://ocean-data.org/schema/PrincipalInvestigatorRole",
-  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRole" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en-us",
-    "@value" : "Principal Investigator"
+    "@id" : "http://www.w3.org/ns/prov#Entity"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/Program",
@@ -1203,13 +1388,6 @@
     "@id" : "http://ocean-data.org/schema/ResearchActivity"
   } ]
 }, {
-  "@id" : "http://ocean-data.org/schema/ProgramManagerRole",
-  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRole" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en-us",
-    "@value" : "Program Manager"
-  } ]
-}, {
   "@id" : "http://ocean-data.org/schema/Project",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -1222,13 +1400,6 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://ocean-data.org/schema/ResearchActivity"
-  } ]
-}, {
-  "@id" : "http://ocean-data.org/schema/ProjectCoordinatorRole",
-  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRole" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en-us",
-    "@value" : "Project Coordinator"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/Publication",
@@ -1273,32 +1444,319 @@
     "@id" : "http://www.w3.org/ns/prov#Activity"
   } ]
 }, {
-  "@id" : "http://ocean-data.org/schema/Role",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@id" : "http://ocean-data.org/schema/Role_Analyst",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRoleType" ],
+  "http://ocean-data.org/schema/title" : [ {
+    "@language" : "en-us",
+    "@value" : "Analyst"
+  } ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en-us",
-    "@value" : "A role is the influence of an Agent on a Research Activity or Research Product."
+    "@value" : "An analsyt on the subject of an Agent Role"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en-us",
-    "@value" : "Role"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/ns/prov#Influence"
+    "@value" : "Role - Analyst"
   } ]
 }, {
-  "@id" : "http://ocean-data.org/schema/RoleType",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@id" : "http://ocean-data.org/schema/Role_BcoDmoDataManager",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRoleType" ],
+  "http://ocean-data.org/schema/title" : [ {
+    "@language" : "en-us",
+    "@value" : "BCO-DMO Data Manager"
+  } ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en-us",
-    "@value" : "The type of Role perfomed by an Agent for some research activity or product."
+    "@value" : "A BCO-DMO Data Manager who curated the subject of an AgentRole"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en-us",
-    "@value" : "Role Type"
+    "@value" : "Role - BCO-DMO Data Manager"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/Role_Captain",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRoleType" ],
+  "http://ocean-data.org/schema/title" : [ {
+    "@language" : "en-us",
+    "@value" : "Captain"
   } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "The Captain of the subject of an Agent Role, usually some Deployment."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "Role - Captain"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/Role_ChiefScientist",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRoleType" ],
+  "http://ocean-data.org/schema/title" : [ {
+    "@language" : "en-us",
+    "@value" : "Chief Scientist"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "A Chief Scientist of the subject of an Agent Role, usually some Deployment"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "Role - Chief Scientist"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/Role_Co-ChiefScientist",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRoleType" ],
+  "http://ocean-data.org/schema/title" : [ {
+    "@language" : "en-us",
+    "@value" : "Co-Chief Scientist"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "A Co-Cheif Scientist of the subject of an Agent Role, usually some Deployment"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "Role - Co-Chief Scientist"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/Role_Co-PrincipalInvestigator",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRoleType" ],
+  "http://ocean-data.org/schema/title" : [ {
+    "@language" : "en-us",
+    "@value" : "Co-Principal Investigator"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "A Co-Principal Investigator of the subject of an Agent Role"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "Role - Co-Principal Investigator"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/Role_Contact",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRoleType" ],
+  "http://ocean-data.org/schema/title" : [ {
+    "@language" : "en-us",
+    "@value" : "Contact"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "A Contact of the subject of an Agent Role"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "Role - Contact"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/Role_Curator",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRoleType" ],
+  "http://ocean-data.org/schema/title" : [ {
+    "@language" : "en-us",
+    "@value" : "Curator"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "A Curator of the subject of an Agent Role"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "Role - Curator"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/Role_DataManager",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRoleType" ],
+  "http://ocean-data.org/schema/title" : [ {
+    "@language" : "en-us",
+    "@value" : "Data Manager"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "A Data Manager, external to BCO-DMO, of the subject of an Agent Role"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "Role - Data Manager"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/Role_DataPublisher",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRoleType" ],
+  "http://ocean-data.org/schema/title" : [ {
+    "@language" : "en-us",
+    "@value" : "Data Publisher"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "A Data Publisher of the subject of an Agent Role"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "Role - Data Publisher"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/Role_Guest",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRoleType" ],
+  "http://ocean-data.org/schema/title" : [ {
+    "@language" : "en-us",
+    "@value" : "Guest"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "A Guest of the subject of an Agent Role"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "Role - Guest"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/Role_InternationalCollaborator",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRoleType" ],
+  "http://ocean-data.org/schema/title" : [ {
+    "@language" : "en-us",
+    "@value" : "International Collaborator"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "An international collaborator of the subject of an Agent Role"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "Role - International Collaborator"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/Role_LeadPrincipalInvestigator",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRoleType" ],
+  "http://ocean-data.org/schema/title" : [ {
+    "@language" : "en-us",
+    "@value" : "Lead Principal Investigator"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "A Lead Principal Investigator of the subject of an Agent Role"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "Role - Lead Principal Investigator"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/Role_Originator",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRoleType" ],
+  "http://ocean-data.org/schema/title" : [ {
+    "@language" : "en-us",
+    "@value" : "Originator"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "An Originator of the subject of an Agent Role"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "Role - Originator"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/Role_PrincipalInvestigator",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRoleType" ],
+  "http://ocean-data.org/schema/title" : [ {
+    "@language" : "en-us",
+    "@value" : "Principal Investigator"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "A Principal Investigator of the subject of an Agent Role"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "Role - Principal Investigator"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/Role_ProgramManager",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRoleType" ],
+  "http://ocean-data.org/schema/title" : [ {
+    "@language" : "en-us",
+    "@value" : "Program Manager"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "A program manager of the subject of an Agent Role"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "Role - Program Manager"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/Role_ProjectCoordinator",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRoleType" ],
+  "http://ocean-data.org/schema/title" : [ {
+    "@language" : "en-us",
+    "@value" : "Project Coordinator"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "A project coordinator of the subject of an Agent Role"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "Role - Project Coordinator"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/Role_Scientist",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRoleType" ],
+  "http://ocean-data.org/schema/title" : [ {
+    "@language" : "en-us",
+    "@value" : "Scientist"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "A scientist of the subject of an Agent Role"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "Role - Scientist"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/Role_Student",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRoleType" ],
+  "http://ocean-data.org/schema/title" : [ {
+    "@language" : "en-us",
+    "@value" : "Student"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "A student of the subject of an Agent Role"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "Role - Student"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/Role_Technician",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRoleType" ],
+  "http://ocean-data.org/schema/title" : [ {
+    "@language" : "en-us",
+    "@value" : "Technician"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "A technician of the subject of an Agent Role"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "Role - Technician"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/Role_Unknown",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRoleType" ],
+  "http://ocean-data.org/schema/title" : [ {
+    "@language" : "en-us",
+    "@value" : "Unknown"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "An unknown role of the subject of an Agent Role"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "Role - Unknown"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/Satellite",
@@ -1313,13 +1771,6 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://ocean-data.org/schema/Platform"
-  } ]
-}, {
-  "@id" : "http://ocean-data.org/schema/ScientistRole",
-  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRole" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en-us",
-    "@value" : "Scientist"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/StationaryPlatform",
@@ -1350,13 +1801,6 @@
     "@id" : "http://ocean-data.org/schema/StationaryPlatform"
   }, {
     "@id" : "http://ocean-data.org/schema/Vessel"
-  } ]
-}, {
-  "@id" : "http://ocean-data.org/schema/StudentRole",
-  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRole" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en-us",
-    "@value" : "Student"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/SubContractAward",
@@ -1415,13 +1859,6 @@
     "@id" : "http://ocean-data.org/schema/Platform"
   } ]
 }, {
-  "@id" : "http://ocean-data.org/schema/TechnicianRole",
-  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRole" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en-us",
-    "@value" : "Technician"
-  } ]
-}, {
   "@id" : "http://ocean-data.org/schema/TowedVehicle",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -1447,14 +1884,7 @@
     "@value" : "Unit of Measure"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/2004/02/skos/core#Concept"
-  } ]
-}, {
-  "@id" : "http://ocean-data.org/schema/UnknownRole",
-  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://ocean-data.org/schema/AgentRole" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en-us",
-    "@value" : "Unknown"
+    "@id" : "http://www.w3.org/ns/prov#Entity"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/UnmannedSubmarine",
@@ -1509,7 +1939,7 @@
     "@value" : "abstract"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    "@id" : "_:genid39"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/alternateName",
@@ -1526,7 +1956,24 @@
     "@value" : "alternateName"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    "@id" : "_:genid42"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/archiveFile",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "A DigitalDocument submitted to an archive as part of an archive record"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://ocean-data.org/schema/ArchiveRecord"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "archiveFile"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://ocean-data.org/schema/DigitalDocument"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/archivedDate",
@@ -1634,21 +2081,85 @@
     "@id" : "http://www.w3.org/2002/07/owl#Thing"
   } ]
 }, {
-  "@id" : "http://ocean-data.org/schema/citationText",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "@id" : "http://ocean-data.org/schema/citation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en-us",
-    "@value" : "The citation text for a Creative Work."
+    "@value" : "A styled citation for a CreativeWork"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "http://ocean-data.org/schema/CreativeWork"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en-us",
-    "@value" : "citationText"
+    "@value" : "citation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://ocean-data.org/schema/Citation"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://ocean-data.org/schema/cites"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/citationJSON",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://ocean-data.org/schema/Citation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://ocean-data.org/schema/JSON"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/citationStyle",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#FunctionalProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "The style for a citation of a CreativeWork"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://ocean-data.org/schema/Citation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "citationStyle"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://ocean-data.org/schema/CitationStyle"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/citationText",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://ocean-data.org/schema/Citation"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/citationTextGeneratedDate",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#FunctionalProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "The dateTime at which the citationJSON was retreived and the citationText was auto-generated."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://ocean-data.org/schema/Citation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "citationTextGeneratedDate"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#dateTime"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/cites",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#FunctionalProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://ocean-data.org/schema/Citation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://ocean-data.org/schema/CreativeWork"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/conversionDescription",
@@ -1665,7 +2176,24 @@
     "@value" : "conversionDescription"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    "@id" : "_:genid45"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/createdDate",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#FunctionalProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "The created datetime for some Thing"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2002/07/owl#Thing"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "createdDate"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#dateTime"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/crossrefRelation",
@@ -1699,7 +2227,7 @@
     "@value" : "currentState"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "_:genid1"
+    "@id" : "http://ocean-data.org/schema/CurrentState"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/dataFile",
@@ -1722,8 +2250,25 @@
     "@id" : "http://ocean-data.org/schema/serializes"
   } ]
 }, {
+  "@id" : "http://ocean-data.org/schema/dataciteRelation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "The type of relationship defined by Datacite."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://ocean-data.org/schema/CreativeWorkRelationType"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "dataciteRelation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://ocean-data.org/schema/DataciteRelation"
+  } ]
+}, {
   "@id" : "http://ocean-data.org/schema/datasetTitle",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#FunctionalProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en-us",
     "@value" : "the title of a Dataset. was using dc:title or dct:title"
@@ -1736,7 +2281,10 @@
     "@value" : "datasetTitle"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#langString"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ocean-data.org/schema/title"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/datasetType",
@@ -1753,7 +2301,7 @@
     "@value" : "datasetType"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "_:genid5"
+    "@id" : "http://ocean-data.org/schema/DatasetType"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/downloadUrl",
@@ -1773,6 +2321,23 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#anyURI"
   } ]
 }, {
+  "@id" : "http://ocean-data.org/schema/fileFormat",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "The file format for a DigitalDocument"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://ocean-data.org/schema/DigitalDocument"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "fileFormat"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://ocean-data.org/schema/FileFormat"
+  } ]
+}, {
   "@id" : "http://ocean-data.org/schema/firstName",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -1787,7 +2352,7 @@
     "@value" : "firstName"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    "@id" : "_:genid48"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/forOrganization",
@@ -1797,7 +2362,7 @@
     "@value" : "The organization at which an agent performing a role was affiliated with."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://ocean-data.org/schema/Role"
+    "@id" : "http://ocean-data.org/schema/AgentRole"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en-us",
@@ -1882,7 +2447,7 @@
     "@value" : "fullName"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    "@id" : "_:genid51"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/funded",
@@ -1899,7 +2464,7 @@
     "@value" : "funded"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "_:genid9"
+    "@id" : "_:genid1"
   } ],
   "http://www.w3.org/2002/07/owl#inverseOf" : [ {
     "@id" : "http://ocean-data.org/schema/fundedBy"
@@ -1912,7 +2477,7 @@
     "@value" : "Specifies how a research activity or product was funded"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "_:genid12"
+    "@id" : "_:genid4"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en-us",
@@ -1956,7 +2521,7 @@
     "@value" : "hasAcquisitionDescription"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "_:genid48"
+    "@id" : "_:genid54"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/hasAcronym",
@@ -1966,7 +2531,7 @@
     "@value" : "An acronym, or shortened name, for a Thing."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "_:genid51"
+    "@id" : "_:genid58"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en-us",
@@ -1983,14 +2548,14 @@
     "@value" : "Specifies role some agent played on a certain research activity or product."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "_:genid15"
+    "@id" : "_:genid7"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en-us",
     "@value" : "hasAgentWithRole"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://ocean-data.org/schema/Role"
+    "@id" : "http://ocean-data.org/schema/AgentRole"
   } ],
   "http://www.w3.org/2002/07/owl#inverseOf" : [ {
     "@id" : "http://ocean-data.org/schema/roleAbout"
@@ -2020,7 +2585,7 @@
     "@value" : "Whether an activity (Project) or Entity (Dataset or Funding Source) is attached to an award. This should probably be brokenn into different terms - :Dataset 'fundedBy' :Award; :FundingSource 'provesAward' :Award; :Award 'fundsActivity' :Project"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "_:genid21"
+    "@id" : "_:genid13"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en-us",
@@ -2087,7 +2652,7 @@
     "@value" : "hasBriefDescription"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "_:genid56"
+    "@id" : "_:genid63"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/hasCoordinatedDeployment",
@@ -2150,7 +2715,7 @@
     "@value" : "Used by odo:DeploymentDataset, odo:Award, odo:Project classes"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "_:genid25"
+    "@id" : "_:genid17"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en-us",
@@ -2185,7 +2750,7 @@
     "@value" : "hasDatasetDescription"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "_:genid59"
+    "@id" : "_:genid67"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/hasDatasetURL",
@@ -2236,7 +2801,7 @@
     "@value" : "hasDeploymentDescription"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "_:genid62"
+    "@id" : "_:genid71"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/hasFundingSource",
@@ -2263,7 +2828,7 @@
     "@value" : "An identifier for a Creative Work."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://ocean-data.org/schema/CreativeWork"
+    "@id" : "_:genid21"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://ocean-data.org/schema/Identifier"
@@ -2288,6 +2853,23 @@
     "@id" : "http://ocean-data.org/schema/Dataset"
   } ]
 }, {
+  "@id" : "http://ocean-data.org/schema/hasLeadCollaborativeAward",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#FunctionalProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "The Lead Collaborative award in a collaborative project that awarded multiple awards to multiple Organizations. THis field identifies the Lead Award."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://ocean-data.org/schema/Award"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "hasLeadCollaborativeAward"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://ocean-data.org/schema/Award"
+  } ]
+}, {
   "@id" : "http://ocean-data.org/schema/hasLocation",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -2297,14 +2879,14 @@
     "@value" : "fix"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "_:genid65"
+    "@id" : "_:genid75"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en-us",
     "@value" : "hasLocation"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    "@id" : "_:genid79"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/hasLogo",
@@ -2314,7 +2896,7 @@
     "@value" : "A URL to an image file of a log for som research activity or organization."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "_:genid69"
+    "@id" : "_:genid82"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en-us",
@@ -2334,7 +2916,7 @@
     "@value" : "The official logo URL"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "_:genid72"
+    "@id" : "_:genid85"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en-us",
@@ -2378,7 +2960,7 @@
     "@value" : "hasOrganizationSubName"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    "@id" : "_:genid88"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/hasParameterShortDescription",
@@ -2395,7 +2977,7 @@
     "@value" : "hasParameterShortDescription"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    "@id" : "_:genid91"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
     "@id" : "http://www.w3.org/2002/07/owl#topDataProperty"
@@ -2415,27 +2997,7 @@
     "@value" : "hasParameterShortName"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
-  } ]
-}, {
-  "@id" : "http://ocean-data.org/schema/hasParentProgram",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en-us",
-    "@value" : "The Program which made the Project possible"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://ocean-data.org/schema/Project"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en-us",
-    "@value" : "hasParentProgram"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://ocean-data.org/schema/Program"
-  } ],
-  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
-    "@id" : "http://ocean-data.org/schema/hasProject"
+    "@id" : "_:genid94"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/hasPlatformTitle",
@@ -2486,7 +3048,7 @@
     "@value" : "hasProcessingDescription"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "_:genid75"
+    "@id" : "_:genid97"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
     "@id" : "http://www.w3.org/2002/07/owl#topDataProperty"
@@ -2522,7 +3084,7 @@
     "@id" : "http://ocean-data.org/schema/Program"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "_:genid78"
+    "@id" : "_:genid101"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/hasProject",
@@ -2540,6 +3102,9 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://ocean-data.org/schema/Project"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://ocean-data.org/schema/isPartOfProgram"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/hasProjectDates",
@@ -2573,7 +3138,7 @@
     "@value" : "hasProjectDescription"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "_:genid81"
+    "@id" : "_:genid105"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/hasReportURL",
@@ -2607,7 +3172,7 @@
     "@value" : "hasRole"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://ocean-data.org/schema/Role"
+    "@id" : "http://ocean-data.org/schema/AgentRole"
   } ],
   "http://www.w3.org/2002/07/owl#deprecated" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#boolean",
@@ -2618,13 +3183,13 @@
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/hasRoleWeight",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#FunctionalProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en-us",
-    "@value" : "The sort order in order of importance or meaning or rank."
+    "@value" : "Sort ordering for roles"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://ocean-data.org/schema/AgentRole"
+    "@id" : "http://ocean-data.org/schema/AgentRoleType"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en-us",
@@ -2684,7 +3249,7 @@
     "@value" : "the synonym for seom Deployment"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    "@id" : "_:genid109"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/hasUnitOfMeasure",
@@ -2694,7 +3259,7 @@
     "@value" : "The unit of Measure used for a certain MonitoredProperty. In the case of MonitoredProperty where these are conceptual, the unit of measure is considered to the default, or convention, for that property. For DatasetMonitoredProperty, the unit of measure is what was actually used within the Dataset."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "_:genid29"
+    "@id" : "_:genid24"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en-us",
@@ -2718,7 +3283,7 @@
     "@value" : "honorific"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    "@id" : "_:genid112"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/identifierValue",
@@ -2755,6 +3320,23 @@
     "@id" : "http://ocean-data.org/schema/ArchiveRecord"
   } ]
 }, {
+  "@id" : "http://ocean-data.org/schema/isContinuingAwardOf",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#FunctionalProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "This Award is a continuation of a pre-existing Award"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://ocean-data.org/schema/Award"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "isContinuingAwardOf"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://ocean-data.org/schema/Award"
+  } ]
+}, {
   "@id" : "http://ocean-data.org/schema/isDeployed",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -2784,14 +3366,31 @@
     "@value" : "Defines the concept for which the subject is a realized instance."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "_:genid32"
+    "@id" : "_:genid27"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en-us",
     "@value" : "isInstanceOf"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "_:genid35"
+    "@id" : "_:genid30"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/isPartOfProgram",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "The Program which made the Project possible. Was 'hasParentProgram'."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://ocean-data.org/schema/Project"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "isPartOfProgram"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://ocean-data.org/schema/Program"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/issueDate",
@@ -2842,7 +3441,7 @@
     "@value" : "lastName"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    "@id" : "_:genid115"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/matches",
@@ -2879,7 +3478,7 @@
     "@value" : "middleName"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    "@id" : "_:genid118"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/mimetype",
@@ -2887,11 +3486,9 @@
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en-us",
     "@value" : "The mimetype for some DigitalDocument"
-  }, {
-    "@value" : "fix"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://ocean-data.org/schema/DigitalDocument"
+    "@id" : "http://ocean-data.org/schema/FileFormat"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en-us",
@@ -2899,6 +3496,23 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/modifiedDate",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#FunctionalProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "The modified date of some Thing"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2002/07/owl#Thing"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "modifiedDate"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#dateTime"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/nickname",
@@ -2915,7 +3529,7 @@
     "@value" : "nickname"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    "@id" : "_:genid121"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/obsoletedBy",
@@ -2959,7 +3573,7 @@
     "@value" : "The Agent performing a certain Role in a research activity or on a research product."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://ocean-data.org/schema/Role"
+    "@id" : "http://ocean-data.org/schema/AgentRole"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en-us",
@@ -2983,7 +3597,27 @@
     "@value" : "performedRole"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://ocean-data.org/schema/Role"
+    "@id" : "http://ocean-data.org/schema/AgentRole"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/producedDataset",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "The Dataset that was produced as a result of some ResearchActivity"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://ocean-data.org/schema/ResearchActivity"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "producedDataset"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://ocean-data.org/schema/Dataset"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ocean-data.org/schema/producedWork"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/producedWork",
@@ -3112,14 +3746,14 @@
     "@value" : "The research activity or product of which this role is about. Was using dc:subject"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://ocean-data.org/schema/Role"
+    "@id" : "http://ocean-data.org/schema/AgentRole"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en-us",
     "@value" : "roleAbout"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "_:genid38"
+    "@id" : "_:genid33"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/roleType",
@@ -3129,14 +3763,14 @@
     "@value" : "The type of Role"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://ocean-data.org/schema/Role"
+    "@id" : "http://ocean-data.org/schema/AgentRole"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en-us",
     "@value" : "roleType"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "_:genid44"
+    "@id" : "http://ocean-data.org/schema/AgentRoleType"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/serializes",
@@ -3174,6 +3808,40 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://ocean-data.org/schema/DatasetMonitoredProperty"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/supplementedBy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "The DataFile supplements the Dataset by providing contextual information"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://ocean-data.org/schema/Dataset"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "supplementedBy"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://ocean-data.org/schema/DataFile"
+  } ]
+}, {
+  "@id" : "http://ocean-data.org/schema/title",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#FunctionalProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en-us",
+    "@value" : "A title for some Thing"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "_:genid124"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en-us",
+    "@value" : "title"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "_:genid142"
   } ]
 }, {
   "@id" : "http://ocean-data.org/schema/usesIdentifierScheme",
@@ -3251,7 +3919,7 @@
     "@value" : "A WKT representation of a geometry to use when avoiding Virtuoso's geometry validation."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "_:genid85"
+    "@id" : "_:genid145"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en-us",
@@ -3315,22 +3983,16 @@
   "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#Resource",
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
 }, {
-  "@id" : "http://www.w3.org/2001/XMLSchema#date",
+  "@id" : "http://www.w3.org/2000/01/rdf-schema#langString",
   "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ]
 }, {
-  "@id" : "http://www.w3.org/2004/02/skos/core#Concept",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
-}, {
-  "@id" : "http://www.w3.org/2004/02/skos/core#ConceptScheme",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+  "@id" : "http://www.w3.org/2001/XMLSchema#date",
+  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ]
 }, {
   "@id" : "http://www.w3.org/2004/02/skos/core#defintion",
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
 }, {
   "@id" : "http://www.w3.org/2004/02/skos/core#exactMatch",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
-}, {
-  "@id" : "http://www.w3.org/2004/02/skos/core#member",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
 }, {
   "@id" : "http://www.w3.org/2004/02/skos/core#related",
@@ -3349,6 +4011,9 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
 }, {
   "@id" : "http://www.w3.org/ns/prov#Influence",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "http://www.w3.org/ns/prov#Role",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
 }, {
   "@id" : "http://www.w3.org/ns/prov#generated",
