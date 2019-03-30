@@ -745,6 +745,14 @@ _:genid46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 <http://ocean-data.org/schema/createdDate> <http://www.w3.org/2000/01/rdf-schema#comment> "The created datetime for some Thing"@en-us .
 <http://ocean-data.org/schema/createdDate> <http://www.w3.org/2000/01/rdf-schema#label> "createdDate"@en-us .
 # 
+# http://ocean-data.org/schema/cruiseIdentifier
+<http://ocean-data.org/schema/cruiseIdentifier> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ocean-data.org/schema/cruiseIdentifier> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://ocean-data.org/schema/cruiseIdentifier> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ocean-data.org/schema/Cruise> .
+<http://ocean-data.org/schema/cruiseIdentifier> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ocean-data.org/schema/cruiseIdentifier> <http://www.w3.org/2000/01/rdf-schema#comment> "The cruise identifier that uniquely identifies a cruise. This value should be the same as ?x in `:Deployment :hasIdentifier [ :identifierValue ?x ]`"@en-us .
+<http://ocean-data.org/schema/cruiseIdentifier> <http://www.w3.org/2000/01/rdf-schema#label> "cruiseIdentifier"@en-us .
+# 
 # http://ocean-data.org/schema/datasetTitle
 <http://ocean-data.org/schema/datasetTitle> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://ocean-data.org/schema/datasetTitle> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ocean-data.org/schema/title> .

@@ -574,7 +574,8 @@ This section provides details for each class and property defined by Ocean Data 
          </dd>
          <dt>is in domain of</dt>
          <dd>
-            <a href="#hasCruiseTrajectory" title="http://ocean-data.org/schema/hasCruiseTrajectory">hasCruiseTrajectory</a>
+            <a href="#cruiseIdentifier" title="http://ocean-data.org/schema/cruiseIdentifier">cruiseIdentifier</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#hasCruiseTrajectory" title="http://ocean-data.org/schema/hasCruiseTrajectory">hasCruiseTrajectory</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
@@ -3903,6 +3904,9 @@ This section provides details for each class and property defined by Ocean Data 
          <a href="#createdDate" title="http://ocean-data.org/schema/createdDate">createdDate</a>
       </li>
       <li>
+         <a href="#cruiseIdentifier" title="http://ocean-data.org/schema/cruiseIdentifier">cruiseIdentifier</a>
+      </li>
+      <li>
          <a href="#datasetTitle" title="http://ocean-data.org/schema/datasetTitle">datasetTitle</a>
       </li>
       <li>
@@ -4296,6 +4300,32 @@ This section provides details for each class and property defined by Ocean Data 
             <dt>has range</dt>
             <dd>
                <span class="dotted" title="http://www.w3.org/2001/XMLSchema#dateTime">date time</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="cruiseIdentifier">
+      <h3>cruiseIdentifier<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://ocean-data.org/schema/cruiseIdentifier</p>
+      <div class="comment">
+         <span class="markdown">The cruise identifier that uniquely identifies a cruise. This value should be the same as ?x in `:Deployment :hasIdentifier [ :identifierValue ?x ]`</span>
+      </div>
+      <div class="description">
+         <p>
+            <strong>has characteristics:</strong> functional</p>
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Cruise" title="http://ocean-data.org/schema/Cruise">Cruise</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>
             </dd>
          </dl>
       </div>

@@ -758,6 +758,15 @@ xsd:date rdf:type rdfs:Datatype .
              rdfs:label "createdDate"@en-us .
 
 
+###  http://ocean-data.org/schema/cruiseIdentifier
+:cruiseIdentifier rdf:type owl:DatatypeProperty ,
+                           owl:FunctionalProperty ;
+                  rdfs:domain :Cruise ;
+                  rdfs:range xsd:string ;
+                  rdfs:comment "The cruise identifier that uniquely identifies a cruise. This value should be the same as ?x in `:Deployment :hasIdentifier [ :identifierValue ?x ]`"@en-us ;
+                  rdfs:label "cruiseIdentifier"@en-us .
+
+
 ###  http://ocean-data.org/schema/datasetTitle
 :datasetTitle rdf:type owl:DatatypeProperty ;
               rdfs:subPropertyOf :title ;
