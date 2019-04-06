@@ -14,12 +14,15 @@
      xmlns:time="http://www.w3.org/2006/time#"
      xmlns:odo="http://ocean-data.org/schema/"
      xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:prov="http://www.w3.org/ns/prov#"
      xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:dc="http://purl.org/dc/elements/1.1/">
     <owl:Ontology rdf:about="http://ocean-data.org/schema/">
         <owl:versionIRI rdf:resource="http://ocean-data.org/schema/"/>
+        <owl:imports rdf:resource="http://www.w3.org/ns/prov-o-20130430"/>
         <rdfs:label xml:lang="en-us">Ocean Data Ontology</rdfs:label>
         <owl:versionInfo>0.9.0</owl:versionInfo>
+        <vann:preferredNamespacePrefix rdf:datatype="http://www.w3.org/2001/XMLSchema#string">odo</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://ocean-data.org/schema/</vann:preferredNamespaceUri>
         <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2019-03-27</dcterms:modified>
         <dcterms:title xml:lang="en-us">Ocean Data Ontology</dcterms:title>
@@ -27,10 +30,10 @@
         <dcterms:source rdf:datatype="xsd:anyURI">https://github.com/BCODMO/Ocean-Data-Ontology</dcterms:source>
         <dcterms:publisher rdf:resource="http://lod.bco-dmo.org/id/affiliation/191"/>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2019-03-27</dcterms:issued>
-        <vann:preferredNamespaceUri rdf:datatype="http://www.w3.org/2001/XMLSchema#string">odo</vann:preferredNamespaceUri>
         <dcterms:created xml:lang="en-us">2012-01-01</dcterms:created>
         <dcterms:creator rdf:resource="http://orcid.org/0000-0003-4486-9448"/>
         <dc:publisher xml:lang="en-us">Biological and Chemical Oceanography Data Management Office (BCO-DMO)</dc:publisher>
+        <lucidchartDiagram rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.lucidchart.com/documents/edit/6f30a34e-dd4e-4c79-a9c3-7f875d0efa37/0</lucidchartDiagram>
     </owl:Ontology>
     
 
@@ -43,6 +46,30 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://ocean-data.org/schema/lucidchartDiagram -->
+
+    <owl:AnnotationProperty rdf:about="http://ocean-data.org/schema/lucidchartDiagram">
+        <rdfs:comment xml:lang="en-us">A LucidChart diagram of the model</rdfs:comment>
+        <rdfs:label xml:lang="en-us">lucidchartDiagram</rdfs:label>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://ocean-data.org/schema/precededBy -->
+
+    <owl:AnnotationProperty rdf:about="http://ocean-data.org/schema/precededBy">
+        <rdfs:comment xml:lang="en-us">This element is precededBy the target element in constructing a whole representation of a chain of parts.</rdfs:comment>
+        <rdfs:label xml:lang="en-us">precededBy</rdfs:label>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://ocean-data.org/schema/title -->
+
+    <owl:AnnotationProperty rdf:about="http://ocean-data.org/schema/title"/>
     
 
 
@@ -67,6 +94,12 @@
     <!-- http://purl.org/dc/terms/creator -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/isPartOf -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/isPartOf"/>
     
 
 
@@ -188,12 +221,24 @@
     
 
 
+    <!-- http://ocean-data.org/schema/affordanceType -->
+
+    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/affordanceType">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Affordance"/>
+        <rdfs:range rdf:resource="http://ocean-data.org/schema/AffordanceType"/>
+        <rdfs:comment xml:lang="en-us">The type of affordance made available for the subject of an Affordance</rdfs:comment>
+        <rdfs:label xml:lang="en-us">affordanceType</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://ocean-data.org/schema/archiveFile -->
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/archiveFile">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/ArchiveRecord"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/DigitalDocument"/>
-        <rdfs:comment xml:lang="en-us">A DigitalDocument submitted to an archive as part of an archive record</rdfs:comment>
+        <rdfs:range rdf:resource="http://ocean-data.org/schema/DigitalObject"/>
+        <rdfs:comment xml:lang="en-us">A DigitalObject submitted to an archive as part of an archive record</rdfs:comment>
         <rdfs:label xml:lang="en-us">archiveFile</rdfs:label>
     </owl:ObjectProperty>
     
@@ -224,13 +269,14 @@
     
 
 
-    <!-- http://ocean-data.org/schema/checksumAlgorithm -->
+    <!-- http://ocean-data.org/schema/checksum -->
 
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/checksumAlgorithm">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalDocument"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <rdfs:comment xml:lang="en-us">The algorithm of some cryptographic hash</rdfs:comment>
-        <rdfs:label xml:lang="en-us">checksumAlgorithm</rdfs:label>
+    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/checksum">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalObject"/>
+        <rdfs:range rdf:resource="http://ocean-data.org/schema/CryptographicChecksum"/>
+        <rdfs:comment xml:lang="en-us">A CryptographicChecksum for a DigitalObject</rdfs:comment>
+        <rdfs:label xml:lang="en-us">checksum</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -238,11 +284,22 @@
     <!-- http://ocean-data.org/schema/citation -->
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/citation">
-        <owl:inverseOf rdf:resource="http://ocean-data.org/schema/cites"/>
+        <owl:inverseOf rdf:resource="http://ocean-data.org/schema/citationFor"/>
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/CreativeWork"/>
         <rdfs:range rdf:resource="http://ocean-data.org/schema/Citation"/>
         <rdfs:comment xml:lang="en-us">A styled citation for a CreativeWork</rdfs:comment>
         <rdfs:label xml:lang="en-us">citation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ocean-data.org/schema/citationFor -->
+
+    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/citationFor">
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Citation"/>
+        <rdfs:range rdf:resource="http://ocean-data.org/schema/CreativeWork"/>
+        <rdfs:comment xml:lang="en-us">This citation describes the CreativeWork</rdfs:comment>
+        <rdfs:label xml:lang="en-us">citationFor</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -259,16 +316,6 @@
     
 
 
-    <!-- http://ocean-data.org/schema/cites -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/cites">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Citation"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/CreativeWork"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://ocean-data.org/schema/crossrefRelation -->
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/crossrefRelation">
@@ -276,6 +323,18 @@
         <rdfs:range rdf:resource="http://ocean-data.org/schema/CrossrefRelation"/>
         <rdfs:comment xml:lang="en-us">The type of relationship defined by Crossref.</rdfs:comment>
         <rdfs:label xml:lang="en-us">crossrefRelation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ocean-data.org/schema/cryptographicAlgorithm -->
+
+    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/cryptographicAlgorithm">
+        <rdfs:subPropertyOf rdf:resource="http://ocean-data.org/schema/usesIdentifierScheme"/>
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/CryptographicChecksum"/>
+        <rdfs:range rdf:resource="http://ocean-data.org/schema/CryptographicAlgorithm"/>
+        <rdfs:comment xml:lang="en-us">The algorithm of some cryptographic hash</rdfs:comment>
+        <rdfs:label xml:lang="en-us">cryptographicAlgorithm</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -326,13 +385,46 @@
     
 
 
+    <!-- http://ocean-data.org/schema/digitalObjectStore -->
+
+    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/digitalObjectStore">
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalObjectLocation"/>
+        <rdfs:range rdf:resource="http://ocean-data.org/schema/DigitalObjectStore"/>
+        <rdfs:comment xml:lang="en-us">A DigitalObjectStore where this DigitalObject can be found</rdfs:comment>
+        <rdfs:label xml:lang="en-us">digitalObjectStore</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ocean-data.org/schema/digitalStoreProtocol -->
+
+    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/digitalStoreProtocol">
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalObjectStore"/>
+        <rdfs:range rdf:resource="http://ocean-data.org/schema/DigitalProtocol"/>
+        <rdfs:comment xml:lang="en-us">The acess protocol employed by a DigitalObjectStore (e.g. HTTP, FTP, S3, etc)</rdfs:comment>
+        <rdfs:label xml:lang="en-us">digitalStoreProtocol</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://ocean-data.org/schema/fileFormat -->
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/fileFormat">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalDocument"/>
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalObject"/>
         <rdfs:range rdf:resource="http://ocean-data.org/schema/FileFormat"/>
-        <rdfs:comment xml:lang="en-us">The file format for a DigitalDocument</rdfs:comment>
+        <rdfs:comment xml:lang="en-us">The file format for a DigitalObject</rdfs:comment>
         <rdfs:label xml:lang="en-us">fileFormat</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ocean-data.org/schema/focusedOnGeoLocation -->
+
+    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/focusedOnGeoLocation">
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/ResearchActivity"/>
+        <rdfs:range rdf:resource="http://ocean-data.org/schema/GeoLocation"/>
+        <rdfs:comment xml:lang="en-us">a research activity focused its science objectives to the defined GeoLocation</rdfs:comment>
+        <rdfs:label xml:lang="en-us">focusedOnGeoLocation</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -384,14 +476,8 @@
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/funded">
         <owl:inverseOf rdf:resource="http://ocean-data.org/schema/fundedBy"/>
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Award"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/CreativeWork"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/ResearchActivity"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
+        <rdfs:range rdf:resource="http://ocean-data.org/schema/CreativeWork"/>
+        <rdfs:range rdf:resource="http://ocean-data.org/schema/ResearchActivity"/>
         <rdfs:comment xml:lang="en-us">Funded the research actvity or product.</rdfs:comment>
         <rdfs:label xml:lang="en-us">funded</rdfs:label>
     </owl:ObjectProperty>
@@ -401,14 +487,8 @@
     <!-- http://ocean-data.org/schema/fundedBy -->
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/fundedBy">
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/CreativeWork"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/ResearchActivity"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/CreativeWork"/>
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/ResearchActivity"/>
         <rdfs:range rdf:resource="http://ocean-data.org/schema/Award"/>
         <rdfs:comment xml:lang="en-us">Specifies how a research activity or product was funded</rdfs:comment>
         <rdfs:label xml:lang="en-us">fundedBy</rdfs:label>
@@ -416,14 +496,25 @@
     
 
 
-    <!-- http://ocean-data.org/schema/generatedWork -->
+    <!-- http://ocean-data.org/schema/governedByPolicy -->
 
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/generatedWork">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#generated"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/ResearchActivity"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/CreativeWork"/>
-        <rdfs:comment xml:lang="en-us">A creative work, research product, that was generated due to some research activity.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">generatedWork</rdfs:label>
+    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/governedByPolicy">
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://ocean-data.org/schema/Policy"/>
+        <rdfs:comment xml:lang="en-us">A policy that defines the rules of interacting with a given Thing.</rdfs:comment>
+        <rdfs:label xml:lang="en-us">governedByPolicy</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ocean-data.org/schema/hasAffordance -->
+
+    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasAffordance">
+        <owl:inverseOf rdf:resource="http://ocean-data.org/schema/isAffordanceFor"/>
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/CreativeWork"/>
+        <rdfs:range rdf:resource="http://ocean-data.org/schema/Affordance"/>
+        <rdfs:comment xml:lang="en-us">An affordance made available for some Thing</rdfs:comment>
+        <rdfs:label xml:lang="en-us">hasAffordance</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -432,6 +523,7 @@
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasAgentWithRole">
         <owl:inverseOf rdf:resource="http://ocean-data.org/schema/roleAbout"/>
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/ResearchActivity"/>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -498,9 +590,20 @@
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasCruiseTrajectory">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Cruise"/>
-        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+        <rdfs:range rdf:resource="http://ocean-data.org/schema/CruiseTrack"/>
         <rdfs:comment xml:lang="en-us">The set of ordered coordinates forming a geometry (usually MultiPoint) representing the path taken by a Cruise.</rdfs:comment>
         <rdfs:label xml:lang="en-us">hasCruiseTrajectory</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ocean-data.org/schema/hasDataManagementPlan -->
+
+    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasDataManagementPlan">
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Project"/>
+        <rdfs:range rdf:resource="http://ocean-data.org/schema/DataManagementPlan"/>
+        <rdfs:comment xml:lang="en-us">Specifies the URL to the Project&apos;s Data Management Plan.</rdfs:comment>
+        <rdfs:label xml:lang="en-us">hasDataManagementPlan</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -557,6 +660,7 @@
         </rdfs:domain>
         <rdfs:range rdf:resource="http://ocean-data.org/schema/Identifier"/>
         <rdfs:comment xml:lang="en-us">An identifier for a Creative Work.</rdfs:comment>
+        <rdfs:comment xml:lang="en-us">hasIdentifier</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -596,45 +700,22 @@
     
 
 
-    <!-- http://ocean-data.org/schema/hasProgramDates -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasProgramDates">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Program"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
-        <rdfs:comment xml:lang="en-us">A date range for the start and end of a program</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasProgramDates</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasProject -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasProject">
-        <owl:inverseOf rdf:resource="http://ocean-data.org/schema/isPartOfProgram"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Program"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/Project"/>
-        <rdfs:comment xml:lang="en-us">A Project that is a part of this Program</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasProject</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasProjectDates -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasProjectDates">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Project"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
-        <rdfs:comment xml:lang="en-us">A date range for the start and end of a project</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasProjectDates</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://ocean-data.org/schema/hasRole -->
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasRole">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Agent"/>
         <rdfs:range rdf:resource="http://ocean-data.org/schema/AgentRole"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ocean-data.org/schema/hasTemporalCoverage -->
+
+    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasTemporalCoverage">
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+        <rdfs:comment xml:lang="en-us">The temporal coverage for some activity.</rdfs:comment>
+        <rdfs:label xml:lang="en-us">hasTemporalCoverage</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -653,6 +734,28 @@
         <rdfs:range rdf:resource="http://ocean-data.org/schema/UnitOfMeasure"/>
         <rdfs:comment xml:lang="en-us">The unit of Measure used for a certain MonitoredProperty. In the case of MonitoredProperty where these are conceptual, the unit of measure is considered to the default, or convention, for that property. For DatasetMonitoredProperty, the unit of measure is what was actually used within the Dataset.</rdfs:comment>
         <rdfs:label xml:lang="en-us">hasUnitOfMeasure</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ocean-data.org/schema/hostedAtRepository -->
+
+    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hostedAtRepository">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalObjectStore"/>
+        <rdfs:range rdf:resource="http://ocean-data.org/schema/DataRepository"/>
+        <rdfs:comment xml:lang="en-us">The digital object store is hosted at the repository.</rdfs:comment>
+        <rdfs:label xml:lang="en-us">hostedAtRepository</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ocean-data.org/schema/isAffordanceFor -->
+
+    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/isAffordanceFor">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Affordance"/>
+        <rdfs:range rdf:resource="http://ocean-data.org/schema/CreativeWork"/>
     </owl:ObjectProperty>
     
 
@@ -743,7 +846,6 @@
     <!-- http://ocean-data.org/schema/matches -->
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/matches">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#exactMatch"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
@@ -761,6 +863,32 @@
         <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <rdfs:comment xml:lang="en-us">Defines the resource that has replaced this resource.</rdfs:comment>
         <rdfs:label xml:lang="en-us">obsoletedBy</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ocean-data.org/schema/occurredAtGeoLocation -->
+
+    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/occurredAtGeoLocation">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ocean-data.org/schema/Dataset"/>
+                    <rdf:Description rdf:about="http://ocean-data.org/schema/Deployment"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://ocean-data.org/schema/GeoLocation"/>
+        <rdfs:comment xml:lang="en-us">The generation or collection of some entity or some activity occurred at the GeoLocation.</rdfs:comment>
+        <rdfs:label xml:lang="en-us">occurredAtGeoLocation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ocean-data.org/schema/occurredWithinDateRange -->
+
+    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/occurredWithinDateRange">
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/ResearchActivity"/>
     </owl:ObjectProperty>
     
 
@@ -798,18 +926,6 @@
     
 
 
-    <!-- http://ocean-data.org/schema/producedDataset -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/producedDataset">
-        <rdfs:subPropertyOf rdf:resource="http://ocean-data.org/schema/producedWork"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/ResearchActivity"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/Dataset"/>
-        <rdfs:comment xml:lang="en-us">The Dataset that was produced as a result of some ResearchActivity</rdfs:comment>
-        <rdfs:label xml:lang="en-us">producedDataset</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://ocean-data.org/schema/producedWork -->
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/producedWork">
@@ -817,6 +933,14 @@
         <rdfs:range rdf:resource="http://ocean-data.org/schema/CreativeWork"/>
         <rdfs:comment xml:lang="en-us">The research activity produced the research product.</rdfs:comment>
         <rdfs:label xml:lang="en-us">producedWork</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ocean-data.org/schema/providesAffordanceType -->
+
+    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/providesAffordanceType">
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DataRepository"/>
     </owl:ObjectProperty>
     
 
@@ -898,6 +1022,15 @@
     
 
 
+    <!-- http://ocean-data.org/schema/storedAtLocation -->
+
+    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/storedAtLocation">
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalObject"/>
+        <rdfs:range rdf:resource="http://ocean-data.org/schema/DigitalObjectLocation"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://ocean-data.org/schema/storesValuesFor -->
 
     <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/storesValuesFor">
@@ -931,18 +1064,6 @@
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#exactMatch -->
-
-    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#exactMatch"/>
-    
-
-
-    <!-- http://www.w3.org/ns/prov#generated -->
-
-    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#generated"/>
-    
-
-
     <!-- http://www.w3.org/ns/prov#onBehalfOf -->
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#onBehalfOf"/>
@@ -963,6 +1084,7 @@
     <!-- http://ocean-data.org/schema/abstract -->
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/abstract">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
         <rdfs:range>
             <rdfs:Datatype>
@@ -978,9 +1100,33 @@
     
 
 
+    <!-- http://ocean-data.org/schema/acronym -->
+
+    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/acronym">
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en-us">The acronym for some Thing</rdfs:comment>
+        <rdfs:label xml:lang="en-us">acronym</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ocean-data.org/schema/affordanceAccessURL -->
+
+    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/affordanceAccessURL">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Affordance"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment xml:lang="en-us">The URL at which the affordance, or capability, is realized for the subject of the afforandance. (e.g. the URL where you can visuazlize the dataset in ERDDAP)</rdfs:comment>
+        <rdfs:label xml:lang="en-us">affordanceAccessURL</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://ocean-data.org/schema/alternateName -->
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/alternateName">
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Award"/>
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Platform"/>
         <rdfs:range>
             <rdfs:Datatype>
@@ -1008,24 +1154,34 @@
     
 
 
-    <!-- http://ocean-data.org/schema/bytesize -->
+    <!-- http://ocean-data.org/schema/briefDescription -->
 
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/bytesize">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalDocument"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
-        <rdfs:comment xml:lang="en-us">The bytesize of some DigitalDocument</rdfs:comment>
-        <rdfs:label xml:lang="en-us">bytesize</rdfs:label>
+    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/briefDescription">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#langString"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment xml:lang="en-us">A brief description of a Dataset</rdfs:comment>
+        <rdfs:label xml:lang="en-us">briefDescription</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://ocean-data.org/schema/checksum -->
+    <!-- http://ocean-data.org/schema/bytesize -->
 
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/checksum">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalDocument"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment xml:lang="en-us">The checksum value of some DigitalDocument for some checksum algorithm</rdfs:comment>
-        <rdfs:label xml:lang="en-us">checksum</rdfs:label>
+    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/bytesize">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+        <rdfs:comment xml:lang="en-us">The bytesize of some DigitalObject</rdfs:comment>
+        <rdfs:label xml:lang="en-us">bytesize</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1033,8 +1189,11 @@
     <!-- http://ocean-data.org/schema/citationJSON -->
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/citationJSON">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Citation"/>
         <rdfs:range rdf:resource="http://ocean-data.org/schema/JSON"/>
+        <rdfs:comment xml:lang="en-us">The CSL JSON representative of some PID (persistent Identifier)</rdfs:comment>
+        <rdfs:label xml:lang="en-us">citationJSON</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1042,8 +1201,11 @@
     <!-- http://ocean-data.org/schema/citationText -->
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/citationText">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Citation"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en-us">The textual representation of some styled citation.</rdfs:comment>
+        <rdfs:label xml:lang="en-us">citationText</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1103,10 +1265,23 @@
     
 
 
+    <!-- http://ocean-data.org/schema/cryptographicValue -->
+
+    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/cryptographicValue">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/CryptographicChecksum"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en-us">The cryptographicValue value of some DigitalObject for some cryptographicValue algorithm</rdfs:comment>
+        <rdfs:label xml:lang="en-us">cryptographicValue</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://ocean-data.org/schema/datasetTitle -->
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/datasetTitle">
-        <rdfs:subPropertyOf rdf:resource="http://ocean-data.org/schema/title"/>
+        <rdfs:subPropertyOf rdf:resource="http://ocean-data.org/schema/name"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
         <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#langString"/>
@@ -1116,13 +1291,34 @@
     
 
 
-    <!-- http://ocean-data.org/schema/downloadUrl -->
+    <!-- http://ocean-data.org/schema/description -->
 
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/downloadUrl">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalDocument"/>
+    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/description">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"/>
+                    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment xml:lang="en-us">A description of some Thing</rdfs:comment>
+        <rdfs:label xml:lang="en-us">description</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ocean-data.org/schema/downloadURL -->
+
+    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/downloadURL">
+        <rdfs:subPropertyOf rdf:resource="http://ocean-data.org/schema/url"/>
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalObject"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
-        <rdfs:comment xml:lang="en-us">The URL at which you can download some DigitalDocument</rdfs:comment>
-        <rdfs:label xml:lang="en-us">downloadUrl</rdfs:label>
+        <rdfs:comment xml:lang="en-us">The URL at which you can download some DigitalObject</rdfs:comment>
+        <rdfs:label xml:lang="en-us">downloadURL</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1130,6 +1326,7 @@
     <!-- http://ocean-data.org/schema/firstName -->
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/firstName">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Person"/>
         <rdfs:range>
             <rdfs:Datatype>
@@ -1148,6 +1345,7 @@
     <!-- http://ocean-data.org/schema/fullName -->
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/fullName">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Person"/>
         <rdfs:range>
             <rdfs:Datatype>
@@ -1159,26 +1357,6 @@
         </rdfs:range>
         <rdfs:comment xml:lang="en-us">Full name of a Person</rdfs:comment>
         <rdfs:label xml:lang="en-us">fullName</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasAcquisitionDescription -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasAcquisitionDescription">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#langString"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                </owl:unionOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <rdfs:comment xml:lang="en-us">A textual description of the methodology used to acquire the data.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasAcquisitionDescription</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1203,21 +1381,10 @@
     
 
 
-    <!-- http://ocean-data.org/schema/hasAwardNumber -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasAwardNumber">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Award"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment xml:lang="en-us">The award Number, or Identifier, for an award. Should be reified into an Identifier resource</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasAwardNumber</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
     <!-- http://ocean-data.org/schema/hasAwardURL -->
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasAwardURL">
+        <rdfs:subPropertyOf rdf:resource="http://ocean-data.org/schema/url"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Award"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
@@ -1227,60 +1394,10 @@
     
 
 
-    <!-- http://ocean-data.org/schema/hasBriefDescription -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasBriefDescription">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#langString"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                </owl:unionOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <rdfs:comment xml:lang="en-us">A brief description of a Dataset</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasBriefDescription</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasDataManagementPlan -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasDataManagementPlan">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Project"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
-        <rdfs:comment xml:lang="en-us">Specifies the URL to the Project&apos;s Data Management Plan.</rdfs:comment>
-        <rdfs:comment>fix</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasDataManagementPlan</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasDatasetDescription -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasDatasetDescription">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#langString"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                </owl:unionOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <rdfs:comment xml:lang="en-us">A description of the dataset.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasDatasetDescription</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
     <!-- http://ocean-data.org/schema/hasDatasetURL -->
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasDatasetURL">
+        <rdfs:subPropertyOf rdf:resource="http://ocean-data.org/schema/url"/>
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
         <rdfs:comment xml:lang="en-us">Specifies the URL to inspect the data.</rdfs:comment>
@@ -1312,15 +1429,7 @@
     <!-- http://ocean-data.org/schema/hasLocation -->
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasLocation">
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Dataset"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Deployment"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/ResearchActivity"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/GeoLocation"/>
         <rdfs:range>
             <rdfs:Datatype>
                 <owl:unionOf rdf:parseType="Collection">
@@ -1336,28 +1445,11 @@
     
 
 
-    <!-- http://ocean-data.org/schema/hasLogo -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasLogo">
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Organization"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/ResearchActivity"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
-        <rdfs:comment xml:lang="en-us">A URL to an image file of a log for som research activity or organization.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasLogo</rdfs:label>
-        <skos:related rdf:resource="http://ocean-data.org/schema/hasSmallLogoURL"/>
-    </owl:DatatypeProperty>
-    
-
-
     <!-- http://ocean-data.org/schema/hasLogoURL -->
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasLogoURL">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/ResearchActivity"/>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -1367,9 +1459,11 @@
             </owl:Class>
         </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment xml:lang="en-us">A URL to some logo image file</rdfs:comment>
         <rdfs:comment xml:lang="en-us">The official logo URL</rdfs:comment>
+        <rdfs:comment xml:lang="en-us">fix</rdfs:comment>
         <rdfs:label xml:lang="en-us">hasLogoURL</rdfs:label>
-        <skos:related rdf:resource="http://ocean-data.org/schema/hasSmallLogoURL"/>
+        <rdfs:label xml:lang="en-us">hasSmallLogoURL</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1444,68 +1538,12 @@
     <!-- http://ocean-data.org/schema/hasPlatformURL -->
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasPlatformURL">
+        <rdfs:subPropertyOf rdf:resource="http://ocean-data.org/schema/url"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/Platform"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
         <rdfs:comment xml:lang="en-us">The URL to the authoritative description of a Platform</rdfs:comment>
         <rdfs:label xml:lang="en-us">hasPlatformUrl</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasProcessingDescription -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasProcessingDescription">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#langString"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                </owl:unionOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <rdfs:comment xml:lang="en-us">The processing description for some Dataset</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasProcessingDescription</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasProgramDescription -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasProgramDescription">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Program"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#langString"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                </owl:unionOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <rdfs:comment xml:lang="en-us">A description of a Program.</rdfs:comment>
-        <rdfs:comment xml:lang="en-us">hasProgramDescription</rdfs:comment>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasProjectDescription -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasProjectDescription">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Project"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#langString"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                </owl:unionOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <rdfs:comment xml:lang="en-us">The description of some Project</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasProjectDescription</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1547,10 +1585,11 @@
     <!-- http://ocean-data.org/schema/hasSmallLogoURL -->
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasSmallLogoURL">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://ocean-data.org/schema/hasLogoURL"/>
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/ResearchActivity"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
-        <rdfs:comment xml:lang="en-us">A URL to some smallish image file</rdfs:comment>
+        <rdfs:comment xml:lang="en-us">A URL to some smallish logo image file</rdfs:comment>
+        <rdfs:comment xml:lang="en-us">fix</rdfs:comment>
         <rdfs:label xml:lang="en-us">hasSmallLogoURL</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -1588,6 +1627,18 @@
         </rdfs:range>
         <rdfs:comment xml:lang="en-us">Honorific for a Person.</rdfs:comment>
         <rdfs:label xml:lang="en-us">honorific</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ocean-data.org/schema/hostname -->
+
+    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hostname">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalObjectStore"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en-us">The hostname for some DigitalObjectStore</rdfs:comment>
+        <rdfs:label xml:lang="en-us">hostname</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1632,6 +1683,26 @@
     
 
 
+    <!-- http://ocean-data.org/schema/methodologyDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/methodologyDescription">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#langString"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment xml:lang="en-us">A textual description of the methodology used to acquire the data.</rdfs:comment>
+        <rdfs:label xml:lang="en-us">methodologyDescription</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://ocean-data.org/schema/middleName -->
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/middleName">
@@ -1655,7 +1726,7 @@
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/mimetype">
         <rdfs:domain rdf:resource="http://ocean-data.org/schema/FileFormat"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment xml:lang="en-us">The mimetype for some DigitalDocument</rdfs:comment>
+        <rdfs:comment xml:lang="en-us">The mimetype for some DigitalObject</rdfs:comment>
         <rdfs:label xml:lang="en-us">mimetype</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -1669,6 +1740,25 @@
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
         <rdfs:comment xml:lang="en-us">The modified date of some Thing</rdfs:comment>
         <rdfs:label xml:lang="en-us">modifiedDate</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ocean-data.org/schema/name -->
+
+    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/name">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#langString"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment xml:lang="en-us">A title for some Thing</rdfs:comment>
+        <rdfs:label xml:lang="en-us">title</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1687,6 +1777,43 @@
         </rdfs:range>
         <rdfs:comment xml:lang="en-us">Nickname, or preferred name, of a Person</rdfs:comment>
         <rdfs:label xml:lang="en-us">nickname</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ocean-data.org/schema/objectStorePath -->
+
+    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/objectStorePath">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalObjectLocation"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment xml:lang="en-us">The path at the DigitalSObjectStore where the DigitalObject can be located</rdfs:comment>
+        <rdfs:label xml:lang="en-us">objectStorePath</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ocean-data.org/schema/portNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/portNumber">
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalObjectStore"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment xml:lang="en-us">The port number at some host for accessing a DigitalObjectStore</rdfs:comment>
+        <rdfs:label xml:lang="en-us">portNumber</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1724,43 +1851,85 @@
     
 
 
-    <!-- http://ocean-data.org/schema/title -->
+    <!-- http://ocean-data.org/schema/s3BucketName -->
 
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/title">
+    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/s3BucketName">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Agent"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/AgentRole"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/AgentRoleType"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/ArchiveRecord"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Award"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/CreativeWork"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/DatasetInstrument"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/DatasetMonitoredProperty"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Deployment"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/IdentifierScheme"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Instrument"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Organization"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Parameter"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Person"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Platform"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/ResearchActivity"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/UnitOfMeasure"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/S3DigitalObjectLocation"/>
         <rdfs:range>
             <rdfs:Datatype>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#langString"/>
+                    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
                     <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
                 </owl:unionOf>
             </rdfs:Datatype>
         </rdfs:range>
-        <rdfs:comment xml:lang="en-us">A title for some Thing</rdfs:comment>
-        <rdfs:label xml:lang="en-us">title</rdfs:label>
+        <dcterms:isPartOf rdf:resource="http://ocean-data.org/schema/objectStorePath"/>
+        <rdfs:comment xml:lang="en-us">The name of the bucket for an S3 DigitalStoreObject</rdfs:comment>
+        <rdfs:label xml:lang="en-us">s3BucketName</rdfs:label>
+    </owl:DatatypeProperty>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://ocean-data.org/schema/s3BucketName"/>
+        <owl:annotatedProperty rdf:resource="http://purl.org/dc/terms/isPartOf"/>
+        <owl:annotatedTarget rdf:resource="http://ocean-data.org/schema/objectStorePath"/>
+        <precededBy rdf:resource="http://ocean-data.org/schema/s3PrefixPath"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://ocean-data.org/schema/s3ObjectName -->
+
+    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/s3ObjectName">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/S3DigitalObjectLocation"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <dcterms:isPartOf rdf:resource="http://ocean-data.org/schema/objectStorePath"/>
+        <rdfs:comment xml:lang="en-us">The name of the S3 Object within some bucket at some optional prefix path</rdfs:comment>
+        <rdfs:label xml:lang="en-us">s3ObjectName</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ocean-data.org/schema/s3PrefixPath -->
+
+    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/s3PrefixPath">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/S3DigitalObjectLocation"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <dcterms:isPartOf rdf:resource="http://ocean-data.org/schema/objectStorePath"/>
+        <rdfs:comment xml:lang="en-us">The S3 prefix path within some bucket that precedes the object</rdfs:comment>
+        <rdfs:label xml:lang="en-us">s3PrefixPath</rdfs:label>
+    </owl:DatatypeProperty>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://ocean-data.org/schema/s3PrefixPath"/>
+        <owl:annotatedProperty rdf:resource="http://purl.org/dc/terms/isPartOf"/>
+        <owl:annotatedTarget rdf:resource="http://ocean-data.org/schema/objectStorePath"/>
+        <precededBy rdf:resource="http://ocean-data.org/schema/s3ObjectName"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://ocean-data.org/schema/url -->
+
+    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/url">
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment xml:lang="en-us">The URL at which you can access a representation of some Thing</rdfs:comment>
+        <rdfs:label xml:lang="en-us">url</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1802,14 +1971,7 @@
 
     <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/wktLiteral">
         <rdfs:subPropertyOf rdf:resource="http://www.opengis.net/ont/geosparql#asWKT"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Dataset"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Deployment"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
+        <rdfs:domain rdf:resource="http://ocean-data.org/schema/GeoLocation"/>
         <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#wktLiteral"/>
         <rdfs:comment xml:lang="en-us">A WKT representation of a geometry to use when avoiding Virtuoso&apos;s geometry validation.</rdfs:comment>
         <rdfs:label xml:lang="en-us">wktLiteral</rdfs:label>
@@ -1819,7 +1981,10 @@
 
     <!-- http://www.opengis.net/ont/geosparql#asWKT -->
 
-    <owl:DatatypeProperty rdf:about="http://www.opengis.net/ont/geosparql#asWKT"/>
+    <owl:DatatypeProperty rdf:about="http://www.opengis.net/ont/geosparql#asWKT">
+        <rdfs:comment xml:lang="en-us">The WKT serialization of a geometry</rdfs:comment>
+        <rdfs:label xml:lang="en-us">geosparql:asWKT</rdfs:label>
+    </owl:DatatypeProperty>
     
 
 
@@ -1831,6 +1996,43 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://ocean-data.org/schema/AccessPolicy -->
+
+    <owl:Class rdf:about="http://ocean-data.org/schema/AccessPolicy">
+        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Policy"/>
+        <rdfs:comment xml:lang="en-us">An access policy that may limit or restrict access to some Thing</rdfs:comment>
+        <rdfs:label xml:lang="en-us">Access Policy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ocean-data.org/schema/Affordance -->
+
+    <owl:Class rdf:about="http://ocean-data.org/schema/Affordance">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ocean-data.org/schema/affordanceType"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <lucidchartDiagram rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.lucidchart.com/documents/edit/724ab4e0-7bb8-48c3-88e3-cde5f030a3e3/0</lucidchartDiagram>
+        <rdfs:comment xml:lang="en-us">An affordance, or capability, available for some Thing. Affordances are an ability to interact with, visualize, download, manipulate, etc. some CreativeWork.</rdfs:comment>
+        <rdfs:label xml:lang="en-us">Affordance</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ocean-data.org/schema/AffordanceType -->
+
+    <owl:Class rdf:about="http://ocean-data.org/schema/AffordanceType">
+        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/ControlledVocabulary"/>
+        <rdfs:comment xml:lang="en-us">A type of affordance</rdfs:comment>
+        <rdfs:label xml:lang="en-us">Affordance Type</rdfs:label>
+    </owl:Class>
     
 
 
@@ -1847,6 +2049,7 @@
     <!-- http://ocean-data.org/schema/AgentRole -->
 
     <owl:Class rdf:about="http://ocean-data.org/schema/AgentRole">
+        <owl:equivalentClass rdf:resource="http://schema.org/Role"/>
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Influence"/>
         <rdfs:comment xml:lang="en-us">A role is the influence of an Agent on a Research Activity or Research Product.</rdfs:comment>
         <rdfs:label xml:lang="en-us">Role</rdfs:label>
@@ -1857,6 +2060,7 @@
     <!-- http://ocean-data.org/schema/AgentRoleType -->
 
     <owl:Class rdf:about="http://ocean-data.org/schema/AgentRoleType">
+        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/ControlledVocabulary"/>
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Role"/>
         <rdfs:comment xml:lang="en-us">The type of Role perfomed by an Agent for some research activity or product.</rdfs:comment>
         <rdfs:label xml:lang="en-us">Role Type</rdfs:label>
@@ -1880,6 +2084,15 @@
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
         <rdfs:comment xml:lang="en-us">A record describing a version of a Dataset in some Archive.</rdfs:comment>
         <rdfs:label xml:lang="en-us">Archive Record</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ocean-data.org/schema/AudioFile -->
+
+    <owl:Class rdf:about="http://ocean-data.org/schema/AudioFile">
+        <owl:equivalentClass rdf:resource="http://schema.org/AudioObject"/>
+        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/DataFile"/>
     </owl:Class>
     
 
@@ -1917,9 +2130,19 @@
     <!-- http://ocean-data.org/schema/CitationStyle -->
 
     <owl:Class rdf:about="http://ocean-data.org/schema/CitationStyle">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/ControlledVocabulary"/>
         <rdfs:comment xml:lang="en-us">A citation style that determines the structure of a citation</rdfs:comment>
         <rdfs:label xml:lang="en-us">CitationStyle</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ocean-data.org/schema/ControlledVocabulary -->
+
+    <owl:Class rdf:about="http://ocean-data.org/schema/ControlledVocabulary">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:comment xml:lang="en-us">A controlled vocabulary of terms</rdfs:comment>
+        <rdfs:label xml:lang="en-us">Controlled  Vocabulary</rdfs:label>
     </owl:Class>
     
 
@@ -1927,6 +2150,7 @@
     <!-- http://ocean-data.org/schema/CreativeWork -->
 
     <owl:Class rdf:about="http://ocean-data.org/schema/CreativeWork">
+        <owl:equivalentClass rdf:resource="http://schema.org/CreativeWork"/>
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
         <rdfs:comment xml:lang="en-us">The base class for any research product generated by some activity attributed to some Agent (example: Dataset, Publication, document, etc).</rdfs:comment>
         <rdfs:label xml:lang="en-us">Creative Work</rdfs:label>
@@ -1947,7 +2171,7 @@
     <!-- http://ocean-data.org/schema/CreativeWorkRelationType -->
 
     <owl:Class rdf:about="http://ocean-data.org/schema/CreativeWorkRelationType">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/ControlledVocabulary"/>
         <rdfs:comment xml:lang="en-us">Defines the type of relationship between two CreativeWorks such as Methods Paper, Results Paper, Different Version of the Data, etc</rdfs:comment>
         <rdfs:label xml:lang="en-us">CreativeWork Relation Type</rdfs:label>
     </owl:Class>
@@ -1974,10 +2198,40 @@
     
 
 
+    <!-- http://ocean-data.org/schema/CruiseTrack -->
+
+    <owl:Class rdf:about="http://ocean-data.org/schema/CruiseTrack">
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+        <rdfs:comment xml:lang="en-us">A representation of the path traversed by a Cruise</rdfs:comment>
+        <rdfs:label xml:lang="en-us">Cruise Track</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ocean-data.org/schema/CryptographicAlgorithm -->
+
+    <owl:Class rdf:about="http://ocean-data.org/schema/CryptographicAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/IdentifierScheme"/>
+        <rdfs:comment xml:lang="en-us">A cryptographic algorithm such as (MD5, SHA256, etc.)</rdfs:comment>
+        <rdfs:label xml:lang="en-us">Cryptographic Algorithm</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ocean-data.org/schema/CryptographicChecksum -->
+
+    <owl:Class rdf:about="http://ocean-data.org/schema/CryptographicChecksum">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:comment xml:lang="en-us">A cryptographic checksum is a ASCII value used to &apos;test&apos; the fixity of a DigitalObject to verify that the data contained in the object has not been maliciously changed.</rdfs:comment>
+        <rdfs:label xml:lang="en-us">Cryptographic Checksum</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://ocean-data.org/schema/CurrentState -->
 
     <owl:Class rdf:about="http://ocean-data.org/schema/CurrentState">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/ControlledVocabulary"/>
         <rdfs:comment xml:lang="en-us">A controlled vocaublary of current states for a dataset</rdfs:comment>
         <rdfs:label xml:lang="en-us">Current State</rdfs:label>
     </owl:Class>
@@ -1987,8 +2241,9 @@
     <!-- http://ocean-data.org/schema/DataFile -->
 
     <owl:Class rdf:about="http://ocean-data.org/schema/DataFile">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/DigitalDocument"/>
-        <rdfs:comment xml:lang="en-us">A file that records data for some Dataset.</rdfs:comment>
+        <owl:equivalentClass rdf:resource="http://schema.org/MediaObject"/>
+        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/DigitalObject"/>
+        <rdfs:comment xml:lang="en-us">A file that records data for some Dataset. This could be an audio file (schema:AudioObject), data (schema:DataDownload), image (schema:ImageObject), video (schema:VideoObject)</rdfs:comment>
         <rdfs:label xml:lang="en-us">Data File</rdfs:label>
     </owl:Class>
     
@@ -1997,9 +2252,19 @@
     <!-- http://ocean-data.org/schema/DataManagementPlan -->
 
     <owl:Class rdf:about="http://ocean-data.org/schema/DataManagementPlan">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/DigitalDocument"/>
+        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/DigitalObject"/>
         <rdfs:comment xml:lang="en-us">A document that details a plan for managing data as a result of some research activity.</rdfs:comment>
         <rdfs:label xml:lang="en-us">Data Management Plan</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ocean-data.org/schema/DataRepository -->
+
+    <owl:Class rdf:about="http://ocean-data.org/schema/DataRepository">
+        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Organization"/>
+        <rdfs:comment xml:lang="en-us">An organization that provides services such as depositing, curating and/or accessing data.</rdfs:comment>
+        <rdfs:label xml:lang="en-us">Data Repository</rdfs:label>
     </owl:Class>
     
 
@@ -2017,6 +2282,7 @@
     <!-- http://ocean-data.org/schema/Dataset -->
 
     <owl:Class rdf:about="http://ocean-data.org/schema/Dataset">
+        <owl:equivalentClass rdf:resource="http://schema.org/Dataset"/>
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/CreativeWork"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -2046,6 +2312,7 @@
 
     <owl:Class rdf:about="http://ocean-data.org/schema/DatasetCollection">
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Dataset"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Collection"/>
         <rdfs:comment xml:lang="en-us">A collection of one or more Datasets. This was primarily used by the large Programs JGOFS and GLOBEC where it was valuable to annotate datasets by which deployment they belonged to. The same data observations made over multiple cruises would be have a DatasetCollection of multiple DeploymentDataset instances.</rdfs:comment>
         <rdfs:label xml:lang="en-us">Dataset Collection</rdfs:label>
     </owl:Class>
@@ -2087,7 +2354,7 @@
     <!-- http://ocean-data.org/schema/DatasetType -->
 
     <owl:Class rdf:about="http://ocean-data.org/schema/DatasetType">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/ControlledVocabulary"/>
         <rdfs:comment xml:lang="en-us">The type of Dataset. Can have multiple types. Could be defined by a group of parameters or the type sof platofrm used, etc.</rdfs:comment>
         <rdfs:label xml:lang="en-us">Dataset Type</rdfs:label>
     </owl:Class>
@@ -2137,12 +2404,44 @@
     
 
 
-    <!-- http://ocean-data.org/schema/DigitalDocument -->
+    <!-- http://ocean-data.org/schema/DigitalObject -->
 
-    <owl:Class rdf:about="http://ocean-data.org/schema/DigitalDocument">
+    <owl:Class rdf:about="http://ocean-data.org/schema/DigitalObject">
+        <owl:equivalentClass rdf:resource="http://schema.org/DigitalDocument"/>
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/CreativeWork"/>
+        <lucidchartDiagram rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.lucidchart.com/documents/edit/48e66cd5-65de-429f-b2e2-fa021aa3f496/0</lucidchartDiagram>
         <rdfs:comment xml:lang="en-us">An electronic file or document.</rdfs:comment>
         <rdfs:label xml:lang="en-us">Digital Document</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ocean-data.org/schema/DigitalObjectLocation -->
+
+    <owl:Class rdf:about="http://ocean-data.org/schema/DigitalObjectLocation">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:comment xml:lang="en-us">A location within some DigitalObjectStore where a DigitalObject can be found</rdfs:comment>
+        <rdfs:label xml:lang="en-us">Digital Object Location</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ocean-data.org/schema/DigitalObjectStore -->
+
+    <owl:Class rdf:about="http://ocean-data.org/schema/DigitalObjectStore">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:comment xml:lang="en-us">A store for digital objects that may have its own mechanisms for CRUD operations, access policies, and support for web access</rdfs:comment>
+        <rdfs:label xml:lang="en-us">Digital Object Store</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ocean-data.org/schema/DigitalProtocol -->
+
+    <owl:Class rdf:about="http://ocean-data.org/schema/DigitalProtocol">
+        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/ControlledVocabulary"/>
+        <rdfs:comment xml:lang="en-us">A protocol for accessing/interfacing with digital resources</rdfs:comment>
+        <rdfs:label xml:lang="en-us">Digital Protocol</rdfs:label>
     </owl:Class>
     
 
@@ -2170,8 +2469,8 @@
     <!-- http://ocean-data.org/schema/FileFormat -->
 
     <owl:Class rdf:about="http://ocean-data.org/schema/FileFormat">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-        <rdfs:comment xml:lang="en-us">The format of some DigitalDocument</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/ControlledVocabulary"/>
+        <rdfs:comment xml:lang="en-us">The format of some DigitalObject</rdfs:comment>
         <rdfs:label xml:lang="en-us">FileFormat</rdfs:label>
     </owl:Class>
     
@@ -2190,9 +2489,21 @@
     <!-- http://ocean-data.org/schema/FundingSource -->
 
     <owl:Class rdf:about="http://ocean-data.org/schema/FundingSource">
+        <owl:equivalentClass rdf:resource="http://schema.org/FundingAgency"/>
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Organization"/>
         <rdfs:comment xml:lang="en-us">An Organization that provides funding Awards to a Project.</rdfs:comment>
         <rdfs:label xml:lang="en-us">Funding Source</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ocean-data.org/schema/GeoLocation -->
+
+    <owl:Class rdf:about="http://ocean-data.org/schema/GeoLocation">
+        <owl:equivalentClass rdf:resource="http://schema.org/Place"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:comment xml:lang="en-us">A location where some research was focused or occurred. A textual description can be found in &apos;odo:description&apos;, a name in &apos;odo:title&apos;.</rdfs:comment>
+        <rdfs:label xml:lang="en-us">GeoLocation</rdfs:label>
     </owl:Class>
     
 
@@ -2230,9 +2541,18 @@
     <!-- http://ocean-data.org/schema/IdentifierScheme -->
 
     <owl:Class rdf:about="http://ocean-data.org/schema/IdentifierScheme">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/ControlledVocabulary"/>
         <rdfs:comment xml:lang="en-us">A scheme or domain for which an Identifier value uniquely identifies some thing. (example: DOI, ARK, ISBN, Handle, URI, etc)</rdfs:comment>
         <rdfs:label xml:lang="en-us">Identifier Scheme</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ocean-data.org/schema/ImageFile -->
+
+    <owl:Class rdf:about="http://ocean-data.org/schema/ImageFile">
+        <owl:equivalentClass rdf:resource="http://schema.org/ImageObject"/>
+        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/DataFile"/>
     </owl:Class>
     
 
@@ -2340,7 +2660,9 @@
     <!-- http://ocean-data.org/schema/Organization -->
 
     <owl:Class rdf:about="http://ocean-data.org/schema/Organization">
+        <owl:equivalentClass rdf:resource="http://schema.org/Organization"/>
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Agent"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Organization"/>
         <rdfs:comment xml:lang="en-us">A non-Person agent corresponding to instititutions such as research labs, companies, societies, etc.</rdfs:comment>
         <rdfs:label xml:lang="en-us">Organization</rdfs:label>
     </owl:Class>
@@ -2360,7 +2682,9 @@
     <!-- http://ocean-data.org/schema/Person -->
 
     <owl:Class rdf:about="http://ocean-data.org/schema/Person">
+        <owl:equivalentClass rdf:resource="http://schema.org/Person"/>
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Agent"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Person"/>
         <rdfs:comment xml:lang="en-us">A non-Organization Agent corresponding to a human individual</rdfs:comment>
         <rdfs:label xml:lang="en-us">Person</rdfs:label>
     </owl:Class>
@@ -2380,9 +2704,19 @@
     <!-- http://ocean-data.org/schema/PlatformTitle -->
 
     <owl:Class rdf:about="http://ocean-data.org/schema/PlatformTitle">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/ControlledVocabulary"/>
         <rdfs:comment xml:lang="en-us">A controlled vocabulary of platform titles/types.</rdfs:comment>
         <rdfs:label xml:lang="en-us">Platform Title</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ocean-data.org/schema/Policy -->
+
+    <owl:Class rdf:about="http://ocean-data.org/schema/Policy">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:comment xml:lang="en-us">A policy that defines rules/governance surrounding some Thing</rdfs:comment>
+        <rdfs:label xml:lang="en-us">Policy</rdfs:label>
     </owl:Class>
     
 
@@ -2400,6 +2734,7 @@
     <!-- http://ocean-data.org/schema/Project -->
 
     <owl:Class rdf:about="http://ocean-data.org/schema/Project">
+        <owl:equivalentClass rdf:resource="http://schema.org/ResearchProject"/>
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/ResearchActivity"/>
         <rdfs:comment xml:lang="en-us">A funded, scientific objective that may produce Datasets.</rdfs:comment>
         <rdfs:label xml:lang="en-us">Project</rdfs:label>
@@ -2410,7 +2745,7 @@
     <!-- http://ocean-data.org/schema/Publication -->
 
     <owl:Class rdf:about="http://ocean-data.org/schema/Publication">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/DigitalDocument"/>
+        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/DigitalObject"/>
         <rdfs:comment xml:lang="en-us">A published CreativeWork such as a journal article, book chapter, or web page.</rdfs:comment>
         <rdfs:label xml:lang="en-us">Publication</rdfs:label>
     </owl:Class>
@@ -2431,8 +2766,71 @@
 
     <owl:Class rdf:about="http://ocean-data.org/schema/ResearchActivity">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <lucidchartDiagram rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.lucidchart.com/documents/edit/288773f4-daf6-4560-9943-f26a1e245eb2/0</lucidchartDiagram>
         <rdfs:comment xml:lang="en-us">An activity for some period of time that under which  research is conducted</rdfs:comment>
         <rdfs:label xml:lang="en-us">Research Activity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ocean-data.org/schema/S3DigitalObjectLocation -->
+
+    <owl:Class rdf:about="http://ocean-data.org/schema/S3DigitalObjectLocation">
+        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/DigitalObjectLocation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ocean-data.org/schema/s3BucketName"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange>
+                    <rdfs:Datatype>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
+                            <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                        </owl:unionOf>
+                    </rdfs:Datatype>
+                </owl:onDataRange>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ocean-data.org/schema/s3ObjectName"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange>
+                    <rdfs:Datatype>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
+                            <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                        </owl:unionOf>
+                    </rdfs:Datatype>
+                </owl:onDataRange>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ocean-data.org/schema/s3PrefixPath"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange>
+                    <rdfs:Datatype>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
+                            <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                        </owl:unionOf>
+                    </rdfs:Datatype>
+                </owl:onDataRange>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en-us">A location of some object within an S3 instance</rdfs:comment>
+        <rdfs:label xml:lang="en-us">S3 Digital Object Location</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ocean-data.org/schema/S3ObjectStore -->
+
+    <owl:Class rdf:about="http://ocean-data.org/schema/S3ObjectStore">
+        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/DigitalObjectStore"/>
+        <rdfs:comment xml:lang="en-us">An S3-compliant object store</rdfs:comment>
+        <rdfs:label xml:lang="en-us">S3 Object Store</rdfs:label>
     </owl:Class>
     
 
@@ -2491,7 +2889,7 @@
     <!-- http://ocean-data.org/schema/SupplementalDocument -->
 
     <owl:Class rdf:about="http://ocean-data.org/schema/SupplementalDocument">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/DigitalDocument"/>
+        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/DigitalObject"/>
         <rdfs:comment xml:lang="en-us">A document that further contextualizes aor supports the understanding of another CreativeWork such as a cruise report.</rdfs:comment>
         <rdfs:label xml:lang="en-us">Supplemental Document</rdfs:label>
     </owl:Class>
@@ -2540,6 +2938,7 @@
     <!-- http://ocean-data.org/schema/Vehicle -->
 
     <owl:Class rdf:about="http://ocean-data.org/schema/Vehicle">
+        <owl:equivalentClass rdf:resource="http://schema.org/Vehicle"/>
         <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Platform"/>
         <rdfs:comment xml:lang="en-us">Vehicle</rdfs:comment>
         <rdfs:label xml:lang="en-us">Vehicle</rdfs:label>
@@ -2557,9 +2956,105 @@
     
 
 
+    <!-- http://ocean-data.org/schema/VideoFile -->
+
+    <owl:Class rdf:about="http://ocean-data.org/schema/VideoFile">
+        <owl:equivalentClass rdf:resource="http://schema.org/VideoObject"/>
+        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/DataFile"/>
+    </owl:Class>
+    
+
+
+    <!-- http://schema.org/AudioObject -->
+
+    <owl:Class rdf:about="http://schema.org/AudioObject"/>
+    
+
+
+    <!-- http://schema.org/CreativeWork -->
+
+    <owl:Class rdf:about="http://schema.org/CreativeWork"/>
+    
+
+
+    <!-- http://schema.org/Dataset -->
+
+    <owl:Class rdf:about="http://schema.org/Dataset"/>
+    
+
+
+    <!-- http://schema.org/DigitalDocument -->
+
+    <owl:Class rdf:about="http://schema.org/DigitalDocument"/>
+    
+
+
+    <!-- http://schema.org/FundingAgency -->
+
+    <owl:Class rdf:about="http://schema.org/FundingAgency"/>
+    
+
+
+    <!-- http://schema.org/ImageObject -->
+
+    <owl:Class rdf:about="http://schema.org/ImageObject"/>
+    
+
+
+    <!-- http://schema.org/MediaObject -->
+
+    <owl:Class rdf:about="http://schema.org/MediaObject"/>
+    
+
+
+    <!-- http://schema.org/Organization -->
+
+    <owl:Class rdf:about="http://schema.org/Organization"/>
+    
+
+
+    <!-- http://schema.org/Person -->
+
+    <owl:Class rdf:about="http://schema.org/Person"/>
+    
+
+
+    <!-- http://schema.org/Place -->
+
+    <owl:Class rdf:about="http://schema.org/Place"/>
+    
+
+
+    <!-- http://schema.org/ResearchProject -->
+
+    <owl:Class rdf:about="http://schema.org/ResearchProject"/>
+    
+
+
+    <!-- http://schema.org/Role -->
+
+    <owl:Class rdf:about="http://schema.org/Role"/>
+    
+
+
+    <!-- http://schema.org/Vehicle -->
+
+    <owl:Class rdf:about="http://schema.org/Vehicle"/>
+    
+
+
+    <!-- http://schema.org/VideoObject -->
+
+    <owl:Class rdf:about="http://schema.org/VideoObject"/>
+    
+
+
     <!-- http://www.opengis.net/ont/geosparql#Feature -->
 
-    <owl:Class rdf:about="http://www.opengis.net/ont/geosparql#Feature"/>
+    <owl:Class rdf:about="http://www.opengis.net/ont/geosparql#Feature">
+        <rdfs:comment xml:lang="en-us">This class represents the top-level feature type. This class is equivalent to GFI_Feature defined in ISO 19156:2011, and it is superclass of all feature types.</rdfs:comment>
+        <rdfs:label xml:lang="en-us">geosparql:Feature</rdfs:label>
+    </owl:Class>
     
 
 
@@ -2581,6 +3076,18 @@
     
 
 
+    <!-- http://www.w3.org/ns/prov#Bundle -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Bundle"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Collection -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Collection"/>
+    
+
+
     <!-- http://www.w3.org/ns/prov#Entity -->
 
     <owl:Class rdf:about="http://www.w3.org/ns/prov#Entity"/>
@@ -2593,9 +3100,27 @@
     
 
 
+    <!-- http://www.w3.org/ns/prov#Organization -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Organization"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Person -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Person"/>
+    
+
+
     <!-- http://www.w3.org/ns/prov#Role -->
 
     <owl:Class rdf:about="http://www.w3.org/ns/prov#Role"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#SoftwareAgent -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#SoftwareAgent"/>
     
 
 
@@ -2610,6 +3135,36 @@
     
 
 
+    <!-- http://ocean-data.org/schema/Affordance_ERDDAP -->
+
+    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/Affordance_ERDDAP">
+        <rdf:type rdf:resource="http://ocean-data.org/schema/AffordanceType"/>
+        <rdfs:comment xml:lang="en-us">Ability to view data using the ERDDA P tool</rdfs:comment>
+        <rdfs:label xml:lang="en-us">Affordance - ERDDAP</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ocean-data.org/schema/Affordance_FrictionlessDataPackage -->
+
+    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/Affordance_FrictionlessDataPackage">
+        <rdf:type rdf:resource="http://ocean-data.org/schema/AffordanceType"/>
+        <rdfs:comment xml:lang="en-us">Ability to retrieve the dataset as a Frictionlessdata Data Package</rdfs:comment>
+        <rdfs:label xml:lang="en-us">Affordance - Frictionlessdata Data Package</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ocean-data.org/schema/Affordance_JGOFSDataManagementSystem -->
+
+    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/Affordance_JGOFSDataManagementSystem">
+        <rdf:type rdf:resource="http://ocean-data.org/schema/AffordanceType"/>
+        <rdfs:comment xml:lang="en-us">Ability to interact with data using the JGOFS Data Management System</rdfs:comment>
+        <rdfs:label xml:lang="en-us">Affordance - JGOFS Data Management System</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://ocean-data.org/schema/CitationStyle_APA -->
 
     <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/CitationStyle_APA">
@@ -2617,6 +3172,36 @@
         <title xml:lang="en-us">APA</title>
         <rdfs:comment xml:lang="en-us">The APA style for a citation</rdfs:comment>
         <rdfs:label xml:lang="en-us">Citation Style - APA</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ocean-data.org/schema/CryptographicAlgorithm_MD5 -->
+
+    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/CryptographicAlgorithm_MD5">
+        <rdf:type rdf:resource="http://ocean-data.org/schema/CryptographicAlgorithm"/>
+        <rdfs:comment xml:lang="en-us">The MD5 cryptographic hash algorithm</rdfs:comment>
+        <rdfs:label xml:lang="en-us">Cryptographic Algorithm - MD5</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ocean-data.org/schema/CryptographicAlgorithm_SHA256 -->
+
+    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/CryptographicAlgorithm_SHA256">
+        <rdf:type rdf:resource="http://ocean-data.org/schema/CryptographicAlgorithm"/>
+        <rdfs:comment xml:lang="en-us">The SHA256 cryptographic hash algorithm</rdfs:comment>
+        <rdfs:label xml:lang="en-us">Cryptographic Algorithm - SHA256</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ocean-data.org/schema/DigitalProtocol_HTTP -->
+
+    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/DigitalProtocol_HTTP">
+        <rdf:type rdf:resource="http://ocean-data.org/schema/DigitalProtocol"/>
+        <rdfs:comment xml:lang="en-us">The HTTP protocol</rdfs:comment>
+        <rdfs:label xml:lang="en-us">Digital Protocol - HTTP</rdfs:label>
     </owl:NamedIndividual>
     
 
