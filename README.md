@@ -25,10 +25,7 @@ URL: http://www.nsf.gov/awardsearch/showAward?AWD_ID=1435578
 
 ### NOTES ###
 
-RDF/XML: http://ocean-data.org/static/schema/odo.owl
-
-Uses https://rdf-translator.appspot.com/ to convert to JSON-LD,N3 and N-Triples from RDF/XML.
-
-JSON-LD: https://rdf-translator.appspot.com/convert/xml/json-ld/https://raw.githubusercontent.com/BCODMO/Ocean-Data-Ontology/master/odo.owl
-N-Triples: https://rdf-translator.appspot.com/convert/xml/nt/https://raw.githubusercontent.com/BCODMO/Ocean-Data-Ontology/master/odo.owl
-N3: https://rdf-translator.appspot.com/convert/xml/n3/https://raw.githubusercontent.com/BCODMO/Ocean-Data-Ontology/master/odo.owl
+RDF/XML: https://ocean-data.org/schema/ontology.xml
+JSON-LD: https://ocean-data.org/schema/ontology.json
+N-Triples: https://ocean-data.org/schema/ontology.nt
+Turtle: https://ocean-data.org/schema/ontology.ttl
