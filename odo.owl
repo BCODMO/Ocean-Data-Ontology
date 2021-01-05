@@ -1,3545 +1,494 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://ocean-data.org/schema/"
-     xml:base="http://ocean-data.org/schema/"
-     xmlns:schema="http://schema.org/"
-     xmlns:cpm="http://purl.org/voc/cpm#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:geosparql="http://www.opengis.net/ont/geosparql#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     xmlns:dcterms="http://purl.org/dc/terms/"
-     xmlns:time="http://www.w3.org/2006/time#"
-     xmlns:odo="http://ocean-data.org/schema/"
-     xmlns:vann="http://purl.org/vocab/vann/"
-     xmlns:prov="http://www.w3.org/ns/prov#"
-     xmlns:foaf="http://xmlns.com/foaf/0.1/"
-     xmlns:dc="http://purl.org/dc/elements/1.1/">
-    <owl:Ontology rdf:about="http://ocean-data.org/schema/">
-        <owl:versionIRI rdf:resource="http://ocean-data.org/schema/"/>
-        <owl:imports rdf:resource="http://www.w3.org/ns/prov-o-20130430"/>
-        <rdfs:label xml:lang="en-us">Ocean Data Ontology</rdfs:label>
-        <owl:versionInfo>0.9.0</owl:versionInfo>
-        <vann:preferredNamespacePrefix rdf:datatype="http://www.w3.org/2001/XMLSchema#string">odo</vann:preferredNamespacePrefix>
-        <vann:preferredNamespaceUri rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://ocean-data.org/schema/</vann:preferredNamespaceUri>
-        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2019-03-27</dcterms:modified>
-        <dcterms:title xml:lang="en-us">Ocean Data Ontology</dcterms:title>
-        <rdfs:comment xml:lang="en-us">An ontology for describing metadata about oceanographic data.</rdfs:comment>
-        <dcterms:source rdf:datatype="xsd:anyURI">https://github.com/BCODMO/Ocean-Data-Ontology</dcterms:source>
-        <dcterms:publisher rdf:resource="http://lod.bco-dmo.org/id/affiliation/191"/>
-        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2019-03-27</dcterms:issued>
-        <dcterms:created xml:lang="en-us">2012-01-01</dcterms:created>
-        <dcterms:creator rdf:resource="http://orcid.org/0000-0003-4486-9448"/>
-        <dc:publisher xml:lang="en-us">Biological and Chemical Oceanography Data Management Office (BCO-DMO)</dc:publisher>
-        <lucidchartDiagram rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.lucidchart.com/documents/edit/6f30a34e-dd4e-4c79-a9c3-7f875d0efa37/0</lucidchartDiagram>
-    </owl:Ontology>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Annotation properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://ocean-data.org/schema/lucidchartDiagram -->
-
-    <owl:AnnotationProperty rdf:about="http://ocean-data.org/schema/lucidchartDiagram">
-        <rdfs:comment xml:lang="en-us">A LucidChart diagram of the model</rdfs:comment>
-        <rdfs:label xml:lang="en-us">lucidchartDiagram</rdfs:label>
-    </owl:AnnotationProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/precededBy -->
-
-    <owl:AnnotationProperty rdf:about="http://ocean-data.org/schema/precededBy">
-        <rdfs:comment xml:lang="en-us">This element is precededBy the target element in constructing a whole representation of a chain of parts.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">precededBy</rdfs:label>
-    </owl:AnnotationProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/title -->
-
-    <owl:AnnotationProperty rdf:about="http://ocean-data.org/schema/title"/>
-    
-
-
-    <!-- http://purl.org/dc/elements/1.1/creator -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
-    
-
-
-    <!-- http://purl.org/dc/elements/1.1/publisher -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/publisher"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/created -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/created"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/creator -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/isPartOf -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/isPartOf"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/issued -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/issued"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/modified -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/modified"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/publisher -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/publisher"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/source -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/source"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/title -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
-    
-
-
-    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
-    
-
-
-    <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
-    
-
-
-    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#About -->
-
-    <owl:AnnotationProperty rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#About"/>
-    
-
-
-    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#Resource -->
-
-    <owl:AnnotationProperty rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#Resource"/>
-    
-
-
-    <!-- http://www.w3.org/2004/02/skos/core#defintion -->
-
-    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#defintion"/>
-    
-
-
-    <!-- http://www.w3.org/2004/02/skos/core#related -->
-
-    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#related"/>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Datatypes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://ocean-data.org/schema/JSON -->
-
-    <rdfs:Datatype rdf:about="http://ocean-data.org/schema/JSON"/>
-    
-
-
-    <!-- http://www.opengis.net/ont/geosparql#wktLiteral -->
-
-    <rdfs:Datatype rdf:about="http://www.opengis.net/ont/geosparql#wktLiteral"/>
-    
-
-
-    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML -->
-
-    <rdfs:Datatype rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"/>
-    
-
-
-    <!-- http://www.w3.org/2000/01/rdf-schema#langString -->
-
-    <rdfs:Datatype rdf:about="http://www.w3.org/2000/01/rdf-schema#langString"/>
-    
-
-
-    <!-- http://www.w3.org/2001/XMLSchema#date -->
-
-    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Object Properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://ocean-data.org/schema/affordanceType -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/affordanceType">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Affordance"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/AffordanceType"/>
-        <rdfs:comment xml:lang="en-us">The type of affordance made available for the subject of an Affordance</rdfs:comment>
-        <rdfs:label xml:lang="en-us">affordanceType</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/archiveFile -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/archiveFile">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/ArchiveRecord"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/DigitalObject"/>
-        <rdfs:comment xml:lang="en-us">A DigitalObject submitted to an archive as part of an archive record</rdfs:comment>
-        <rdfs:label xml:lang="en-us">archiveFile</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/archiver -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/archiver">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/ArchiveRecord"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/Organization"/>
-        <rdfs:comment xml:lang="en-us">The Organization acting as the archiver of some research product.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">archiver</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/archives -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/archives">
-        <owl:inverseOf rdf:resource="http://ocean-data.org/schema/isArchivedBy"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/ArchiveRecord"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/CreativeWork"/>
-        <rdfs:comment xml:lang="en-us">The CreativeWork archived by some Organization described in this record.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">archives</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/checksum -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/checksum">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalObject"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/CryptographicChecksum"/>
-        <rdfs:comment xml:lang="en-us">A CryptographicChecksum for a DigitalObject</rdfs:comment>
-        <rdfs:label xml:lang="en-us">checksum</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/citation -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/citation">
-        <owl:inverseOf rdf:resource="http://ocean-data.org/schema/citationFor"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/CreativeWork"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/Citation"/>
-        <rdfs:comment xml:lang="en-us">A styled citation for a CreativeWork</rdfs:comment>
-        <rdfs:label xml:lang="en-us">citation</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/citationFor -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/citationFor">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Citation"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/CreativeWork"/>
-        <rdfs:comment xml:lang="en-us">This citation describes the CreativeWork</rdfs:comment>
-        <rdfs:label xml:lang="en-us">citationFor</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/citationStyle -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/citationStyle">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Citation"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/CitationStyle"/>
-        <rdfs:comment xml:lang="en-us">The style for a citation of a CreativeWork</rdfs:comment>
-        <rdfs:label xml:lang="en-us">citationStyle</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/crossrefRelation -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/crossrefRelation">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/CreativeWorkRelationType"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/CrossrefRelation"/>
-        <rdfs:comment xml:lang="en-us">The type of relationship defined by Crossref.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">crossrefRelation</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/cryptographicAlgorithm -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/cryptographicAlgorithm">
-        <rdfs:subPropertyOf rdf:resource="http://ocean-data.org/schema/usesIdentifierScheme"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/CryptographicChecksum"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/CryptographicAlgorithm"/>
-        <rdfs:comment xml:lang="en-us">The algorithm of some cryptographic hash</rdfs:comment>
-        <rdfs:label xml:lang="en-us">cryptographicAlgorithm</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/currentState -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/currentState">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/CurrentState"/>
-        <rdfs:comment xml:lang="en-us">A term describing the current state of the dataset.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">currentState</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/dataFile -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/dataFile">
-        <owl:inverseOf rdf:resource="http://ocean-data.org/schema/serializes"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/DataFile"/>
-        <rdfs:comment xml:lang="en-us">A data file recording the observations and measurements for a dataset.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">dataFile</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/dataciteRelation -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/dataciteRelation">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/CreativeWorkRelationType"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/DataciteRelation"/>
-        <rdfs:comment xml:lang="en-us">The type of relationship defined by Datacite.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">dataciteRelation</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/datasetType -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/datasetType">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/DatasetType"/>
-        <rdfs:comment xml:lang="en-us">The type of dataset.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">datasetType</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/digitalObjectStore -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/digitalObjectStore">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalObjectLocation"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/DigitalObjectStore"/>
-        <rdfs:comment xml:lang="en-us">A DigitalObjectStore where this DigitalObject can be found</rdfs:comment>
-        <rdfs:label xml:lang="en-us">digitalObjectStore</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/digitalStoreProtocol -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/digitalStoreProtocol">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalObjectStore"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/DigitalProtocol"/>
-        <rdfs:comment xml:lang="en-us">The acess protocol employed by a DigitalObjectStore (e.g. HTTP, FTP, S3, etc)</rdfs:comment>
-        <rdfs:label xml:lang="en-us">digitalStoreProtocol</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/fileFormat -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/fileFormat">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalObject"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/FileFormat"/>
-        <rdfs:comment xml:lang="en-us">The file format for a DigitalObject</rdfs:comment>
-        <rdfs:label xml:lang="en-us">fileFormat</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/focusedOnGeoLocation -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/focusedOnGeoLocation">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/ResearchActivity"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/GeoLocation"/>
-        <rdfs:comment xml:lang="en-us">a research activity focused its science objectives to the defined GeoLocation</rdfs:comment>
-        <rdfs:label xml:lang="en-us">focusedOnGeoLocation</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/forOrganization -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/forOrganization">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/AgentRole"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/Organization"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/fromCollection -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/fromCollection">
-        <owl:inverseOf rdf:resource="http://ocean-data.org/schema/hasInventory"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/DatasetCollection"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/fromDeployment -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/fromDeployment">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DeploymentDataset"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/Deployment"/>
-        <rdfs:comment xml:lang="en-us"> The deployment from which this dataset was collected.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">fromDeployment</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/fromInstrument -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/fromInstrument">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/Instrument"/>
-        <rdfs:comment xml:lang="en-us">This dataset was collected from an instrument that is located on the platform during this deployment.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">fromInstrument</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/funded -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/funded">
-        <owl:inverseOf rdf:resource="http://ocean-data.org/schema/fundedBy"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Award"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/CreativeWork"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/ResearchActivity"/>
-        <rdfs:comment xml:lang="en-us">Funded the research actvity or product.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">funded</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/fundedBy -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/fundedBy">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/CreativeWork"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/ResearchActivity"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/Award"/>
-        <rdfs:comment xml:lang="en-us">Specifies how a research activity or product was funded</rdfs:comment>
-        <rdfs:label xml:lang="en-us">fundedBy</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/governedByPolicy -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/governedByPolicy">
-        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/Policy"/>
-        <rdfs:comment xml:lang="en-us">A policy that defines the rules of interacting with a given Thing.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">governedByPolicy</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasAffordance -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasAffordance">
-        <owl:inverseOf rdf:resource="http://ocean-data.org/schema/isAffordanceFor"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/CreativeWork"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/Affordance"/>
-        <rdfs:comment xml:lang="en-us">An affordance made available for some Thing</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasAffordance</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasAgentWithRole -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasAgentWithRole">
-        <owl:inverseOf rdf:resource="http://ocean-data.org/schema/roleAbout"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/ResearchActivity"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Award"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Dataset"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Deployment"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Organization"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/ResearchActivity"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/AgentRole"/>
-        <rdfs:comment xml:lang="en-us">Specifies role some agent played on a certain research activity or product.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasAgentWithRole</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasAuthoritativePublisher -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasAuthoritativePublisher">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/CreativeWork"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/Agent"/>
-        <rdfs:comment xml:lang="en-us">The Agent that is the authoritative source for some Creative Work. Was using dcterms:publisher.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasAuthoritativePublisher</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasAward -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasAward">
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Dataset"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/FundingSource"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Project"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/Award"/>
-        <rdfs:comment xml:lang="en-us">Whether an activity (Project) or Entity (Dataset or Funding Source) is attached to an award. This should probably be brokenn into different terms - :Dataset &apos;fundedBy&apos; :Award; :FundingSource &apos;provesAward&apos; :Award; :Award &apos;fundsActivity&apos; :Project</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasAward</rdfs:label>
-        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
-        <skos:related rdf:resource="http://ocean-data.org/schema/fundedBy"/>
-        <skos:related rdf:resource="http://ocean-data.org/schema/providesAward"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasCoordinatedDeployment -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasCoordinatedDeployment">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Deployment"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/Deployment"/>
-        <rdfs:comment xml:lang="en-us">A disparate deployment that coordinated in conjuction with this subject for data collection</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasCoordinatedDeployment</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasCruiseTrajectory -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasCruiseTrajectory">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Cruise"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/CruiseTrack"/>
-        <rdfs:comment xml:lang="en-us">The set of ordered coordinates forming a geometry (usually MultiPoint) representing the path taken by a Cruise.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasCruiseTrajectory</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasDataManagementPlan -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasDataManagementPlan">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Project"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/DataManagementPlan"/>
-        <rdfs:comment xml:lang="en-us">Specifies the URL to the Project&apos;s Data Management Plan.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasDataManagementPlan</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasDataset -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasDataset">
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Award"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/DeploymentDataset"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Project"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/Dataset"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasDeploymentDates -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasDeploymentDates">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Deployment"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
-        <rdfs:comment xml:lang="en-us">A date range for the start and end of a deployment</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasDeploymentDates</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasFundingSource -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasFundingSource">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Award"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/Organization"/>
-        <rdfs:comment xml:lang="en-us">The source of funding for an award</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasFundingSource</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasIdentifier -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasIdentifier">
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Citation"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/CreativeWork"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/Identifier"/>
-        <rdfs:comment xml:lang="en-us">An identifier for a Creative Work.</rdfs:comment>
-        <rdfs:comment xml:lang="en-us">hasIdentifier</rdfs:comment>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasInventory -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasInventory">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DatasetCollection"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/Dataset"/>
-        <rdfs:comment xml:lang="en-us">Defines the Datasets that are part of this collection</rdfs:comment>
-        <rdfs:comment>fix</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasInventory</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasLeadCollaborativeAward -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasLeadCollaborativeAward">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Award"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/Award"/>
-        <rdfs:comment xml:lang="en-us">The Lead Collaborative award in a collaborative project that awarded multiple awards to multiple Organizations. THis field identifies the Lead Award.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasLeadCollaborativeAward</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasPlatformTitle -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasPlatformTitle">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Platform"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/PlatformTitle"/>
-        <rdfs:comment xml:lang="en-us">The title of a Platform</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasPlatformTitle</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasRole -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasRole">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Agent"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/AgentRole"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasTemporalCoverage -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasTemporalCoverage">
-        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
-        <rdfs:comment xml:lang="en-us">The temporal coverage for some activity.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasTemporalCoverage</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasUnitOfMeasure -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hasUnitOfMeasure">
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/DatasetMonitoredProperty"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/MonitoredProperty"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/UnitOfMeasure"/>
-        <rdfs:comment xml:lang="en-us">The unit of Measure used for a certain MonitoredProperty. In the case of MonitoredProperty where these are conceptual, the unit of measure is considered to the default, or convention, for that property. For DatasetMonitoredProperty, the unit of measure is what was actually used within the Dataset.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasUnitOfMeasure</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hostedAtRepository -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/hostedAtRepository">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalObjectStore"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/DataRepository"/>
-        <rdfs:comment xml:lang="en-us">The digital object store is hosted at the repository.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hostedAtRepository</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/isAffordanceFor -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/isAffordanceFor">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Affordance"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/CreativeWork"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/isArchivedBy -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/isArchivedBy">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/CreativeWork"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/ArchiveRecord"/>
-        <rdfs:comment xml:lang="en-us">An ArchiveRecord that stores soem CreativeWork</rdfs:comment>
-        <rdfs:label xml:lang="en-us">isArchivedBy</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/isContinuingAwardOf -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/isContinuingAwardOf">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Award"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/Award"/>
-        <rdfs:comment xml:lang="en-us">This Award is a continuation of a pre-existing Award</rdfs:comment>
-        <rdfs:label xml:lang="en-us">isContinuingAwardOf</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/isDeployed -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/isDeployed">
-        <owl:inverseOf rdf:resource="http://ocean-data.org/schema/ofPlatform"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Platform"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/Deployment"/>
-        <rdfs:comment xml:lang="en-us">This Platform was deployed on the Deployment</rdfs:comment>
-        <rdfs:comment>fix</rdfs:comment>
-        <rdfs:label xml:lang="en-us">isDeployed</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/isInstanceOf -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/isInstanceOf">
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/DatasetInstrument"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/DatasetMonitoredProperty"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Instrument"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/MonitoredProperty"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
-        <rdfs:comment xml:lang="en-us">Defines the concept for which the subject is a realized instance.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">isInstanceOf</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/isPartOfProgram -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/isPartOfProgram">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Project"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/Program"/>
-        <rdfs:comment xml:lang="en-us">The Program which made the Project possible. Was &apos;hasParentProgram&apos;.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">isPartOfProgram</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/lastKnownAffiliation -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/lastKnownAffiliation">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Person"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/Organization"/>
-        <rdfs:comment xml:lang="en-us"> The last known organization, or affiliation, for a Person.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">lastKnownAffiliation</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/matches -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/matches">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
-        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <rdfs:comment xml:lang="en-us">A symmetric match for linking between instance data of ODO and coreferences in external Linked Data sets.  equivalent to skos:exactMatch and owl:sameAs without the reasoning that makes them inherit each other&apos;s properties.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">matches</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/obsoletedBy -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/obsoletedBy">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <rdfs:comment xml:lang="en-us">Defines the resource that has replaced this resource.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">obsoletedBy</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/occurredAtGeoLocation -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/occurredAtGeoLocation">
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Dataset"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Deployment"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/GeoLocation"/>
-        <rdfs:comment xml:lang="en-us">The generation or collection of some entity or some activity occurred at the GeoLocation.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">occurredAtGeoLocation</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/occurredWithinDateRange -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/occurredWithinDateRange">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/ResearchActivity"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/ofPlatform -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/ofPlatform">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Deployment"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/Platform"/>
-        <rdfs:comment xml:lang="en-us">A deployment of a certain Platform</rdfs:comment>
-        <rdfs:label xml:lang="en-us">ofPlatforn</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/performedBy -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/performedBy">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/AgentRole"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/Agent"/>
-        <rdfs:comment xml:lang="en-us">The Agent performing a certain Role in a research activity or on a research product.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">performedBy</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/performedRole -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/performedRole">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Agent"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/AgentRole"/>
-        <rdfs:comment xml:lang="en-us">The roles performed by a certain Agent</rdfs:comment>
-        <rdfs:label xml:lang="en-us">performedRole</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/producedWork -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/producedWork">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/ResearchActivity"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/CreativeWork"/>
-        <rdfs:comment xml:lang="en-us">The research activity produced the research product.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">producedWork</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/providesAffordanceType -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/providesAffordanceType">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DataRepository"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/providesAward -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/providesAward">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/FundingSource"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/Award"/>
-        <rdfs:comment xml:lang="en-us">A FundingSource provides an Award in support of some research activity.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">providesAward</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/relatedWork -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/relatedWork">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/CreativeWork"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/CreativeWorkRelation"/>
-        <rdfs:comment xml:lang="en-us">A relationship between two Creative Works that details how they are related</rdfs:comment>
-        <rdfs:label xml:lang="en-us">relatedWork</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/relationshipType -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/relationshipType">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/CreativeWorkRelation"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/CreativeWorkRelationType"/>
-        <rdfs:comment xml:lang="en-us">The type of relation between two Creative Works.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">relationshipType</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/roleAbout -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/roleAbout">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/AgentRole"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Award"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Dataset"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Deployment"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Organization"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/ResearchActivity"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
-        <rdfs:comment xml:lang="en-us">The research activity or product of which this role is about. Was using dc:subject</rdfs:comment>
-        <rdfs:label xml:lang="en-us">roleAbout</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/roleType -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/roleType">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/AgentRole"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/AgentRoleType"/>
-        <rdfs:comment xml:lang="en-us">The type of Role</rdfs:comment>
-        <rdfs:label xml:lang="en-us">roleType</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/serializes -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/serializes">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DataFile"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/Dataset"/>
-        <rdfs:comment xml:lang="en-us">The Dataset this datafile is a representation of</rdfs:comment>
-        <rdfs:label xml:lang="en-us">serializes</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/storedAtLocation -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/storedAtLocation">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalObject"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/DigitalObjectLocation"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/storesValuesFor -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/storesValuesFor">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/DatasetMonitoredProperty"/>
-        <rdfs:comment xml:lang="en-us">This dataset stores values for the specified DatasetMonitoredProperty</rdfs:comment>
-        <rdfs:label xml:lang="en-us">storesValuesFor</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/supplementedBy -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/supplementedBy">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/DataFile"/>
-        <rdfs:comment xml:lang="en-us">The DataFile supplements the Dataset by providing contextual information</rdfs:comment>
-        <rdfs:label xml:lang="en-us">supplementedBy</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/usesIdentifierScheme -->
-
-    <owl:ObjectProperty rdf:about="http://ocean-data.org/schema/usesIdentifierScheme">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Identifier"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/IdentifierScheme"/>
-        <rdfs:comment xml:lang="en-us">The identifier scheme used by some identifer. this scheme defines the space in which the identifier was minted and should be ultimately have a unqiue value within.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">usesIdentifierScheme</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.w3.org/ns/prov#onBehalfOf -->
-
-    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#onBehalfOf"/>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Data properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://ocean-data.org/schema/abstract -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/abstract">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#langString"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                </owl:unionOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <rdfs:comment xml:lang="en-us">A description of some research activity or research product.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">abstract</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/acronym -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/acronym">
-        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment xml:lang="en-us">The acronym for some Thing</rdfs:comment>
-        <rdfs:label xml:lang="en-us">acronym</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/affordanceAccessURL -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/affordanceAccessURL">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Affordance"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
-        <rdfs:comment xml:lang="en-us">The URL at which the affordance, or capability, is realized for the subject of the afforandance. (e.g. the URL where you can visuazlize the dataset in ERDDAP)</rdfs:comment>
-        <rdfs:label xml:lang="en-us">affordanceAccessURL</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/alternateName -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/alternateName">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Award"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Platform"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#langString"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                </owl:unionOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <rdfs:comment xml:lang="en-us">An alternate name for some thing</rdfs:comment>
-        <rdfs:label xml:lang="en-us">alternateName</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/archivedDate -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/archivedDate">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/ArchiveRecord"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
-        <rdfs:comment xml:lang="en-us">The date an ArchiveRecord was minted</rdfs:comment>
-        <rdfs:label xml:lang="en-us">archivedDate</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/briefDescription -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/briefDescription">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#langString"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                </owl:unionOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <rdfs:comment xml:lang="en-us">A brief description of a Dataset</rdfs:comment>
-        <rdfs:label xml:lang="en-us">briefDescription</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/bytesize -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/bytesize">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalObject"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
-        <rdfs:comment xml:lang="en-us">The bytesize of some DigitalObject</rdfs:comment>
-        <rdfs:label xml:lang="en-us">bytesize</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/citationJSON -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/citationJSON">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Citation"/>
-        <rdfs:range rdf:resource="http://ocean-data.org/schema/JSON"/>
-        <rdfs:comment xml:lang="en-us">The CSL JSON representative of some PID (persistent Identifier)</rdfs:comment>
-        <rdfs:label xml:lang="en-us">citationJSON</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/citationText -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/citationText">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Citation"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment xml:lang="en-us">The textual representation of some styled citation.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">citationText</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/citationTextGeneratedDate -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/citationTextGeneratedDate">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Citation"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
-        <rdfs:comment xml:lang="en-us">The dateTime at which the citationJSON was retreived and the citationText was auto-generated.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">citationTextGeneratedDate</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/conversionDescription -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/conversionDescription">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DatasetMonitoredProperty"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#langString"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                </owl:unionOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <rdfs:comment xml:lang="en-us">Describes how the values can be converted.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">conversionDescription</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/createdDate -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/createdDate">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
-        <rdfs:comment xml:lang="en-us">The created datetime for some Thing</rdfs:comment>
-        <rdfs:label xml:lang="en-us">createdDate</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/cruiseIdentifier -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/cruiseIdentifier">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Cruise"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment xml:lang="en-us">The cruise identifier that uniquely identifies a cruise. This value should be the same as ?x in `:Deployment :hasIdentifier [ :identifierValue ?x ]`</rdfs:comment>
-        <rdfs:label xml:lang="en-us">cruiseIdentifier</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/cryptographicValue -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/cryptographicValue">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/CryptographicChecksum"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment xml:lang="en-us">The cryptographicValue value of some DigitalObject for some cryptographicValue algorithm</rdfs:comment>
-        <rdfs:label xml:lang="en-us">cryptographicValue</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/datasetTitle -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/datasetTitle">
-        <rdfs:subPropertyOf rdf:resource="http://ocean-data.org/schema/name"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#langString"/>
-        <rdfs:comment xml:lang="en-us">the title of a Dataset. was using dc:title or dct:title</rdfs:comment>
-        <rdfs:label xml:lang="en-us">datasetTitle</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/description -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/description">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"/>
-                    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                </owl:unionOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <rdfs:comment xml:lang="en-us">A description of some Thing</rdfs:comment>
-        <rdfs:label xml:lang="en-us">description</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/downloadURL -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/downloadURL">
-        <rdfs:subPropertyOf rdf:resource="http://ocean-data.org/schema/url"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalObject"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
-        <rdfs:comment xml:lang="en-us">The URL at which you can download some DigitalObject</rdfs:comment>
-        <rdfs:label xml:lang="en-us">downloadURL</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/firstName -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/firstName">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Person"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#langString"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                </owl:unionOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <rdfs:comment xml:lang="en-us">First name of a Person</rdfs:comment>
-        <rdfs:label xml:lang="en-us">firstName</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/fullName -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/fullName">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Person"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#langString"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                </owl:unionOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <rdfs:comment xml:lang="en-us">Full name of a Person</rdfs:comment>
-        <rdfs:label xml:lang="en-us">fullName</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasAcronym -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasAcronym">
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/FundingSource"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Organization"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Program"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Project"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment xml:lang="en-us">An acronym, or shortened name, for a Thing.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasAcronym</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasAwardURL -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasAwardURL">
-        <rdfs:subPropertyOf rdf:resource="http://ocean-data.org/schema/url"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Award"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
-        <rdfs:comment xml:lang="en-us">The url to some landing page at, or authoritative for, the funding source providing the award</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasAwardURL</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasDatasetURL -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasDatasetURL">
-        <rdfs:subPropertyOf rdf:resource="http://ocean-data.org/schema/url"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
-        <rdfs:comment xml:lang="en-us">Specifies the URL to inspect the data.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasDatasetURL</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasDeploymentDescription -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasDeploymentDescription">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Deployment"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#langString"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                </owl:unionOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <rdfs:comment xml:lang="en-us">Specifies the URL to inspect the data.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasDeploymentDescription</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasLocation -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasLocation">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/GeoLocation"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#langString"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                </owl:unionOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <rdfs:comment xml:lang="en-us">A textual description of some location. Typically its a generic description, and this should probably be made into an ObjectProperty.</rdfs:comment>
-        <rdfs:comment>fix</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasLocation</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasLogoURL -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasLogoURL">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/ResearchActivity"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/Organization"/>
-                    <rdf:Description rdf:about="http://ocean-data.org/schema/ResearchActivity"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
-        <rdfs:comment xml:lang="en-us">A URL to some logo image file</rdfs:comment>
-        <rdfs:comment xml:lang="en-us">The official logo URL</rdfs:comment>
-        <rdfs:comment xml:lang="en-us">fix</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasLogoURL</rdfs:label>
-        <rdfs:label xml:lang="en-us">hasSmallLogoURL</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasNoDataValue -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasNoDataValue">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/MonitoredProperty"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment xml:lang="en-us">The value to expect in a Dataset when there was no data for the given record.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasNoDataValue</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasOrganizationSubName -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasOrganizationSubName">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Organization"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#langString"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                </owl:unionOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <rdfs:comment xml:lang="en-us">The sub-name of some organization</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasOrganizationSubName</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasParameterShortDescription -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasParameterShortDescription">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/MonitoredProperty"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#langString"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                </owl:unionOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <rdfs:comment xml:lang="en-us">A short description of some monitored property</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasParameterShortDescription</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasParameterShortName -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasParameterShortName">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/MonitoredProperty"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#langString"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                </owl:unionOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <rdfs:comment xml:lang="en-us">A short name to describe a monitored property</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasParameterShortName</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasPlatformURL -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasPlatformURL">
-        <rdfs:subPropertyOf rdf:resource="http://ocean-data.org/schema/url"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Platform"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
-        <rdfs:comment xml:lang="en-us">The URL to the authoritative description of a Platform</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasPlatformUrl</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasReportURL -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasReportURL">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Deployment"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
-        <rdfs:comment xml:lang="en-us">The deployment report URL describing the activity of the deployment.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasReportURL</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasRoleWeight -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasRoleWeight">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/AgentRoleType"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
-        <rdfs:comment xml:lang="en-us">Sort ordering for roles</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasRoleWeight</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasSerialNumber -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasSerialNumber">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DatasetInstrument"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment xml:lang="en-us">the serial number for some instrument used in collecting data.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasSerialNumber</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasSmallLogoURL -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasSmallLogoURL">
-        <rdfs:subPropertyOf rdf:resource="http://ocean-data.org/schema/hasLogoURL"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/ResearchActivity"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
-        <rdfs:comment xml:lang="en-us">A URL to some smallish logo image file</rdfs:comment>
-        <rdfs:comment xml:lang="en-us">fix</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hasSmallLogoURL</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasSynonym -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hasSynonym">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Deployment"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#langString"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                </owl:unionOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <rdfs:label xml:lang="en-us">hasSynonym</rdfs:label>
-        <rdfs:label xml:lang="en-us">the synonym for seom Deployment</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/honorific -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/honorific">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Person"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#langString"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                </owl:unionOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <rdfs:comment xml:lang="en-us">Honorific for a Person.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">honorific</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/hostname -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/hostname">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalObjectStore"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment xml:lang="en-us">The hostname for some DigitalObjectStore</rdfs:comment>
-        <rdfs:label xml:lang="en-us">hostname</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/identifierValue -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/identifierValue">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Identifier"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment xml:lang="en-us">The identifier&apos;s unqiue value within some scheme or domain.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">identifierValue</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/issueDate -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/issueDate">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
-        <rdfs:comment xml:lang="en-us">The date which mints the specific version of a Dataset.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">issueDate</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/lastName -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/lastName">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Person"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#langString"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                </owl:unionOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <rdfs:comment xml:lang="en-us">Last name of a Person</rdfs:comment>
-        <rdfs:label xml:lang="en-us">lastName</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/methodologyDescription -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/methodologyDescription">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#langString"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                </owl:unionOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <rdfs:comment xml:lang="en-us">A textual description of the methodology used to acquire the data.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">methodologyDescription</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/middleName -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/middleName">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Person"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#langString"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                </owl:unionOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <rdfs:comment xml:lang="en-us">Middle name of a person</rdfs:comment>
-        <rdfs:label xml:lang="en-us">middleName</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/mimetype -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/mimetype">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/FileFormat"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment xml:lang="en-us">The mimetype for some DigitalObject</rdfs:comment>
-        <rdfs:label xml:lang="en-us">mimetype</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/modifiedDate -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/modifiedDate">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
-        <rdfs:comment xml:lang="en-us">The modified date of some Thing</rdfs:comment>
-        <rdfs:label xml:lang="en-us">modifiedDate</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/name -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/name">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#langString"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                </owl:unionOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <rdfs:comment xml:lang="en-us">A title for some Thing</rdfs:comment>
-        <rdfs:label xml:lang="en-us">title</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/nickname -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/nickname">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Person"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#langString"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                </owl:unionOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <rdfs:comment xml:lang="en-us">Nickname, or preferred name, of a Person</rdfs:comment>
-        <rdfs:label xml:lang="en-us">nickname</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/objectStorePath -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/objectStorePath">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalObjectLocation"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                </owl:unionOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <rdfs:comment xml:lang="en-us">The path at the DigitalSObjectStore where the DigitalObject can be located</rdfs:comment>
-        <rdfs:label xml:lang="en-us">objectStorePath</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/portNumber -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/portNumber">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DigitalObjectStore"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                </owl:unionOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <rdfs:comment xml:lang="en-us">The port number at some host for accessing a DigitalObjectStore</rdfs:comment>
-        <rdfs:label xml:lang="en-us">portNumber</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/releaseDate -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/releaseDate">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
-        <rdfs:comment xml:lang="en-us">The date the dataset will be available. Useful for reporting when a restricted dataset will become available.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">releaseDate</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/requiresConversion -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/requiresConversion">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/DatasetMonitoredProperty"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-        <rdfs:comment xml:lang="en-us">The values in the dataset for this property need to be converted.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">requiresConversion</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/restricted -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/restricted">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-        <rdfs:comment xml:lang="en-us">Is the dataset restricted for access by the public.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">restricted</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/s3BucketName -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/s3BucketName">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/S3DigitalObjectLocation"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                </owl:unionOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <dcterms:isPartOf rdf:resource="http://ocean-data.org/schema/objectStorePath"/>
-        <rdfs:comment xml:lang="en-us">The name of the bucket for an S3 DigitalStoreObject</rdfs:comment>
-        <rdfs:label xml:lang="en-us">s3BucketName</rdfs:label>
-    </owl:DatatypeProperty>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://ocean-data.org/schema/s3BucketName"/>
-        <owl:annotatedProperty rdf:resource="http://purl.org/dc/terms/isPartOf"/>
-        <owl:annotatedTarget rdf:resource="http://ocean-data.org/schema/objectStorePath"/>
-        <precededBy rdf:resource="http://ocean-data.org/schema/s3PrefixPath"/>
-    </owl:Axiom>
-    
-
-
-    <!-- http://ocean-data.org/schema/s3ObjectName -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/s3ObjectName">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/S3DigitalObjectLocation"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                </owl:unionOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <dcterms:isPartOf rdf:resource="http://ocean-data.org/schema/objectStorePath"/>
-        <rdfs:comment xml:lang="en-us">The name of the S3 Object within some bucket at some optional prefix path</rdfs:comment>
-        <rdfs:label xml:lang="en-us">s3ObjectName</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/s3PrefixPath -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/s3PrefixPath">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/S3DigitalObjectLocation"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                </owl:unionOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <dcterms:isPartOf rdf:resource="http://ocean-data.org/schema/objectStorePath"/>
-        <rdfs:comment xml:lang="en-us">The S3 prefix path within some bucket that precedes the object</rdfs:comment>
-        <rdfs:label xml:lang="en-us">s3PrefixPath</rdfs:label>
-    </owl:DatatypeProperty>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://ocean-data.org/schema/s3PrefixPath"/>
-        <owl:annotatedProperty rdf:resource="http://purl.org/dc/terms/isPartOf"/>
-        <owl:annotatedTarget rdf:resource="http://ocean-data.org/schema/objectStorePath"/>
-        <precededBy rdf:resource="http://ocean-data.org/schema/s3ObjectName"/>
-    </owl:Axiom>
-    
-
-
-    <!-- http://ocean-data.org/schema/url -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/url">
-        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
-        <rdfs:comment xml:lang="en-us">The URL at which you can access a representation of some Thing</rdfs:comment>
-        <rdfs:label xml:lang="en-us">url</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/validated -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/validated">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-        <rdfs:comment xml:lang="en-us">Has the dataset been validated by the PI.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">validated</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/versionLabel -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/versionLabel">
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/Dataset"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment xml:lang="en-us">An string signifying the version of the dataset.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">versionLabel</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/webpage -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/webpage">
-        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
-        <rdfs:comment xml:lang="en-us">The canonical URL to the HTML page</rdfs:comment>
-        <rdfs:label xml:lang="en-us">webpage</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ocean-data.org/schema/wktLiteral -->
-
-    <owl:DatatypeProperty rdf:about="http://ocean-data.org/schema/wktLiteral">
-        <rdfs:subPropertyOf rdf:resource="http://www.opengis.net/ont/geosparql#asWKT"/>
-        <rdfs:domain rdf:resource="http://ocean-data.org/schema/GeoLocation"/>
-        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#wktLiteral"/>
-        <rdfs:comment xml:lang="en-us">A WKT representation of a geometry to use when avoiding Virtuoso&apos;s geometry validation.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">wktLiteral</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.opengis.net/ont/geosparql#asWKT -->
-
-    <owl:DatatypeProperty rdf:about="http://www.opengis.net/ont/geosparql#asWKT">
-        <rdfs:comment xml:lang="en-us">The WKT serialization of a geometry</rdfs:comment>
-        <rdfs:label xml:lang="en-us">geosparql:asWKT</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Classes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://ocean-data.org/schema/AccessPolicy -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/AccessPolicy">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Policy"/>
-        <rdfs:comment xml:lang="en-us">An access policy that may limit or restrict access to some Thing</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Access Policy</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/Affordance -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/Affordance">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ocean-data.org/schema/affordanceType"/>
-                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <lucidchartDiagram rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.lucidchart.com/documents/edit/724ab4e0-7bb8-48c3-88e3-cde5f030a3e3/0</lucidchartDiagram>
-        <rdfs:comment xml:lang="en-us">An affordance, or capability, available for some Thing. Affordances are an ability to interact with, visualize, download, manipulate, etc. some CreativeWork.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Affordance</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/AffordanceType -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/AffordanceType">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/ControlledVocabulary"/>
-        <rdfs:comment xml:lang="en-us">A type of affordance</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Affordance Type</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/Agent -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/Agent">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent"/>
-        <rdfs:comment xml:lang="en-us">A Person or Organization that performs some role within some period of time</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Agent</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/AgentRole -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/AgentRole">
-        <owl:equivalentClass rdf:resource="http://schema.org/Role"/>
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Influence"/>
-        <rdfs:comment xml:lang="en-us">A role is the influence of an Agent on a Research Activity or Research Product.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Role</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/AgentRoleType -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/AgentRoleType">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/ControlledVocabulary"/>
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Role"/>
-        <rdfs:comment xml:lang="en-us">The type of Role perfomed by an Agent for some research activity or product.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Role Type</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/Aircraft -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/Aircraft">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Vehicle"/>
-        <rdfs:comment xml:lang="en-us">An aircraft.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Aircraft</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/ArchiveRecord -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/ArchiveRecord">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-        <rdfs:comment xml:lang="en-us">A record describing a version of a Dataset in some Archive.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Archive Record</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/AudioFile -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/AudioFile">
-        <owl:equivalentClass rdf:resource="http://schema.org/AudioObject"/>
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/DataFile"/>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/AutonomousUnderwaterVehicle -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/AutonomousUnderwaterVehicle">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/UnmannedSubmarine"/>
-        <rdfs:comment xml:lang="en-us">AUV</rdfs:comment>
-        <rdfs:label xml:lang="en-us">AUV</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/Award -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/Award">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-        <rdfs:comment xml:lang="en-us">A funding award provided by an Funding Source (Organization) to a Project. This Award may fund Datasets.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Award</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/Citation -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/Citation">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-        <rdfs:comment xml:lang="en-us">Formatted text specific to some CitationStyle that describes some CreativeWork</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Citation</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/CitationStyle -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/CitationStyle">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/ControlledVocabulary"/>
-        <rdfs:comment xml:lang="en-us">A citation style that determines the structure of a citation</rdfs:comment>
-        <rdfs:label xml:lang="en-us">CitationStyle</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/ControlledVocabulary -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/ControlledVocabulary">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-        <rdfs:comment xml:lang="en-us">A controlled vocabulary of terms</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Controlled  Vocabulary</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/CreativeWork -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/CreativeWork">
-        <owl:equivalentClass rdf:resource="http://schema.org/CreativeWork"/>
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-        <rdfs:comment xml:lang="en-us">The base class for any research product generated by some activity attributed to some Agent (example: Dataset, Publication, document, etc).</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Creative Work</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/CreativeWorkRelation -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/CreativeWorkRelation">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-        <rdfs:comment xml:lang="en-us">A relationship between two CreativeWorks</rdfs:comment>
-        <rdfs:label xml:lang="en-us">CreativeWork Relation</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/CreativeWorkRelationType -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/CreativeWorkRelationType">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/ControlledVocabulary"/>
-        <rdfs:comment xml:lang="en-us">Defines the type of relationship between two CreativeWorks such as Methods Paper, Results Paper, Different Version of the Data, etc</rdfs:comment>
-        <rdfs:label xml:lang="en-us">CreativeWork Relation Type</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/CrossrefRelation -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/CrossrefRelation">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-        <rdfs:comment xml:lang="en-us">Defines The Crossref-specific elements of a relation between two CreativeWorks</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Crossref Relation</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/Cruise -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/Cruise">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Deployment"/>
-        <rdfs:comment xml:lang="en-us">A Vessel is deployed during a specific duration of time over a specific spacial coverage.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Cruise</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/CruiseTrack -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/CruiseTrack">
-        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
-        <rdfs:comment xml:lang="en-us">A representation of the path traversed by a Cruise</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Cruise Track</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/CryptographicAlgorithm -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/CryptographicAlgorithm">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/IdentifierScheme"/>
-        <rdfs:comment xml:lang="en-us">A cryptographic algorithm such as (MD5, SHA256, etc.)</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Cryptographic Algorithm</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/CryptographicChecksum -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/CryptographicChecksum">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-        <rdfs:comment xml:lang="en-us">A cryptographic checksum is a ASCII value used to &apos;test&apos; the fixity of a DigitalObject to verify that the data contained in the object has not been maliciously changed.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Cryptographic Checksum</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/CurrentState -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/CurrentState">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/ControlledVocabulary"/>
-        <rdfs:comment xml:lang="en-us">A controlled vocaublary of current states for a dataset</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Current State</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/DataFile -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/DataFile">
-        <owl:equivalentClass rdf:resource="http://schema.org/MediaObject"/>
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/DigitalObject"/>
-        <rdfs:comment xml:lang="en-us">A file that records data for some Dataset. This could be an audio file (schema:AudioObject), data (schema:DataDownload), image (schema:ImageObject), video (schema:VideoObject)</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Data File</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/DataManagementPlan -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/DataManagementPlan">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/DigitalObject"/>
-        <rdfs:comment xml:lang="en-us">A document that details a plan for managing data as a result of some research activity.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Data Management Plan</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/DataRepository -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/DataRepository">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Organization"/>
-        <rdfs:comment xml:lang="en-us">An organization that provides services such as depositing, curating and/or accessing data.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Data Repository</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/DataciteRelation -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/DataciteRelation">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-        <rdfs:comment xml:lang="en-us">Defines The Datacite-specific elements of a relation between two CreativeWorks</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Datacite Relation</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/Dataset -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/Dataset">
-        <owl:equivalentClass rdf:resource="http://schema.org/Dataset"/>
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/CreativeWork"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ocean-data.org/schema/releaseDate"/>
-                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ocean-data.org/schema/restricted"/>
-                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ocean-data.org/schema/validated"/>
-                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en-us">A super class for discovering any type of oceanographic dataset.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Dataset</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/DatasetCollection -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/DatasetCollection">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Dataset"/>
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Collection"/>
-        <rdfs:comment xml:lang="en-us">A collection of one or more Datasets. This was primarily used by the large Programs JGOFS and GLOBEC where it was valuable to annotate datasets by which deployment they belonged to. The same data observations made over multiple cruises would be have a DatasetCollection of multiple DeploymentDataset instances.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Dataset Collection</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/DatasetInstrument -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/DatasetInstrument">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ocean-data.org/schema/isInstanceOf"/>
-                <owl:allValuesFrom rdf:resource="http://ocean-data.org/schema/Instrument"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en-us">odo:DatasetInstrument is an instance of a odo:Instrument but with project-specific label and definition known by the researcher.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Dataset Instrument</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/DatasetMonitoredProperty -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/DatasetMonitoredProperty">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ocean-data.org/schema/isInstanceOf"/>
-                <owl:allValuesFrom rdf:resource="http://ocean-data.org/schema/Parameter"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en-us">odo:DatasetMonitoredProperty is an instance of a odo:MonitoredProperty but with project-specific label and definition known by the researcher.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Dataset Monitored Property</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/DatasetType -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/DatasetType">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/ControlledVocabulary"/>
-        <rdfs:comment xml:lang="en-us">The type of Dataset. Can have multiple types. Could be defined by a group of parameters or the type sof platofrm used, etc.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Dataset Type</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/Deployment -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/Deployment">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ocean-data.org/schema/ofPlatform"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://ocean-data.org/schema/Platform"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en-us">A platform is deployed during a specific duration of time over a specific spacial coverage. For example, a boat is a platform. That boat is deployed (sent on a cruise) in order to collect data.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Deployment</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/DeploymentDataset -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/DeploymentDataset">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Dataset"/>
-        <rdfs:comment xml:lang="en-us">A deployment dataset is a dataset that is collected on a specific deployment of a platform from a specific instrument on that platform.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Deployment Dataset</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/DeploymentDatasetCollection -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/DeploymentDatasetCollection">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/DatasetCollection"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ocean-data.org/schema/hasInventory"/>
-                <owl:allValuesFrom rdf:resource="http://ocean-data.org/schema/DeploymentDataset"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en-us">A collection of one or more DeploymentDatssets.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">DeploymentDatasetCollection</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/DigitalObject -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/DigitalObject">
-        <owl:equivalentClass rdf:resource="http://schema.org/DigitalDocument"/>
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/CreativeWork"/>
-        <lucidchartDiagram rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.lucidchart.com/documents/edit/48e66cd5-65de-429f-b2e2-fa021aa3f496/0</lucidchartDiagram>
-        <rdfs:comment xml:lang="en-us">An electronic file or document.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Digital Document</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/DigitalObjectLocation -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/DigitalObjectLocation">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-        <rdfs:comment xml:lang="en-us">A location within some DigitalObjectStore where a DigitalObject can be found</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Digital Object Location</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/DigitalObjectStore -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/DigitalObjectStore">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-        <rdfs:comment xml:lang="en-us">A store for digital objects that may have its own mechanisms for CRUD operations, access policies, and support for web access</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Digital Object Store</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/DigitalProtocol -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/DigitalProtocol">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/ControlledVocabulary"/>
-        <rdfs:comment xml:lang="en-us">A protocol for accessing/interfacing with digital resources</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Digital Protocol</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/Dock -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/Dock">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/StationaryPlatform"/>
-        <rdfs:comment xml:lang="en-us">Dock</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Dock</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/Drifter -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/Drifter">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Platform"/>
-        <rdfs:comment xml:lang="en-us">Drifter</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Drifter</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/FileFormat -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/FileFormat">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/ControlledVocabulary"/>
-        <rdfs:comment xml:lang="en-us">The format of some DigitalObject</rdfs:comment>
-        <rdfs:label xml:lang="en-us">FileFormat</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/Float -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/Float">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Platform"/>
-        <rdfs:comment xml:lang="en-us">Float</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Float</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/FundingSource -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/FundingSource">
-        <owl:equivalentClass rdf:resource="http://schema.org/FundingAgency"/>
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Organization"/>
-        <rdfs:comment xml:lang="en-us">An Organization that provides funding Awards to a Project.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Funding Source</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/GeoLocation -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/GeoLocation">
-        <owl:equivalentClass rdf:resource="http://schema.org/Place"/>
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-        <rdfs:comment xml:lang="en-us">A location where some research was focused or occurred. A textual description can be found in &apos;odo:description&apos;, a name in &apos;odo:title&apos;.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">GeoLocation</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/Glider -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/Glider">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Platform"/>
-        <rdfs:comment xml:lang="en-us">Glider</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Glider</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/GrantAward -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/GrantAward">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Award"/>
-        <rdfs:comment xml:lang="en-us">An award made to one or more Agents to perform some Research Activity</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Grant Award</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/Identifier -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/Identifier">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-        <rdfs:comment xml:lang="en-us">An unique value in some domain that identifies the applied thing</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Identifier</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/IdentifierScheme -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/IdentifierScheme">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/ControlledVocabulary"/>
-        <rdfs:comment xml:lang="en-us">A scheme or domain for which an Identifier value uniquely identifies some thing. (example: DOI, ARK, ISBN, Handle, URI, etc)</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Identifier Scheme</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/ImageFile -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/ImageFile">
-        <owl:equivalentClass rdf:resource="http://schema.org/ImageObject"/>
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/DataFile"/>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/Instrument -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/Instrument">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-        <rdfs:comment xml:lang="en-us">A pyshical device used to measure, gather, or collect data.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Instrument</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/InterCrossrefRelation -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/InterCrossrefRelation">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/CrossrefRelation"/>
-        <rdfs:comment xml:lang="en-us">Used to describe relations between items that are not the same work.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Inter Crossref Relation</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/IntraCrossrefRelation -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/IntraCrossrefRelation">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/CrossrefRelation"/>
-        <rdfs:comment xml:lang="en-us">Used to define relations between items that are essentially the same work but may differ in format, language, revision ... etc</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Intra Crossref Relation</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/Island -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/Island">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/StationaryPlatform"/>
-        <rdfs:comment xml:lang="en-us">Island</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Island</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/Laboratory -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/Laboratory">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/StationaryPlatform"/>
-        <rdfs:comment xml:lang="en-us">Laboratory</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Laboratory</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/LaboratoryDataset -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/LaboratoryDataset">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Dataset"/>
-        <rdfs:comment xml:lang="en-us">A dataset generated in the Laboratory.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Laboratory Dataset</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/MannedSubmarine -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/MannedSubmarine">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Submarine"/>
-        <rdfs:comment xml:lang="en-us">Manned Submarine</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Manned Submarine</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/Model -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/Model">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Platform"/>
-        <rdfs:comment xml:lang="en-us">Model</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Model</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/MonitoredProperty -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/MonitoredProperty">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Parameter"/>
-        <rdfs:comment xml:lang="en-us">A conceptual understanding of what was generally  observed or monitored and recorded in a dataset as a parameter.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Monitored Property</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/Mooring -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/Mooring">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/StationaryPlatform"/>
-        <rdfs:comment xml:lang="en-us">Mooring</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Mooring</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/Organization -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/Organization">
-        <owl:equivalentClass rdf:resource="http://schema.org/Organization"/>
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Agent"/>
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Organization"/>
-        <rdfs:comment xml:lang="en-us">A non-Person agent corresponding to instititutions such as research labs, companies, societies, etc.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Organization</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/Parameter -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/Parameter">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-        <rdfs:comment xml:lang="en-us">A parameter measured, observed, or collected as part of a Dataset</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Parameter</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/Person -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/Person">
-        <owl:equivalentClass rdf:resource="http://schema.org/Person"/>
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Agent"/>
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Person"/>
-        <rdfs:comment xml:lang="en-us">A non-Organization Agent corresponding to a human individual</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Person</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/Platform -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/Platform">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-        <rdfs:comment xml:lang="en-us">A thing from which a Deployment occurs.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Platform</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/PlatformTitle -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/PlatformTitle">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/ControlledVocabulary"/>
-        <rdfs:comment xml:lang="en-us">A controlled vocabulary of platform titles/types.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Platform Title</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/Policy -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/Policy">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-        <rdfs:comment xml:lang="en-us">A policy that defines rules/governance surrounding some Thing</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Policy</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/Program -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/Program">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/ResearchActivity"/>
-        <rdfs:comment xml:lang="en-us">A large-scale project that encompasses smaller Projects.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Program</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/Project -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/Project">
-        <owl:equivalentClass rdf:resource="http://schema.org/ResearchProject"/>
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/ResearchActivity"/>
-        <rdfs:comment xml:lang="en-us">A funded, scientific objective that may produce Datasets.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Project</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/Publication -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/Publication">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/DigitalObject"/>
-        <rdfs:comment xml:lang="en-us">A published CreativeWork such as a journal article, book chapter, or web page.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Publication</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/RemotelyOperatedVehicle -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/RemotelyOperatedVehicle">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/UnmannedSubmarine"/>
-        <rdfs:comment xml:lang="en-us">ROV</rdfs:comment>
-        <rdfs:label xml:lang="en-us">ROV</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/ResearchActivity -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/ResearchActivity">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
-        <lucidchartDiagram rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.lucidchart.com/documents/edit/288773f4-daf6-4560-9943-f26a1e245eb2/0</lucidchartDiagram>
-        <rdfs:comment xml:lang="en-us">An activity for some period of time that under which  research is conducted</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Research Activity</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/S3DigitalObjectLocation -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/S3DigitalObjectLocation">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/DigitalObjectLocation"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ocean-data.org/schema/s3BucketName"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange>
-                    <rdfs:Datatype>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
-                            <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                        </owl:unionOf>
-                    </rdfs:Datatype>
-                </owl:onDataRange>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ocean-data.org/schema/s3ObjectName"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange>
-                    <rdfs:Datatype>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
-                            <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                        </owl:unionOf>
-                    </rdfs:Datatype>
-                </owl:onDataRange>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ocean-data.org/schema/s3PrefixPath"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onDataRange>
-                    <rdfs:Datatype>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
-                            <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-                        </owl:unionOf>
-                    </rdfs:Datatype>
-                </owl:onDataRange>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en-us">A location of some object within an S3 instance</rdfs:comment>
-        <rdfs:label xml:lang="en-us">S3 Digital Object Location</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/S3ObjectStore -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/S3ObjectStore">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/DigitalObjectStore"/>
-        <rdfs:comment xml:lang="en-us">An S3-compliant object store</rdfs:comment>
-        <rdfs:label xml:lang="en-us">S3 Object Store</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/Satellite -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/Satellite">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Platform"/>
-        <rdfs:comment xml:lang="en-us">Satellite</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Satellite</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/StationaryPlatform -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/StationaryPlatform">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Platform"/>
-        <rdfs:comment xml:lang="en-us">Stationary Platform</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Stationary Platform</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/StationaryVessel -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/StationaryVessel">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/StationaryPlatform"/>
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Vessel"/>
-        <rdfs:comment xml:lang="en-us">Stationary Vessel</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Stationary Vessel</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/SubContractAward -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/SubContractAward">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Award"/>
-        <rdfs:comment xml:lang="en-us">An award made to one or more Agents to perform work as part of a larger award.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Sub-Contract Award</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/Submarine -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/Submarine">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Vehicle"/>
-        <rdfs:comment xml:lang="en-us">Submarine</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Submarine</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/SupplementalDocument -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/SupplementalDocument">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/DigitalObject"/>
-        <rdfs:comment xml:lang="en-us">A document that further contextualizes aor supports the understanding of another CreativeWork such as a cruise report.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Supplemental Document</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/Synthesis -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/Synthesis">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Platform"/>
-        <rdfs:comment xml:lang="en-us">Synthesis</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Synthesis</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/TowedVehicle -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/TowedVehicle">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Vehicle"/>
-        <rdfs:comment xml:lang="en-us">Towed Vehicle</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Towed Vehicle</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/UnitOfMeasure -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/UnitOfMeasure">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-        <rdfs:comment xml:lang="en-us">A unit of measure</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Unit of Measure</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/UnmannedSubmarine -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/UnmannedSubmarine">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Submarine"/>
-        <rdfs:label xml:lang="en-us">Unmanned Submarine</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/Vehicle -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/Vehicle">
-        <owl:equivalentClass rdf:resource="http://schema.org/Vehicle"/>
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Platform"/>
-        <rdfs:comment xml:lang="en-us">Vehicle</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Vehicle</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/Vessel -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/Vessel">
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/Vehicle"/>
-        <rdfs:comment xml:lang="en-us">A vessel, boat, or ship.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Vessel</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://ocean-data.org/schema/VideoFile -->
-
-    <owl:Class rdf:about="http://ocean-data.org/schema/VideoFile">
-        <owl:equivalentClass rdf:resource="http://schema.org/VideoObject"/>
-        <rdfs:subClassOf rdf:resource="http://ocean-data.org/schema/DataFile"/>
-    </owl:Class>
-    
-
-
-    <!-- http://schema.org/AudioObject -->
-
-    <owl:Class rdf:about="http://schema.org/AudioObject"/>
-    
-
-
-    <!-- http://schema.org/CreativeWork -->
-
-    <owl:Class rdf:about="http://schema.org/CreativeWork"/>
-    
-
-
-    <!-- http://schema.org/Dataset -->
-
-    <owl:Class rdf:about="http://schema.org/Dataset"/>
-    
-
-
-    <!-- http://schema.org/DigitalDocument -->
-
-    <owl:Class rdf:about="http://schema.org/DigitalDocument"/>
-    
-
-
-    <!-- http://schema.org/FundingAgency -->
-
-    <owl:Class rdf:about="http://schema.org/FundingAgency"/>
-    
-
-
-    <!-- http://schema.org/ImageObject -->
-
-    <owl:Class rdf:about="http://schema.org/ImageObject"/>
-    
-
-
-    <!-- http://schema.org/MediaObject -->
-
-    <owl:Class rdf:about="http://schema.org/MediaObject"/>
-    
-
-
-    <!-- http://schema.org/Organization -->
-
-    <owl:Class rdf:about="http://schema.org/Organization"/>
-    
-
-
-    <!-- http://schema.org/Person -->
-
-    <owl:Class rdf:about="http://schema.org/Person"/>
-    
-
-
-    <!-- http://schema.org/Place -->
-
-    <owl:Class rdf:about="http://schema.org/Place"/>
-    
-
-
-    <!-- http://schema.org/ResearchProject -->
-
-    <owl:Class rdf:about="http://schema.org/ResearchProject"/>
-    
-
-
-    <!-- http://schema.org/Role -->
-
-    <owl:Class rdf:about="http://schema.org/Role"/>
-    
-
-
-    <!-- http://schema.org/Vehicle -->
-
-    <owl:Class rdf:about="http://schema.org/Vehicle"/>
-    
-
-
-    <!-- http://schema.org/VideoObject -->
-
-    <owl:Class rdf:about="http://schema.org/VideoObject"/>
-    
-
-
-    <!-- http://www.opengis.net/ont/geosparql#Feature -->
-
-    <owl:Class rdf:about="http://www.opengis.net/ont/geosparql#Feature">
-        <rdfs:comment xml:lang="en-us">This class represents the top-level feature type. This class is equivalent to GFI_Feature defined in ISO 19156:2011, and it is superclass of all feature types.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">geosparql:Feature</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.w3.org/2006/time#TemporalEntity -->
-
-    <owl:Class rdf:about="http://www.w3.org/2006/time#TemporalEntity"/>
-    
-
-
-    <!-- http://www.w3.org/ns/prov#Activity -->
-
-    <owl:Class rdf:about="http://www.w3.org/ns/prov#Activity"/>
-    
-
-
-    <!-- http://www.w3.org/ns/prov#Agent -->
-
-    <owl:Class rdf:about="http://www.w3.org/ns/prov#Agent"/>
-    
-
-
-    <!-- http://www.w3.org/ns/prov#Bundle -->
-
-    <owl:Class rdf:about="http://www.w3.org/ns/prov#Bundle"/>
-    
-
-
-    <!-- http://www.w3.org/ns/prov#Collection -->
-
-    <owl:Class rdf:about="http://www.w3.org/ns/prov#Collection"/>
-    
-
-
-    <!-- http://www.w3.org/ns/prov#Entity -->
-
-    <owl:Class rdf:about="http://www.w3.org/ns/prov#Entity"/>
-    
-
-
-    <!-- http://www.w3.org/ns/prov#Influence -->
-
-    <owl:Class rdf:about="http://www.w3.org/ns/prov#Influence"/>
-    
-
-
-    <!-- http://www.w3.org/ns/prov#Organization -->
-
-    <owl:Class rdf:about="http://www.w3.org/ns/prov#Organization"/>
-    
-
-
-    <!-- http://www.w3.org/ns/prov#Person -->
-
-    <owl:Class rdf:about="http://www.w3.org/ns/prov#Person"/>
-    
-
-
-    <!-- http://www.w3.org/ns/prov#Role -->
-
-    <owl:Class rdf:about="http://www.w3.org/ns/prov#Role"/>
-    
-
-
-    <!-- http://www.w3.org/ns/prov#SoftwareAgent -->
-
-    <owl:Class rdf:about="http://www.w3.org/ns/prov#SoftwareAgent"/>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Individuals
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://ocean-data.org/schema/Affordance_ERDDAP -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/Affordance_ERDDAP">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/AffordanceType"/>
-        <rdfs:comment xml:lang="en-us">Ability to view data using the ERDDA P tool</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Affordance - ERDDAP</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/Affordance_FrictionlessDataPackage -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/Affordance_FrictionlessDataPackage">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/AffordanceType"/>
-        <rdfs:comment xml:lang="en-us">Ability to retrieve the dataset as a Frictionlessdata Data Package</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Affordance - Frictionlessdata Data Package</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/Affordance_JGOFSDataManagementSystem -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/Affordance_JGOFSDataManagementSystem">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/AffordanceType"/>
-        <rdfs:comment xml:lang="en-us">Ability to interact with data using the JGOFS Data Management System</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Affordance - JGOFS Data Management System</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/CitationStyle_APA -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/CitationStyle_APA">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/CitationStyle"/>
-        <title xml:lang="en-us">APA</title>
-        <rdfs:comment xml:lang="en-us">The APA style for a citation</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Citation Style - APA</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/CryptographicAlgorithm_MD5 -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/CryptographicAlgorithm_MD5">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/CryptographicAlgorithm"/>
-        <rdfs:comment xml:lang="en-us">The MD5 cryptographic hash algorithm</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Cryptographic Algorithm - MD5</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/CryptographicAlgorithm_SHA256 -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/CryptographicAlgorithm_SHA256">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/CryptographicAlgorithm"/>
-        <rdfs:comment xml:lang="en-us">The SHA256 cryptographic hash algorithm</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Cryptographic Algorithm - SHA256</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/DigitalProtocol_HTTP -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/DigitalProtocol_HTTP">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/DigitalProtocol"/>
-        <rdfs:comment xml:lang="en-us">The HTTP protocol</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Digital Protocol - HTTP</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/IdentifierScheme_BcoDmo -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/IdentifierScheme_BcoDmo">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/IdentifierScheme"/>
-        <title xml:lang="en-us">BCO-DMO</title>
-        <rdfs:comment xml:lang="en-us">The Identifier at BCO-DMO</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Identifier Scheme - BCO-DMO</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/IdentifierScheme_DOI -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/IdentifierScheme_DOI">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/IdentifierScheme"/>
-        <title xml:lang="en-us">DOI</title>
-        <rdfs:comment xml:lang="en-us">A DOI, Digital Object Identifier.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">DOI Identifier</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/IdentifierScheme_NCEIAccession -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/IdentifierScheme_NCEIAccession">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/IdentifierScheme"/>
-        <title xml:lang="en-us">NCEI Accession #</title>
-        <rdfs:comment xml:lang="en-us">An NCEI Accession number</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Identifier Scheme - NCEI Accession</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/IdentifierScheme_NODCAccession -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/IdentifierScheme_NODCAccession">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/IdentifierScheme"/>
-        <title xml:lang="en-us">NODC Accession #</title>
-        <rdfs:comment xml:lang="en-us">An NODC accession number</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Identifier Scheme - NODC Accession</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/Role_Analyst -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/Role_Analyst">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRoleType"/>
-        <title xml:lang="en-us">Analyst</title>
-        <rdfs:comment xml:lang="en-us">An analsyt on the subject of an Agent Role</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Role - Analyst</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/Role_BcoDmoDataManager -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/Role_BcoDmoDataManager">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRoleType"/>
-        <title xml:lang="en-us">BCO-DMO Data Manager</title>
-        <rdfs:comment xml:lang="en-us">A BCO-DMO Data Manager who curated the subject of an AgentRole</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Role - BCO-DMO Data Manager</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/Role_Captain -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/Role_Captain">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRoleType"/>
-        <title xml:lang="en-us">Captain</title>
-        <rdfs:comment xml:lang="en-us">The Captain of the subject of an Agent Role, usually some Deployment.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Role - Captain</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/Role_ChiefScientist -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/Role_ChiefScientist">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRoleType"/>
-        <title xml:lang="en-us">Chief Scientist</title>
-        <rdfs:comment xml:lang="en-us">A Chief Scientist of the subject of an Agent Role, usually some Deployment</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Role - Chief Scientist</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/Role_Co-ChiefScientist -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/Role_Co-ChiefScientist">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRoleType"/>
-        <title xml:lang="en-us">Co-Chief Scientist</title>
-        <rdfs:comment xml:lang="en-us">A Co-Cheif Scientist of the subject of an Agent Role, usually some Deployment</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Role - Co-Chief Scientist</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/Role_Co-PrincipalInvestigator -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/Role_Co-PrincipalInvestigator">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRoleType"/>
-        <title xml:lang="en-us">Co-Principal Investigator</title>
-        <rdfs:comment xml:lang="en-us">A Co-Principal Investigator of the subject of an Agent Role</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Role - Co-Principal Investigator</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/Role_Contact -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/Role_Contact">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRoleType"/>
-        <title xml:lang="en-us">Contact</title>
-        <rdfs:comment xml:lang="en-us">A Contact of the subject of an Agent Role</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Role - Contact</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/Role_Curator -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/Role_Curator">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRoleType"/>
-        <title xml:lang="en-us">Curator</title>
-        <rdfs:comment xml:lang="en-us">A Curator of the subject of an Agent Role</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Role - Curator</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/Role_DataManager -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/Role_DataManager">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRoleType"/>
-        <title xml:lang="en-us">Data Manager</title>
-        <rdfs:comment xml:lang="en-us">A Data Manager, external to BCO-DMO, of the subject of an Agent Role</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Role - Data Manager</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/Role_DataPublisher -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/Role_DataPublisher">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRoleType"/>
-        <title xml:lang="en-us">Data Publisher</title>
-        <rdfs:comment xml:lang="en-us">A Data Publisher of the subject of an Agent Role</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Role - Data Publisher</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/Role_Guest -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/Role_Guest">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRoleType"/>
-        <title xml:lang="en-us">Guest</title>
-        <rdfs:comment xml:lang="en-us">A Guest of the subject of an Agent Role</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Role - Guest</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/Role_InternationalCollaborator -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/Role_InternationalCollaborator">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRoleType"/>
-        <title xml:lang="en-us">International Collaborator</title>
-        <rdfs:comment xml:lang="en-us">An international collaborator of the subject of an Agent Role</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Role - International Collaborator</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/Role_LeadPrincipalInvestigator -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/Role_LeadPrincipalInvestigator">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRoleType"/>
-        <title xml:lang="en-us">Lead Principal Investigator</title>
-        <rdfs:comment xml:lang="en-us">A Lead Principal Investigator of the subject of an Agent Role</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Role - Lead Principal Investigator</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/Role_Originator -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/Role_Originator">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRoleType"/>
-        <title xml:lang="en-us">Originator</title>
-        <rdfs:comment xml:lang="en-us">An Originator of the subject of an Agent Role</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Role - Originator</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/Role_PrincipalInvestigator -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/Role_PrincipalInvestigator">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRoleType"/>
-        <title xml:lang="en-us">Principal Investigator</title>
-        <rdfs:comment xml:lang="en-us">A Principal Investigator of the subject of an Agent Role</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Role - Principal Investigator</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/Role_ProgramManager -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/Role_ProgramManager">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRoleType"/>
-        <title xml:lang="en-us">Program Manager</title>
-        <rdfs:comment xml:lang="en-us">A program manager of the subject of an Agent Role</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Role - Program Manager</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/Role_ProjectCoordinator -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/Role_ProjectCoordinator">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRoleType"/>
-        <title xml:lang="en-us">Project Coordinator</title>
-        <rdfs:comment xml:lang="en-us">A project coordinator of the subject of an Agent Role</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Role - Project Coordinator</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/Role_Scientist -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/Role_Scientist">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRoleType"/>
-        <title xml:lang="en-us">Scientist</title>
-        <rdfs:comment xml:lang="en-us">A scientist of the subject of an Agent Role</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Role - Scientist</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/Role_Student -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/Role_Student">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRoleType"/>
-        <title xml:lang="en-us">Student</title>
-        <rdfs:comment xml:lang="en-us">A student of the subject of an Agent Role</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Role - Student</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/Role_Technician -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/Role_Technician">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRoleType"/>
-        <title xml:lang="en-us">Technician</title>
-        <rdfs:comment xml:lang="en-us">A technician of the subject of an Agent Role</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Role - Technician</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/Role_Unknown -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/Role_Unknown">
-        <rdf:type rdf:resource="http://ocean-data.org/schema/AgentRoleType"/>
-        <title xml:lang="en-us">Unknown</title>
-        <rdfs:comment xml:lang="en-us">An unknown role of the subject of an Agent Role</rdfs:comment>
-        <rdfs:label xml:lang="en-us">Role - Unknown</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ocean-data.org/schema/forOrganization -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/forOrganization"/>
-    
-
-
-    <!-- http://ocean-data.org/schema/fromCollection -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/fromCollection"/>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasDataset -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/hasDataset"/>
-    
-
-
-    <!-- http://ocean-data.org/schema/hasRole -->
-
-    <owl:NamedIndividual rdf:about="http://ocean-data.org/schema/hasRole"/>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Annotations
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    <rdf:Description rdf:about="http://ocean-data.org/schema/forOrganization">
-        <skos:related rdf:resource="http://www.w3.org/ns/prov#onBehalfOf"/>
-        <rdfs:comment xml:lang="en-us">The organization at which an agent performing a role was affiliated with.</rdfs:comment>
-        <rdfs:label xml:lang="en-us">forOrganization</rdfs:label>
-        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
-    </rdf:Description>
-    <rdf:Description rdf:about="http://ocean-data.org/schema/fromCollection">
-        <rdfs:comment xml:lang="en-us">specifies that a Dataset is part of some DatasetCollection</rdfs:comment>
-        <rdfs:label xml:lang="en-us">fromCollection</rdfs:label>
-    </rdf:Description>
-    <rdf:Description rdf:about="http://ocean-data.org/schema/hasDataset">
-        <rdfs:comment xml:lang="en-us">Used by odo:DeploymentDataset, odo:Award, odo:Project classes</rdfs:comment>
-        <skos:related rdf:resource="http://ocean-data.org/schema/funded"/>
-        <rdfs:label xml:lang="en-us">hasDataset</rdfs:label>
-        <skos:related rdf:resource="http://ocean-data.org/schema/producedWork"/>
-        <skos:related rdf:resource="http://ocean-data.org/schema/fromCollection"/>
-        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
-    </rdf:Description>
-    <rdf:Description rdf:about="http://ocean-data.org/schema/hasRole">
-        <rdfs:comment xml:lang="en-us">All the roles associated to some Agent</rdfs:comment>
-        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
-        <skos:related rdf:resource="http://ocean-data.org/schema/performedRole"/>
-        <rdfs:label xml:lang="en-us">hasRole</rdfs:label>
-    </rdf:Description>
+<!DOCTYPE rdf:RDF [
+  <!ENTITY odo "http://ocean-data.org/schema/">
+  <!ENTITY owl "http://www.w3.org/2002/07/owl#">
+  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+  <!ENTITY foaf "http://xmlns.com/foaf/0.1/">
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+  <!ENTITY dc "http://purl.org/dc/elements/1.1/">
+  <!ENTITY dcterms "http://purl.org/dc/terms/">
+  <!ENTITY spacetime "http://escience.rpi.edu/ontology/sesf/spacetime/1/0/">
+  <!ENTITY geos "http://www.opengis.net/def/geosparql/">
+  <!ENTITY skos "http://www.w3.org/2004/02/skos/core#">
+]>
+<rdf:RDF
+    xmlns:owl="&owl;"
+    xmlns:odo="&odo;"
+    xmlns:xsd="&xsd;"
+    xmlns:foaf="&foaf;"
+    xmlns:rdf="&rdf;"
+    xmlns:rdfs="&rdfs;"
+    xmlns:dc="&dc;"
+    xmlns:dcterms="&dcterms;"
+    xmlns:spacetime="&spacetime;"
+    xmlns:geos="&geos;" 
+    xmlns:skos="&skos;"
+    xml:base="&odo;">
+    
+  <owl:Ontology rdf:about="&odo;">
+    <rdfs:label rdf:datatype="&xsd;string">Ocean Data Ontology</rdfs:label>
+    <dc:description>An ontology for describing ocean data</dc:description>
+    <owl:imports rdf:resource="&spacetime;"/>
+    <owl:imports rdf:resource="&foaf;"/>
+  </owl:Ontology>
+  
+  <!-- AFFILIATION -->
+  <owl:Class rdf:about="&foaf;Organization">
+	  <rdfs:label rdf:datatype="&xsd;string">Organization</rdfs:label>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="&odo;hasOrganizationSubName">
+    <rdfs:range rdf:resource="&xsd;string"/>
+    <rdfs:domain rdf:resource="&foaf;Organization"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&odo;hasAcronym">
+    <rdfs:range rdf:resource="&xsd;string"/>
+    <rdfs:domain rdf:resource="&foaf;Organization"/>
+  </owl:DatatypeProperty>
+  
+  
+  <!-- AWARD -->
+  <owl:Class rdf:about="&odo;Award">
+  	<rdfs:label rdf:datatype="&xsd;string">Award</rdfs:label>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="&odo;hasAwardNumber">
+    <rdfs:range rdf:resource="&xsd;string"/>
+    <rdfs:domain rdf:resource="&odo;Award"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&odo;hasAwardURL">
+    <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
+    <rdfs:domain rdf:resource="&odo;Award"/>
+  </owl:DatatypeProperty>
+  
+  <owl:Class rdf:about="&odo;GrantAward">
+	  <rdfs:label rdf:datatype="&xsd;string">Grant Award</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Award"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;ContractAward">
+	  <rdfs:label rdf:datatype="&xsd;string">Contract Award</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Award"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;SubContractAward">
+    <rdfs:label rdf:datatype="&xsd;string">Sub-Contract Award</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Award"/>
+  </owl:Class>
+
+
+  <!-- DATASETS -->
+  <owl:Class rdf:about="&odo;Dataset">
+    <rdfs:label rdf:datatype="&xsd;string">Dataset</rdfs:label>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="&odo;hasDatasetURL">
+    <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
+    <rdfs:domain rdf:resource="&odo;Dataset"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&odo;hasProcessingDescription">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;description"/>
+    <rdfs:domain rdf:resource="&odo;Dataset"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&odo;hasAcquisitionDescription">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;description"/>
+    <rdfs:domain rdf:resource="&odo;Dataset"/>
+  </owl:DatatypeProperty>
+  
+  <owl:Class rdf:about="&odo;LaboratoryDataset">
+    <rdfs:label rdf:datatype="&xsd;string">Laboratory Dataset</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Dataset"/>
+  </owl:Class>
+  
+  <owl:Class rdf:about="&odo;DeploymentDataset">
+    <rdfs:label rdf:datatype="&xsd;string">Deployment Dataset</rdfs:label>
+    <rdfs:comment rdf:datatype="&xsd;string">A deployment dataset is a dataset that is collected on a specific deployment of a platform from a specific instrument on that platform.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="&odo;Dataset"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="&odo;fromDeployment">
+    <rdfs:range rdf:resource="&odo;Deployment"/>
+    <rdfs:domain rdf:resource="&odo;DeploymentDataset"/>
+  </owl:ObjectProperty>
+  
+  <owl:Class rdf:about="&odo;DatasetCollection">
+    <rdfs:label rdf:datatype="&xsd;string">Dataset Collection</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Dataset"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="&odo;hasInventory">
+    <rdfs:range rdf:resource="&odo;Dataset"/>
+    <rdfs:domain rdf:resource="&odo;DatasetCollection"/>
+    <owl:inverseOf rdf:resource="&odo;fromCollection"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="&odo;fromCollection">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="&odo;hasInventory"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  
+  <owl:Class rdf:about="&odo;DeploymentDatasetCollection">
+    <rdfs:subClassOf rdf:resource="&odo;DatasetCollection"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="&odo;hasInventory"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="&odo;DeploymentDataset"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="&odo;hasBriefDescription">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;description"/>
+    <rdfs:domain rdf:resource="&odo;DeploymentDatasetCollection"/>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="&odo;fromInstrument">
+    <rdfs:range rdf:resource="&odo;Instrument"/>
+    <rdfs:comment rdf:datatype="&xsd;string">This dataset was collected from an instrument that is located on the platform during this deployment.</rdfs:comment>
+    <rdfs:domain rdf:resource="&odo;DeploymentDatasetCollection"/>
+  </owl:ObjectProperty>
+  
+
+  <!-- DEPLOYMENT -->
+  <owl:Class rdf:about="&odo;Deployment">
+    <rdfs:label rdf:datatype="&xsd;string">Deployment</rdfs:label>
+    <rdfs:comment rdf:datatype="&xsd;string">A platform is deployed during a specific duration of time over a specific spacial coverage. For example, a boat is a platform. That boat is doployed (sent on a cruise) in order to collect data.</rdfs:comment>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="&odo;hasReportURL">
+    <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
+    <rdfs:domain rdf:resource="&odo;Deployment"/>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="&odo;hasCoordinatedDeployment">
+    <rdfs:range rdf:resource="&odo;Deployment"/>
+    <rdfs:domain rdf:resource="&odo;Deployment"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="&odo;hasSynonym">
+    <rdfs:domain rdf:resource="&odo;Deployment"/>
+    <rdfs:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="&odo;ofPlatform">
+    <rdfs:range rdf:resource="&odo;Platform"/>
+    <rdfs:domain rdf:resource="&odo;Deployment"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="&odo;hasDeploymentDescription">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;description"/>
+    <rdfs:domain rdf:resource="&odo;Deployment"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&odo;hasGeometryFeature">
+    <rdfs:range rdf:resource="&geos;Feature"/>
+    <rdfs:domain rdf:resource="&odo;Deployment"/>
+  </owl:DatatypeProperty>
+  <owl:Class rdf:about="&odo;Cruise">
+   <rdfs:subClassOf rdf:resource="&odo;Deployment"/> 
+   <rdfs:subClassOf>
+     <owl:Restriction>
+       <owl:onProperty>
+         <owl:ObjectProperty rdf:about="&odo;ofPlatform"/>
+       </owl:onProperty>
+       <owl:hasValue>
+         <owl:Class rdf:about="&odo;Vessel"/>
+       </owl:hasValue>
+     </owl:Restriction>
+   </rdfs:subClassOf>
+ </owl:Class>
+
+  
+  <!-- FUNDING SOURCE -->
+  <owl:Class rdf:about="&odo;FundingSource">
+    <rdfs:label rdf:datatype="&xsd;string">Funding Source</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&foaf;Organization"/>
+  </owl:Class>
+  
+    
+  <!-- INSTRUMENT -->
+  <owl:Class rdf:about="&odo;Instrument">
+    <rdfs:label rdf:datatype="&xsd;string">Instrument</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&skos;Concept"/>
+  </owl:Class>
+
+
+  <!-- PARAMETER -->
+  <owl:Class rdf:about="&odo;Parameter">
+	  <rdfs:label rdf:datatype="&xsd;string">Parameter</rdfs:label>
+	  <rdfs:subClassOf rdf:resource="&skos;Concept"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="&odo;hasMeasuredParameter">
+    <rdfs:domain rdf:resource="&odo;Instrument"/>
+    <rdfs:range rdf:resource="&odo;Parameter"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="&odo;hasParameterShortDescription">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;description"/>
+    <rdfs:domain rdf:resource="&odo;Parameter"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&odo;hasParameterShortName">
+    <rdfs:range rdf:resource="&xsd;string"/>
+    <rdfs:domain rdf:resource="&odo;Parameter"/>
+  </owl:DatatypeProperty>
+  
+  
+  <!-- PLATFORM -->
+  <owl:Class rdf:about="&odo;Platform">
+	  <rdfs:label rdf:datatype="&xsd;string">Platform</rdfs:label>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="&odo;hasPlatformTitle">
+    <rdfs:range rdf:resource="&xsd;string"/>
+    <rdfs:domain rdf:resource="&odo;Platform"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&odo;hasPlatformURL">
+    <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
+    <rdfs:domain rdf:resource="&odo;Platform"/>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="&odo;isDeployed">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="&odo;ofPlatform"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="&odo;Deployment"/>
+    <rdfs:domain rdf:resource="&odo;Platform"/>
+  </owl:ObjectProperty>
+  
+  <owl:Class rdf:about="&odo;Float">
+    <rdfs:label rdf:datatype="&xsd;string">Float</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Platform"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;Glider">
+    <rdfs:label rdf:datatype="&xsd;string">Glider</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Platform"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;Drifter">
+    <rdfs:label rdf:datatype="&xsd;string">Drifter</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Platform"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;Satellite">
+  	<rdfs:label rdf:datatype="&xsd;string">Satellite</rdfs:label>
+  	<rdfs:subClassOf rdf:resource="&odo;Platform"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;Model">
+  	<rdfs:label rdf:datatype="&xsd;string">Model</rdfs:label>
+  	<rdfs:subClassOf rdf:resource="&odo;Platform"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;Synthesis">
+  	<rdfs:label rdf:datatype="&xsd;string">Synthesis</rdfs:label>
+  	<rdfs:subClassOf rdf:resource="&odo;Platform"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;StationaryPlatform">
+    <rdfs:label rdf:datatype="&xsd;string">Stationary Platform</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Platform"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;Dock">
+    <rdfs:label rdf:datatype="&xsd;string">Dock</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;StationaryPlatform"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;Laboratory">
+    <rdfs:label rdf:datatype="&xsd;string">Laboratory</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;StationaryPlatform"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;Island">
+  	<rdfs:label rdf:datatype="&xsd;string">Island</rdfs:label>
+  	<rdfs:subClassOf rdf:resource="&odo;StationaryPlatform"/>
+  </owl:Class>
+   <owl:Class rdf:about="&odo;Mooring">
+	  <rdfs:label rdf:datatype="&xsd;string">Mooring</rdfs:label>
+	  <rdfs:subClassOf rdf:resource="&odo;StationaryPlatform"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;Vehicle">
+    <rdfs:label rdf:datatype="&xsd;string">Vehicle</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Platform"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;Aircraft">
+    <rdfs:label rdf:datatype="&xsd;string">Aircraft</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Vehicle"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;TowedVehicle">
+  	<rdfs:label rdf:datatype="&xsd;string">Towed Vehicle</rdfs:label>
+  	<rdfs:subClassOf rdf:resource="&odo;Vehicle"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;Submarine">
+    <rdfs:label rdf:datatype="&xsd;string">Submarine</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Vehicle"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;MannedSubmarine">
+    <rdfs:label rdf:datatype="&xsd;string">Manned Submarine</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Submarine"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;UnmannedSubmarine">
+  	<rdfs:label rdf:datatype="&xsd;string">Unmanned Submarine</rdfs:label>
+  	<rdfs:subClassOf rdf:resource="&odo;Submarine"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;RemotelyOperatedVehicle">
+    <rdfs:label rdf:datatype="&xsd;string">ROV</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;UnmannedSubmarine"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;AutonomousUnderwaterVehicle">
+	  <rdfs:label rdf:datatype="&xsd;string">AUV</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;UnmannedSubmarine"/>
+  </owl:Class>  
+  <owl:Class rdf:about="&odo;Vessel">
+    <rdfs:label rdf:datatype="&xsd;string">Vessel</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Vehicle"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;StationaryVessel">
+    <rdfs:label rdf:datatype="&xsd;string">Stationary Vessel</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Vessel"/>
+    <rdfs:subClassOf rdf:resource="&odo;StationaryPlatform"/>
+  </owl:Class>
+  
+  
+  <!-- PROGRAM -->
+  <owl:Class rdf:about="&odo;Program">
+	  <rdfs:label rdf:datatype="&xsd;string">Program</rdfs:label>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="&odo;hasProject">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="&odo;hasParentProgram"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  
+  
+  <!-- PROJECT -->
+  <owl:Class rdf:about="&odo;Project">
+  	<rdfs:label rdf:datatype="&xsd;string">Project</rdfs:label>
+  	<rdfs:subClassOf rdf:resource="&foaf;Project"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="&odo;hasParentProgram">
+    <rdfs:range rdf:resource="&odo;Program"/>
+    <rdfs:domain rdf:resource="&odo;Project"/>
+  </owl:ObjectProperty>
+  
+  
+  <!-- PERSON -->
+  <owl:Class rdf:about="&foaf;Person">
+	  <rdfs:label rdf:datatype="&xsd;string">Person</rdfs:label>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="&odo;hasAffiliation">
+    <rdfs:range rdf:resource="&foaf;Organization"/>
+    <rdfs:domain rdf:resource="&foaf;Person"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="&odo;hasRole">
+    <rdfs:range rdf:resource="&odo;Role"/>
+    <rdfs:domain rdf:resource="&foaf;Person"/>
+  </owl:ObjectProperty>
+
+  
+  <!-- ROLES -->
+  <owl:Class rdf:about="&odo;Role">
+    <rdfs:label rdf:datatype="&xsd;string">Role</rdfs:label>
+    <rdfs:comment rdf:datatype="&xsd;string">A person can play many roles, such as principal investigator or captain or lead scientists. This role is played over a specific period of time</rdfs:comment>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="&odo;forOrganization">
+    <rdfs:range rdf:resource="&foaf;Organization"/>
+    <rdfs:domain rdf:resource="&odo;Role"/>
+  </owl:ObjectProperty>
+  
+  <owl:Class rdf:about="&odo;CaptainRole">
+    <rdfs:label rdf:datatype="&xsd;string">Captain</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;ChiefScientistRole">
+    <rdfs:label rdf:datatype="&xsd;string">Chief Scientist</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;Co-ChiefScientistRole">
+    <rdfs:label rdf:datatype="&xsd;string">Co-Chief Scientist</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;LeadPrincipalInvestigatorRole">
+  	<rdfs:label rdf:datatype="&xsd;string">Lead Principal Investigator</rdfs:label>
+  	<rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;PrincipalInvestigatorRole">
+    <rdfs:label rdf:datatype="&xsd;string">Principal Investigator</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;Co-PrincipalInvestigatorRole">
+    <rdfs:label rdf:datatype="&xsd;string">Co-Principal Investigator</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;ScientistRole">
+    <rdfs:label rdf:datatype="&xsd;string">Scientist</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;GuestRole">
+    <rdfs:label rdf:datatype="&xsd;string">Guest</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;StudentRole">
+    <rdfs:label rdf:datatype="&xsd;string">Student</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;TechnicianRole">
+    <rdfs:label rdf:datatype="&xsd;string">Technician</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;OriginatorRole">
+    <rdfs:label rdf:datatype="&xsd;string">Originator</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;DataPublisherRole">
+    <rdfs:label rdf:datatype="&xsd;string">Data Publisher</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;DataManagerRole">
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+    <rdfs:label rdf:datatype="&xsd;string">Data Manager</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;CuratorRole">
+    <rdfs:label rdf:datatype="&xsd;string">Curator</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;AnalystRole">
+    <rdfs:label rdf:datatype="&xsd;string">Analyst</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;ContactRole">
+    <rdfs:label rdf:datatype="&xsd;string">Contact</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="&odo;UnknownRole">
+    <rdfs:label rdf:datatype="&xsd;string">Unknown</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&odo;Role"/>
+  </owl:Class>
+  
+      
+  <!-- PROPERTIES -->
+    
+  <owl:ObjectProperty rdf:about="&odo;hasDataset">
+    <rdfs:range rdf:resource="&odo;Dataset"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="&odo;hasAward">
+    <rdfs:range rdf:resource="&odo;Award"/>
+  </owl:ObjectProperty>
+
+  <owl:DatatypeProperty rdf:about="&odo;hasSmallLogoURL">
+    <rdfs:subPropertyOf rdf:resource="&foaf;logo"/>
+  </owl:DatatypeProperty>
+  
+  <owl:DatatypeProperty rdf:about="&odo;osprey_page">
+    <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
+  </owl:DatatypeProperty>
+  
+  <owl:DatatypeProperty rdf:about="&odo;r2r_page">
+    <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
+  </owl:DatatypeProperty>
+  
+  <owl:ObjectProperty rdf:about="&odo;hasAgentWithRole">
+    <rdfs:range rdf:resource="&odo;Role"/>
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:about="&odo;hasDateTimeCoverage">
+    <rdfs:range rdf:resource="&spacetime;ContinuousTimeInterval"/>
+  </owl:ObjectProperty>  
+  
+  <owl:ObjectProperty rdf:about="&odo;hasFundingSource">
+    <rdfs:range rdf:resource="&foaf;Organization"/>
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:about="&odo;hasParameter">
+    <rdfs:range rdf:resource="&odo;Parameter"/>
+  </owl:ObjectProperty>
+  
+  <owl:SymmetricProperty rdf:about="&odo;matches">
+    <rdfs:subPropertyOf rdf:resource="&rdf;seeAlso"/>
+    <rdfs:domain rdf:resource="&owl;Thing"/>
+    <rdfs:range  rdf:resource="&owl;Thing"/>
+    <rdfs:comment rdf:datatype="&xsd;string">A symmetric match for linking between instance data of ODO and coreferences in external Linked Data sets</rdfs:comment>
+  </owl:SymmetricProperty>
+  
 </rdf:RDF>
-
-
-
-<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
 
